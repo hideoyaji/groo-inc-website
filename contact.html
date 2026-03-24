@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 株式会社グルー</title>
+  <meta name="description" content="株式会社グルーへのお問い合わせ。初回のご相談は30分・無料でお受けしています。">
+
+  <meta property="og:title" content="お問い合わせ | 株式会社グルー">
+  <meta property="og:description" content="初回のご相談は30分・無料でお受けしています。お気軽にご連絡ください。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/contact.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo"><a href="/">株式会社グルー</a></div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/cases.html">事例</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
+        <li><a href="/contact.html" class="active">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">お問い合わせ</h1>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">まず30分、お話しませんか？</h2>
+        <p class="mb-3">「うちの会社に合うかどうかわからない」「まず話を聞いてみたい」<br>そんな方のために、初回のご相談は30分・無料でお受けしています。</p>
+
+        <h3 style="font-size:1.1rem; color:var(--color-primary); margin-bottom:1rem; margin-top:2rem;">こんな方からのご相談をお待ちしています</h3>
+        <ul class="pain-list mb-4">
+          <li>戦略実行と組織マネジメントの両方に悩む経営者の方</li>
+          <li>研修やコーチングを導入したいが、経営課題との接続が見えない方</li>
+          <li>コンサルとコーチングを統合したアドバイスを求めている方</li>
+          <li>内側から支えてくれるプロフェッショナルを探している取締役・経営企画の方</li>
+        </ul>
+
+        <p class="mb-4">押し売りは一切しません。御社の状況をお聞きして、両天秤アプローチが合いそうかどうか、率直にお伝えします。</p>
+
+        <p class="mb-4">以下のフォームよりお気軽にご連絡ください。</p>
+
+        <!-- Formspreeでフォーム送信（アカウント連携後にaction URLを差し替え） -->
+        <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form__group">
+            <label class="form__label" for="company">会社名</label>
+            <input class="form__input" type="text" id="company" name="company" placeholder="例：株式会社グルー">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="name">お名前 <span class="required">必須</span></label>
+            <input class="form__input" type="text" id="name" name="name" required placeholder="例：山田 太郎">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="email">メールアドレス <span class="required">必須</span></label>
+            <input class="form__input" type="email" id="email" name="email" required placeholder="例：yamada@example.com">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="phone">電話番号</label>
+            <input class="form__input" type="tel" id="phone" name="phone" placeholder="例：080-1234-5678">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="subject">ご相談内容 <span class="required">必須</span></label>
+            <select class="form__select" id="subject" name="subject" required>
+              <option value="">選択してください</option>
+              <option value="初回相談（30分無料）">初回相談（30分無料）</option>
+              <option value="コンサルティングについて">コンサルティングについて</option>
+              <option value="コーチングについて">コーチングについて</option>
+              <option value="講演・登壇の依頼">講演・登壇の依頼</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="message">メッセージ</label>
+            <textarea class="form__textarea" id="message" name="message" placeholder="ご相談内容、御社の状況などをお書きください。"></textarea>
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="submit" class="form__submit">送信する</button>
+          </div>
+        </form>
+
+        <p class="mt-4 text-center" style="font-size:0.875rem; color:var(--color-text-light);">
+          通常、1〜2営業日以内にご返信いたします。<br>
+          お急ぎの場合は <a href="tel:08089079789" style="color:var(--color-accent);">080-8907-9789</a> までお電話ください。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__links"><a href="/privacy-policy.html">プライバシーポリシー</a></div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
