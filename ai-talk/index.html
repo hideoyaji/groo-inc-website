@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIの上に会社を建てた話</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap');
+
+        :root {
+            --r-main-font: 'Noto Sans JP', sans-serif;
+            --r-heading-font: 'Noto Sans JP', sans-serif;
+            --r-main-color: #e8e8e8;
+            --r-heading-color: #ffffff;
+            --r-background-color: #1a1a2e;
+            --r-link-color: #64b5f6;
+            --accent: #4fc3f7;
+            --accent2: #ff8a65;
+            --accent3: #81c784;
+        }
+
+        .reveal {
+            font-family: var(--r-main-font);
+            font-weight: 300;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-weight: 700;
+            text-transform: none;
+            line-height: 1.3;
+        }
+
+        .reveal h1 {
+            font-size: 2.2em;
+            font-weight: 900;
+        }
+
+        .reveal h2 {
+            font-size: 1.6em;
+        }
+
+        .reveal h3 {
+            font-size: 1.2em;
+            color: var(--accent);
+        }
+
+        .reveal p {
+            line-height: 1.8;
+        }
+
+        .reveal .subtitle {
+            color: var(--accent);
+            font-size: 0.7em;
+            font-weight: 400;
+            margin-top: 0.5em;
+        }
+
+        .reveal .small {
+            font-size: 0.6em;
+            color: #999;
+        }
+
+        .reveal .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .reveal .highlight-orange {
+            color: var(--accent2);
+            font-weight: 700;
+        }
+
+        .reveal .highlight-green {
+            color: var(--accent3);
+            font-weight: 700;
+        }
+
+        .reveal .big-number {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .reveal .big-number-mid {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .reveal .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 0.8em 1.2em;
+            margin: 1em 0;
+            text-align: left;
+            font-size: 0.9em;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .reveal .quote-box-orange {
+            background: rgba(255, 138, 101, 0.08);
+            border-left: 4px solid var(--accent2);
+            padding: 0.8em 1.2em;
+            margin: 1em 0;
+            text-align: left;
+            font-size: 0.9em;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .reveal .card-container {
+            display: flex;
+            gap: 1em;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1em;
+        }
+
+        .reveal .card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 1.2em;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: left;
+        }
+
+        .reveal .card h3 {
+            margin-top: 0;
+            font-size: 1em;
+        }
+
+        .reveal .card p {
+            font-size: 0.7em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .reveal .org-chart {
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.55em;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1em 1.5em;
+            border-radius: 12px;
+        }
+
+        .reveal .step-list {
+            text-align: left;
+            font-size: 0.85em;
+            list-style: none;
+            padding: 0;
+        }
+
+        .reveal .step-list li {
+            margin-bottom: 0.8em;
+            padding-left: 1.5em;
+            position: relative;
+        }
+
+        .reveal .step-list li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .reveal .step-list li:nth-child(1)::before { content: '1.'; color: var(--accent); }
+        .reveal .step-list li:nth-child(2)::before { content: '2.'; color: var(--accent2); }
+        .reveal .step-list li:nth-child(3)::before { content: '3.'; color: var(--accent3); }
+
+        .reveal .two-col {
+            display: flex;
+            gap: 2em;
+            align-items: center;
+            text-align: left;
+        }
+
+        .reveal .two-col > div {
+            flex: 1;
+        }
+
+        .reveal .tag {
+            display: inline-block;
+            background: rgba(79, 195, 247, 0.2);
+            color: var(--accent);
+            padding: 0.2em 0.8em;
+            border-radius: 20px;
+            font-size: 0.6em;
+            font-weight: 400;
+            margin-bottom: 0.5em;
+        }
+
+        .reveal .tag-orange {
+            background: rgba(255, 138, 101, 0.2);
+            color: var(--accent2);
+        }
+
+        .reveal .tag-green {
+            background: rgba(129, 199, 132, 0.2);
+            color: var(--accent3);
+        }
+
+        .reveal .vs-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5em;
+            margin: 1em 0;
+        }
+
+        .reveal .vs-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1em 1.5em;
+            font-size: 0.8em;
+        }
+
+        .reveal .vs-arrow {
+            font-size: 2em;
+            color: var(--accent);
+        }
+
+        .reveal .demo-label {
+            background: var(--accent);
+            color: #1a1a2e;
+            padding: 0.2em 0.8em;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.5em;
+            vertical-align: middle;
+            margin-left: 0.5em;
+        }
+
+        .reveal .timeline {
+            text-align: left;
+            font-size: 0.75em;
+            position: relative;
+            padding-left: 2em;
+        }
+
+        .reveal .timeline-item {
+            margin-bottom: 1.2em;
+            position: relative;
+        }
+
+        .reveal .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: -2em;
+            top: 0.3em;
+        }
+
+        .reveal .timeline-item::after {
+            content: '';
+            width: 2px;
+            height: calc(100% + 0.8em);
+            background: rgba(79, 195, 247, 0.3);
+            position: absolute;
+            left: calc(-2em + 5px);
+            top: 0.8em;
+        }
+
+        .reveal .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .reveal .bridge-section {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.1), rgba(255, 138, 101, 0.1));
+            border-radius: 16px;
+            padding: 1.5em;
+            margin: 1em 0;
+        }
+
+        .reveal section {
+            padding: 0 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- スライド1: タイトル -->
+            <section>
+                <h1>AIの上に<br>会社を建てた話</h1>
+                <p class="subtitle">〜 一人社長の生産性が爆上がりした方法 〜</p>
+                <br>
+                <p style="font-size: 0.7em;">
+                    株式会社グルー 代表取締役 寺村英雄<br>
+                    <span class="small">2026.3.XX</span>
+                </p>
+            </section>
+
+            <!-- スライド2: 自己紹介 -->
+            <section>
+                <h2>寺村英雄（てらむら ひでお）</h2>
+                <p style="font-size: 0.65em; color: #aaa;">株式会社グルー 代表取締役 / 早稲田大学大学院 理工学研究科 修了</p>
+                <br>
+                <div class="timeline" style="font-size: 0.7em;">
+                    <div class="timeline-item">
+                        <strong>野村総合研究所（NRI）</strong> ── 8年<br>
+                        自動車・ハイテク産業の戦略コンサルティング。<br>
+                        NRI上海では北京・上海に駐在、副統括経理として25名を率い<span class="highlight">3年で黒字化</span>を実現
+                    </div>
+                    <div class="timeline-item">
+                        <strong>アーサー・D・リトル（ADL）</strong><br>
+                        外資系戦略コンサルでシニアマネージャーとして従事
+                    </div>
+                    <div class="timeline-item">
+                        <strong>株式会社グルー創業</strong> ── 2014年〜現在<br>
+                        博報堂コンサルティング等を通じて企業支援を継続。<br>
+                        2024年より<span class="highlight-orange">Co-Active&reg; Coaching / Leadership</span>を本格的に学び始める
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 0.75em;">対象は<span class="highlight">企業・機関</span>。経営の「中」と「外」の両方から関わる。</p>
+            </section>
+
+            <!-- スライド3: 両天秤アプローチとは -->
+            <section>
+                <h2>両天秤アプローチ</h2>
+                <p style="font-size: 0.7em; color: #aaa;">── グルーの核となる考え方</p>
+                <br>
+                <div class="vs-container">
+                    <div class="vs-box">
+                        <strong>戦略コンサル</strong><br>
+                        <span style="font-size: 0.7em;">ロジック・数字・構造で<br>「何をやるか」を決める</span>
+                    </div>
+                    <div class="vs-arrow">&times;</div>
+                    <div class="vs-box">
+                        <strong>コーチング<br>リーダーシップ</strong><br>
+                        <span style="font-size: 0.7em;">対話・関係性・内発で<br>「人が動く」状態を作る</span>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 0.85em;">
+                    戦略だけでは人が動かない。人だけでは方向が定まらない。<br>
+                    <span class="highlight" style="font-size: 1.1em;">両方やるから、経営が動く。</span>
+                </p>
+            </section>
+
+            <!-- スライド4: グルーの事業 - 内部から -->
+            <section>
+                <h2>グルーの事業①：内部から関わる</h2>
+                <p style="font-size: 0.7em; color: #aaa;">── 取締役・執行役員として経営に入る</p>
+                <br>
+                <div class="card-container">
+                    <div class="card">
+                        <span class="tag">取締役兼CSO</span>
+                        <h3>知日株式会社</h3>
+                        <p>日中ビジネスの橋渡しを行う企業<br><br>
+                        経営企画・戦略策定から<br>
+                        実務全般まで幅広く関与<br>
+                        外部取締役だが実質「中の人」</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag-orange tag">執行役員 経営企画室長</span>
+                        <h3>シンバイオシス・ソリューションズ（SSI）</h3>
+                        <p>ユニコーン級IPO/M&amp;Aを<br>
+                        目指すヘルスケア企業<br><br>
+                        経営戦略・事業計画・<br>
+                        バリュエーション（企業価値評価）<br>
+                        をリード</p>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 0.75em;">それぞれの会社に<span class="highlight">異なる戦略課題</span>がある。両方の意思決定に関わっている。</p>
+            </section>
+
+            <!-- スライド5: グルーの事業 - 外部から＋新規事業 -->
+            <section>
+                <h2>グルーの事業②：外部から＋自ら仕掛ける</h2>
+                <br>
+                <div class="card-container">
+                    <div class="card">
+                        <span class="tag">コンサル＋コーチング</span>
+                        <h3>クライアント企業への外部支援</h3>
+                        <p>戦略コンサルティングと<br>
+                        コーチング/リーダーシップの<br>
+                        両面から企業変革を支援<br><br>
+                        「両天秤」の型そのもの</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag-orange tag">新規事業</span>
+                        <h3>ヘルスケア領域の新規事業</h3>
+                        <p>パートナー企業と共同で<br>
+                        新規事業を企画・推進中<br><br>
+                        M&amp;Aも視野に入れた<br>
+                        事業計画を策定</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag-green tag">新規事業</span>
+                        <h3>半日閑（はんにちひま）</h3>
+                        <p>会長TT発案の<br>
+                        本格中国茶サロン構想<br><br>
+                        コンセプト設計・<br>
+                        事業化検討を推進中</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- スライド6: だからAIに会社を建てた -->
+            <section>
+                <h2>これ、一人で回せますか？</h2>
+                <br>
+                <div style="text-align: left; font-size: 0.8em; max-width: 700px; margin: 0 auto;">
+                    <p>知日の経営企画をやりながら、</p>
+                    <p>SSIのバリュエーションを更新して、</p>
+                    <p>クライアント企業のコンサルをして、</p>
+                    <p>ヘルスケア新規事業の計画を詰めて、</p>
+                    <p>半日閑のコンセプトを設計して、</p>
+                    <p>グルーのWebサイトとSEOも見て、</p>
+                    <p>コーチングの研鑽も続ける……</p>
+                </div>
+                <br>
+                <p style="font-size: 0.9em;"><span class="highlight-orange">無理です。普通にやったら。</span></p>
+                <br>
+                <p style="font-size: 0.85em;">
+                    でも、各事業を<span class="highlight">分散管理</span>しつつ、<br>
+                    <span class="highlight">横串で抽象化したエッセンス</span>を横断的に活かせる仕組みがあったら？
+                </p>
+            </section>
+
+            <!-- スライド4: みんなのPC管理あるある -->
+            <section>
+                <h2>AIの前に、もっと根本的な話</h2>
+                <br>
+                <p style="font-size: 0.85em; margin-bottom: 0.5em;">皆さんのPC、こうなってないですか？</p>
+                <div class="org-chart" style="font-size: 0.6em; line-height: 2;">
+                    📁 A社案件/<br>
+                    　├── 戦略メモ_最終版.md<br>
+                    　└── 戦略メモ_<span class="highlight-orange">最終版2</span>.md　　<span style="color:#666;">← どっちが最新？</span><br>
+                    📁 新規事業メモ/<br>
+                    　└── アイデア集.md　　<span style="color:#666;">← 「精査してない」のまま</span><br>
+                    📁 その他/<br>
+                    　└── やること_メモ.txt　　<span style="color:#666;">← 「いつか」が積み上がる</span><br>
+                    📄 連絡メモ.txt　　<span style="color:#666;">← 「要フォロー!!」のまま放置</span>
+                </div>
+                <br>
+                <p style="font-size: 0.85em;">情報はある。でも<span class="highlight-orange">バラバラで、繋がっていない。</span><br>これが「仕事が回らない」本当の原因。</p>
+            </section>
+
+            <!-- スライド5: AIツールあるある -->
+            <section>
+                <h2>AIを使い始めても…</h2>
+                <br>
+                <div class="quote-box">
+                    「ChatGPTで文章を書いてます」
+                </div>
+                <div class="quote-box">
+                    「議事録を要約させてます」
+                </div>
+                <div class="quote-box">
+                    「ちょっとした調べものに使ってます」
+                </div>
+                <br>
+                <p style="font-size: 0.85em;">便利になった。でも<span class="highlight-orange">根本は変わっていない。</span><br>
+                PCの中のバラバラな情報は、そのまま。</p>
+            </section>
+
+            <!-- スライド6: 転換 -->
+            <section>
+                <h2>僕がやったこと</h2>
+                <br>
+                <p class="big-number" style="line-height: 1.2;">会社を<br>AIの上に建てた</p>
+                <br>
+                <p style="font-size: 0.8em;">ツールとして使うんじゃない。<br><span class="highlight">会社の構造ごと、AIの中に載せた。</span><br><br>
+                情報が繋がり、組織が動き、仕事が回る。</p>
+            </section>
+
+            <!-- スライド7: 仕組みの核心 -->
+            <section>
+                <h2>鍵は1つのファイル</h2>
+                <br>
+                <div class="card-container">
+                    <div class="card" style="max-width: 600px; border: 1px solid var(--accent);">
+                        <span class="tag">設計図</span>
+                        <h3>CLAUDE.md</h3>
+                        <p>会社の事業構造、組織図、<br>
+                        部門の役割、仕事のルールを書いた<br>
+                        <strong>たった1つのテキストファイル。</strong><br><br>
+                        Claudeはこれを「前提知識」として常に持ち、<br>
+                        毎回説明しなくても文脈を理解して動く。</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card-container">
+                    <div class="card">
+                        <span class="tag-orange tag">記憶</span>
+                        <h3>メモリ</h3>
+                        <p>会話のたびに蓄積。<br>「先週の続き」が自然にできる。</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag-green tag">運用</span>
+                        <h3>朝礼・終礼</h3>
+                        <p>毎日回すことで<br>抜け漏れゼロが習慣になる。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- スライド8: デモ導入 Before -->
+            <section>
+                <h2>今から、目の前で建てます</h2>
+                <br>
+                <div class="two-col">
+                    <div style="text-align: center;">
+                        <p style="font-size: 0.7em; color: #999; margin-bottom: 0.5em;">Before</p>
+                        <div class="org-chart" style="font-size: 0.55em; line-height: 1.8; border: 1px solid #444;">
+                            📁 hideo-inc-files/<br>
+                            ├── A社案件/<br>
+                            ├── B社_コンサル/<br>
+                            ├── 新規事業メモ/<br>
+                            ├── マーケ関連/<br>
+                            ├── 経理・請求/<br>
+                            └── その他/
+                        </div>
+                        <p style="font-size: 0.65em; color: var(--accent2); margin-top: 0.5em;">バラバラなファイル管理</p>
+                    </div>
+                    <div style="text-align: center; font-size: 2em; color: var(--accent); display: flex; align-items: center; justify-content: center;">
+                        →
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 0.7em; color: #999; margin-bottom: 0.5em;">After（これから作る）</p>
+                        <div class="org-chart" style="font-size: 0.55em; line-height: 1.8; border: 1px solid var(--accent);">
+                            📁 hideo-inc/<br>
+                            └── CLAUDE.md　<span class="highlight">← ここから始まる</span>
+                        </div>
+                        <p style="font-size: 0.65em; color: var(--accent); margin-top: 0.5em;">AIの上に建てた会社</p>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 0.8em; color: #999;">→ ここでVS Code画面に切り替えます</p>
+            </section>
+
+            <!-- スライド9: デモ中の案内 -->
+            <section>
+                <span class="demo-label" style="font-size: 0.8em;">LIVE DEMO</span>
+                <h2>株式会社ひでお　を建てる</h2>
+                <br>
+                <ul class="step-list" style="font-size: 0.95em;">
+                    <li><strong>CLAUDE.mdを書く</strong><br><span style="font-size: 0.75em; color: #999;">事業構造・組織・ルールを1ファイルに書き込む</span></li>
+                    <li><strong>朝礼を呼び出す</strong><br><span style="font-size: 0.75em; color: #999;">「朝礼」と打つだけ。AI社員が集まってくる</span></li>
+                    <li><strong>壁打ちしてみる</strong><br><span style="font-size: 0.75em; color: #999;">事業の課題を相談。即座に動き始める</span></li>
+                </ul>
+                <br>
+                <div class="quote-box" style="font-size: 0.8em;">
+                    今日から皆さんも、まったく同じことができます。
+                </div>
+            </section>
+
+            <!-- スライド13: Before / After -->
+            <section>
+                <h2>何が変わったか</h2>
+                <br>
+                <div class="card-container">
+                    <div class="card">
+                        <h3 style="color: #999;">Before</h3>
+                        <p>一人で全部抱える<br>頭の中がパンクする<br>抜け漏れが起きる<br>壁打ち相手がいない<br>キャパに限界がある</p>
+                    </div>
+                    <div class="card" style="border: 1px solid var(--accent);">
+                        <h3 style="color: var(--accent);">After</h3>
+                        <p>AI社員と毎日回す<br>優先順位が常に整理される<br>フォローアップが自動<br>いつでも壁打ちできる<br><strong style="color: var(--accent);">一人だけど、一人じゃない</strong></p>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 0.85em;"><span class="highlight">一人社長の限界を、仕組みで超えた。</span></p>
+            </section>
+
+            <!-- スライド14: 大事なことは -->
+            <section>
+                <h2>大事なことは1つだけ</h2>
+                <br>
+                <p class="big-number-mid" style="line-height: 1.4;">
+                    自分の仕事を<br>言語化すること
+                </p>
+                <br>
+                <p style="font-size: 0.85em;">
+                    「自分は何をやっていて、どう回しているのか」<br>
+                    これが書ければ、AIはそこに乗ってくれる。<br><br>
+                    <span class="highlight">技術力じゃない。言語化力。</span>
+                </p>
+            </section>
+
+            <!-- スライド15: やることは3つだけ -->
+            <section>
+                <h2>やることは<span class="highlight">3つ</span>だけ</h2>
+                <br>
+                <ul class="step-list" style="font-size: 1em;">
+                    <li><strong>自分の仕事の構造を書き出す</strong><br><span style="font-size: 0.7em; color: #999;">役割、やっていること、困っていること。箇条書きでOK</span></li>
+                    <li><strong>Claude を始める</strong><br><span style="font-size: 0.7em; color: #999;">claude.ai から無料で試せる。有料プランならもっと深く使える</span></li>
+                    <li><strong>書き出したものを貼って、話しかける</strong><br><span style="font-size: 0.7em; color: #999;">「これが私の仕事です。一緒にやりましょう」</span></li>
+                </ul>
+                <br>
+                <p style="font-size: 0.85em;">プログラミングは<span class="highlight-green">不要</span>です。</p>
+            </section>
+
+            <!-- スライド16: 今日帰ったら -->
+            <section>
+                <h2>今日帰ったら</h2>
+                <br>
+                <p style="font-size: 1.2em;">
+                    自分の仕事を<br>
+                    <span class="highlight" style="font-size: 1.3em;">箇条書きにしてみてください。</span>
+                </p>
+                <br>
+                <p style="font-size: 0.85em;">それだけで、スタートできます。</p>
+            </section>
+
+            <!-- スライド17: 一人じゃなくていい（ゆずぽんへの橋渡し） -->
+            <section>
+                <h2>でも、一人で続けるのは大変</h2>
+                <br>
+                <p style="font-size: 0.9em;">
+                    始め方はわかった。<br>
+                    でも「続ける」のに必要なのは——
+                </p>
+                <br>
+                <div class="bridge-section">
+                    <p style="font-size: 1.1em; text-align: center; margin: 0;">
+                        <span class="highlight">一緒にやる仲間</span>と、<br>
+                        <span class="highlight-orange">伴走してくれる人</span>。
+                    </p>
+                </div>
+                <br>
+                <p style="font-size: 0.85em;">
+                    ここからは、僕の友人であり<br>
+                    Co-Activeコーチの<span class="highlight">ゆずぽん</span>にバトンを渡します。
+                </p>
+            </section>
+
+            <!-- スライド18: ゆずぽん紹介（仮・設計Zoom後に調整） -->
+            <section>
+                <span class="tag-orange tag" style="font-size: 0.8em;">GUEST</span>
+                <h2>ゆずぽん（柚原大輝）</h2>
+                <p style="font-size: 0.7em; color: #aaa;">ライフ・キャリアコーチ / 起業メンター</p>
+                <br>
+                <div class="quote-box-orange">
+                    「作業はAIに任せ、あなたは"本質的な対話"に集中する」
+                </div>
+                <br>
+                <p style="font-size: 0.85em;">
+                    コーチ・ソロプレナーのための<br>
+                    <span class="highlight-orange">AI活用 共創コミュニティ</span>を立ち上げ準備中。
+                </p>
+                <br>
+                <p style="font-size: 0.7em; color: #999;">※ このスライドはゆずぽんとの打合せ後に最終調整します</p>
+            </section>
+
+            <!-- スライド19: 次回予告 -->
+            <section>
+                <h2>次回予告</h2>
+                <br>
+                <p style="font-size: 1em;">
+                    <span class="highlight-orange">1ヶ月後</span>に<br>
+                    「やってみた報告会」やります。
+                </p>
+                <br>
+                <p style="font-size: 0.85em;">
+                    今日の話を聞いて、実際にやってみた人で<br>
+                    集まって、シェアしましょう。
+                </p>
+                <br>
+                <p style="font-size: 0.7em; color: #999;">日程は追ってご連絡します</p>
+            </section>
+
+            <!-- スライド20: ありがとうございました -->
+            <section>
+                <h1>ありがとうございました</h1>
+                <br>
+                <p style="font-size: 0.8em;">
+                    質問・感想、なんでもどうぞ。<br><br>
+                    <span class="highlight">Q&amp;A タイム</span>
+                </p>
+                <br>
+                <p class="small">株式会社グルー groo-inc.com</p>
+            </section>
+
+            <!-- スライド21: 第2弾チラ見せ -->
+            <section>
+                <p style="font-size: 0.6em; color: #666; margin-bottom: 0.5em;">── ちょっとだけ、予告 ──</p>
+                <h2>第2弾、考えてます</h2>
+                <br>
+                <div class="vs-container">
+                    <div class="vs-box" style="border: 1px solid var(--accent);">
+                        <span style="font-size: 0.6em; color: var(--accent);">構造をつくる</span><br>
+                        <strong>Claude Code</strong>
+                    </div>
+                    <div class="vs-arrow">&times;</div>
+                    <div class="vs-box" style="border: 1px solid var(--accent2);">
+                        <span style="font-size: 0.6em; color: var(--accent2);">資料にする</span><br>
+                        <strong>Cowork</strong>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size: 1em;">
+                    <span class="highlight-orange">提案書・報告書</span>が、爆速でできる
+                </p>
+                <br>
+                <div class="quote-box" style="text-align: center; font-size: 0.9em;">
+                    以前なら <span class="highlight-orange" style="font-size: 1.3em;">3人日</span> →
+                    今は <span class="highlight" style="font-size: 1.3em;">半日</span>
+                </div>
+                <br>
+                <p style="font-size: 0.7em; color: #999;">ポイントは「観察する力」と「構造化の力」<br>詳細は追ってお知らせします 🎯</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'fade',
+            transitionSpeed: 'default',
+            slideNumber: true,
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1280,
+            height: 720
+        });
+    </script>
+</body>
+</html>
