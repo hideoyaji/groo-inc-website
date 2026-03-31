@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1280px; height: 670px; overflow: hidden; }
+
+  .banner {
+    width: 1280px;
+    height: 670px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Noto Serif JP", "Georgia", serif;
+  }
+
+  /* ゴールドのアクセントライン（上下） */
+  .banner::before,
+  .banner::after {
+    content: "";
+    position: absolute;
+    left: 80px;
+    right: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  }
+  .banner::before { top: 50px; }
+  .banner::after { bottom: 50px; }
+
+  /* マガジン名（上部） */
+  .magazine {
+    color: #c9a96e;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+  }
+
+  /* 記事タイトル（メイン）
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ★ ここを差し替えるだけで量産できます ★
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .title {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 1000px;
+    padding: 0 40px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* サブタイトル（任意） */
+  .subtitle {
+    color: rgba(200, 210, 230, 0.55);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin-top: 28px;
+  }
+
+  /* 著者・ブランド（下部） */
+  .author {
+    position: absolute;
+    bottom: 72px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+
+  /* 装飾：左右の薄いゴールド円 */
+  .deco-left, .deco-right {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(201, 169, 110, 0.06);
+    border-radius: 50%;
+  }
+  .deco-left { top: 80px; left: -30px; }
+  .deco-right { bottom: 80px; right: -30px; }
+
+  /* 天秤アイコン（小さめ・上部マガジン名の左） */
+  .scale-small {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    position: relative;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .scale-small .beam {
+    position: absolute; top: 2px; left: 0; width: 20px; height: 1px; background: #c9a96e;
+  }
+  .scale-small .pillar {
+    position: absolute; top: 2px; left: 9.5px; width: 1px; height: 10px; background: #c9a96e;
+  }
+  .scale-small .base {
+    position: absolute; bottom: 0; left: 5px; width: 10px; height: 1px; background: #c9a96e;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="banner">
+    <div class="deco-left"></div>
+    <div class="deco-right"></div>
+
+    <!-- マガジン名 -->
+    <div class="magazine">
+      <span class="scale-small">
+        <span class="beam"></span>
+        <span class="pillar"></span>
+        <span class="base"></span>
+      </span>
+      両天秤ラボ
+    </div>
+
+    <!-- ★ タイトル：ここを差し替える ★ -->
+    <div class="title">25年で最も組織が動いた瞬間<br>─ コンサルの提案書が<br>実行されない本当の理由</div>
+
+    <!-- サブタイトル（不要なら空にする） -->
+    <div class="subtitle"></div>
+
+    <!-- 著者 -->
+    <div class="author">寺村英雄 ── 株式会社グルー</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1280px; height: 670px; overflow: hidden; }
+
+  .banner {
+    width: 1280px;
+    height: 670px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Noto Serif JP", "Georgia", serif;
+  }
+
+  /* ゴールドのアクセントライン（上下） */
+  .banner::before,
+  .banner::after {
+    content: "";
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  }
+  .banner::before { top: 60px; }
+  .banner::after { bottom: 60px; }
+
+  /* 天秤モチーフ（幾何学的） */
+  .scale-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .scale-icon .beam {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: #c9a96e;
+    transform: rotate(0deg);
+  }
+  .scale-icon .pillar {
+    position: absolute;
+    top: 20px;
+    left: 39px;
+    width: 2px;
+    height: 40px;
+    background: #c9a96e;
+  }
+  .scale-icon .base {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 40px;
+    height: 2px;
+    background: #c9a96e;
+  }
+  .scale-icon .pan-left,
+  .scale-icon .pan-right {
+    position: absolute;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #c9a96e;
+    border-radius: 0 0 50% 50%;
+    border-top: none;
+  }
+  .scale-icon .pan-left { left: 0; }
+  .scale-icon .pan-right { right: 0; }
+
+  .title {
+    color: #c9a96e;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(201, 169, 110, 0.3);
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+
+  .author {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-top: 24px;
+  }
+
+  /* 装飾：左右にうっすらと天秤のシルエット */
+  .deco-left, .deco-right {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(201, 169, 110, 0.06);
+    border-radius: 50%;
+  }
+  .deco-left { top: 120px; left: -40px; }
+  .deco-right { bottom: 120px; right: -40px; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="banner">
+    <div class="deco-left"></div>
+    <div class="deco-right"></div>
+
+    <div class="scale-icon">
+      <div class="beam"></div>
+      <div class="pillar"></div>
+      <div class="base"></div>
+      <div class="pan-left"></div>
+      <div class="pan-right"></div>
+    </div>
+
+    <div class="title">両天秤ラボ</div>
+    <div class="subtitle">戦略コンサルティング × コーチング／リーダーシップ</div>
+    <div class="author">寺村英雄 ── 株式会社グルー</div>
+  </div>
+</body>
+</html>

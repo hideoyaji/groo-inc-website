@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1280px; height: 670px; overflow: hidden; }
+
+  .banner {
+    width: 1280px;
+    height: 670px;
+    background: url('../hero-cosmic.jpg') center center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Noto Serif JP", "Georgia", serif;
+  }
+
+  /* 半透明のオーバーレイ（テキストの可読性確保） */
+  .banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(10, 10, 30, 0.3) 0%, rgba(10, 10, 30, 0.7) 100%);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 月のモチーフ */
+  .moon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 240, 0.9), rgba(200, 210, 230, 0.6));
+    box-shadow: 0 0 40px rgba(200, 220, 255, 0.4), 0 0 80px rgba(200, 220, 255, 0.15);
+    margin-bottom: 36px;
+  }
+
+  .title {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .subtitle {
+    color: rgba(200, 210, 230, 0.7);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .author {
+    color: rgba(200, 210, 230, 0.45);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-top: 24px;
+  }
+
+  /* 水平線（凪の水面を暗示） */
+  .horizon {
+    position: absolute;
+    bottom: 180px;
+    left: 100px;
+    right: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 220, 255, 0.15), transparent);
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="banner">
+    <div class="horizon"></div>
+    <div class="content">
+      <div class="moon"></div>
+      <div class="title">凪の海から月を昇らせる</div>
+      <div class="subtitle">問い、気づき、内省の記録</div>
+      <div class="author">寺村英雄 ── 株式会社グルー</div>
+    </div>
+  </div>
+</body>
+</html>
