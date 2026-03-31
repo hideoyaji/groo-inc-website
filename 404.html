@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>見つかりません | 株式会社グルー</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- よくある誤URLを正しいページへリダイレクト -->
+  <script>
+    var redirects = {
+      '/お問い合わせ/': '/contact.html',
+      '/お問い合わせ': '/contact.html',
+      '/company/': '/company.html',
+      '/company': '/company.html',
+      '/service': '/services.html',
+      '/service/': '/services.html',
+      '/story': '/ryotenbin.html',
+      '/story/': '/ryotenbin.html',
+      '/about': '/company.html',
+      '/about/': '/company.html',
+      '/contact': '/contact.html',
+      '/contact/': '/contact.html',
+      '/services': '/services.html',
+      '/services/': '/services.html',
+      '/cases': '/cases.html',
+      '/cases/': '/cases.html',
+      '/privacy': '/privacy-policy.html',
+      '/privacy/': '/privacy-policy.html'
+    };
+    var path = window.location.pathname.toLowerCase();
+    if (redirects[path]) {
+      window.location.replace(redirects[path]);
+    }
+  </script>
+
+  <style>
+    .error-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-page h1 {
+      font-size: 4rem;
+      color: #1a3a5c;
+      margin-bottom: 0.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .error-page p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .error-page a {
+      display: inline-block;
+      background: #1a3a5c;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .error-page a:hover {
+      background: #2a5a8c;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <h1>404</h1>
+    <p>お探しのページが見つかりませんでした。<br>URLが変更されたか、削除された可能性があります。</p>
+    <a href="/">トップページへ戻る</a>
+  </div>
+</body>
+</html>
