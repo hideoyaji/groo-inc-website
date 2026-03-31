@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日程予約 | 株式会社グルー</title>
+  <meta name="description" content="株式会社グルー 代表取締役 寺村英雄との打ち合わせ予約。ご都合の良い日時を選ぶだけで、Google Meetリンク付きのカレンダー招待が届きます。">
+
+  <meta property="og:title" content="日程予約 | 株式会社グルー">
+  <meta property="og:description" content="ご都合の良い日時を選ぶだけで、Google Meetリンク付きのカレンダー招待が届きます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/booking.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="canonical" href="https://groo-inc.com/booking.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+
+  <style>
+    .booking-flow { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-text-light); }
+    .booking-flow p { font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .booking-flow ol { padding-left: 1.25rem; }
+    .booking-flow li { margin-bottom: 0.25rem; }
+
+    .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+    .duration-btn { padding: 1.25rem; font-size: 1.1rem; font-weight: 600; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
+    .duration-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    .back-link { display: inline-block; margin-bottom: 1rem; font-size: 0.875rem; color: var(--color-accent); cursor: pointer; }
+    .back-link:hover { opacity: 0.7; }
+
+    .step-title { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 1rem; }
+    .step-title span { font-size: 0.875rem; font-weight: 400; color: var(--color-text-light); margin-left: 0.5rem; }
+
+    .date-label { font-size: 0.875rem; font-weight: 600; color: var(--color-text-light); margin-bottom: 0.5rem; margin-top: 1.25rem; }
+    .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .slot-btn { padding: 0.625rem; font-size: 0.875rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
+    .slot-btn:hover { background: var(--color-primary); border-color: var(--color-accent); color: #fff; }
+
+    .selected-slot { background: var(--color-primary); padding: 0.75rem 1rem; border-radius: 4px; color: var(--color-accent); font-weight: 600; margin-bottom: 1.5rem; }
+
+    .confirm-table { background: #fff; border: 1px solid var(--color-border); border-radius: 4px; overflow: hidden; margin-bottom: 1rem; }
+    .confirm-row { padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border); }
+    .confirm-row:last-child { border-bottom: none; }
+    .confirm-row .label { font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 0.125rem; }
+    .confirm-row .value { color: var(--color-primary); font-weight: 500; }
+
+    .btn-primary { display: block; width: 100%; background: var(--color-accent); color: #fff; border: none; padding: 0.875rem; border-radius: 4px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: background 0.3s; }
+    .btn-primary:hover { background: #b8943e; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-secondary { display: block; width: 100%; background: #fff; color: var(--color-text); border: 1px solid var(--color-border); padding: 0.875rem; border-radius: 4px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+    .btn-secondary:hover { background: var(--color-bg-alt); }
+
+    .btn-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .btn-row > * { flex: 1; }
+
+    .loading { text-align: center; padding: 3rem 0; color: var(--color-text-light); }
+    .spinner { display: inline-block; width: 2rem; height: 2rem; border: 3px solid var(--color-border); border-top-color: var(--color-accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 0.75rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-msg { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.875rem; margin-bottom: 1rem; }
+
+    .done-section { text-align: center; padding: 2rem 0; }
+    .done-check { font-size: 3rem; color: var(--color-accent); margin-bottom: 0.75rem; }
+    .done-title { font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .meet-box { display: inline-block; background: var(--color-primary); padding: 1rem 1.5rem; border-radius: 4px; margin: 1rem 0; }
+    .meet-box .label { font-size: 0.8rem; color: var(--color-accent); margin-bottom: 0.25rem; }
+    .meet-box a { color: #fff; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .duration-grid { grid-template-columns: repeat(2, 1fr); }
+      .slots-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo"><a href="/">株式会社グルー</a></div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/cases.html">事例</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
+        <li><a href="/contact.html">お問い合わせ</a></li>
+        <li><a href="/booking.html" class="active">日程予約</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">日程予約</h1>
+    </section>
+
+    <section class="section">
+      <div class="container" id="booking-app">
+        <!-- JavaScript で描画 -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__links"><a href="/privacy-policy.html">プライバシーポリシー</a></div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+  <script>
+  (function() {
+    var API_BASE = 'https://groo-booking.vercel.app';
+    var app = document.getElementById('booking-app');
+    var state = { step: 'duration', duration: 60, slots: [], selectedSlot: null, name: '', email: '', purpose: '', meetLink: '', error: '' };
+
+    function groupByDate(slots) {
+      var groups = {};
+      var order = [];
+      slots.forEach(function(s) {
+        var key = s.label.split(')')[0] + ')';
+        if (!groups[key]) { groups[key] = []; order.push(key); }
+        groups[key].push(s);
+      });
+      return { groups: groups, order: order };
+    }
+
+    function render() {
+      var html = '';
+
+      if (state.step === 'duration') {
+        html += '<div class="booking-flow"><p>ご予約の流れ</p><ol>';
+        html += '<li>所要時間を選択</li>';
+        html += '<li>空いている日時から、ご都合の良い枠を選択</li>';
+        html += '<li>お名前・メールアドレスを入力</li>';
+        html += '<li>予約確定後、Google Meetリンク付きのカレンダー招待が届きます</li>';
+        html += '</ol></div>';
+        html += '<div class="step-title">ご希望の所要時間をお選びください</div>';
+        html += '<div class="duration-grid">';
+        [15,30,45,60,90].forEach(function(m) {
+          html += '<button class="duration-btn" onclick="bookingApp.selectDuration(' + m + ')">' + m + '分</button>';
+        });
+        html += '</div>';
+      }
+
+      else if (state.step === 'loading') {
+        html += '<div class="loading"><div class="spinner"></div><p>空き時間を確認しています...</p></div>';
+      }
+
+      else if (state.step === 'select') {
+        html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; 所要時間を選びなおす</a>';
+        html += '<div class="step-title">ご希望の日時をお選びください<span>(' + state.duration + '分)</span></div>';
+        if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
+        if (state.slots.length === 0) {
+          html += '<div class="loading"><p>現在、予約可能な枠がありません。</p><p style="font-size:0.875rem;margin-top:0.5rem;">お手数ですが、直接ご連絡ください。</p></div>';
+        } else {
+          var g = groupByDate(state.slots);
+          g.order.forEach(function(dateLabel) {
+            html += '<div class="date-label">' + dateLabel + '</div><div class="slots-grid">';
+            g.groups[dateLabel].forEach(function(slot, i) {
+              var time = slot.label.split(') ')[1];
+              html += '<button class="slot-btn" onclick="bookingApp.selectSlot(' + state.slots.indexOf(slot) + ')">' + time + '</button>';
+            });
+            html += '</div>';
+          });
+        }
+      }
+
+      else if (state.step === 'form') {
+        html += '<a class="back-link" onclick="bookingApp.goTo(\'select\')">&larr; 日時を選びなおす</a>';
+        html += '<div class="selected-slot">' + state.selectedSlot.label + '</div>';
+        if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
+        html += '<div class="form">';
+        html += '<div class="form__group"><label class="form__label">お名前 <span class="required">必須</span></label>';
+        html += '<input class="form__input" type="text" id="b-name" placeholder="山田 太郎" value="' + escapeHtml(state.name) + '"></div>';
+        html += '<div class="form__group"><label class="form__label">メールアドレス <span class="required">必須</span></label>';
+        html += '<input class="form__input" type="email" id="b-email" placeholder="example@company.com" value="' + escapeHtml(state.email) + '"></div>';
+        html += '<div class="form__group"><label class="form__label">ご用件（任意）</label>';
+        html += '<textarea class="form__textarea" id="b-purpose" placeholder="打ち合わせの内容やご質問など">' + escapeHtml(state.purpose) + '</textarea></div>';
+        html += '<button class="btn-primary" onclick="bookingApp.toConfirm()">確認画面へ</button>';
+        html += '</div>';
+      }
+
+      else if (state.step === 'confirm') {
+        html += '<div class="step-title" style="font-family:var(--font-serif);">ご予約内容の確認</div>';
+        html += '<div class="confirm-table">';
+        html += '<div class="confirm-row"><div class="label">所要時間</div><div class="value">' + state.duration + '分</div></div>';
+        html += '<div class="confirm-row"><div class="label">日時</div><div class="value">' + state.selectedSlot.label + '</div></div>';
+        html += '<div class="confirm-row"><div class="label">お名前</div><div class="value">' + escapeHtml(state.name) + '</div></div>';
+        html += '<div class="confirm-row"><div class="label">メールアドレス</div><div class="value">' + escapeHtml(state.email) + '</div></div>';
+        if (state.purpose) html += '<div class="confirm-row"><div class="label">ご用件</div><div class="value">' + escapeHtml(state.purpose) + '</div></div>';
+        html += '</div>';
+        html += '<p style="font-size:0.875rem;color:var(--color-text-light);margin-bottom:0.5rem;">確定すると、Google Meetリンク付きのカレンダー招待が送信されます。</p>';
+        if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
+        html += '<div class="btn-row"><button class="btn-secondary" onclick="bookingApp.goTo(\'form\')">戻る</button>';
+        html += '<button class="btn-primary" id="confirm-btn" onclick="bookingApp.submit()">予約を確定する</button></div>';
+      }
+
+      else if (state.step === 'done') {
+        html += '<div class="done-section">';
+        html += '<div class="done-check">&#10003;</div>';
+        html += '<div class="done-title">ご予約ありがとうございます</div>';
+        html += '<p style="color:var(--color-text-light);margin-bottom:1rem;">カレンダー招待をメールでお送りしました。</p>';
+        if (state.meetLink) {
+          html += '<div class="meet-box"><div class="label">Google Meet リンク</div><a href="' + state.meetLink + '" target="_blank" rel="noopener">' + state.meetLink + '</a></div>';
+        }
+        if (state.selectedSlot) html += '<p style="font-weight:600;color:var(--color-primary);">' + state.selectedSlot.label + '</p>';
+        html += '</div>';
+      }
+
+      app.innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    window.bookingApp = {
+      selectDuration: function(m) {
+        state.duration = m;
+        state.step = 'loading';
+        state.error = '';
+        render();
+        fetch(API_BASE + '/api/availability?duration=' + m)
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            if (data.error) { state.error = data.error; state.step = 'select'; }
+            else { state.slots = data.slots; state.step = 'select'; }
+            render();
+          })
+          .catch(function() { state.error = '空き時間の取得に失敗しました。'; state.step = 'select'; render(); });
+      },
+      selectSlot: function(i) {
+        state.selectedSlot = state.slots[i];
+        state.step = 'form';
+        state.error = '';
+        render();
+      },
+      goTo: function(step) {
+        state.step = step;
+        state.error = '';
+        render();
+      },
+      toConfirm: function() {
+        state.name = document.getElementById('b-name').value.trim();
+        state.email = document.getElementById('b-email').value.trim();
+        state.purpose = document.getElementById('b-purpose').value.trim();
+        if (!state.name || !state.email) { state.error = '名前とメールアドレスは必須です'; render(); return; }
+        state.step = 'confirm';
+        state.error = '';
+        render();
+      },
+      submit: function() {
+        var btn = document.getElementById('confirm-btn');
+        btn.disabled = true;
+        btn.textContent = '予約中...';
+        fetch(API_BASE + '/api/book', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: state.name,
+            email: state.email,
+            purpose: state.purpose,
+            startTime: state.selectedSlot.start,
+            endTime: state.selectedSlot.end
+          })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.error) { state.error = data.error; btn.disabled = false; btn.textContent = '予約を確定する'; render(); }
+          else { state.meetLink = data.meetLink || ''; state.step = 'done'; render(); }
+        })
+        .catch(function() { state.error = '予約に失敗しました。'; btn.disabled = false; btn.textContent = '予約を確定する'; render(); });
+      }
+    };
+
+    render();
+  })();
+  </script>
+
+</body>
+</html>
