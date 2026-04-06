@@ -30,11 +30,21 @@
       '/cases': '/cases.html',
       '/cases/': '/cases.html',
       '/privacy': '/privacy-policy.html',
-      '/privacy/': '/privacy-policy.html'
+      '/privacy/': '/privacy-policy.html',
+      '/note': 'https://note.com/hideo_teramura'
     };
     var path = window.location.pathname.toLowerCase();
+    // 完全一致リダイレクト
     if (redirects[path]) {
       window.location.replace(redirects[path]);
+    }
+    // 旧WordPress記事・カテゴリ・月別アーカイブを全てトップへリダイレクト
+    else if (
+      /^\/(category|tag|author|feed|wp-)/.test(path) ||
+      /^\/\d{4}\/\d{2}(\/|$)/.test(path) ||
+      /^\/(r-and-d|erotok|god-father-in-china|anta-manda|matsumotokiyosi|tencentpark|bytedance|nomura-csrc|marugoto-nippon|shanghai-disney|cafe-in-wuhan|ajisen|china-university|chinese-young)/.test(path)
+    ) {
+      window.location.replace('/');
     }
   </script>
 
