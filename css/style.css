@@ -678,6 +678,112 @@ blockquote {
 .mb-3 { margin-bottom: 1.5rem; }
 .mb-4 { margin-bottom: 2rem; }
 
+/* --- ペイン3カラムカード --- */
+.pain-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pain-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.pain-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.pain-card__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.pain-card__label {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.pain-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.pain-card__text {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .pain-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- ヒーローCTAデュアルボタン --- */
+.hero__cta-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero__cta--secondary {
+  display: inline-block;
+  background: transparent;
+  color: #ffffff;
+  padding: 0.875rem 2.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.hero__cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  opacity: 1;
+}
+
+/* --- YouTube埋め込み --- */
+.youtube-embed {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
 /* --- 本文中の強調 --- */
 .highlight {
   background: linear-gradient(transparent 60%, rgba(201, 169, 110, 0.2) 60%);
