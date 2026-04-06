@@ -550,6 +550,21 @@ blockquote {
 
 .site-footer a:hover {
   color: #ffffff;
+  opacity: 1;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__social a {
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
 }
 
 .footer__links {
