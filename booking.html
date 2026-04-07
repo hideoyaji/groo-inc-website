@@ -279,11 +279,8 @@
       else if (state.step === 'done') {
         html += '<div class="done-section">';
         html += '<div class="done-check">&#10003;</div>';
-        html += '<div class="done-title">ご予約ありがとうございます</div>';
-        html += '<p style="color:var(--color-text-light);margin-bottom:1rem;">カレンダー招待をメールでお送りしました。</p>';
-        if (state.meetLink) {
-          html += '<div class="meet-box"><div class="label">Google Meet リンク</div><a href="' + state.meetLink + '" target="_blank" rel="noopener">' + state.meetLink + '</a></div>';
-        }
+        html += '<div class="done-title">予約リクエストを受け付けました</div>';
+        html += '<p style="color:var(--color-text-light);margin-bottom:1rem;">内容を確認の上、メールでご連絡いたします。<br>通常1営業日以内にお返事いたします。</p>';
         if (state.selectedSlot) html += '<p style="font-weight:600;color:var(--color-primary);">' + state.selectedSlot.label + '</p>';
         html += '</div>';
       }
@@ -357,7 +354,7 @@
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (data.error) { state.error = data.error; btn.disabled = false; btn.textContent = '予約を確定する'; render(); }
-          else { state.meetLink = data.meetLink || ''; state.step = 'done'; render(); }
+          else { state.step = 'done'; render(); }
         })
         .catch(function() { state.error = '予約に失敗しました。'; btn.disabled = false; btn.textContent = '予約を確定する'; render(); });
       }
