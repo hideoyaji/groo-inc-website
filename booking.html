@@ -385,17 +385,31 @@
     // 各ステップのスクロール位置を保存
     var scrollPositions = {};
 
-    // ステップ遷移時にスクロール位置を保存して遷移
-    function goToStep(nextStep) {
+    // ステップ遷移時にスクロール位置を保存し、ブラウザ履歴にも記録
+    function goToStep(nextStep, isPopState) {
       scrollPositions[state.step] = window.scrollY;
       state.step = nextStep;
       state.error = '';
+      // ブラウザの戻るボタンで戻れるよう履歴に追加（popstateイベント経由の場合は追加しない）
+      if (!isPopState) {
+        history.pushState({ step: nextStep }, '', '');
+      }
       render();
       var savedPos = scrollPositions[nextStep];
       requestAnimationFrame(function() {
         window.scrollTo(0, savedPos || 0);
       });
     }
+
+    // ブラウザの戻る/進むボタンでステップを復元
+    window.addEventListener('popstate', function(e) {
+      if (e.state && e.state.step) {
+        goToStep(e.state.step, true);
+      }
+    });
+
+    // 初期ステップを履歴に記録（戻る先がホームページにならないように）
+    history.replaceState({ step: 'type' }, '', '');
 
     window.bookingApp = {
       setType: function(type) {
