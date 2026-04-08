@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>日程予約 | 株式会社グルー</title>
-  <meta name="description" content="株式会社グルー 代表取締役 寺村英雄との打ち合わせ予約。ご都合の良い日時を選ぶだけで、Google Meetリンク付きのカレンダー招待が届きます。">
+  <meta name="description" content="株式会社グルー 代表取締役 寺村英雄とのミーティング・会食のご予約。ご都合の良い日時を選ぶだけで、カレンダー招待が届きます。">
 
   <meta property="og:title" content="日程予約 | 株式会社グルー">
-  <meta property="og:description" content="ご都合の良い日時を選ぶだけで、Google Meetリンク付きのカレンダー招待が届きます。">
+  <meta property="og:description" content="ご都合の良い日時を選ぶだけで、カレンダー招待が届きます。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://groo-inc.com/booking.html">
   <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
@@ -35,6 +35,26 @@
     .booking-flow ol { padding-left: 1.25rem; }
     .booking-flow li { margin-bottom: 0.25rem; }
 
+    /* 種別タブ */
+    .type-tabs { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
+    .type-tab { flex: 1; padding: 0.875rem; font-size: 0.95rem; font-weight: 600; text-align: center; cursor: pointer; transition: all 0.2s; border-radius: 4px 4px 0 0; background: #fff; border: 1px solid var(--color-border); color: var(--color-text-light); }
+    .type-tab:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .type-tab.active { background: var(--color-primary); color: var(--color-accent); border-color: var(--color-primary); }
+
+    /* サブタイプカード */
+    .subtype-card { width: 100%; text-align: left; padding: 1rem 1.25rem; margin-bottom: 0.75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+    .subtype-card:hover { border-color: var(--color-accent); }
+    .subtype-card.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-accent); }
+    .subtype-card .st-label { font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.75rem; }
+    .subtype-card .st-desc { font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem; margin-left: 1.75rem; }
+    .subtype-radio { width: 1.1rem; height: 1.1rem; border: 2px solid var(--color-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .subtype-card.active .subtype-radio { border-color: var(--color-accent); }
+    .subtype-radio-inner { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--color-accent); display: none; }
+    .subtype-card.active .subtype-radio-inner { display: block; }
+
+    /* 種別バッジ */
+    .type-badge { background: var(--color-primary); color: var(--color-accent); padding: 0.375rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem; }
+
     .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
     .duration-btn { padding: 1.25rem; font-size: 1.1rem; font-weight: 600; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
     .duration-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
@@ -56,7 +76,9 @@
     .slot-btn { padding: 0.625rem; font-size: 0.875rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
     .slot-btn:hover { background: var(--color-primary); border-color: var(--color-accent); color: #fff; }
 
-    .selected-slot { background: var(--color-primary); padding: 0.75rem 1rem; border-radius: 4px; color: var(--color-accent); font-weight: 600; margin-bottom: 1.5rem; }
+    .selected-slot { background: var(--color-primary); padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1.5rem; }
+    .selected-slot .ss-type { font-size: 0.75rem; color: var(--color-accent); opacity: 0.8; margin-bottom: 0.125rem; }
+    .selected-slot .ss-time { color: var(--color-accent); font-weight: 600; }
 
     .confirm-table { background: #fff; border: 1px solid var(--color-border); border-radius: 4px; overflow: hidden; margin-bottom: 1rem; }
     .confirm-row { padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border); }
@@ -143,7 +165,29 @@
   (function() {
     var API_BASE = 'https://groo-booking.vercel.app';
     var app = document.getElementById('booking-app');
-    var state = { step: 'duration', duration: 60, slots: [], selectedSlot: null, selectedWeek: 0, name: '', company: '', email: '', purpose: '', url: '', meetLink: '', error: '' };
+
+    // 種別ごとの設定
+    var SUB_TYPE_CONFIG = {
+      online:  { label: 'ミーティング（オンライン）', durations: [15,30,45,60,90], desc: 'Google Meetを自動発行します' },
+      offline: { label: 'ミーティング（対面）', durations: [15,30,45,60,90], desc: '場所は別途ご相談させていただきます' },
+      lunch:   { label: '会食（ランチ）', durations: [60,90], desc: '11:30〜14:00 の時間帯からお選びいただけます' },
+      dinner:  { label: '会食（ディナー）', durations: [90,120], desc: '18:00〜21:00 の時間帯からお選びいただけます' }
+    };
+
+    var state = {
+      step: 'type',
+      bookingType: 'meeting',
+      bookingSubType: 'online',
+      duration: 60,
+      slots: [],
+      selectedSlot: null,
+      selectedWeek: 0,
+      name: '', company: '', email: '', purpose: '', url: '',
+      meetLink: '', error: ''
+    };
+
+    function getTypeLabel() { return SUB_TYPE_CONFIG[state.bookingSubType].label; }
+    function isOnline() { return state.bookingSubType === 'online'; }
 
     function groupByDate(slots) {
       var groups = {};
@@ -156,7 +200,6 @@
       return { groups: groups, order: order };
     }
 
-    // 週ごとにスロットをグルーピング（月曜始まり）
     function groupByWeek(slots) {
       var today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -164,7 +207,6 @@
       var mondayOffset = todayDay === 0 ? -6 : 1 - todayDay;
       var thisMonday = new Date(today);
       thisMonday.setDate(today.getDate() + mondayOffset);
-
       var weekMap = {};
       var weekKeys = [];
       slots.forEach(function(slot) {
@@ -174,7 +216,6 @@
         if (!weekMap[weekIndex]) { weekMap[weekIndex] = []; weekKeys.push(weekIndex); }
         weekMap[weekIndex].push(slot);
       });
-
       weekKeys.sort(function(a, b) { return a - b; });
       return weekKeys.map(function(weekIndex) {
         var weekStart = new Date(thisMonday);
@@ -190,34 +231,63 @@
     function render() {
       var html = '';
 
-      if (state.step === 'duration') {
+      // ===== 種別選択 =====
+      if (state.step === 'type') {
         html += '<div class="booking-flow"><p>ご予約の流れ</p><ol>';
+        html += '<li>予約の種別を選択</li>';
         html += '<li>所要時間を選択</li>';
         html += '<li>空いている日時から、ご都合の良い枠を選択</li>';
         html += '<li>お名前・メールアドレスを入力</li>';
-        html += '<li>予約確定後、Google Meetリンク付きのカレンダー招待が届きます</li>';
+        html += '<li>予約確定後、カレンダー招待が届きます</li>';
         html += '</ol></div>';
+
+        // タブ
+        html += '<div class="type-tabs">';
+        html += '<button class="type-tab' + (state.bookingType === 'meeting' ? ' active' : '') + '" onclick="bookingApp.setType(\'meeting\')">ミーティング</button>';
+        html += '<button class="type-tab' + (state.bookingType === 'dining' ? ' active' : '') + '" onclick="bookingApp.setType(\'dining\')">会食</button>';
+        html += '</div>';
+
+        // サブタイプ
+        var subTypes = state.bookingType === 'meeting' ? ['online', 'offline'] : ['lunch', 'dinner'];
+        subTypes.forEach(function(st) {
+          var cfg = SUB_TYPE_CONFIG[st];
+          var active = state.bookingSubType === st ? ' active' : '';
+          html += '<button class="subtype-card' + active + '" onclick="bookingApp.setSubType(\'' + st + '\')">';
+          html += '<div class="st-label"><div class="subtype-radio"><div class="subtype-radio-inner"></div></div>' + cfg.label.split('（')[1].replace('）', '') + '</div>';
+          html += '<div class="st-desc">' + cfg.desc + '</div>';
+          html += '</button>';
+        });
+
+        html += '<button class="btn-primary" style="margin-top:1rem;" onclick="bookingApp.goTo(\'duration\')">次へ &rarr;</button>';
+      }
+
+      // ===== 所要時間選択 =====
+      else if (state.step === 'duration') {
+        html += '<a class="back-link" onclick="bookingApp.goTo(\'type\')">&larr; 種別を選びなおす</a>';
+        html += '<div class="type-badge">' + getTypeLabel() + '</div>';
         html += '<div class="step-title">ご希望の所要時間をお選びください</div>';
         html += '<div class="duration-grid">';
-        [15,30,45,60,90].forEach(function(m) {
+        SUB_TYPE_CONFIG[state.bookingSubType].durations.forEach(function(m) {
           html += '<button class="duration-btn" onclick="bookingApp.selectDuration(' + m + ')">' + m + '分</button>';
         });
         html += '</div>';
       }
 
+      // ===== ローディング =====
       else if (state.step === 'loading') {
         html += '<div class="loading"><div class="spinner"></div><p>空き時間を確認しています...</p></div>';
       }
 
+      // ===== 日時選択 =====
       else if (state.step === 'select') {
         html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; 所要時間を選びなおす</a>';
-        html += '<div class="step-title">ご希望の日時をお選びください<span>(' + state.duration + '分)</span></div>';
+        html += '<div class="type-badge">' + getTypeLabel() + ' / ' + state.duration + '分</div>';
+        html += '<div class="step-title">ご希望の日時をお選びください</div>';
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
         if (state.slots.length === 0) {
           html += '<div class="loading"><p>現在、予約可能な枠がありません。</p><p style="font-size:0.875rem;margin-top:0.5rem;">お手数ですが、直接ご連絡ください。</p></div>';
         } else {
           var weeks = groupByWeek(state.slots);
-          // 週タブ
           html += '<div class="week-tabs">';
           weeks.forEach(function(week, i) {
             var active = (state.selectedWeek === i) ? ' active' : '';
@@ -225,7 +295,6 @@
             html += week.weekLabel + '<span class="count">(' + week.slots.length + '枠)</span></button>';
           });
           html += '</div>';
-          // 選択中の週のスロットを日付ごとに表示
           var weekSlots = weeks[state.selectedWeek] ? weeks[state.selectedWeek].slots : [];
           var g = groupByDate(weekSlots);
           g.order.forEach(function(dateLabel) {
@@ -239,9 +308,10 @@
         }
       }
 
+      // ===== 情報入力 =====
       else if (state.step === 'form') {
         html += '<a class="back-link" onclick="bookingApp.goTo(\'select\')">&larr; 日時を選びなおす</a>';
-        html += '<div class="selected-slot">' + state.selectedSlot.label + '</div>';
+        html += '<div class="selected-slot"><div class="ss-type">' + getTypeLabel() + '</div><div class="ss-time">' + state.selectedSlot.label + '</div></div>';
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
         html += '<div class="form">';
         html += '<div class="form__group"><label class="form__label">お名前 <span class="required">必須</span></label>';
@@ -250,8 +320,9 @@
         html += '<input class="form__input" type="text" id="b-company" placeholder="株式会社○○" value="' + escapeHtml(state.company) + '"></div>';
         html += '<div class="form__group"><label class="form__label">メールアドレス <span class="required">必須</span></label>';
         html += '<input class="form__input" type="email" id="b-email" placeholder="example@company.com" value="' + escapeHtml(state.email) + '"></div>';
+        var purposePlaceholder = state.bookingType === 'dining' ? 'ご希望のエリアやお店の雰囲気など' : '打ち合わせの内容やご質問など';
         html += '<div class="form__group"><label class="form__label">ご用件 <span class="required">必須</span></label>';
-        html += '<textarea class="form__textarea" id="b-purpose" placeholder="打ち合わせの内容やご質問など">' + escapeHtml(state.purpose) + '</textarea></div>';
+        html += '<textarea class="form__textarea" id="b-purpose" placeholder="' + purposePlaceholder + '">' + escapeHtml(state.purpose) + '</textarea></div>';
         html += '<div class="form__group"><label class="form__label">会社URL / LinkedIn（任意）</label>';
         html += '<input class="form__input" type="url" id="b-url" placeholder="https://..." value="' + escapeHtml(state.url) + '">';
         html += '<p style="font-size:0.75rem;color:var(--color-text-light);margin-top:0.25rem;">事前に拝見し、より有意義なお時間にいたします</p></div>';
@@ -259,9 +330,11 @@
         html += '</div>';
       }
 
+      // ===== 確認 =====
       else if (state.step === 'confirm') {
         html += '<div class="step-title" style="font-family:var(--font-serif);">ご予約内容の確認</div>';
         html += '<div class="confirm-table">';
+        html += '<div class="confirm-row"><div class="label">種別</div><div class="value">' + getTypeLabel() + '</div></div>';
         html += '<div class="confirm-row"><div class="label">所要時間</div><div class="value">' + state.duration + '分</div></div>';
         html += '<div class="confirm-row"><div class="label">日時</div><div class="value">' + state.selectedSlot.label + '</div></div>';
         html += '<div class="confirm-row"><div class="label">お名前</div><div class="value">' + escapeHtml(state.name) + '</div></div>';
@@ -270,17 +343,33 @@
         html += '<div class="confirm-row"><div class="label">ご用件</div><div class="value">' + escapeHtml(state.purpose) + '</div></div>';
         if (state.url) html += '<div class="confirm-row"><div class="label">会社URL / LinkedIn</div><div class="value">' + escapeHtml(state.url) + '</div></div>';
         html += '</div>';
-        html += '<p style="font-size:0.875rem;color:var(--color-text-light);margin-bottom:0.5rem;">確定すると、Google Meetリンク付きのカレンダー招待が送信されます。</p>';
+
+        var confirmNote = isOnline()
+          ? '確定すると、Google Meetリンク付きのカレンダー招待が送信されます。'
+          : state.bookingType === 'dining'
+            ? '確定すると、カレンダー招待が送信されます。お店は別途ご相談させていただきます。'
+            : '確定すると、カレンダー招待が送信されます。場所は別途ご相談させていただきます。';
+        html += '<p style="font-size:0.875rem;color:var(--color-text-light);margin-bottom:0.5rem;">' + confirmNote + '</p>';
+
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
         html += '<div class="btn-row"><button class="btn-secondary" onclick="bookingApp.goTo(\'form\')">戻る</button>';
         html += '<button class="btn-primary" id="confirm-btn" onclick="bookingApp.submit()">予約を確定する</button></div>';
       }
 
+      // ===== 完了 =====
       else if (state.step === 'done') {
         html += '<div class="done-section">';
         html += '<div class="done-check">&#10003;</div>';
         html += '<div class="done-title">予約リクエストを受け付けました</div>';
-        html += '<p style="color:var(--color-text-light);margin-bottom:1rem;">内容を確認の上、メールでご連絡いたします。<br>通常1営業日以内にお返事いたします。</p>';
+        html += '<p style="font-size:0.875rem;font-weight:600;color:var(--color-primary);margin-bottom:0.5rem;">' + getTypeLabel() + '</p>';
+
+        var doneNote = isOnline()
+          ? '確認後、Google Meet付きカレンダー招待をメールでお送りします。'
+          : state.bookingType === 'dining'
+            ? '確認後、カレンダー招待をお送りします。お店は別途ご連絡いたします。'
+            : '確認後、カレンダー招待をお送りします。場所は別途ご連絡いたします。';
+        html += '<p style="color:var(--color-text-light);margin-bottom:1rem;">' + doneNote + '<br>通常1営業日以内にお返事いたします。</p>';
+
         if (state.selectedSlot) html += '<p style="font-weight:600;color:var(--color-primary);">' + state.selectedSlot.label + '</p>';
         html += '</div>';
       }
@@ -293,6 +382,15 @@
     }
 
     window.bookingApp = {
+      setType: function(type) {
+        state.bookingType = type;
+        state.bookingSubType = type === 'meeting' ? 'online' : 'lunch';
+        render();
+      },
+      setSubType: function(subType) {
+        state.bookingSubType = subType;
+        render();
+      },
       selectWeek: function(i) {
         state.selectedWeek = i;
         render();
@@ -303,7 +401,7 @@
         state.error = '';
         state.selectedWeek = 0;
         render();
-        fetch(API_BASE + '/api/availability?duration=' + m)
+        fetch(API_BASE + '/api/availability?duration=' + m + '&subType=' + state.bookingSubType)
           .then(function(r) { return r.json(); })
           .then(function(data) {
             if (data.error) { state.error = data.error; state.step = 'select'; }
@@ -348,7 +446,9 @@
             purpose: state.purpose,
             url: state.url,
             startTime: state.selectedSlot.start,
-            endTime: state.selectedSlot.end
+            endTime: state.selectedSlot.end,
+            bookingType: state.bookingType,
+            bookingSubType: state.bookingSubType
           })
         })
         .then(function(r) { return r.json(); })
