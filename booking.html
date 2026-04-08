@@ -382,6 +382,21 @@
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
+    // 各ステップのスクロール位置を保存
+    var scrollPositions = {};
+
+    // ステップ遷移時にスクロール位置を保存して遷移
+    function goToStep(nextStep) {
+      scrollPositions[state.step] = window.scrollY;
+      state.step = nextStep;
+      state.error = '';
+      render();
+      var savedPos = scrollPositions[nextStep];
+      requestAnimationFrame(function() {
+        window.scrollTo(0, savedPos || 0);
+      });
+    }
+
     window.bookingApp = {
       setType: function(type) {
         state.bookingType = type;
@@ -398,6 +413,7 @@
       },
       selectDuration: function(m) {
         state.duration = m;
+        scrollPositions[state.step] = window.scrollY;
         state.step = 'loading';
         state.error = '';
         state.selectedWeek = 0;
@@ -413,14 +429,10 @@
       },
       selectSlot: function(i) {
         state.selectedSlot = state.slots[i];
-        state.step = 'form';
-        state.error = '';
-        render();
+        goToStep('form');
       },
       goTo: function(step) {
-        state.step = step;
-        state.error = '';
-        render();
+        goToStep(step);
       },
       toConfirm: function() {
         state.name = document.getElementById('b-name').value.trim();
@@ -429,9 +441,7 @@
         state.purpose = document.getElementById('b-purpose').value.trim();
         state.url = document.getElementById('b-url').value.trim();
         if (!state.name || !state.company || !state.email || !state.purpose) { state.error = 'お名前、会社名、メールアドレス、ご用件は必須です'; render(); return; }
-        state.step = 'confirm';
-        state.error = '';
-        render();
+        goToStep('confirm');
       },
       submit: function() {
         var btn = document.getElementById('confirm-btn');
