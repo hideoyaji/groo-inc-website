@@ -432,6 +432,8 @@
       selectDuration: function(m) {
         state.duration = m;
         scrollPositions[state.step] = window.scrollY;
+        // loading→selectは同じ「select」ステップとして履歴に1回だけ追加
+        history.pushState({ step: 'select' }, '', '');
         state.step = 'loading';
         state.error = '';
         state.selectedWeek = 0;
