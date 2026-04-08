@@ -388,16 +388,22 @@
 
     // 各ステップのスクロール位置を保存
     var scrollPositions = {};
+    var navigatingByPopState = false;
 
-    // ステップ遷移時にスクロール位置を保存し、ブラウザ履歴にも記録
-    function goToStep(nextStep, isPopState) {
+    // ステップ遷移: 現在のステップをreplaceStateで保存してから、次のステップをpushState
+    function goToStep(nextStep) {
       scrollPositions[state.step] = window.scrollY;
-      state.step = nextStep;
       state.error = '';
-      // ブラウザの戻るボタンで戻れるよう履歴に追加（popstateイベント経由の場合は追加しない）
-      if (!isPopState) {
-        history.pushState({ step: nextStep }, '', '');
+
+      if (!navigatingByPopState) {
+        // 現在のステップの状態を今の履歴エントリに保存
+        history.replaceState({ step: state.step, scroll: window.scrollY }, '', '');
+        // 次のステップを新しい履歴エントリとして追加
+        history.pushState({ step: nextStep, scroll: 0 }, '', '');
       }
+      navigatingByPopState = false;
+
+      state.step = nextStep;
       render();
       var savedPos = scrollPositions[nextStep];
       requestAnimationFrame(function() {
@@ -408,12 +414,20 @@
     // ブラウザの戻る/進むボタンでステップを復元
     window.addEventListener('popstate', function(e) {
       if (e.state && e.state.step) {
-        goToStep(e.state.step, true);
+        navigatingByPopState = true;
+        scrollPositions[state.step] = window.scrollY;
+        state.step = e.state.step;
+        state.error = '';
+        render();
+        var savedPos = e.state.scroll || scrollPositions[e.state.step] || 0;
+        requestAnimationFrame(function() {
+          window.scrollTo(0, savedPos);
+        });
       }
     });
 
-    // 初期ステップを履歴に記録（戻る先がホームページにならないように）
-    history.replaceState({ step: 'type' }, '', '');
+    // 初期ステップを履歴に記録
+    history.replaceState({ step: 'type', scroll: 0 }, '', '');
 
     window.bookingApp = {
       setType: function(type) {
@@ -432,8 +446,9 @@
       selectDuration: function(m) {
         state.duration = m;
         scrollPositions[state.step] = window.scrollY;
-        // loading→selectは同じ「select」ステップとして履歴に1回だけ追加
-        history.pushState({ step: 'select' }, '', '');
+        // duration→selectの履歴追加
+        history.replaceState({ step: state.step, scroll: window.scrollY }, '', '');
+        history.pushState({ step: 'select', scroll: 0 }, '', '');
         state.step = 'loading';
         state.error = '';
         state.selectedWeek = 0;
