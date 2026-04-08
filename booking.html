@@ -58,6 +58,7 @@
     .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
     .duration-btn { padding: 1.25rem; font-size: 1.1rem; font-weight: 600; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
     .duration-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .duration-btn--selected { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-accent); }
 
     .back-link { display: inline-block; margin-bottom: 1rem; font-size: 0.875rem; color: var(--color-accent); cursor: pointer; }
     .back-link:hover { opacity: 0.7; }
@@ -75,6 +76,7 @@
     .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
     .slot-btn { padding: 0.625rem; font-size: 0.875rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer; transition: all 0.2s; color: var(--color-text); }
     .slot-btn:hover { background: var(--color-primary); border-color: var(--color-accent); color: #fff; }
+    .slot-btn--selected { background: var(--color-primary); border-color: var(--color-accent); color: #fff; }
 
     .selected-slot { background: var(--color-primary); padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1.5rem; }
     .selected-slot .ss-type { font-size: 0.75rem; color: var(--color-accent); opacity: 0.8; margin-bottom: 0.125rem; }
@@ -269,7 +271,8 @@
         html += '<div class="step-title">ご希望の所要時間をお選びください</div>';
         html += '<div class="duration-grid">';
         SUB_TYPE_CONFIG[state.bookingSubType].durations.forEach(function(m) {
-          html += '<button class="duration-btn" onclick="bookingApp.selectDuration(' + m + ')">' + m + '分</button>';
+          var selected = (state.duration === m && state.selectedSlot) ? ' duration-btn--selected' : '';
+          html += '<button class="duration-btn' + selected + '" onclick="bookingApp.selectDuration(' + m + ')">' + m + '分</button>';
         });
         html += '</div>';
       }
@@ -302,7 +305,8 @@
             html += '<div class="date-label">' + dateLabel + '</div><div class="slots-grid">';
             g.groups[dateLabel].forEach(function(slot) {
               var time = slot.label.split(') ')[1];
-              html += '<button class="slot-btn" onclick="bookingApp.selectSlot(' + state.slots.indexOf(slot) + ')">' + time + '</button>';
+              var slotSelected = (state.selectedSlot && state.selectedSlot.start === slot.start) ? ' slot-btn--selected' : '';
+              html += '<button class="slot-btn' + slotSelected + '" onclick="bookingApp.selectSlot(' + state.slots.indexOf(slot) + ')">' + time + '</button>';
             });
             html += '</div>';
           });
