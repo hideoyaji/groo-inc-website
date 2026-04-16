@@ -580,6 +580,56 @@ blockquote {
   opacity: 1;
 }
 
+/* --- note記事一覧 --- */
+.note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.note-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.1);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.note-item:first-child {
+  border-top: 1px solid rgba(26, 58, 92, 0.1);
+}
+
+.note-item:hover {
+  background: rgba(26, 58, 92, 0.03);
+}
+
+.note-item__date {
+  color: #999;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+  min-width: 6rem;
+}
+
+.note-item__title {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.note-item:hover .note-item__title {
+  color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+  .note-item {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
 .footer__links {
   margin-bottom: 1.5rem;
 }

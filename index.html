@@ -125,6 +125,16 @@
       </div>
     </section>
 
+    <!-- 最新の発信（note RSS自動取得） -->
+    <section class="section section--alt" id="note-section">
+      <div class="container">
+        <h2 class="section__title">最新の発信</h2>
+        <p class="section__subtitle">両天秤アプローチの背景にある考え方や、実践の中で感じたことを発信しています。</p>
+        <div id="note-articles"></div>
+        <p class="mt-4" style="text-align: center;"><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent); font-weight: 600;">すべての記事を読む →</a></p>
+      </div>
+    </section>
+
     <!-- 課題提起 -->
     <section class="section">
       <div class="container">
@@ -208,18 +218,6 @@
       </div>
     </section>
 
-    <!-- note記事 -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">note</h2>
-        <p class="section__subtitle">両天秤アプローチの背景にある考え方や、実践の中で感じたことを発信しています。</p>
-        <p><a href="https://note.com/hideo_teramura/n/n90e0d45e0b57" target="_blank" rel="noopener" style="color: var(--color-accent); font-weight: 600;">AIの上に会社を建てた夜に起きたこと →</a></p>
-        <p class="mt-2"><a href="https://note.com/hideo_teramura/n/n75e8954c9b6c" target="_blank" rel="noopener" style="color: var(--color-accent);">コンサルの提案書が実行されない本当の理由 →</a></p>
-        <p class="mt-2"><a href="https://note.com/hideo_teramura/n/n61cd033b23d7" target="_blank" rel="noopener" style="color: var(--color-accent);">25年目で気づいたコンサルティングの限界 →</a></p>
-        <p class="mt-2"><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent);">その他の記事一覧 →</a></p>
-      </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-section">
       <h2 class="cta-section__title">まず60分、お話しませんか？</h2>
@@ -257,5 +255,33 @@
     <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
   </footer>
 
+  <!-- note RSS自動取得 -->
+  <script>
+    (function() {
+      var API = 'https://api.rss2json.com/v1/api.json?rss_url=https://note.com/hideo_teramura/rss';
+      var container = document.getElementById('note-articles');
+      if (!container) return;
+
+      fetch(API)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.status !== 'ok' || !data.items) return;
+          var items = data.items.slice(0, 5);
+          var html = '<div class="note-list">';
+          items.forEach(function(item, i) {
+            var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
+            html += '<a href="' + item.link + '" target="_blank" rel="noopener" class="note-item">';
+            html += '<span class="note-item__date">' + date + '</span>';
+            html += '<span class="note-item__title">' + item.title + '</span>';
+            html += '</a>';
+          });
+          html += '</div>';
+          container.innerHTML = html;
+        })
+        .catch(function() {
+          container.innerHTML = '<p><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent);">noteで最新記事を読む →</a></p>';
+        });
+    })();
+  </script>
 </body>
 </html>
