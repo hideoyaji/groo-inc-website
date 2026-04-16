@@ -585,36 +585,40 @@ blockquote {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 .note-card {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  background: #fff;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
+  padding: 2rem 1.5rem;
   text-decoration: none;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .note-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
 .note-card__date {
-  color: #999;
-  font-size: 0.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
 }
 
 .note-card__title {
-  color: var(--color-primary);
-  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
   font-weight: 700;
+  color: var(--color-primary);
   line-height: 1.5;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.75rem;
 }
 
 .note-card:hover .note-card__title {
@@ -622,9 +626,9 @@ blockquote {
 }
 
 .note-card__excerpt {
-  color: #666;
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
   margin: 0;
   flex-grow: 1;
 }
@@ -633,13 +637,13 @@ blockquote {
   color: var(--color-accent);
   font-size: 0.8125rem;
   font-weight: 600;
-  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  margin-top: 1.2rem;
 }
 
 @media (max-width: 768px) {
   .note-cards {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 }
 
