@@ -266,13 +266,18 @@
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (data.status !== 'ok' || !data.items) return;
-          var items = data.items.slice(0, 5);
-          var html = '<div class="note-list">';
-          items.forEach(function(item, i) {
+          var items = data.items.slice(0, 3);
+          var html = '<div class="note-cards">';
+          items.forEach(function(item) {
             var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
-            html += '<a href="' + item.link + '" target="_blank" rel="noopener" class="note-item">';
-            html += '<span class="note-item__date">' + date + '</span>';
-            html += '<span class="note-item__title">' + item.title + '</span>';
+            // descriptionからHTMLタグを除去して冒頭80文字を取得
+            var desc = (item.description || '').replace(/<[^>]*>/g, '').trim();
+            var excerpt = desc.length > 80 ? desc.slice(0, 80) + '…' : desc;
+            html += '<a href="' + item.link + '" target="_blank" rel="noopener" class="note-card">';
+            html += '<span class="note-card__date">' + date + '</span>';
+            html += '<h3 class="note-card__title">' + item.title + '</h3>';
+            html += '<p class="note-card__excerpt">' + excerpt + '</p>';
+            html += '<span class="note-card__more">続きを読む →</span>';
             html += '</a>';
           });
           html += '</div>';
