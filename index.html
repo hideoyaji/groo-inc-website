@@ -262,23 +262,43 @@
       var container = document.getElementById('note-articles');
       if (!container) return;
 
+      // ピン留め記事（常に表示）
+      var pinned = {
+        link: 'https://note.com/hideo_teramura/n/n27d7f8cf0747',
+        title: 'AI時代に人間が「人を生きる」ための学校を創ります',
+        date: '2026-04-12',
+        excerpt: '「ひとりAIラボ」という名前で6月にオンラインスクールとして開校する予定です。'
+      };
+
       fetch(API)
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (data.status !== 'ok' || !data.items) return;
-          var items = data.items.slice(0, 3);
-          var html = '<div class="note-cards">';
-          items.forEach(function(item) {
-            var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
-            // descriptionからHTMLタグを除去して冒頭80文字を取得
-            var desc = (item.description || '').replace(/<[^>]*>/g, '').trim();
-            var excerpt = desc.length > 80 ? desc.slice(0, 80) + '…' : desc;
-            html += '<a href="' + item.link + '" target="_blank" rel="noopener" class="note-card">';
+          // ピン留め記事を除外して最新2件を取得
+          var items = data.items.filter(function(item) {
+            return item.link !== pinned.link;
+          }).slice(0, 2);
+
+          function renderCard(link, title, date, excerpt, isPinned) {
+            var html = '<a href="' + link + '" target="_blank" rel="noopener" class="note-card' + (isPinned ? ' note-card--pinned' : '') + '">';
+            if (isPinned) html += '<span class="note-card__pin">PICK UP</span>';
             html += '<span class="note-card__date">' + date + '</span>';
-            html += '<h3 class="note-card__title">' + item.title + '</h3>';
+            html += '<h3 class="note-card__title">' + title + '</h3>';
             html += '<p class="note-card__excerpt">' + excerpt + '</p>';
             html += '<span class="note-card__more">続きを読む →</span>';
             html += '</a>';
+            return html;
+          }
+
+          var html = '<div class="note-cards">';
+          // ピン留め記事を最初に表示
+          html += renderCard(pinned.link, pinned.title, pinned.date, pinned.excerpt, true);
+          // 最新2件
+          items.forEach(function(item) {
+            var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
+            var desc = (item.description || '').replace(/<[^>]*>/g, '').trim();
+            var excerpt = desc.length > 80 ? desc.slice(0, 80) + '…' : desc;
+            html += renderCard(item.link, item.title, date, excerpt, false);
           });
           html += '</div>';
           container.innerHTML = html;
