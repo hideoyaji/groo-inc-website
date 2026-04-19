@@ -255,10 +255,10 @@
     <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
   </footer>
 
-  <!-- note RSS自動取得 -->
+  <!-- note 記事自動取得（GitHub Actionsで日次更新されるJSONから） -->
   <script>
     (function() {
-      var API = 'https://api.rss2json.com/v1/api.json?rss_url=https://note.com/hideo_teramura/rss';
+      var DATA_URL = '/data/note-articles.json?t=' + Date.now();
       var container = document.getElementById('note-articles');
       if (!container) return;
 
@@ -266,39 +266,34 @@
       var pinned = {
         link: 'https://note.com/hideo_teramura/n/n27d7f8cf0747',
         title: 'AI時代に人間が「人を生きる」ための学校を創ります',
-        date: '2026-04-12',
+        pubDate: '2026-04-12',
         excerpt: '「ひとりAIラボ」という名前で6月にオンラインスクールとして開校する予定です。'
       };
 
-      fetch(API)
+      function renderCard(link, title, date, excerpt, isPinned) {
+        var html = '<a href="' + link + '" target="_blank" rel="noopener" class="note-card' + (isPinned ? ' note-card--pinned' : '') + '">';
+        if (isPinned) html += '<span class="note-card__pin">PICK UP</span>';
+        html += '<span class="note-card__date">' + date + '</span>';
+        html += '<h3 class="note-card__title">' + title + '</h3>';
+        html += '<p class="note-card__excerpt">' + excerpt + '</p>';
+        html += '<span class="note-card__more">続きを読む →</span>';
+        html += '</a>';
+        return html;
+      }
+
+      fetch(DATA_URL)
         .then(function(r) { return r.json(); })
         .then(function(data) {
-          if (data.status !== 'ok' || !data.items) return;
-          // ピン留め記事を除外して最新2件を取得
+          if (!data.items) return;
+          // ピン留め記事を除外して最新2件
           var items = data.items.filter(function(item) {
             return item.link !== pinned.link;
           }).slice(0, 2);
 
-          function renderCard(link, title, date, excerpt, isPinned) {
-            var html = '<a href="' + link + '" target="_blank" rel="noopener" class="note-card' + (isPinned ? ' note-card--pinned' : '') + '">';
-            if (isPinned) html += '<span class="note-card__pin">PICK UP</span>';
-            html += '<span class="note-card__date">' + date + '</span>';
-            html += '<h3 class="note-card__title">' + title + '</h3>';
-            html += '<p class="note-card__excerpt">' + excerpt + '</p>';
-            html += '<span class="note-card__more">続きを読む →</span>';
-            html += '</a>';
-            return html;
-          }
-
           var html = '<div class="note-cards">';
-          // ピン留め記事を最初に表示
-          html += renderCard(pinned.link, pinned.title, pinned.date, pinned.excerpt, true);
-          // 最新2件
+          html += renderCard(pinned.link, pinned.title, pinned.pubDate, pinned.excerpt, true);
           items.forEach(function(item) {
-            var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
-            var desc = (item.description || '').replace(/<[^>]*>/g, '').trim();
-            var excerpt = desc.length > 80 ? desc.slice(0, 80) + '…' : desc;
-            html += renderCard(item.link, item.title, date, excerpt, false);
+            html += renderCard(item.link, item.title, item.pubDate, item.excerpt, false);
           });
           html += '</div>';
           container.innerHTML = html;
