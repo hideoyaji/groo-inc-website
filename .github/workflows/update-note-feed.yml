@@ -1,0 +1,79 @@
+name: Update note feed
+
+on:
+  schedule:
+    # 毎日 JST 8:00, 14:00, 20:00 (UTC 23:00, 5:00, 11:00)
+    - cron: '0 23,5,11 * * *'
+  workflow_dispatch:  # 手動実行も可能
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch note RSS and convert to JSON
+        run: |
+          python3 - <<'PYEOF'
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          import json
+          import re
+          from datetime import datetime
+          from email.utils import parsedate_to_datetime
+
+          RSS_URL = "https://note.com/hideo_teramura/rss"
+
+          req = urllib.request.Request(RSS_URL, headers={"User-Agent": "groo-inc-website-bot/1.0"})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              rss_content = r.read().decode("utf-8")
+
+          root = ET.fromstring(rss_content)
+          channel = root.find("channel")
+          items = []
+          for item in channel.findall("item")[:10]:
+              title = item.findtext("title", "").strip()
+              link = item.findtext("link", "").strip()
+              pub_date_raw = item.findtext("pubDate", "").strip()
+              description = item.findtext("description", "").strip()
+
+              # pubDateをISO形式(YYYY-MM-DD)に変換
+              try:
+                  pub_date = parsedate_to_datetime(pub_date_raw).strftime("%Y-%m-%d")
+              except Exception:
+                  pub_date = ""
+
+              # descriptionからHTMLタグを除去して80文字に
+              desc_text = re.sub(r"<[^>]*>", "", description).strip()
+              excerpt = desc_text[:80] + ("…" if len(desc_text) > 80 else "")
+
+              items.append({
+                  "title": title,
+                  "link": link,
+                  "pubDate": pub_date,
+                  "excerpt": excerpt,
+              })
+
+          output = {
+              "updated": datetime.utcnow().isoformat() + "Z",
+              "items": items,
+          }
+          with open("data/note-articles.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+          print(f"Wrote {len(items)} items")
+          PYEOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/note-articles.json
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update note articles feed [skip ci]"
+            git push
+          fi
