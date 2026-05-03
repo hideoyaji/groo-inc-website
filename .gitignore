@@ -1,18 +1,46 @@
-# macOS
-.DS_Store
-**/.DS_Store
+# ========================================
+# グルーWebサイト .gitignore
+# MF GitHub事件を受けたセキュリティ対策
+# 作成: 2026-05-03 by AG/Richard
+# ========================================
 
-# Editor
+# --- 認証情報・シークレット（最重要） ---
+.env
+.env.*
+.env.local
+.env.production
+*.key
+*.pem
+*.p12
+*secret*
+*credential*
+*service-account*
+*service_account*
+
+# --- OS生成ファイル ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- エディタ・IDE ---
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# Logs
-*.log
-npm-debug.log*
-
-# Dependencies
+# --- Node.js（将来的にビルドツール導入時） ---
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Environment
-.env
-.env.local
+# --- ビルド出力 ---
+dist/
+build/
+*.local
+
+# --- バックアップ・一時ファイル ---
+*.bak
+*.tmp
+*.orig
