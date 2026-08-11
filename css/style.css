@@ -83,6 +83,28 @@ a:hover {
   color: inherit;
 }
 
+.site-logo__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.site-logo__mark {
+  height: 30px;
+  width: auto;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.site-logo__name {
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .site-logo__mark { height: 24px; }
+  .site-logo__name { display: none; }
+}
+
 /* --- ナビゲーション --- */
 .site-nav ul {
   display: flex;

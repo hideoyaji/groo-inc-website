@@ -24,7 +24,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
@@ -32,7 +32,12 @@
 <body>
 
   <header class="site-header">
-    <div class="site-logo"><a href="/">株式会社グルー</a></div>
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
     <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
       <span></span><span></span><span></span>
     </button>
@@ -71,7 +76,7 @@
 
         <p class="mb-4">以下のフォームよりお気軽にご連絡ください。</p>
 
-        <!-- Formspree（Ajax送信 → thanks.htmlへリダイレクト） -->
+ <!-- Formspree (Ajax送信 → thanks.htmlへリダイレクト) -->
         <form class="form" id="contact-form">
           <div class="form__group">
             <label class="form__label" for="company">会社名</label>
@@ -97,7 +102,7 @@
             <label class="form__label" for="subject">ご相談内容 <span class="required">必須</span></label>
             <select class="form__select" id="subject" name="subject" required>
               <option value="">選択してください</option>
-              <option value="初回相談（60分無料）">初回相談（60分無料）</option>
+ <option value="初回相談 (60分無料)">初回相談 (60分無料)</option>
               <option value="コンサルティングについて">コンサルティングについて</option>
               <option value="コーチング／リーダーシップについて">コーチング／リーダーシップについて</option>
               <option value="講演・登壇の依頼">講演・登壇の依頼</option>

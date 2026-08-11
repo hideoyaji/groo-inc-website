@@ -10,33 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
 
   <style>
     /* --- プロトタイプ専用。確定したら style.css へ移す --- */
 
-    /* ヘッダーのロゴ */
-    .site-logo__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-    .site-logo__mark {
-      height: 30px;
-      width: auto;
-      display: block;
-      flex: 0 0 auto;
-    }
-    .site-logo__name {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      color: var(--color-primary);
-      white-space: nowrap;
-    }
-    @media (max-width: 560px) {
-      .site-logo__mark { height: 24px; }
-      .site-logo__name { display: none; }
-    }
     .proto-note {
       background: #fff8e1;
       border-left: 4px solid var(--color-accent);
@@ -330,7 +308,7 @@
   <header class="site-header">
     <div class="site-logo">
       <a href="/" class="site-logo__link">
-        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
         <span class="site-logo__name">株式会社グルー</span>
       </a>
     </div>
