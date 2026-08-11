@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[プロトタイプ] リニューアル案 | 株式会社グルー</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* --- プロトタイプ専用。確定したら style.css へ移す --- */
+
+    /* ヘッダーのロゴ */
+    .site-logo__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .site-logo__mark {
+      height: 30px;
+      width: auto;
+      display: block;
+      flex: 0 0 auto;
+    }
+    .site-logo__name {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+    @media (max-width: 560px) {
+      .site-logo__mark { height: 24px; }
+      .site-logo__name { display: none; }
+    }
+    .proto-note {
+      background: #fff8e1;
+      border-left: 4px solid var(--color-accent);
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+    }
+    .proto-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      border-radius: 3px;
+      padding: 0.15rem 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* 1. Call Out — ヒーロー */
+    .hero-statement {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 6rem 1.5rem 5rem;
+      text-align: center;
+    }
+    .hero-statement__call {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 2rem;
+      line-height: 2;
+    }
+    .hero-statement__body {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.6vw, 1.75rem);
+      font-weight: 700;
+      line-height: 2;
+      max-width: 31em;
+      margin: 0 auto;
+    }
+    .hero-statement__wake {
+      margin: 3rem auto 0;
+      max-width: 36em;
+      font-size: clamp(0.95rem, 1.7vw, 1.0625rem);
+      line-height: 2.2;
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,0.28);
+      padding-top: 2.5rem;
+    }
+    @media (max-width: 700px) {
+      .hero-statement { padding: 4rem 1.25rem 3.5rem; }
+      .hero-statement__body br { display: none; }
+    }
+
+    /* 2. 痛み */
+    .pains {
+      max-width: 42em;
+      margin: 0 auto;
+      list-style: none;
+    }
+    .pains li {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.9vw, 1.2rem);
+      line-height: 1.8;
+      padding: 1.05rem 0 1.05rem 1.75rem;
+      border-bottom: 1px dashed var(--color-border);
+      position: relative;
+    }
+    .pains li::before {
+      content: "「";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    /* 3. Credibility — 1行 */
+    .cred-line {
+      background: var(--color-bg-alt);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    .cred-line p {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 2.1vw, 1.4rem);
+      line-height: 2;
+      max-width: 30em;
+      margin: 0 auto;
+      color: var(--color-primary);
+    }
+    .cred-line p.cred-line__sig {
+      margin-top: 1.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      max-width: 34em;
+    }
+    .cred-line p.cred-line__cap {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      max-width: 34em;
+    }
+    .cred-line .reel-embed { margin-bottom: 0; }
+
+    /* 外部リンクの行 */
+    .linkrow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.5rem;
+      margin-top: 1.75rem;
+      font-size: 0.875rem;
+    }
+    .linkrow a { color: var(--color-accent); font-weight: 600; }
+
+    /* 氷山図 */
+    .iceberg { max-width: 900px; margin: 0 auto; }
+    .iceberg svg { width: 100%; height: auto; display: block; }
+    .iceberg__quote {
+      max-width: 40em;
+      margin: 2.5rem auto 0;
+      border-left: 3px solid var(--color-accent);
+      padding-left: 1.25rem;
+      font-size: 1rem;
+      line-height: 2;
+    }
+    .iceberg__quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      font-style: normal;
+      color: var(--color-text-light);
+    }
+    .iceberg__note {
+      max-width: 40em;
+      margin: 1.5rem auto 0;
+      padding-left: 1.25rem;
+      font-size: 0.75rem;
+      line-height: 1.8;
+      color: var(--color-text-light);
+    }
+
+    /* Belief Breaker */
+    .breakers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .breaker__num {
+      font-family: var(--font-serif);
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+    .breaker h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+    .breaker p { font-size: 0.9rem; line-height: 1.95; }
+
+    /* 解決策 */
+    .solutions { display: grid; gap: 1.25rem; }
+    .solution {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      background: var(--color-bg);
+    }
+    .solution__pain {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .solution__body { font-size: 0.975rem; line-height: 2; }
+
+    /* 正直な現在地 */
+    .honest {
+      background: var(--color-primary);
+      color: rgba(255,255,255,0.9);
+    }
+    .honest .section__title { color: #fff; }
+    .honest .section__subtitle { color: rgba(255,255,255,0.7); }
+    .honest ul { list-style: none; max-width: 42em; margin: 0 auto; }
+    .honest li {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.975rem;
+      line-height: 2;
+    }
+    .honest li strong { color: var(--color-accent); }
+    .honest__close {
+      max-width: 42em;
+      margin: 2.5rem auto 0;
+      font-size: 0.95rem;
+      line-height: 2.1;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* 日常 */
+    .daily-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .daily-tags span {
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+    }
+    .mix-embed {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+    .mix-embed iframe { display: block; width: 100%; border: none; }
+
+    .media-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .media-row .reel-embed {
+      flex: 0 0 340px;
+      max-width: 340px;
+      width: 100%;
+      margin: 0;
+      position: relative;
+      aspect-ratio: 400 / 715;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+    .media-row .reel-embed iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .media-row__side { flex: 1; min-width: 280px; }
+
+    /* 自撮り動画 (Do It Scared) */
+    .selfvideo {
+      flex: 0 0 340px;
+      max-width: 340px;
+      width: 100%;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      line-height: 0;
+    }
+    .selfvideo video { width: 100%; height: auto; display: block; }
+    @media (max-width: 700px) {
+      .selfvideo { flex: 0 0 100%; max-width: 100%; margin: 0 auto; }
+    }
+    .media-row__label {
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 700px) {
+      .media-row .reel-embed { flex: 0 0 100%; max-width: 100%; margin: 0 auto; }
+    }
+
+    /* 事例 */
+    .case { border-left: 3px solid var(--color-accent); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+    .case__meta { font-size: 0.8125rem; color: var(--color-accent); font-weight: 600; margin-bottom: 0.4rem; }
+    .case h3 { font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-primary); margin-bottom: 0.75rem; }
+    .case p { font-size: 0.95rem; line-height: 2; }
+    .case ul { margin: 0.75rem 0 0 1.25rem; font-size: 0.95rem; line-height: 2; }
+
+    /* 動画グリッド */
+    .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .video__frame { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; }
+    .video__frame iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
+    .video h3 { font-size: 1rem; margin-top: 1rem; color: var(--color-primary); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/booking.html">日程予約</a></li>
+        <li><a href="/contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="container" style="padding-top:1.5rem;">
+      <p class="proto-note"><strong>プロトタイプ</strong>。壁打ち用。公開中のページには影響しません。noindex 設定済み。構成は RALSTON 演習13 の 4C's に沿っています。</p>
+    </div>
+
+    <!-- ===== 1. Call Out ===== -->
+    <section class="hero-statement">
+      <p class="hero-statement__call">正解を出すことに縛られ、自分を小さく見ているマネージャーの皆さまへ。</p>
+      <p class="hero-statement__body">
+        &ldquo;正解&rdquo;を出し続けることに疲れ果てた経営者・マネージャーは、<br>
+        これ以上、正解を外に買い足すのではなく、<br>
+        チームの中で殺されている本音を動かすことから始めるべきだ。
+      </p>
+      <p class="hero-statement__wake">
+        私たちは、人を、組織を、小さく見ることはありません。<br>
+        皆さんは「虎」なのです。<br>
+        高いフィーを払って戦略コンサルの「威を借る」ことから、目覚めてください。<br>
+        私たちは、皆さんに目覚めてもらうことを願っています。
+      </p>
+    </section>
+
+    <!-- ===== 2. Call Out の続き — 痛み ===== -->
+    <section class="section">
+      <div class="container">
+        <span class="proto-tag">CALL OUT</span>
+        <h2 class="section__title">こういうことが、起きていませんか</h2>
+
+        <ul class="pains">
+          <li>私は経営者と実行者の板挟みになっている</li>
+          <li>私は効果的にコンサルティング会社を活用できていない</li>
+          <li>私は本当のことを話すことができていないし、本当のことを話す相手がいない</li>
+          <li>私はこのまま進めば会社の事業が危うくなることを知っているが、言い出すことができない</li>
+          <li>私は本当はやりたい施策があるにも関わらず、踏み込むことができない</li>
+          <li>私は部下へのマネジメントが上手くいかないことにストレスを感じている</li>
+          <li>私はこんなことをするために、この会社に入ってきたわけではない</li>
+          <li>私は心理的安全性を脅かされている</li>
+          <li>私は会社でのストレスを家にも持ち帰って、苦しい気持ちが晴れることがない</li>
+          <li>私はこのままの状態で時間だけが過ぎていくことに、苛立ちと不安を抱えている</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 3. Credibility — 1行 ===== -->
+    <section class="cred-line">
+      <div class="container">
+        <span class="proto-tag">CREDIBILITY</span>
+        <p>戦略コンサルティングを四半世紀やってきたので、<br>コンサルタントという仕事そのものが抱える矛盾と葛藤を、<br>誰よりも知っています。</p>
+        <p class="cred-line__sig">寺村 英雄 / 株式会社グルー 代表取締役<br>野村総合研究所13年 (うち中国5年)、独立後12年 / CPCC・ICF ACC・ORSC応用</p>
+
+        <div class="reel-embed" style="margin: 3rem auto 1.25rem;">
+          <iframe src="https://www.instagram.com/reel/Db4OLurTioP/embed/" title="寺村英雄 Instagram リール — コンサルティングの矛盾について" allowtransparency="true" allowfullscreen scrolling="no" loading="lazy"></iframe>
+        </div>
+        <p class="cred-line__cap">その矛盾を、そのまま話しています。</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. Belief Breaker ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <span class="proto-tag">BELIEF BREAKER</span>
+        <h2 class="section__title">なぜ、正しい戦略が実行されないのか</h2>
+        <p class="section__subtitle">おそらく前提が3つ、ずれています。</p>
+
+        <div class="breakers">
+          <div class="breaker">
+            <div class="breaker__num">01</div>
+            <h3>コーチングしても、進む角度は0.25度しか変わらない</h3>
+            <p>個人へのコーチングは、その場では強く響きます。「アクションをやってきます」と言って帰られます。そこで進む向きが、たとえば3度分変わったとします。ところが組織構造の側に戻ると、その3度が2.75度分ほど軌道修正されて返ってきます。<strong>残るのは0.25度です。</strong>構造の側に強い圧力がかかっているので、恒常性が働いて元に戻ってしまうのです。</p>
+          </div>
+          <div class="breaker">
+            <div class="breaker__num">02</div>
+            <h3>コンサルは、土台を見ていない</h3>
+            <p>建物でいえば、コンサルタントは構造そのものを見る力が非常に高いです。だから「この部屋をなくしましょう」「増床しましょう」ができます。けれど土台を見ていないので、動きません。戦略を変え、組織構造を変え、報告書を渡しても、受け取った側が動きません。エネルギーがパワーに変わっていないからです。</p>
+          </div>
+          <div class="breaker">
+            <div class="breaker__num">03</div>
+            <h3>愛なき力と、力なき愛</h3>
+            <p>コーチには愛はありますが、力を行使しません。コンサルタントは力しか行使しません。わたしたちは、組織に<strong>必ず2人1組 (コーリード) で入ります</strong>。一人では立たないからです。両方を一人で持つ人間が2人で組む形 (実証済みです) と、コンサルタント1人とコーチ1人で組む形があります。結果、<strong>愛と力のバランスが取れたリーダーシップで関わることが可能です。</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. 独自の解決策 ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">わたしたちのやり方</h2>
+
+        <div class="solutions">
+          <div class="solution">
+            <p class="solution__pain">私は効果的にコンサルティング会社を活用できていない</p>
+            <p class="solution__body">固定化された未来予測に向けて一直線に進むことを、手放します。指針と価値観だけで冒険する組織にします。<strong>コントロールを手放す</strong>ということです。</p>
+          </div>
+          <div class="solution">
+            <p class="solution__pain">コンサルを雇ったが、思った通りに進まない。コントロールできない</p>
+            <p class="solution__body">戦略コンサルは頭脳エリート職の頂点にあります。企業のマネージャーと比べて<strong>「ランク」が高いので、マネージャー側が遠慮します</strong>。わたしたちのコンサルタントは、場 (フィールド) の空気感や感情など、<strong>目に見えない雰囲気のようなものを扱うことができる</strong>ので、マネージャーとのあいだに<strong>協働関係</strong>をつくれます。</p>
+          </div>
+          <div class="solution">
+            <p class="solution__pain">捨てることができず、決断ができない。結局意見は丸くなる</p>
+            <p class="solution__body">わたしたちのやり方では、選択・決断が全てです。葛藤の中で選ぶことによって、価値観に気づきます。これを<strong>頭だけでなく身体も使って</strong>繰り返します。それにより、選べるようになります。</p>
+          </div>
+          <div class="solution">
+            <p class="solution__pain">事業計画が形骸化している。作った瞬間に陳腐化している</p>
+            <p class="solution__body">指針と価値観で選びながら進む関係性をつくれば、<strong>中長期の計画はいらなくなります</strong>。むしろ短期の計画をつくっては壊しを続けていくことで、成長しながら進めます。PDCA でいえば、P と D よりも <strong>C と A に重きを置きます</strong>。</p>
+          </div>
+          <div class="solution">
+            <p class="solution__pain">マネジメント職に上がりたくないという人が増えて、罰ゲームのようになっている</p>
+            <p class="solution__body">その先に観たいのは、<strong>「虎の威を借る狐」になっている部長・本部長たちが、自分とチームが虎であることに気づく世界</strong>です。そして<strong>借り物のジャケット (コンサルの報告書) に手を出さない姿</strong>を見せることで、世の中は変わります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. Compass — 氷山図 (両天秤) ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <span class="proto-tag">COMPASS</span>
+        <h2 class="section__title">これを全部、統合してやります</h2>
+        <p class="section__subtitle">組織のマネジメントは4つの領域に分かれます。ふつうは、別々の専門家が別々に担当します。この4つを一つの文脈で統合して関わることを、わたしたちは <strong>両天秤アプローチ</strong> と呼んでいます。</p>
+
+        <div class="iceberg">
+          <svg viewBox="0 0 900 760" role="img" aria-labelledby="ice-t ice-d">
+            <title id="ice-t">組織マネジメントの4象限と両天秤アプローチ</title>
+            <desc id="ice-d">横軸は個人と組織、縦軸は目に見える領域と水面下の領域。ふつうは4つの領域を別々の専門家が担当し、とくに組織かつ水面下の右下には手が入っていない。両天秤アプローチは4つ全部を一つの文脈で統合して関わる。</desc>
+
+            <!-- 水面下の背景 -->
+            <rect x="115" y="355" width="750" height="285" fill="#1a1a2e" opacity="0.045"/>
+            <!-- 右下 = 手が入っていない領域 -->
+            <rect x="490" y="355" width="375" height="285" fill="#c9a96e" opacity="0.12"/>
+
+            <!-- 象限の区切り -->
+            <line x1="490" y1="70" x2="490" y2="640" stroke="#e0ddd5" stroke-width="1"/>
+            <!-- 水面 -->
+            <line x1="85" y1="355" x2="865" y2="355" stroke="#1a1a2e" stroke-width="2"/>
+            <text x="855" y="345" text-anchor="end" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#1a1a2e" opacity="0.55">水面</text>
+
+            <!-- 外枠 = 両天秤 -->
+            <rect x="115" y="70" width="750" height="570" fill="none" stroke="#c9a96e" stroke-width="3"/>
+
+            <!-- 軸ラベル -->
+            <text x="302" y="46" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="21" font-weight="700" fill="#1a1a2e">個人</text>
+            <text x="677" y="46" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="21" font-weight="700" fill="#1a1a2e">組織</text>
+            <text x="93" y="210" text-anchor="end" font-family="'Noto Sans JP',sans-serif" font-size="15" font-weight="600" fill="#1a1a2e">見える</text>
+            <text x="93" y="500" text-anchor="end" font-family="'Noto Sans JP',sans-serif" font-size="15" font-weight="600" fill="#1a1a2e">見えない</text>
+
+            <!-- 左上 -->
+            <text x="145" y="112" font-family="'Noto Serif JP',serif" font-size="19" font-weight="700" fill="#1a1a2e">スキルだけでは変わらない</text>
+            <g font-family="'Noto Sans JP',sans-serif" font-size="15" fill="#555">
+              <text x="145" y="154">キャリアコンサルティング</text>
+              <text x="145" y="184">スキル研修</text>
+              <text x="145" y="214">マナー研修</text>
+              <text x="145" y="244">パワポ研修</text>
+            </g>
+
+            <!-- 右上 -->
+            <text x="520" y="112" font-family="'Noto Serif JP',serif" font-size="19" font-weight="700" fill="#1a1a2e">このお金が、無駄になっている</text>
+            <g font-family="'Noto Sans JP',sans-serif" font-size="15" fill="#555">
+              <text x="520" y="154">戦略</text>
+              <text x="520" y="184">組織構造</text>
+              <text x="520" y="214">制度設計</text>
+            </g>
+            <text x="520" y="256" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#888">大手コンサルティングファームの領域</text>
+
+            <!-- 左下 -->
+            <text x="145" y="406" font-family="'Noto Serif JP',serif" font-size="19" font-weight="700" fill="#1a1a2e">結局、組織の圧力に屈してしまう</text>
+            <g font-family="'Noto Sans JP',sans-serif" font-size="15" fill="#555">
+              <text x="145" y="448">パーソナルコーチング</text>
+              <text x="145" y="478">エグゼクティブコーチング</text>
+            </g>
+
+            <!-- 右下 -->
+            <text x="520" y="406" font-family="'Noto Serif JP',serif" font-size="19" font-weight="700" fill="#1a1a2e">ここに、ほとんど手が入っていない</text>
+            <g font-family="'Noto Sans JP',sans-serif" font-size="15" fill="#555">
+              <text x="520" y="448">心理的安全性</text>
+              <text x="520" y="478">関係性</text>
+              <text x="520" y="508">場に流れているもの</text>
+              <text x="520" y="538">声になっていない声</text>
+            </g>
+            <g font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#888">
+              <text x="520" y="578">扱えているのは 組織整体&#8482;・アジャイル など、</text>
+              <text x="520" y="602">ごく一部にとどまる</text>
+            </g>
+
+            <!-- 外枠のラベル -->
+            <line x1="490" y1="640" x2="490" y2="676" stroke="#c9a96e" stroke-width="1.5"/>
+            <text x="490" y="708" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="21" font-weight="700" fill="#c9a96e">両天秤アプローチ</text>
+            <text x="490" y="740" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" fill="#666">この4つを、一つの文脈で統合して関わる</text>
+          </svg>
+        </div>
+
+        <blockquote class="iceberg__quote">
+          右下が良い状態であれば、右上の領域はそこそこで十分。逆に右上の完成度がどんなに高くても、右下の状態が悪ければ成果はでない。
+          <cite>王子田克樹 (katz) / パートナー・<a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a> &nbsp;|&nbsp; <a href="https://note.com/wonder3_katz/n/ned888116e581" target="_blank" rel="noopener" style="color:var(--color-accent);">出典の note &rarr;</a></cite>
+        </blockquote>
+
+        <p class="iceberg__note">&#8251; 「組織整体&#8482;」は、王子田克樹 (katz) の商標です。</p>
+
+        <div class="videos" style="margin-top:3.5rem;">
+          <div class="video">
+            <div class="video__frame">
+              <iframe src="https://www.youtube.com/embed/2I_9oJx_6wY" title="「両天秤アプローチ」とは？" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3>「両天秤アプローチ」とは?</h3>
+          </div>
+          <div class="video">
+            <div class="video__frame">
+              <iframe src="https://www.youtube.com/embed/mvKpX8WBC6g" title="両天秤アプローチの方法論【シナリオ・プランニング】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3>両天秤アプローチの方法論 【シナリオ・プランニング】</h3>
+          </div>
+        </div>
+        <p class="iceberg__note" style="text-align:center; max-width:none; padding-left:0;">飾らず、編集も極力せずに、そのまま出しています。</p>
+      </div>
+    </section>
+
+    <!-- ===== 7. 事例 ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">実際に、何が起きているか</h2>
+        <p class="section__subtitle">社名は、掲載の許可をいただいた企業のみ実名で記載しています。それ以外は業種と規模に置き換えています。個人名はすべて伏せています。</p>
+
+        <div class="case">
+          <div class="case__meta">中堅エンジニアリング商社 / 従業員 約200名 / 進行中</div>
+          <h3>部長陣17名と、変容型シナリオ・プランニング</h3>
+          <p>社長・経営企画本部長と協働し、コーリードで実践中。「経済性 × 健全性」の統合実装の一次プロトタイプが立ち上がりつつある段階です。</p>
+          <ul>
+            <li>最初は全く話をしなかった人たちに対話が生まれ、<strong>対立を厭わない構図が見えてきている</strong></li>
+            <li>10年を3年・3年・4年でブレイクダウンしていた中期計画を、<strong>最初の3年だけにしようという動きが出始めている</strong></li>
+          </ul>
+          <blockquote style="margin-top:1.25rem;">こんな風に皆が積極的に意見を交わしている姿を見たことがない。これが観たかった。僕も中に入りたかった。<br><span style="font-size:0.8125rem; color:var(--color-text-light);">経営企画本部長 / 合宿2日目のあと</span></blockquote>
+        </div>
+
+        <div class="case">
+          <div class="case__meta">自動車部品製造業 / 売上30億円規模</div>
+          <h3>戦略コンサル × コーチング統合の、初実装</h3>
+          <p>海外での事業が、何年も立ち上がらない。原因は戦略ではなく、日本側と現地のあいだに長年たまっていたものでした。両方のトップが同席する2週間の現地合宿に、外部の人間として入りました。</p>
+          <ul>
+            <li>日本側トップの口から、過去の追及のような質問が出ました。<strong>会議室が凍りました。</strong>「どうして、その話をここでやるのですか。原因を解決するために、この場があるんです」「一度、全部、腹の中をぶちまけてください」と、割って入りました。ハッとした表情になり、「ああ、そういうことだよね。ごめん、ごめん」と口にされました。<strong>張り詰めていた空気が、雪解けに変わりました。</strong>ここで謝ることができる人は、強い。</li>
+            <li>合意した目標数値に対して、翌日「到底無理な数値だ」という声が現地から上がりました。青天の霹靂でした。ところがその日のうちに、同じ人から「<strong>やっぱり、よく考えてみたら狙えそうだ</strong>」と返ってきました。ゴールが出されたからこそ、現場が悩む。<strong>この悩みこそが、当事者意識でした。</strong></li>
+            <li>英語を学び始めて1年も経っていない最年少のメンバーが、現地で議論の進行役を担いました。ストレスが胃腸にきて、食事が喉を通らない日もありました。それでも、切れることも、逃げることも、ごまかすこともなく、最後までやりきりました。</li>
+          </ul>
+          <blockquote style="margin-top:1.25rem;">白熱した議論になりました。でも最後は、&ldquo;効率的な自分&rdquo;が&ldquo;人の気持ちに寄り添う自分&rdquo;に、「そういう方法があるのであれば、やってみたら」と折れました。<br><span style="font-size:0.8125rem; color:var(--color-text-light);">プロジェクトのコアメンバー / 会議の進行役として葛藤する2つの自分を、対話させてみたあとに</span></blockquote>
+          <p style="margin-top:1.25rem;">本気の議論、声なき声、味わわれていない感情。開いた場をホールドし、参加者の価値観の灯火のきらめきを何度も観ました。25年の戦略コンサル人生で一度も見たことのない現場の変容が、ここで起きました。</p>
+        </div>
+
+        <div class="case">
+          <div class="case__meta">株式会社博報堂コンサルティング / 進行中</div>
+          <h3>フェロー兼 社内コーチとして、内側から</h3>
+          <p>「正しく、確からしく、時間通りに」が強く求められる仕事が続くなかで、かつてあった「面白く、ワクワクする提案」ができる風土を、もう一度立ち上げようとしています。フェローという立場で内側に入り、1on1 のコーチングを通じて揺らぎを持ち込んでいます。</p>
+          <p style="margin-top:0.75rem;">初年度は10ヶ月で<strong>22名・91セッション</strong>。うち5回以上続いた方が9名でした。答えを出す立場にある人が、問いに留まる、感情を感じるという普段と逆のモードに入れたこと。それがいちばん効きました。</p>
+          <ul>
+            <li>論理で整理することから入る方が、回を重ねるうちに「<strong>答えを出す前に、何を問うべきかを考えるようになった</strong>」と語りました</li>
+            <li>「自分は職場で<strong>緩衝材</strong>のような存在だ」と口にした方に、それをどう感じているかを尋ねました。最初は「必要なことだと思っていた」。問いを重ねるうちに「<strong>本当はもっと、自分の意見を前面に出したいと感じていた</strong>」に変わりました</li>
+          </ul>
+          <p style="margin-top:0.75rem; font-size:0.8125rem; color:var(--color-text-light);">※ セッションの内容は ICF 倫理規定により非開示です。上記は個人が特定されないよう加工した記録から引用しています。</p>
+        </div>
+
+        <div class="case">
+          <div class="case__meta">創業期 / 共同創業者2名 / 進行中</div>
+          <h3>会社を立ち上げる2人の関係性に、システムコーチング</h3>
+          <p>無意識の内的役割や思い込みによる硬直化を防ぐこと。どんな会社を作りたいか、誰を巻き込んでいきたいかを明確にすること。2名のコーチによるコーリードで関わっています。</p>
+        </div>
+
+        <div class="case">
+          <div class="case__meta">株式会社リンカーズOI研究所 / 進行中</div>
+          <h3>新規事業テーマの評価と、コーリードの担い手を育てること</h3>
+          <p>食品分野の新規事業テーマについて、ビジネスモデル (商流・バリューチェーン・サプライチェーン) の壁打ちを担当しています。狙いは「成功する仮説を作り込む」ことではなく、<strong>客観的な評価</strong>です。論点がどこに残るか、ファクトで言えることは何か、参照すべきモデルは何か。品質の責任は、わたしが持ちます。</p>
+          <p style="margin-top:0.75rem;">この案件には、<strong>コーチを1名、一緒に入れています。</strong>わたしたちは、論理の世界からコーチングに踏み込んできた人間です。逆に、<strong>関係性の世界から論理に踏み込んでくる人</strong>が要る。両天秤の担い手は、実際の案件の中でしか育たないと思っているので、こういう場を意図してつくっています。</p>
+          <blockquote style="margin-top:1.25rem;">
+            コーチの皆さんの愛の力だけではうまくいかないよね、というところと、左脳の力をつけていくという部分に。<strong>私が、そのままそういう人だな</strong>と思いまして。<br>
+            ものすごい、左脳を使っていく部分にコンプレックスがあるんです。こちら側の<strong>左脳を鍛えるという面でいいなら、ぜひやりたい</strong>です。
+            <br><span style="font-size:0.8125rem; color:var(--color-text-light);">一緒に入っているコーチ / 参加を決めたときに</span>
+          </blockquote>
+          <p style="margin-top:1.25rem;">これに、こう返しました。「話していると、ちゃんと文脈も論理も通っているじゃないですか。<strong>なんでコンプレックス持ってるんだろう。逆に、なんでそんな自分をちっちゃく見てんの、ってすごく思った</strong>」</p>
+          <p style="margin-top:0.75rem;">お手伝いをお願いしているのではありません。<strong>「一緒に場に立ちましょう」という誘い方をしています。</strong>営業でも、交渉でも、報告でも、ワークショップでも、必ず2人で行く。1人で行けば早いですが、2人で行くと遠くまで行けます。</p>
+        </div>
+
+        <!-- ============================================================
+             掲載ステイ中 (2026-08-11 社長判断) — TOPPAN
+             提案中の案件。仲介の HiPro 福田様に一言入れるのが筋。
+             承諾が取れたら、下の template タグ2箇所を消せば復活する。
+             ============================================================ -->
+        <template id="case-toppan-stay">
+        <div class="case">
+          <div class="case__meta">大手企業の一部門 / 6-10名 / 提案中</div>
+          <h3>いま提案しているもの: 顧客コミュニケーションの強化</h3>
+          <p>1日 (9:00-17:00) × 3回。午前は概論とエクササイズ。午後は<strong>実際の交渉の録画を素材にして</strong>、グループディスカッションとロールプレイをします。2名のコーリードで入ります。</p>
+          <p style="margin-top:0.75rem; font-size:0.875rem; color:var(--color-text-light);">まだ受注していません。先方に提案している段階です。</p>
+        </div>
+        </template>
+
+        <div class="case">
+          <div class="case__meta">大手企業の研究開発組織 / 10名規模 / 次フェーズを提案中</div>
+          <h3>「その後のところが、すごく魅力的」</h3>
+          <p>発足して数年の研究組織。組織の位置づけそのものを決め直さなければならない局面でした。少人数で毎週議論しているのに、収束しない。声の強い専門家に、若手の管理職が押されて発言できていない。責任者ご自身が「チームになっていない」「<strong>未病ですね</strong>」と言葉にされました。</p>
+          <p style="margin-top:0.75rem;">コーリードで初回面談に入り、氷山の4象限と、コンサルティングとコーチングを一体で持ち込む形をお話ししました。会議を通すことはゴールではなく、その後の組織づくりが本命ですよね、と。</p>
+          <blockquote style="margin-top:1.25rem;">その後のところが、すごく魅力的です。ぜひお願いしたい。<br><span style="font-size:0.8125rem; color:var(--color-text-light);">研究組織の責任者 / 初回面談で</span></blockquote>
+          <p style="margin-top:1.25rem; font-size:0.875rem; color:var(--color-text-light);">直近のフェーズは他社との比較検討になり、当社では受注に至りませんでした。「次のフェーズはぜひ」とご指名をいただいたので、いま足の長い伴走のかたちを提案しています。</p>
+        </div>
+
+        <div class="case" style="border-left-color:var(--color-border);">
+          <div class="case__meta" style="color:var(--color-text-light);">傷跡</div>
+          <h3>エゴで、契約を打ち切られた</h3>
+          <p>現場が自主的に変容していく姿に満足した自分のエゴで、ホールディングスカンパニーとの合意を取り付けることに気が回りませんでした。最終的には、ホールディングスの圧力の下で契約を打ち切られました。<br>この経験が「エゴを手放すこと、ランクを無自覚に乱用しないこと、場の疼きを感じ取り、自らの疼きと両立させること」という、いまの実装原則を作っています。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. 正直な現在地 ===== -->
+    <section class="section honest">
+      <div class="container">
+        <h2 class="section__title">まだ、できていないこと</h2>
+        <p class="section__subtitle">できることだけ並べても、判断の材料にならないと思うので。</p>
+
+        <ul>
+          <li>人をモノ扱いする上司の下でエネルギーが出ない、という問題。システムと役割を分けて扱う手法があります。ただ<strong>わたしが実際に立ち会えたのは、提案の場で一度だけです。</strong>そのとき、それまで聴かれてこなかった声が出て、場が開くところを見ました。手応えはありますが、いまはまだ、そこまでです。</li>
+          <li>すり合わせに時間がかかって本業務が圧迫される、という問題。アジャイル的に進む形はつくれますが、<strong>進行中のプロジェクトの中で、まだ実証できていません。</strong></li>
+          <li>人が辞める兆候を掴めない、という問題。場に出ていない感情を扱えば掴めるはずです。<strong>まだプロジェクトベースの実績はありませんが、</strong>人事制度改革などのテーマも、今後扱うことができると考えています。</li>
+          <li>次世代経営者が育たない、という問題。事業承継をファンドで支える構想があり、<strong>現在、実現に向けて動いています。</strong></li>
+          <li>会社に女性が入ってこない、という問題。この問題を扱う<strong>わたしたち自身のコーリードが、いまは男性2人です。そのこと自体に、いちばんエッジを感じています。</strong>一方で、コーチの側からは既に何人もの女性が「一緒にやりたい」と手を挙げてくれていて、進行中の案件では実際に女性のコーチと組んで動いています。組織に入るコーリードとしても、早く女性と組む形をつくります。</li>
+        </ul>
+
+        <p class="honest__close">
+          両天秤は、完成した方法論ではありません。中堅企業のプロジェクトの中で、いま実際に組み上げている最中のものです。うまくいっていることも、まだ手が届いていないことも、そのままお伝えします。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 9. 誰なのか ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">やっている人間について</h2>
+
+        <div class="member">
+          <div class="member__photo">
+            <img src="/img/profile-teramura.jpg" alt="代表取締役 寺村 英雄">
+          </div>
+          <div class="member__body">
+            <p class="member__role">代表取締役</p>
+            <h3 class="member__name">寺村 英雄 <span>てらむら ひでお / テラさん</span></h3>
+            <p class="member__creds">Certified Professional Co-Active&reg; Coach (CPCC) / Associate Certified Coach (ACC, ICF) / ORSC&reg; 応用</p>
+            <p class="member__voice">肩書きだけ見ると硬そうですが、やっていることは至ってシンプルです。人と会って、話して、一緒に考える。その積み重ねです。</p>
+            <div class="member__social">
+              <a href="https://www.instagram.com/hideo.teramura/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-row" style="margin: 2.5rem 0 3rem;">
+          <div class="selfvideo">
+            <video src="/video/do-it-scared-shibuya.mp4" poster="/img/do-it-scared-poster.jpg" controls preload="none" playsinline></video>
+          </div>
+          <div class="media-row__side">
+            <p class="media-row__label">Do It Scared</p>
+            <p style="font-size:0.95rem; line-height:2;">迷ったら、怖いほうへ歩く。2026年8月、渋谷のハチ公前で。<br>
+            人に「本気で自分と向き合って、ストレッチしましょう」と言う側の人間が、自分でやっていないわけにはいかないと思っているので、やっています。</p>
+            <p style="font-family:var(--font-serif); font-size:clamp(1.05rem, 2vw, 1.25rem); font-weight:700; line-height:2; color:var(--color-primary); margin-top:1.25rem;">怖かった！<br>でも思ったほどでもなかった！<br>そして新しい景色を観た！</p>
+          </div>
+        </div>
+
+        <p class="mb-3" style="font-size:0.9rem; color:var(--color-text-light);">仕事以外は、こんな人間です。</p>
+        <div class="daily-tags">
+          <span>浅草おと (居酒屋・2014-2019)</span>
+          <span>中国駐在・生活</span>
+          <span>国際結婚</span>
+          <span>ロードバイク</span>
+          <span>音楽・DJ・クラブ・下北沢</span>
+          <span>多拠点生活</span>
+        </div>
+
+        <div>
+          <p class="media-row__label">DJ Terra-Sun</p>
+          <p style="font-size:0.95rem; line-height:2; margin-bottom:1.5rem; max-width:42em;">仕事でも、プライベートでも、やっていることは同じです。<strong>場をつくって、そこに立つ。</strong>針が飛んで音が止まっても、それごと、みんなで面白がる。観客も含めて場をつくっている感じが、いちばん面白いところです。</p>
+          <div class="mix-embed">
+            <iframe height="400" src="https://player-widget.mixcloud.com/widget/iframe?feed=%2Fhideo-teramura%2Frespect-for-what-i-believe-in%2F" title="Respect For What I Believe In - Terra-Sun (MixCloud)" allow="autoplay" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="linkrow">
+          <a href="https://www.mixcloud.com/hideo-teramura/" target="_blank" rel="noopener">MixCloud (Terra-Sun) &rarr;</a>
+          <a href="https://hideoteramura.com/" target="_blank" rel="noopener">ライフストーリー &rarr;</a>
+          <a href="https://www.thecoaches.co.jp/find_coach/teramura_hideo/" target="_blank" rel="noopener">コーチプロフィール &rarr;</a>
+          <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube チャンネル &rarr;</a>
+          <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note (寺村) &rarr;</a>
+          <a href="https://note.com/wonder3_katz" target="_blank" rel="noopener">note (katz) &rarr;</a>
+        </div>
+
+        <p class="mt-4" style="font-size:0.9rem; color:var(--color-text-light);">パートナーの <strong>王子田克樹 (katz) / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a></strong> と、2人1組 (コーリード) で入ります。プロフィールは準備中です。</p>
+      </div>
+    </section>
+
+    <!-- ===== 10. 行動は1つ ===== -->
+    <section class="cta-section">
+      <h2 class="cta-section__title">まず60分、話しませんか</h2>
+      <p class="cta-section__text">初回相談は60分・無料です。売り込みはしません。</p>
+      <a href="/contact.html" class="cta-section__btn">相談を申し込む →</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
