@@ -102,7 +102,12 @@ a:hover {
 
 @media (max-width: 560px) {
   .site-logo__mark { height: 24px; }
-  .site-logo__name { display: none; }
+  .site-logo { font-size: 1rem; }
+  .site-logo__link { gap: 0.5rem; }
+}
+
+@media (max-width: 360px) {
+  .site-logo { font-size: 0.9375rem; letter-spacing: 0.02em; }
 }
 
 /* --- ナビゲーション --- */
