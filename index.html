@@ -737,7 +737,7 @@
     <!-- ===== 9. 誰なのか ===== -->
     <section class="section section--alt">
       <div class="container">
-        <h2 class="section__title">両天秤の提唱者</h2>
+        <h2 class="section__title">両天秤の創始者</h2>
 
         <div class="member">
           <div class="member__photo">
@@ -798,16 +798,6 @@
         </div>
 
         <p class="mt-4" style="font-size:0.9rem; color:var(--color-text-light);">パートナーの <strong>王子田克樹 (katz) / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a></strong> と、2人1組 (コーリード) で入ります。プロフィールは準備中です。</p>
-      </div>
-    </section>
-
-        <!-- 最新の発信 (note RSS自動取得) -->
-    <section class="section section--alt" id="note-section">
-      <div class="container">
-        <h2 class="section__title">最新の発信</h2>
-        <p class="section__subtitle">両天秤アプローチの背景にある考え方や、実践の中で感じたことを発信しています。</p>
-        <div id="note-articles"></div>
-        <p class="mt-4" style="text-align: center;"><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent); font-weight: 600;">すべての記事を読む →</a></p>
       </div>
     </section>
 
@@ -905,55 +895,6 @@
     </div>
     <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
   </footer>
-
-  <!-- note 記事自動取得 (GitHub Actionsで日次更新されるJSONから) -->
-  <script>
-    (function() {
-      var DATA_URL = '/data/note-articles.json?t=' + Date.now();
-      var container = document.getElementById('note-articles');
-      if (!container) return;
-
- // ピン留め記事 (常に表示)
-      var pinned = {
-        link: 'https://note.com/hideo_teramura/n/n27d7f8cf0747',
-        title: 'AI時代に人間が「人を生きる」ための学校を創ります',
-        pubDate: '2026-04-12',
-        excerpt: '「ひとりAIラボ」という名前で6月にオンラインスクールとして開校する予定です。'
-      };
-
-      function renderCard(link, title, date, excerpt, isPinned) {
-        var html = '<a href="' + link + '" target="_blank" rel="noopener" class="note-card' + (isPinned ? ' note-card--pinned' : '') + '">';
-        if (isPinned) html += '<span class="note-card__pin">PICK UP</span>';
-        html += '<span class="note-card__date">' + date + '</span>';
-        html += '<h3 class="note-card__title">' + title + '</h3>';
-        html += '<p class="note-card__excerpt">' + excerpt + '</p>';
-        html += '<span class="note-card__more">続きを読む →</span>';
-        html += '</a>';
-        return html;
-      }
-
-      fetch(DATA_URL)
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          if (!data.items) return;
-          // ピン留め記事を除外して最新2件
-          var items = data.items.filter(function(item) {
-            return item.link !== pinned.link;
-          }).slice(0, 2);
-
-          var html = '<div class="note-cards">';
-          html += renderCard(pinned.link, pinned.title, pinned.pubDate, pinned.excerpt, true);
-          items.forEach(function(item) {
-            html += renderCard(item.link, item.title, item.pubDate, item.excerpt, false);
-          });
-          html += '</div>';
-          container.innerHTML = html;
-        })
-        .catch(function() {
-          container.innerHTML = '<p><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent);">noteで最新記事を読む →</a></p>';
-        });
-    })();
-  </script>
 
 </body>
 </html>
