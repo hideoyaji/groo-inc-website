@@ -901,6 +901,136 @@ blockquote {
   background: linear-gradient(transparent 60%, rgba(201, 169, 110, 0.2) 60%);
 }
 
+/* --- メンバープロフィール --- */
+.member {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.member__photo {
+  flex: 0 0 auto;
+}
+
+.member__photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.member__body {
+  flex: 1;
+  min-width: 280px;
+}
+
+.member__role {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+
+.member__name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.member__name span {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.member__creds {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: 1.25rem;
+}
+
+.member__voice {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.125rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.member__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.member__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.member__social a:hover {
+  opacity: 1;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.member__social svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+/* --- SNS動画（リール）埋め込み --- */
+.reel-embed {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 3rem;
+  /* Instagram埋め込みの実測比率（ヘッダー + 4:5メディア + フッター） */
+  aspect-ratio: 400 / 715;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.reel-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .member {
+    gap: 1.5rem;
+  }
+  .member__photo img {
+    width: 140px;
+    height: 140px;
+  }
+  .member__name {
+    font-size: 1.35rem;
+  }
+}
+
 /* --- タイムライン（略歴用） --- */
 .timeline {
   list-style: none;
