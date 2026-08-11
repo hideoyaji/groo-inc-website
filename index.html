@@ -365,6 +365,37 @@
     .video__frame { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; }
     .video__frame iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
     .video h3 { font-size: 1rem; margin-top: 1rem; color: var(--color-primary); }
+    /* どう関わるか */
+    .engage { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .engage__item {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      background: var(--color-bg);
+    }
+    .engage__item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+    .engage__item > p { font-size: 0.925rem; line-height: 1.95; margin-bottom: 1rem; }
+    .engage__item dl { font-size: 0.875rem; line-height: 1.9; }
+    .engage__item dt {
+      color: var(--color-accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-top: 0.6rem;
+    }
+    .engage__item dd { margin: 0; color: var(--color-text); }
+    .engage__skills {
+      max-width: 46em;
+      margin: 2.5rem auto 0;
+      font-size: 0.875rem;
+      line-height: 2;
+      color: var(--color-text-light);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -383,8 +414,6 @@
     <nav class="site-nav">
       <ul>
         <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
-        <li><a href="/services.html">サービス</a></li>
-        <li><a href="/cases.html">事例</a></li>
         <li><a href="/company.html">会社概要</a></li>
         <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
         <li><a href="/contact.html">お問い合わせ</a></li>
@@ -791,7 +820,47 @@
       </div>
     </section>
 
-    <!-- ===== 10. 行動は1つ ===== -->
+    <!-- ===== 10. どう関わるか ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">どう関わるか</h2>
+        <p class="section__subtitle">対象と期間を、先にお伝えします。</p>
+
+        <div class="engage">
+          <div class="engage__item">
+            <h3>外から、組織に入る</h3>
+            <p>戦略づくりと、幹部への伴走を同時にやります。<strong>必ず2人1組 (コーリード) で入ります。</strong></p>
+            <dl>
+              <dt>対象</dt><dd>売上30億〜300億円規模の中堅企業 (製造業・サービス業)</dd>
+              <dt>期間</dt><dd>6ヶ月〜。期間固定のフィーです</dd>
+              <dt>やること</dt><dd>環境分析・戦略策定・幹部1on1・チームワークショップ・PMO</dd>
+            </dl>
+          </div>
+          <div class="engage__item">
+            <h3>個人に、1対1で入る</h3>
+            <p>経営者・エグゼクティブへのコーチングです。正しさの呪縛をほどいて、自分の意志で選べる状態にします。</p>
+            <dl>
+              <dt>対象</dt><dd>経営者・取締役・本部長クラス</dd>
+              <dt>頻度</dt><dd>月2回〜 (1回60分)</dd>
+              <dt>まずは</dt><dd><strong>サンプルセッション 60分・無料</strong>から試せます</dd>
+            </dl>
+          </div>
+          <div class="engage__item">
+            <h3>内側に、当事者として入る</h3>
+            <p>外部のコンサルタントとしてではなく、役員として組織の中に入ります。外からでは見えないものに、内側から関わります。</p>
+            <dl>
+              <dt>立場</dt><dd>取締役 / 執行役員 / 経営企画室長として参画</dd>
+              <dt>現在</dt><dd>シンバイオシス・ソリューションズ株式会社 執行役員</dd>
+              <dt>過去</dt><dd>知日株式会社 取締役 (2025-2026年)</dd>
+            </dl>
+          </div>
+        </div>
+
+        <p class="engage__skills">持っているもの: 経営・戦略コンサルティング / Co-Active&reg; コーチング (CPCC) / 関係性システムコーチング (ORSC&reg; 応用) / プロセスワーク</p>
+      </div>
+    </section>
+
+    <!-- ===== 11. 行動は1つ ===== -->
     <section class="cta-section">
       <h2 class="cta-section__title">まず60分、話しませんか</h2>
       <p class="cta-section__text">初回相談は60分・無料です。売り込みはしません。</p>
