@@ -88,6 +88,23 @@
   <style>
     /* --- トップページ固有のスタイル --- */
 
+    /* ヘッダーが固定なので、アンカー着地位置をずらす */
+    #ryotenbin {
+      scroll-margin-top: calc(var(--header-height) + 1rem);
+    }
+
+    /* 9. 創始者 — パートナーの1行 */
+    .partner-line {
+      margin-top: 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--color-text-light);
+    }
+    .partner-line a {
+      color: var(--color-accent);
+    }
+
     /* 1. Call Out — ヒーロー */
     .hero-statement {
       background: var(--color-primary);
@@ -172,13 +189,6 @@
       margin-top: 1.75rem;
       font-family: var(--font-sans);
       font-size: 0.8125rem;
-      line-height: 1.9;
-      color: var(--color-text-light);
-      max-width: 34em;
-    }
-    .cred-line p.cred-line__cap {
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
       line-height: 1.9;
       color: var(--color-text-light);
       max-width: 34em;
@@ -404,7 +414,7 @@
     </button>
     <nav class="site-nav">
       <ul>
-        <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
+        <li><a href="/#ryotenbin">両天秤アプローチとは</a></li>
         <li><a href="/company.html">会社概要</a></li>
         <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
         <li><a href="/contact.html">お問い合わせ</a></li>
@@ -457,10 +467,9 @@
         <p>戦略コンサルティングを四半世紀やってきたので、<br>コンサルタントという仕事そのものが抱える矛盾と葛藤を、<br>誰よりも知っています。</p>
         <p class="cred-line__sig">寺村 英雄 / 株式会社グルー 代表取締役<br>野村総合研究所13年 (うち中国5年)、独立後12年 / CPCC・ICF ACC・ORSC応用</p>
 
-        <div class="reel-embed" style="margin: 3rem auto 1.25rem;">
+        <div class="reel-embed" style="margin: 3rem auto 0;">
           <iframe src="https://www.instagram.com/reel/Db4OLurTioP/embed/" title="寺村英雄 Instagram リール — コンサルティングの矛盾について" allowtransparency="true" allowfullscreen scrolling="no" loading="lazy"></iframe>
         </div>
-        <p class="cred-line__cap">その矛盾を、そのまま話しています。</p>
       </div>
     </section>
 
@@ -468,7 +477,7 @@
     <section class="section section--alt">
       <div class="container">
         <h2 class="section__title">なぜ、正しい戦略が実行されないのか</h2>
-        <p class="section__subtitle">おそらく前提が3つ、ずれています。</p>
+        <p class="section__subtitle">前提が3つ、ずれています。</p>
 
         <div class="breakers">
           <div class="breaker">
@@ -521,7 +530,7 @@
     </section>
 
     <!-- ===== 6. Compass — 氷山図 (両天秤) ===== -->
-    <section class="section section--alt">
+    <section class="section section--alt" id="ryotenbin">
       <div class="container">
         <h2 class="section__title">これを全部、統合してやります</h2>
         <p class="section__subtitle">組織のマネジメントは4つの領域に分かれます。ふつうは、別々の専門家が別々に担当します。この4つを一つの文脈で統合して関わることを、わたしたちは <strong>両天秤アプローチ</strong> と呼んでいます。</p>
@@ -759,6 +768,8 @@
           </div>
         </div>
 
+        <p class="partner-line">組織に入るときに組む相手が、パートナーの <strong>王子田克樹 (katz) / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener">組織整体師</a></strong> です。プロフィールは準備中です。</p>
+
         <div class="media-row" style="margin: 2.5rem 0 3rem;">
           <div class="selfvideo">
             <video src="/video/do-it-scared-shibuya.mp4?v=2" poster="/img/do-it-scared-poster.jpg?v=2" controls preload="none" playsinline></video>
@@ -793,8 +804,6 @@
           <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note (寺村) &rarr;</a>
           <a href="https://note.com/wonder3_katz" target="_blank" rel="noopener">note (katz) &rarr;</a>
         </div>
-
-        <p class="mt-4" style="font-size:0.9rem; color:var(--color-text-light);">パートナーの <strong>王子田克樹 (katz) / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a></strong> と、2人1組 (コーリード) で入ります。プロフィールは準備中です。</p>
       </div>
     </section>
 
