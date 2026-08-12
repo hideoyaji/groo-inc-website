@@ -140,7 +140,7 @@
     }
     .floors .row {
       display: grid;
-      grid-template-columns: 4.5rem 6rem 1fr;
+      grid-template-columns: 4.5rem 12rem 1fr;
       gap: 0 1rem;
       align-items: baseline;
       padding: 0.9rem 0;
@@ -223,17 +223,42 @@
       <p class="page-hero__wip">工事中です</p>
     </section>
 
-    <!-- ===== 図 ===== -->
+    <!-- ===== ルーツ ===== -->
     <section class="section">
       <div class="container body">
-        <h2 class="section__title">たとえば、こういう建物です</h2>
+        <h2 class="section__title">はじまりは、下北沢の地下です</h2>
 
-        <p>下北沢に建てるとしたら、という前提で描いた検討中の図です。前面を切って、地下1階から屋根までを一度に見ています。寸法も法規も見ていません。</p>
+        <p>代表の寺村が大学生のころ、ネットの掲示板で音楽の趣味が合う友人が数人できました。そのうちの一人が下北沢のクラブで DJ イベントをやるというので、誘われました。</p>
+        <p>21時過ぎから、夜を通してのイベントです。向かう道すがら、未知の世界に飛び込むワクワクよりも不安のほうが大きくて、近づくにつれてそれが膨らんでいくのが分かりました。</p>
+        <p><strong>クラブの入口は、地下にありました。</strong>外階段から覗くと、薄暗い角でチケットもぎりがタバコを吸って、馴染みの客と談笑しています。新参者がこんなところに来ていいのだろうか、と思いました。それでも、一歩ずつ階段を降りていきました。</p>
+        <p>扉は防音壁です。それでも重低音は振動になって外に漏れてきます。キックの音がドンドンドンドンと身体を震わせます。思い切って、扉を開けました。</p>
+
+        <p class="claim">迎えてくれたのは、年齢も性別も職業も趣味も思想も、<br>バラバラな人たちでした。</p>
+
+        <p style="margin-top:2rem;">皆、昔からいる当たり前の仲間のように迎えてくれました。大手の堅い会社に勤めている人、デザイナー、謎のディレクター、雑誌の編集者。そこで、社会に感じていた閉塞感を思いの丈しゃべりました。皆、真摯に聴いてくれました。そして、忖度なく意見を返してくれました。</p>
+        <p>踊ったことはありませんでした。体育の授業の苦い記憶しかありません。どう踊ればいいのかも分かりません。思いっきり身体を動かしたい、でも恥ずかしさと不安でいっぱいでした。</p>
+        <p>それでも、身体が疼きました。DJ はこれでもかとエネルギーを上げる曲を繋いできます。もう身体を止められません。おもむろに立ち上がって、フロアに向かいました。</p>
+
+        <p class="claim">途端に、時間と空間の概念がなくなりました。<br>境界がなくなりました。僕は溶け出しました。</p>
+
+        <p style="margin-top:2rem;">あそこで起きていたのは、<strong>各自が自分に100%の許可を出して、自分のインパクトでアクトする</strong>、ということでした。踊り方は誰も教えません。上手い下手もありません。それぞれが、それぞれの踊り方で動いていました。</p>
+
+        <p class="note" style="margin-top:2rem;">この話の続きは <a href="https://hideoteramura.com/story01" target="_blank" rel="noopener" style="color:var(--color-accent);">ライフストーリー &rarr;</a> に書いています。</p>
+      </div>
+    </section>
+
+    <!-- ===== 図 ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">コンセプトモデル</h2>
+
+        <p>開かれた場所から入り、恐れを捨て、思い思いの踊りを踊り、関係性の中で対話し、葛藤を乗り越え、成長する。そして最上階に上がり、成長する人たちと関係性をホールドします。</p>
+
 
         <figure class="fac-figure">
           <div class="fac-wrap">
-        <svg class="fac-svg" viewBox="30 -8 1120 700" role="img"
-        aria-label="地下1階から屋根までを切って描いた FACTORY の断面パース。地下はクラブで大勢が思い思いの姿勢で踊り、1階はガラス張りのオフィスとアトリエとカフェ、2階はワークショップの輪、3階はインキュベーション、4階と5階は吹き抜けの小劇場で舞台と傾斜した客席がある。">
+        <svg class="fac-svg" viewBox="30 -8 1200 790" role="img"
+        aria-label="地下3階から屋根までを切って描いた FACTORY のコンセプトモデル。地下2階と地下3階は吹き抜けの小劇場、地下1階はクラブで大勢が思い思いの姿勢で踊り、1階はガラス張りのオフィスとアトリエとカフェ、2階はワークショップの輪、3階はインキュベーション、最上階は会員のラウンジ。">
 
         <defs>
         <g id="fac-fig">
@@ -258,8 +283,6 @@
         <ellipse cx="10.5" cy="-18" rx="7.6" ry="5.4" transform="rotate(-18 10.5 -18)"/>
         <path d="M15 -23 l11.5 -8.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
         </g>
-
-        <!-- 踊る型: 揃わないように -->
         <g id="fac-figd1">
         <use href="#fac-fig"/>
         <path d="M7.6 -30 l8.5 -15" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
@@ -293,265 +316,242 @@
         </pattern>
         </defs>
 
-        <!-- ============ 地面 ============ -->
         <g>
-        <rect x="55" y="564" width="175" height="22" fill="url(#fac-earth)" opacity="0.55"/>
-        <line x1="55" y1="564" x2="230" y2="564" stroke="var(--line)" stroke-width="1.6"/>
-        <text class="fac-small" x="57" y="556">地面</text>
+        <rect x="55" y="468" width="175" height="22" fill="url(#fac-earth)" opacity="0.55"/>
+        <line x1="55" y1="468" x2="230" y2="468" stroke="var(--line)" stroke-width="1.6"/>
+        <text class="fac-small" x="57" y="460">地面</text>
         </g>
-
-        <!-- ============ B1 : クラブ ============ -->
+        <!-- B2-B3 小劇場 (2層吹き抜け) -->
         <g>
-        <polygon points="230,660 750,660 925,605 405,605" fill="var(--slab)"/>
-        <polygon points="230,660 750,660 750,672 230,672" fill="var(--slab-edge)"/>
-        <polygon points="750,660 925,605 925,617 750,672" fill="var(--slab-edge)"/>
-        <polygon points="405,605 925,605 925,509 405,509" fill="var(--wall-back)"/>
-        <polygon points="230,660 405,605 405,509 230,564" fill="var(--wall-left)"/>
-
-        <!-- 舞台 -->
-        <polygon points="652.5,607.5 842.5,607.5 842.5,621.5 652.5,621.5" fill="var(--slab-edge)"/>
-        <polygon points="652.5,607.5 842.5,607.5 886,593.8 696,593.8" fill="var(--furn)"/>
-
-        <!-- バー -->
-        <polygon points="426.25,599.75 556.25,599.75 556.25,629.75 426.25,629.75" fill="var(--slab-edge)"/>
-        <polygon points="426.25,599.75 556.25,599.75 582.5,591.5 452.5,591.5" fill="var(--furn)"/>
-
-        <!-- 照明 -->
+        <polygon points="230,756 750,756 925,701 405,701" fill="var(--slab)"/>
+        <polygon points="230,756 750,756 750,768 230,768" fill="var(--slab-edge)"/>
+        <polygon points="750,756 925,701 925,713 750,768" fill="var(--slab-edge)"/>
+        <polygon points="405,701 925,701 925,509 405,509" fill="var(--wall-back)"/>
+        <polygon points="230,756 405,701 405,509 230,564" fill="var(--wall-left)"/>
+        <polygon points="355,723 515,723 515,745 355,745" fill="var(--slab-edge)"/>
+        <polygon points="355,723 515,723 637.5,684.5 477.5,684.5" fill="var(--furn)"/>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <polygon points="531.25,741.75 581.25,741.75 721.25,697.75 671.25,697.75"/>
+        <polygon points="581.25,727.75 631.25,727.75 771.25,683.75 721.25,683.75"/>
+        <polygon points="631.25,713.75 681.25,713.75 821.25,669.75 771.25,669.75"/>
+        <polygon points="681.25,699.75 731.25,699.75 871.25,655.75 821.25,655.75"/>
+        <polygon points="731.25,685.75 776.25,685.75 916.25,641.75 871.25,641.75"/>
+        </g>
+        <polygon points="531.25,747.75 531.25,741.75 581.25,741.75 581.25,727.75 631.25,727.75 631.25,713.75 681.25,713.75 681.25,699.75 731.25,699.75 731.25,685.75 776.25,685.75 776.25,747.75" fill="var(--slab-edge)"/>
         <g stroke="var(--rule)" stroke-width="1">
-        <line x1="520" y1="564" x2="520" y2="580"/>
-        <line x1="610" y1="564" x2="610" y2="580"/>
-        <line x1="700" y1="564" x2="700" y2="580"/>
-        <line x1="790" y1="564" x2="790" y2="580"/>
+        <line x1="640" y1="564" x2="640" y2="596"/>
+        <line x1="712" y1="564" x2="712" y2="596"/>
         </g>
         <g fill="var(--color-accent)">
-        <circle cx="520" cy="583" r="4"/>
-        <circle cx="610" cy="583" r="4"/>
-        <circle cx="700" cy="583" r="4"/>
-        <circle cx="790" cy="583" r="4"/>
+        <circle cx="640" cy="599" r="4.5"/>
+        <circle cx="712" cy="595" r="4.5"/>
         </g>
-
         <g class="fac-people">
-        <g transform="translate(590.5,612.7) rotate(-11) scale(0.92)"><use href="#fac-figd2"/></g>
-        <g transform="translate(647,613.8) rotate(9) scale(0.93)"><use href="#fac-figd5"/></g>
-
-        <g transform="translate(723.5,600.9) rotate(-6) scale(0.93)"><use href="#fac-figd1"/></g>
-        <g transform="translate(793.5,600.9) rotate(12) scale(0.93)"><use href="#fac-figd3"/></g>
-
-        <g transform="translate(526.25,618.75) scale(0.93)"><use href="#fac-fig"/></g>
-
-        <g transform="translate(652.5,621.5) rotate(-8) scale(0.94)"><use href="#fac-figd4"/></g>
-        <g transform="translate(807.5,621.5) rotate(7) scale(0.94)"><use href="#fac-figd2"/></g>
-
-        <g transform="translate(568.75,624.25) rotate(13) scale(0.94)"><use href="#fac-figd1"/></g>
-        <g transform="translate(718.75,624.25) rotate(-10) scale(0.94)"><use href="#fac-figd5"/></g>
-        <g transform="translate(863.75,624.25) rotate(5) scale(0.94)"><use href="#fac-figd3"/></g>
-
-        <g transform="translate(645,627) rotate(-14) scale(0.95)"><use href="#fac-figa"/></g>
-        <g transform="translate(805,627) rotate(10) scale(0.95)"><use href="#fac-figd4"/></g>
-
-        <g transform="translate(586.25,629.75) rotate(-4) scale(0.95)"><use href="#fac-figd2"/></g>
-        <g transform="translate(736.25,629.75) rotate(11) scale(0.95)"><use href="#fac-figd1"/></g>
-
-        <g transform="translate(497.5,632.5) rotate(3) scale(0.96)"><use href="#fac-fig"/></g>
-        <g transform="translate(657.5,632.5) rotate(-12) scale(0.96)"><use href="#fac-figd5"/></g>
-        <g transform="translate(822.5,632.5) rotate(6) scale(0.96)"><use href="#fac-figd3"/></g>
-
-        <g transform="translate(458.75,635.25) rotate(9) scale(0.96)"><use href="#fac-figd4"/></g>
-        <g transform="translate(553.75,635.25) rotate(-7) scale(0.96)"><use href="#fac-figd1"/></g>
-        <g transform="translate(708.75,635.25) rotate(14) scale(0.96)"><use href="#fac-figa"/></g>
-
-        <g transform="translate(603.25,638.55) rotate(-9) scale(0.97)"><use href="#fac-figd2"/></g>
-        <g transform="translate(763.25,638.55) rotate(4) scale(0.97)"><use href="#fac-figd5"/></g>
-
-        <g transform="translate(472.75,641.85) rotate(12) scale(0.97)"><use href="#fac-figd3"/></g>
-        <g transform="translate(642.75,641.85) rotate(-6) scale(0.97)"><use href="#fac-figd4"/></g>
-        <g transform="translate(802.75,641.85) rotate(8) scale(0.97)"><use href="#fac-figd1"/></g>
-
-        <g transform="translate(532.25,645.15) rotate(-13) scale(0.98)"><use href="#fac-figa"/></g>
-        <g transform="translate(707.25,645.15) rotate(5) scale(0.98)"><use href="#fac-figd2"/></g>
-
-        <g transform="translate(576.75,648.45) rotate(10) scale(0.98)"><use href="#fac-figd5"/></g>
-        <g transform="translate(756.75,648.45) rotate(-8) scale(0.98)"><use href="#fac-figd3"/></g>
-
-        <g transform="translate(436.25,651.75) rotate(6) scale(0.99)"><use href="#fac-figd1"/></g>
-        <g transform="translate(641.25,651.75) rotate(-11) scale(0.99)"><use href="#fac-figd4"/></g>
-
-        <g transform="translate(520.75,655.05) rotate(13)"><use href="#fac-figd2"/></g>
-        <g transform="translate(705.75,655.05) rotate(-5)"><use href="#fac-figa"/></g>
+        <g transform="translate(474,696.6) rotate(-7) scale(0.95)"><use href="#fac-figd1"/></g>
+        <g transform="translate(516.25,703.75) rotate(9) scale(0.95)"><use href="#fac-figd3"/></g>
+        <g transform="translate(440,712) rotate(-4) scale(0.95)"><use href="#fac-fig"/></g>
+        <g transform="translate(652.5,711.5) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(702.5,697.5) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(752.5,683.5) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(802.5,669.5) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(621,721.4) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(671,707.4) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(721,693.4) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(771,679.4) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(818,665.4) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(591.25,730.75) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(691.25,702.75) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(741.25,688.75) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(788.25,674.75) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
         </g>
         </g>
-
-        <!-- ============ 1F : ティールーム / アトリエ / オフィス ============ -->
+        <!-- B1 クラブ -->
         <g>
         <polygon points="230,564 750,564 925,509 405,509" fill="var(--slab)"/>
         <polygon points="230,564 750,564 750,576 230,576" fill="var(--slab-edge)"/>
         <polygon points="750,564 925,509 925,521 750,576" fill="var(--slab-edge)"/>
         <polygon points="405,509 925,509 925,413 405,413" fill="var(--wall-back)"/>
         <polygon points="230,564 405,509 405,413 230,468" fill="var(--wall-left)"/>
-
-        <!-- カフェ -->
-        <polygon points="431,507.4 536,507.4 536,535.4 431,535.4" fill="var(--slab-edge)"/>
-        <polygon points="431,507.4 536,507.4 560.5,499.7 455.5,499.7" fill="var(--furn)"/>
-        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
-        <rect x="449" y="521.7" width="3" height="28"/>
-        <ellipse cx="450.5" cy="521.7" rx="24" ry="8.5"/>
+        <polygon points="652.5,511.5 842.5,511.5 842.5,525.5 652.5,525.5" fill="var(--slab-edge)"/>
+        <polygon points="652.5,511.5 842.5,511.5 886.25,497.75 696.25,497.75" fill="var(--furn)"/>
+        <polygon points="426.25,503.75 556.25,503.75 556.25,533.75 426.25,533.75" fill="var(--slab-edge)"/>
+        <polygon points="426.25,503.75 556.25,503.75 582.5,495.5 452.5,495.5" fill="var(--furn)"/>
+        <g stroke="var(--rule)" stroke-width="1">
+        <line x1="520" y1="468" x2="520" y2="484"/>
+        <line x1="610" y1="468" x2="610" y2="484"/>
+        <line x1="700" y1="468" x2="700" y2="484"/>
+        <line x1="790" y1="468" x2="790" y2="484"/>
         </g>
-
-        <!-- ガラス張りの開かれたオフィス -->
-        <g stroke="var(--rule)" stroke-width="1.2" fill="none">
-        <line x1="588.75" y1="539.25" x2="588.75" y2="449.25"/>
-        <line x1="648.75" y1="539.25" x2="648.75" y2="449.25"/>
-        <line x1="708.75" y1="539.25" x2="708.75" y2="449.25"/>
-        <line x1="768.75" y1="539.25" x2="768.75" y2="449.25"/>
-        <line x1="818.75" y1="539.25" x2="818.75" y2="449.25"/>
-        <line x1="906.25" y1="511.75" x2="906.25" y2="421.75"/>
-        <line x1="676.25" y1="511.75" x2="676.25" y2="421.75"/>
-        <line x1="588.75" y1="539.25" x2="818.75" y2="539.25"/>
-        <line x1="818.75" y1="539.25" x2="906.25" y2="511.75"/>
-        <line x1="588.75" y1="539.25" x2="676.25" y2="511.75"/>
+        <g fill="var(--color-accent)">
+        <circle cx="520" cy="487" r="4.5"/>
+        <circle cx="610" cy="483" r="4.5"/>
+        <circle cx="700" cy="487" r="4.5"/>
+        <circle cx="790" cy="483" r="4.5"/>
         </g>
-
-        <!-- オフィスの中の小さな展示スペース = アトリエ -->
-        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
-        <g transform="translate(650.5,527.7) rotate(-9)">
-        <rect x="-15" y="-58" width="30" height="34"/>
-        <path d="M-9 -24 l-4 24 h3 l4 -24 z M9 -24 l4 24 h-3 l-4 -24 z"/>
-        </g>
-        </g>
-
-        <!-- オフィスの机 -->
-        <polygon points="711,509.4 826,509.4 826,535.4 711,535.4" fill="var(--slab-edge)"/>
-        <polygon points="711,509.4 826,509.4 854,500.6 739,500.6" fill="var(--furn)"/>
-        <polygon points="753,496.2 868,496.2 868,522.2 753,522.2" fill="var(--slab-edge)"/>
-        <polygon points="753,496.2 868,496.2 896,487.4 781,487.4" fill="var(--furn)"/>
-
         <g class="fac-people">
-        <g transform="translate(797,517.8) rotate(3) scale(0.93)"><use href="#fac-figs"/></g>
-        <g transform="translate(857,517.8) rotate(-2) scale(0.93)"><use href="#fac-figs"/></g>
-        <g transform="translate(519.5,523.3) scale(0.94)"><use href="#fac-fig"/></g>
-        <g transform="translate(755,531) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
-        <g transform="translate(815,531) rotate(2) scale(0.95)"><use href="#fac-figs"/></g>
-        <g transform="translate(686.25,533.75) rotate(4) scale(0.95)"><use href="#fac-fig"/></g>
-        <g transform="translate(617.5,536.5) rotate(-5) scale(0.96)"><use href="#fac-fig"/></g>
-        <g transform="translate(420.5,549.7) rotate(2) scale(0.98)"><use href="#fac-figs"/></g>
-        <g transform="translate(480.5,549.7) rotate(-3) scale(0.98)"><use href="#fac-figs"/></g>
-        <g transform="translate(506.25,555.75) rotate(4) scale(0.99)"><use href="#fac-fig"/></g>
+        <g transform="translate(723.5,504.9) rotate(-6) scale(0.93)"><use href="#fac-figd1"/></g>
+        <g transform="translate(793.5,504.9) rotate(12) scale(0.93)"><use href="#fac-figd3"/></g>
+        <g transform="translate(590.5,516.7) rotate(-11) scale(0.92)"><use href="#fac-figd2"/></g>
+        <g transform="translate(647,517.8) rotate(9) scale(0.93)"><use href="#fac-figd5"/></g>
+        <g transform="translate(526.25,522.75) scale(0.93)"><use href="#fac-fig"/></g>
+        <g transform="translate(652.5,525.5) rotate(-8) scale(0.94)"><use href="#fac-figd4"/></g>
+        <g transform="translate(807.5,525.5) rotate(7) scale(0.94)"><use href="#fac-figd2"/></g>
+        <g transform="translate(568.75,528.25) rotate(13) scale(0.94)"><use href="#fac-figd1"/></g>
+        <g transform="translate(723.75,528.25) rotate(-10) scale(0.94)"><use href="#fac-figd5"/></g>
+        <g transform="translate(863.75,528.25) rotate(5) scale(0.94)"><use href="#fac-figd3"/></g>
+        <g transform="translate(645,531) rotate(-14) scale(0.95)"><use href="#fac-figa"/></g>
+        <g transform="translate(805,531) rotate(10) scale(0.95)"><use href="#fac-figd4"/></g>
+        <g transform="translate(586.25,533.75) rotate(-4) scale(0.95)"><use href="#fac-figd2"/></g>
+        <g transform="translate(736.25,533.75) rotate(11) scale(0.95)"><use href="#fac-figd1"/></g>
+        <g transform="translate(497.5,536.5) rotate(3) scale(0.96)"><use href="#fac-fig"/></g>
+        <g transform="translate(657.5,536.5) rotate(-12) scale(0.96)"><use href="#fac-figd5"/></g>
+        <g transform="translate(822.5,536.5) rotate(6) scale(0.96)"><use href="#fac-figd3"/></g>
+        <g transform="translate(458.75,539.25) rotate(9) scale(0.96)"><use href="#fac-figd4"/></g>
+        <g transform="translate(553.75,539.25) rotate(-7) scale(0.96)"><use href="#fac-figd1"/></g>
+        <g transform="translate(708.75,539.25) rotate(14) scale(0.96)"><use href="#fac-figa"/></g>
+        <g transform="translate(603.25,542.55) rotate(-9) scale(0.97)"><use href="#fac-figd2"/></g>
+        <g transform="translate(763.25,542.55) rotate(4) scale(0.97)"><use href="#fac-figd5"/></g>
+        <g transform="translate(472.75,545.85) rotate(12) scale(0.97)"><use href="#fac-figd3"/></g>
+        <g transform="translate(642.75,545.85) rotate(-6) scale(0.97)"><use href="#fac-figd4"/></g>
+        <g transform="translate(802.75,545.85) rotate(8) scale(0.97)"><use href="#fac-figd1"/></g>
+        <g transform="translate(532.25,549.15) rotate(-13) scale(0.98)"><use href="#fac-figa"/></g>
+        <g transform="translate(707.25,549.15) rotate(5) scale(0.98)"><use href="#fac-figd2"/></g>
+        <g transform="translate(576.75,552.45) rotate(10) scale(0.98)"><use href="#fac-figd5"/></g>
+        <g transform="translate(756.75,552.45) rotate(-8) scale(0.98)"><use href="#fac-figd3"/></g>
+        <g transform="translate(436.25,555.75) rotate(6) scale(0.99)"><use href="#fac-figd1"/></g>
+        <g transform="translate(641.25,555.75) rotate(-11) scale(0.99)"><use href="#fac-figd4"/></g>
+        <g transform="translate(520.75,559.05) rotate(13)"><use href="#fac-figd2"/></g>
+        <g transform="translate(705.75,559.05) rotate(-5)"><use href="#fac-figa"/></g>
         </g>
         </g>
-
-        <!-- ============ 2F : ワークショップ ============ -->
+        <!-- 1F オフィス / アトリエ / カフェ -->
         <g>
         <polygon points="230,468 750,468 925,413 405,413" fill="var(--slab)"/>
         <polygon points="230,468 750,468 750,480 230,480" fill="var(--slab-edge)"/>
         <polygon points="750,468 925,413 925,425 750,480" fill="var(--slab-edge)"/>
         <polygon points="405,413 925,413 925,317 405,317" fill="var(--wall-back)"/>
         <polygon points="230,468 405,413 405,317 230,372" fill="var(--wall-left)"/>
-
-        <!-- フリップチャート -->
-        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1" transform="translate(448.5,433.9)">
-        <rect x="-21" y="-64" width="42" height="44"/>
-        <path d="M-13 -20 l-5 20 h3 l5 -20 z M13 -20 l5 20 h-3 l-5 -20 z"/>
+        <polygon points="431,411.4 536,411.4 536,439.4 431,439.4" fill="var(--slab-edge)"/>
+        <polygon points="431,411.4 536,411.4 560.5,403.7 455.5,403.7" fill="var(--furn)"/>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <rect x="449" y="425.7" width="3" height="28"/>
+        <ellipse cx="450.5" cy="425.7" rx="24" ry="8.5"/>
         </g>
-
+        <g stroke="var(--rule)" stroke-width="1.2" fill="none">
+        <line x1="588.75" y1="443.25" x2="588.75" y2="353.25"/>
+        <line x1="648.75" y1="443.25" x2="648.75" y2="353.25"/>
+        <line x1="708.75" y1="443.25" x2="708.75" y2="353.25"/>
+        <line x1="768.75" y1="443.25" x2="768.75" y2="353.25"/>
+        <line x1="818.75" y1="443.25" x2="818.75" y2="353.25"/>
+        <line x1="676.25" y1="415.75" x2="676.25" y2="325.75"/>
+        <line x1="906.25" y1="415.75" x2="906.25" y2="325.75"/>
+        <line x1="588.75" y1="443.25" x2="818.75" y2="443.25"/>
+        <line x1="818.75" y1="443.25" x2="906.25" y2="415.75"/>
+        <line x1="588.75" y1="443.25" x2="676.25" y2="415.75"/>
+        </g>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <g transform="translate(650.5,431.7) rotate(-9)">
+        <rect x="-15" y="-58" width="30" height="34"/>
+        <path d="M-9 -24 l-4 24 h3 l4 -24 z M9 -24 l4 24 h-3 l-4 -24 z"/>
+        </g>
+        </g>
+        <polygon points="711,413.4 826,413.4 826,439.4 711,439.4" fill="var(--slab-edge)"/>
+        <polygon points="711,413.4 826,413.4 854,404.6 739,404.6" fill="var(--furn)"/>
+        <polygon points="753,400.2 868,400.2 868,426.2 753,426.2" fill="var(--slab-edge)"/>
+        <polygon points="753,400.2 868,400.2 896,391.4 781,391.4" fill="var(--furn)"/>
         <g class="fac-people">
-        <g transform="translate(840,424) scale(0.93)"><use href="#fac-fig"/></g>
-        <g transform="translate(689.5,427.3) scale(0.93)"><use href="#fac-figs"/></g>
-        <g transform="translate(570.7,433.4) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(769.9,433.4) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(532.2,445.5) scale(0.96)"><use href="#fac-figs"/></g>
-        <g transform="translate(731.4,445.5) scale(0.96)"><use href="#fac-figs"/></g>
-        <g transform="translate(612.5,451.5) scale(0.97)"><use href="#fac-figs"/></g>
-        <g transform="translate(428,459.2) scale(0.99)"><use href="#fac-fig"/></g>
-        <g transform="translate(464,459.2) scale(0.99)"><use href="#fac-fig"/></g>
+        <g transform="translate(797,421.8) rotate(3) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(857,421.8) rotate(-2) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(519.5,427.3) scale(0.94)"><use href="#fac-fig"/></g>
+        <g transform="translate(755,435) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(815,435) rotate(2) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(686.25,437.75) rotate(4) scale(0.95)"><use href="#fac-fig"/></g>
+        <g transform="translate(617.5,440.5) rotate(-5) scale(0.96)"><use href="#fac-fig"/></g>
+        <g transform="translate(420.5,453.7) rotate(2) scale(0.98)"><use href="#fac-figs"/></g>
+        <g transform="translate(480.5,453.7) rotate(-3) scale(0.98)"><use href="#fac-figs"/></g>
+        <g transform="translate(506.25,459.75) rotate(4) scale(0.99)"><use href="#fac-fig"/></g>
         </g>
         </g>
-
-        <!-- ============ 3F : インキュベーション ============ -->
+        <!-- 2F ワークショップ -->
         <g>
         <polygon points="230,372 750,372 925,317 405,317" fill="var(--slab)"/>
         <polygon points="230,372 750,372 750,384 230,384" fill="var(--slab-edge)"/>
         <polygon points="750,372 925,317 925,329 750,384" fill="var(--slab-edge)"/>
         <polygon points="405,317 925,317 925,221 405,221" fill="var(--wall-back)"/>
         <polygon points="230,372 405,317 405,221 230,276" fill="var(--wall-left)"/>
-
-        <!-- 間仕切り -->
-        <polygon points="562.5,355.5 676.25,319.75 676.25,273.75 562.5,309.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
-        <polygon points="692.5,355.5 806.25,319.75 806.25,273.75 692.5,309.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
-
-        <!-- 机 -->
-        <polygon points="505,315 585,315 585,339 505,339" fill="var(--slab-edge)"/>
-        <polygon points="505,315 585,315 611.25,306.75 531.25,306.75" fill="var(--furn)"/>
-        <polygon points="635,315 715,315 715,339 635,339" fill="var(--slab-edge)"/>
-        <polygon points="635,315 715,315 741.25,306.75 661.25,306.75" fill="var(--furn)"/>
-        <polygon points="765,315 840,315 840,339 765,339" fill="var(--slab-edge)"/>
-        <polygon points="765,315 840,315 866.25,306.75 791.25,306.75" fill="var(--furn)"/>
-
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <g transform="translate(448.5,337.9) rotate(0)">
+        <rect x="-15" y="-58" width="30" height="34"/>
+        <path d="M-9 -24 l-4 24 h3 l4 -24 z M9 -24 l4 24 h-3 l-4 -24 z"/>
+        </g>
+        </g>
         <g class="fac-people">
-        <g transform="translate(534,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(579,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(664,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(709,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(794,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(839,334.6) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(491.25,352.75) scale(0.97)"><use href="#fac-fig"/></g>
+        <g transform="translate(840,328) rotate(3) scale(0.93)"><use href="#fac-fig"/></g>
+        <g transform="translate(689.5,331.3) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(570.66,337.35) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(769.84,337.35) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(532.16,349.45) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(731.34,349.45) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(612.5,355.5) rotate(4) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(428,363.2) rotate(-3) scale(0.99)"><use href="#fac-fig"/></g>
+        <g transform="translate(464,363.2) rotate(3) scale(0.99)"><use href="#fac-fig"/></g>
         </g>
         </g>
-
-        <!-- ============ 4-5F : シアター (2層吹き抜け) ============ -->
+        <!-- 3F インキュベーション -->
         <g>
         <polygon points="230,276 750,276 925,221 405,221" fill="var(--slab)"/>
         <polygon points="230,276 750,276 750,288 230,288" fill="var(--slab-edge)"/>
         <polygon points="750,276 925,221 925,233 750,288" fill="var(--slab-edge)"/>
-        <polygon points="405,221 925,221 925,29 405,29" fill="var(--wall-back)"/>
-        <polygon points="230,276 405,221 405,29 230,84" fill="var(--wall-left)"/>
-
-        <!-- 舞台 -->
-        <polygon points="355,243 515,243 515,265 355,265" fill="var(--slab-edge)"/>
-        <polygon points="355,243 515,243 637.5,204.5 477.5,204.5" fill="var(--furn)"/>
-
-        <!-- 客席の段 -->
-        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
-        <polygon points="531.25,261.75 581.25,261.75 721.25,217.75 671.25,217.75"/>
-        <polygon points="581.25,247.75 631.25,247.75 771.25,203.75 721.25,203.75"/>
-        <polygon points="631.25,233.75 681.25,233.75 821.25,189.75 771.25,189.75"/>
-        <polygon points="681.25,219.75 731.25,219.75 871.25,175.75 821.25,175.75"/>
-        <polygon points="731.25,205.75 776.25,205.75 916.25,161.75 871.25,161.75"/>
-        </g>
-        <polygon points="531.25,267.75 531.25,261.75 581.25,261.75 581.25,247.75 631.25,247.75 631.25,233.75 681.25,233.75 681.25,219.75 731.25,219.75 731.25,205.75 776.25,205.75 776.25,267.75"
-        fill="var(--slab-edge)"/>
-
-        <!-- 舞台照明 -->
-        <g stroke="var(--rule)" stroke-width="1">
-        <line x1="640" y1="84" x2="640" y2="115"/>
-        <line x1="712" y1="84" x2="712" y2="109"/>
-        </g>
-        <g fill="var(--color-accent)">
-        <circle cx="640" cy="118" r="5"/>
-        <circle cx="712" cy="112" r="5"/>
-        </g>
-
+        <polygon points="405,221 925,221 925,125 405,125" fill="var(--wall-back)"/>
+        <polygon points="230,276 405,221 405,125 230,180" fill="var(--wall-left)"/>
+        <polygon points="562.5,259.5 676.25,223.75 676.25,177.75 562.5,213.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
+        <polygon points="692.5,259.5 806.25,223.75 806.25,177.75 692.5,213.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
+        <polygon points="505,219 585,219 585,243 505,243" fill="var(--slab-edge)"/>
+        <polygon points="505,219 585,219 611.25,210.75 531.25,210.75" fill="var(--furn)"/>
+        <polygon points="635,219 715,219 715,243 635,243" fill="var(--slab-edge)"/>
+        <polygon points="635,219 715,219 741.25,210.75 661.25,210.75" fill="var(--furn)"/>
+        <polygon points="765,219 840,219 840,243 765,243" fill="var(--slab-edge)"/>
+        <polygon points="765,219 840,219 866.25,210.75 791.25,210.75" fill="var(--furn)"/>
         <g class="fac-people">
-        <g transform="translate(474,216.6) rotate(-7) scale(0.93)"><use href="#fac-figd1"/></g>
-        <g transform="translate(516.25,223.75) rotate(9) scale(0.95)"><use href="#fac-figd3"/></g>
-        <g transform="translate(440,232) rotate(-4) scale(0.96)"><use href="#fac-fig"/></g>
-
-        <g transform="translate(849.5,175.5) rotate(2) scale(0.93)"><use href="#fac-figs"/></g>
-        <g transform="translate(818,185.4) rotate(-2) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(802.5,189.5) rotate(3) scale(0.93)"><use href="#fac-figs"/></g>
-        <g transform="translate(771,199.4) rotate(-3) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(752.5,203.5) rotate(2) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(741.25,208.75) rotate(-2) scale(0.96)"><use href="#fac-figs"/></g>
-        <g transform="translate(721,213.4) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
-        <g transform="translate(702.5,217.5) rotate(-3) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(691.25,222.75) rotate(2) scale(0.96)"><use href="#fac-figs"/></g>
-        <g transform="translate(671,227.4) rotate(-2) scale(0.95)"><use href="#fac-figs"/></g>
-        <g transform="translate(652.5,231.5) rotate(3) scale(0.94)"><use href="#fac-figs"/></g>
-        <g transform="translate(621,241.4) rotate(-3) scale(0.96)"><use href="#fac-figs"/></g>
-        <g transform="translate(591.25,250.75) rotate(2) scale(0.97)"><use href="#fac-figs"/></g>
+        <g transform="translate(534,238.6) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(579,238.6) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(664,238.6) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(709,238.6) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(794,238.6) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(839,238.6) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(491.25,256.75) rotate(4) scale(0.98)"><use href="#fac-fig"/></g>
         </g>
         </g>
-
-        <!-- ============ 屋根 ============ -->
+        <!-- 4F 会員ラウンジ -->
+        <g>
+        <polygon points="230,180 750,180 925,125 405,125" fill="var(--slab)"/>
+        <polygon points="230,180 750,180 750,192 230,192" fill="var(--slab-edge)"/>
+        <polygon points="750,180 925,125 925,137 750,192" fill="var(--slab-edge)"/>
+        <polygon points="405,125 925,125 925,29 405,29" fill="var(--wall-back)"/>
+        <polygon points="230,180 405,125 405,29 230,84" fill="var(--wall-left)"/>
+        <polygon points="431,123.4 536,123.4 536,151.4 431,151.4" fill="var(--slab-edge)"/>
+        <polygon points="431,123.4 536,123.4 560.5,115.7 455.5,115.7" fill="var(--furn)"/>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <rect x="579.75" y="142.75" width="3" height="18"/>
+        <ellipse cx="581.25" cy="142.75" rx="26" ry="9"/>
+        </g>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <rect x="767" y="127.9" width="3" height="18"/>
+        <ellipse cx="768.5" cy="127.9" rx="26" ry="9"/>
+        </g>
+        <g class="fac-people">
+        <g transform="translate(825.5,132.7) rotate(-4) scale(0.93)"><use href="#fac-fig"/></g>
+        <g transform="translate(880.5,132.7) rotate(5) scale(0.93)"><use href="#fac-fig"/></g>
+        <g transform="translate(528,138.2) scale(0.94)"><use href="#fac-fig"/></g>
+        <g transform="translate(733.5,145.9) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(803.5,145.9) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(611,151.4) rotate(4) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(473.5,156.9) rotate(-4) scale(0.97)"><use href="#fac-fig"/></g>
+        <g transform="translate(546.25,160.75) rotate(3) scale(0.98)"><use href="#fac-figs"/></g>
+        <g transform="translate(616.25,160.75) rotate(-3) scale(0.98)"><use href="#fac-figs"/></g>
+        </g>
+        </g>
+        <!-- 屋根 -->
         <g>
         <polygon points="230,84 750,84 925,29 405,29" fill="var(--slab)"/>
         <polygon points="230,84 750,84 750,96 230,96" fill="var(--slab-edge)"/>
@@ -560,86 +560,81 @@
         <polygon points="230,84 405,29 405,11 230,66" fill="var(--wall-left)"/>
         <polygon points="750,84 925,29 925,11 750,66" fill="var(--wall-left)"/>
         </g>
-
-        <!-- ============ 外形線 ============ -->
         <g fill="none">
-        <line x1="230" y1="66" x2="230" y2="672" stroke="var(--line)" stroke-width="1.4"/>
-        <line x1="925" y1="11" x2="925" y2="617" stroke="var(--line)" stroke-width="1.4"/>
-        <line x1="405" y1="11" x2="405" y2="617" stroke="var(--rule)" stroke-width="1"/>
+        <line x1="230" y1="66" x2="230" y2="768" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="925" y1="11" x2="925" y2="713" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="405" y1="11" x2="405" y2="713" stroke="var(--rule)" stroke-width="1"/>
         </g>
-
-        <!-- ============ 街の人 ============ -->
         <g class="fac-people">
-        <g transform="translate(100,564)"><use href="#fac-fig"/></g>
-        <g transform="translate(146,564)"><use href="#fac-fig"/></g>
-        <g transform="translate(192,564)"><use href="#fac-fig"/></g>
+        <g transform="translate(100,468)"><use href="#fac-fig"/></g>
+        <g transform="translate(146,468)"><use href="#fac-fig"/></g>
+        <g transform="translate(192,468)"><use href="#fac-fig"/></g>
         </g>
-
-        <!-- ============ 階の名前 ============ -->
         <g>
         <g class="fac-lead">
-        <path d="M947 29 h10 v192 h-10"/>
+        <line x1="925" y1="125" x2="947" y2="125"/>
+        <line x1="925" y1="221" x2="947" y2="221"/>
         <line x1="925" y1="317" x2="947" y2="317"/>
         <line x1="925" y1="413" x2="947" y2="413"/>
         <line x1="925" y1="509" x2="947" y2="509"/>
-        <line x1="925" y1="605" x2="947" y2="605"/>
+        <path d="M947 509 h10 v192 h-10"/>
         </g>
-
-        <text class="fac-tag"  x="967" y="111">4-5F</text>
-        <text class="fac-verb" x="967" y="130">立つ</text>
-        <text class="fac-name" x="967" y="149">小劇場</text>
-
-        <text class="fac-tag"  x="955" y="303">3F</text>
-        <text class="fac-verb" x="955" y="322">育つ</text>
-        <text class="fac-name" x="955" y="341">インキュベーション</text>
-
-        <text class="fac-tag"  x="955" y="399">2F</text>
-        <text class="fac-verb" x="955" y="418">話す</text>
-        <text class="fac-name" x="955" y="437">ワークショップ</text>
-
-        <text class="fac-tag"  x="955" y="495">1F</text>
-        <text class="fac-verb" x="955" y="514">開く</text>
-        <text class="fac-name" x="955" y="533">オフィス・アトリエ・カフェ</text>
-
-        <text class="fac-tag"  x="955" y="591">B1</text>
-        <text class="fac-verb" x="955" y="610">爆発する</text>
-        <text class="fac-name" x="955" y="629">クラブ</text>
+        <text class="fac-tag"  x="955" y="111">4F</text>
+        <text class="fac-verb" x="955" y="130">ホールドする</text>
+        <text class="fac-name" x="955" y="149">会員ラウンジ</text>
+        <text class="fac-tag"  x="955" y="207">3F</text>
+        <text class="fac-verb" x="955" y="226">成長する</text>
+        <text class="fac-name" x="955" y="245">インキュベーション</text>
+        <text class="fac-tag"  x="955" y="303">2F</text>
+        <text class="fac-verb" x="955" y="322">葛藤を超える</text>
+        <text class="fac-name" x="955" y="341">ワークショップ</text>
+        <text class="fac-tag"  x="955" y="399">1F</text>
+        <text class="fac-verb" x="955" y="418">開く</text>
+        <text class="fac-name" x="955" y="437">オフィス・アトリエ・カフェ</text>
+        <text class="fac-tag"  x="955" y="495">B1</text>
+        <text class="fac-verb" x="955" y="514">行動しインパクトを出す</text>
+        <text class="fac-name" x="955" y="533">クラブ</text>
+        <text class="fac-tag"  x="967" y="591">B2-B3</text>
+        <text class="fac-verb" x="967" y="610">恐れを捨てる</text>
+        <text class="fac-name" x="967" y="629">小劇場</text>
         </g>
 
         </svg>
           </div>
-          <figcaption class="fac-caption">濃い色は人です。地下では誰ひとり同じ踊り方をしていません。4階と5階は床を抜いて、2層分の高さの小劇場にしています。</figcaption>
         </figure>
 
         <div class="floors">
           <div class="row">
-            <span class="tag">4-5F</span>
-            <span class="name">立つ</span>
-            <span class="desc"><strong>小劇場。</strong>2層分を吹き抜けにしています。席数にはこだわりません。演劇のワークショップもできる大きさです。</span>
+            <span class="tag">4F</span>
+            <span class="name">ホールドする</span>
+            <span class="desc"><strong>会員ラウンジ。</strong>ここを通ってきた人たちの場所です。今度は自分が場をホールドする側にまわります。</span>
           </div>
           <div class="row">
             <span class="tag">3F</span>
-            <span class="name">育つ</span>
+            <span class="name">成長する</span>
             <span class="desc"><strong>インキュベーションルーム。</strong>D5 Eternal Capital の投資先。小さな規模の会社が入ります。</span>
           </div>
           <div class="row">
             <span class="tag">2F</span>
-            <span class="name">話す</span>
-            <span class="desc"><strong>ワークショップスペース。</strong>輪になって座ります。前に立つのは常に2人です。</span>
+            <span class="name">葛藤を超える</span>
+            <span class="desc"><strong>ワークショップスペース。</strong>輪になって座ります。前に立つのは常に2人です。関係性の中で、葛藤を超えます。</span>
           </div>
           <div class="row">
             <span class="tag">1F</span>
             <span class="name">開く</span>
-            <span class="desc"><strong>オフィス、アトリエ、カフェ。</strong>3つとも同じ重さです。ガラス張りの開かれたオフィスがあり、その中の小さな展示スペースがアトリエになり、横にカフェが並びます。いま実体のあるオフィスがないので、ここが最初のオフィスになります。</span>
+            <span class="desc"><strong>オフィス、アトリエ、カフェ。</strong>3つとも同じ重さです。ガラス張りの開かれたオフィスがあり、その中の小さな展示スペースがアトリエになり、横にカフェが並びます。通りに面した入口です。</span>
           </div>
           <div class="row">
             <span class="tag">B1</span>
-            <span class="name">爆発する</span>
-            <span class="desc"><strong>クラブ。</strong>ここは動きません。全員が揃って踊る場所ではありません。<strong>思い思いに踊る場所</strong>です。</span>
+            <span class="name">行動しインパクトを出す</span>
+            <span class="desc"><strong>クラブ。</strong>各自が自分に100%の許可を出して、自分のインパクトでアクトします。全員が揃って踊る場所ではありません。</span>
+          </div>
+          <div class="row">
+            <span class="tag">B2-B3</span>
+            <span class="name">恐れを捨てる</span>
+            <span class="desc"><strong>小劇場。</strong>2層分を吹き抜けにしています。席数にはこだわりません。演劇のワークショップもできる大きさです。一番怖いことを、ここでやります。</span>
           </div>
         </div>
-
-        <p class="note" style="margin-top:1.75rem;">下から上へ、爆発する、開く、話す、育つ、立つ。地下で爆発したものが、上がるにつれて形になり、最上階でもう一度人前に立つ、という順序です。</p>
       </div>
     </section>
 
@@ -649,10 +644,6 @@
       </div>
     </section>
 
-    <section class="cta-section">
-      <h2 class="cta-section__title">検証してください</h2>
-      <a href="/contact.html" class="cta-section__btn">お問い合わせ →</a>
-    </section>
   </main>
 
   <footer class="site-footer">
