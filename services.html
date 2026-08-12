@@ -2,15 +2,758 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サービス | 株式会社グルー</title>
-  <link rel="canonical" href="https://groo-inc.com/">
-  <meta name="robots" content="noindex, follow">
-  <meta http-equiv="refresh" content="0; url=/">
+  <meta name="description" content="経済性 (左天秤) に載せるもの。理念体系と長期の指針を6ヶ月でつくるパッケージ。関係性システムコーチングとシナリオ・プランニングを、同じ1日の中で行き来します。">
+
+  <meta property="og:title" content="サービス | 株式会社グルー">
+  <meta property="og:description" content="経済性 (左天秤) に載せるもの。理念体系と長期の指針を6ヶ月でつくるパッケージ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/services.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="canonical" href="https://groo-inc.com/services.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+    /* --- サービスページ固有 --- */
+
+    .lead p {
+      font-size: 1.05rem;
+      line-height: 2.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .diagram {
+      margin: 2.5rem 0 1rem;
+    }
+
+    /* 経営の階層 */
+    .layers {
+      padding-left: 0;
+    }
+    .layer {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+    .layer__box {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 0.95rem 1.15rem;
+    }
+    .layer--focus .layer__box {
+      border: 2px solid var(--color-accent);
+      background: rgba(201, 169, 110, 0.13);
+    }
+    .layer__name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.6;
+    }
+    .layer__sub {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      margin-top: 0.15rem;
+      line-height: 1.7;
+    }
+    .layer__note {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #555;
+      align-self: center;
+    }
+    .layer__note b {
+      display: block;
+      color: var(--color-primary);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    .layer__note--focus b {
+      color: var(--color-accent);
+      font-size: 0.95rem;
+    }
+    .supp-lead {
+      margin-top: 2.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+    }
+    .layers__group {
+      position: relative;
+      border: 2px solid var(--color-accent);
+      border-radius: 8px;
+      background: rgba(201, 169, 110, 0.07);
+      padding: 1.25rem 1.25rem 0.15rem;
+      margin-bottom: 1.6rem;
+    }
+    .layers__group-label {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.15rem 0.7rem;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.1rem;
+    }
+    .layers__group-label span {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .layers__group .layer:last-child {
+      margin-bottom: 1.1rem;
+    }
+
+    /* 1日の流れ */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+    .flow__item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      text-align: center;
+    }
+    .flow__item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+    }
+    .flow__item span {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    .flow__arrow {
+      text-align: center;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+    .flow__arrow::before { content: "\2193"; }
+    .flow__ws {
+      border: 2px solid var(--color-primary);
+      border-radius: 6px;
+      padding: 1.25rem;
+      background: var(--color-bg);
+    }
+    .flow__ws-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .flow__half {
+      border-radius: 4px;
+      padding: 0.9rem 1.05rem;
+    }
+    .flow__half--well {
+      background: rgba(201, 169, 110, 0.13);
+      border: 1px solid var(--color-accent);
+    }
+    .flow__half--econ {
+      background: rgba(26, 26, 46, 0.05);
+      border: 1px solid var(--color-primary);
+    }
+    .flow__tag {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+    .flow__half--well .flow__tag { color: var(--color-accent); }
+    .flow__half--econ .flow__tag { color: var(--color-primary); }
+    .flow__half strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .flow__half p {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: #555;
+      margin: 0;
+    }
+    .flow__down {
+      text-align: center;
+      color: var(--color-accent);
+      line-height: 1;
+      padding: 0.5rem 0;
+    }
+    .flow__down::before { content: "\2193"; }
+    .flow__loop {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px dashed var(--color-accent);
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .diagram__note {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      margin-top: 0.5rem;
+    }
+
+    .pkg__label {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      border-radius: 3px;
+      padding: 0.25rem 0.7rem;
+      margin-bottom: 1rem;
+    }
+    .pkg__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .pkg__term {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .subhead {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 3rem 0 1.25rem;
+      padding-left: 0.85rem;
+      border-left: 4px solid var(--color-accent);
+    }
+
+    .signs {
+      list-style: none;
+      padding: 0;
+    }
+    .signs li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.95;
+    }
+    .signs li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 10px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    .principles {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .principle {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1.5rem 1.6rem;
+    }
+    .principle h4 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.6rem;
+    }
+    .principle p {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      margin: 0;
+    }
+
+    /* 価値観が立つまでの8段 */
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      padding: 0;
+      margin-left: 1.1rem;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 2rem;
+      border-left: 1px solid var(--color-border);
+    }
+    .steps li:last-child {
+      border-left-color: transparent;
+      padding-bottom: 0;
+    }
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: -1.1rem;
+      top: -0.2rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .steps h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.45rem;
+      line-height: 1.6;
+    }
+    .steps p {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      margin: 0;
+    }
+
+    .outputs {
+      list-style: none;
+      padding: 0;
+    }
+    .outputs li {
+      border-top: 1px solid var(--color-border);
+      padding: 1.15rem 0;
+      line-height: 1.95;
+    }
+    .outputs li:last-child {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .outputs strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .phase-table table {
+      font-size: 0.9rem;
+    }
+    .phase-table th,
+    .phase-table td {
+      line-height: 1.85;
+      vertical-align: top;
+    }
+    .phase-table th.month {
+      white-space: nowrap;
+    }
+
+    .coming {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+    .coming li {
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+    }
+    .coming li span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      margin-top: 0.2rem;
+    }
+
+    @media (min-width: 700px) {
+      .principles { grid-template-columns: repeat(2, 1fr); }
+      .coming { grid-template-columns: repeat(2, 1fr); }
+
+      .layer {
+        grid-template-columns: minmax(0, 400px) 1fr;
+        gap: 1.75rem;
+      }
+
+      .flow {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .flow__item { flex: 0 0 168px; }
+      .flow__ws { flex: 1 1 auto; }
+      .flow__arrow::before { content: "\2192"; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
 </head>
 <body>
-  <p style="padding:4rem 2rem; text-align:center;">
-    サービスの内容は <a href="/">トップページ</a> に統合しました。自動で移動します。
-  </p>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/#ryotenbin">両天秤アプローチとは</a></li>
+        <li><a href="/services.html" class="active">サービス</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
+        <li><a href="/contact.html">お問い合わせ</a></li>
+        <li><a href="/booking.html">日程予約</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">サービス</h1>
+      <p class="page-hero__description">経済性 (左天秤) に、何を載せるか</p>
+    </section>
+
+    <!-- ===== 1. 載せ替えの説明 ===== -->
+    <section class="section">
+      <div class="container lead">
+        <p>わたしたちは、<strong>経済性 (左天秤)</strong> と <strong>健全性 (右天秤)</strong> を同時に扱います。</p>
+        <p>健全性 (右天秤) — 人と人のあいだで実際に起きていること — は、どの案件でも必ず扱います。ここは載せ替えません。</p>
+        <p>載せ替えるのは、経済性 (左天秤) です。テーマによって、載るものが変わります。いまお受けできるのは1つです。これから増やしていきます。</p>
+      </div>
+    </section>
+
+    <!-- ===== 2. パッケージ1 ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <span class="pkg__label">PACKAGE 01</span>
+        <h2 class="pkg__title">理念体系と、長期の指針をつくる</h2>
+        <p class="pkg__term">6ヶ月 / 月1回の終日ワークショップ + そのあいだの宿題 + グループ別の個別伴走</p>
+
+        <h3 class="subhead">こういう状態になっていませんか</h3>
+        <ul class="signs">
+          <li>長期の計画を掲げたのに、中期経営計画の1期目で、もう現実に合わなくなっている</li>
+          <li>方向と施策は書いてあるのに、現場が動かない</li>
+          <li>理念も価値観もあるが、言葉が大きすぎて、迷ったときの助けにならない</li>
+          <li>分かれ道に立つと抽象化して全部取りしようとして、結局これまでの延長になる</li>
+        </ul>
+
+        <h3 class="subhead">指針と価値観を持って、冒険しながら進む</h3>
+
+        <p style="line-height:2.1; margin-bottom:1.25rem;">長期のビジョンや計画を、精緻につくる。そしてそこへ向かって真っ直ぐ進む。これが戦略コンサルティングの仕事です。<strong>わたしたち自身が、長くやってきたやり方です。</strong></p>
+        <p style="line-height:2.1; margin-bottom:1.25rem;">ところが、<strong>つくった瞬間に陳腐化します。</strong>精緻につくるほど、外れたときに直せません。</p>
+        <p style="line-height:2.1; margin-bottom:1.25rem;"><strong>このパッケージは、そのやり方へのアンチテーゼです。</strong></p>
+        <p style="line-height:2.1; margin-bottom:1.25rem;">決めるのは2つだけです。<strong>向かう方向 (指針)</strong> と、<strong>分かれ道で何を選び、何を捨てるか (価値観)</strong>。あとは走りながら、選び続けます。</p>
+        <p style="line-height:2.1;">計画どおりに進むのではなく、指針と価値観を持って冒険する。中期の計画を何年も先まで細かく刻む必要は、なくなります。</p>
+
+        <p class="supp-lead">経営の階層でいうと、こうなります。</p>
+
+        <div class="diagram">
+          <div class="layers">
+            <div class="layers__group">
+              <p class="layers__group-label">ここを、一緒につくります<span>6ヶ月のパッケージ</span></p>
+
+              <div class="layer layer--focus">
+                <div class="layer__box">
+                  <div class="layer__name">理念体系 (パーパス、ミッション、ビジョン、バリュー等)</div>
+                  <div class="layer__sub">変えない土台</div>
+                </div>
+                <p class="layer__note"><b>よくあること</b>言葉が茫漠としており、分かれ道で選択・決断できない</p>
+              </div>
+
+              <div class="layer layer--focus">
+                <div class="layer__box">
+                  <div class="layer__name">長期の経営計画 (10年)</div>
+                  <div class="layer__sub">分かれ道で選ぶ基準と、向かう方向</div>
+                </div>
+                <p class="layer__note"><b>よくあること</b>位置づけが不明確で、使えずに形骸化</p>
+              </div>
+            </div>
+
+            <div class="layer">
+              <div class="layer__box">
+                <div class="layer__name">中期経営計画 (3〜5年)</div>
+                <div class="layer__sub">課題と施策</div>
+              </div>
+              <p class="layer__note"><b>よくあること</b>立てた瞬間に状況が変わっており、計画が陳腐化</p>
+            </div>
+
+            <div class="layer">
+              <div class="layer__box">
+                <div class="layer__name">年度の方針 (本部・部)</div>
+                <div class="layer__sub">具体的な行動</div>
+              </div>
+              <p class="layer__note"><b>よくあること</b>計画 (P) が陳腐化するので、D-A が実施されない</p>
+            </div>
+
+            <div class="layer">
+              <div class="layer__box">
+                <div class="layer__name">個人の目標</div>
+                <div class="layer__sub">一人ひとりへの落とし込み</div>
+              </div>
+              <p class="layer__note"><b>よくあること</b>価値観レベルで擦り合わない</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="diagram__note">扱うのは、上の2段です。ここが空いていると、下の3段はすべて崩れます。逆にここが立っていれば、その下を何年も先まで細かく刻まなくても、進めるようになります。</p>
+
+        <h3 class="subhead">1日の中で、何が起きるか</h3>
+
+        <div class="diagram">
+          <div class="flow">
+            <div class="flow__item">
+              <strong>宿題</strong>
+              <span>一人で、葛藤する</span>
+            </div>
+
+            <div class="flow__arrow" aria-hidden="true"></div>
+
+            <div class="flow__ws">
+              <p class="flow__ws-title">1日のワークショップ</p>
+              <div class="flow__half flow__half--well">
+                <span class="flow__tag">前半 — 健全性 (右天秤)</span>
+                <strong>関係性そのものを扱う</strong>
+                <p>誰が誰に遠慮しているか。何が言われないまま終わっているか</p>
+              </div>
+              <div class="flow__down" aria-hidden="true"></div>
+              <div class="flow__half flow__half--econ">
+                <span class="flow__tag">後半 — 経済性 (左天秤)</span>
+                <strong>シナリオ・プランニング</strong>
+                <p>未来を描き、ぶつけ、1つを選ぶ</p>
+              </div>
+            </div>
+
+            <div class="flow__arrow" aria-hidden="true"></div>
+
+            <div class="flow__item">
+              <strong>宿題</strong>
+              <span>より深いところへ</span>
+            </div>
+          </div>
+
+          <p class="flow__loop">宿題 → 前半 → 後半 → 宿題。この一周を、半年で3〜4周します</p>
+        </div>
+
+        <p class="diagram__note">前半と後半は、別々の時間ではありません。関係性が動いたところで論理の議論に入り、論理が詰まったところで関係性に戻ります。1人ではできないので、必ず2人1組 (コーリード) で入ります。</p>
+
+        <h3 class="subhead">シナリオ・プランニングについて</h3>
+        <p style="margin-bottom:1.5rem;">後半で使う手法です。何をやるものなのかを、代表が話しています。</p>
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/mvKpX8WBC6g" title="両天秤アプローチの方法論 【シナリオ・プランニング】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <h3 class="subhead">6ヶ月の進み方</h3>
+
+        <div class="table-wrapper phase-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="month">時期</th>
+                <th>前半 — 健全性 (右天秤)</th>
+                <th>後半 — 経済性 (左天秤)</th>
+                <th>その月に出るもの</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="month">1ヶ月目</th>
+                <td>関係性のいまを見立てる。いまの自分たちと、まだ認めていない自分たちの境界 (エッジ) に、身体で触れる</td>
+                <td>未来を左右する不確実性を洗い出し、決まっていることと決まっていないことを分ける。2つのドライビングフォースを選ぶ</td>
+                <td>2つのドライビングフォース</td>
+              </tr>
+              <tr>
+                <th class="month">2ヶ月目<br><span style="font-weight:400; font-size:0.8rem; color:var(--color-text-light);">2日間の合宿</span></th>
+                <td>チームの約束事を、自分たちの言葉でつくる</td>
+                <td>4つの並行未来 (シナリオ・マトリクス) を描き切る。いちばん都合の悪い未来も外さない</td>
+                <td>4つの並行未来 (シナリオ・マトリクス)</td>
+              </tr>
+              <tr>
+                <th class="month">3ヶ月目</th>
+                <td>立場の違いを受けとめ、対話を開く</td>
+                <td>いまの施策を4つの並行未来にぶつける。どの未来でも後悔しない打ち手を選び分ける</td>
+                <td>打ち手の一覧と、価値観の原石</td>
+              </tr>
+              <tr>
+                <th class="month">4ヶ月目</th>
+                <td>対立と葛藤を、避けずに越える</td>
+                <td>4つの並行未来から1つを選ぶ。同時に、やめるものを宣言する</td>
+                <td>事業ごとの価値観</td>
+              </tr>
+              <tr>
+                <th class="month">5ヶ月目</th>
+                <td>自分たちで進んでいく状態に向けて、準備する</td>
+                <td>事業ごとの基準を並べ、矛盾を越えて全社で1つに束ねる</td>
+                <td>全社の価値観と、骨太の施策 (武器)</td>
+              </tr>
+              <tr>
+                <th class="month">6ヶ月目</th>
+                <td>半年の道のりを振り返り、これからどうありたいかを宣言する</td>
+                <td>成果物を統合し、宣言・誓願に臨む</td>
+                <td>長期の指針と、宣言・誓願</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="diagram__note">回と回のあいだは、およそ3週間の宿題でつなぎます。宿題は「きれいな答え」を書く場ではありません。今すぐやめたほうがいいと思っているもの、そしてそれをやめられない理由を、両方書いていただきます。</p>
+
+        <h3 class="subhead">進め方の原則</h3>
+        <div class="principles">
+          <div class="principle">
+            <h4>螺旋で進みます</h4>
+            <p>宿題で一人がぶつかった葛藤が、次の回の前半でチーム全体のものとして現れます。それが後半の論理の議論を押し出し、また宿題で、より深いところに戻ります。半年で3周から4周します。</p>
+          </div>
+          <div class="principle">
+            <h4>不確実性の中に、自ら身を置きます</h4>
+            <p>予測が当たらない場所へ、自分から入ります。そこで葛藤が生まれます。決めきれない。正直に言えない。切り捨てられない。この葛藤を苦しみながら止揚したときにだけ、価値観と指針に気づきます。葛藤は個人に抱えさせず、グループで引き受けます。</p>
+          </div>
+        </div>
+
+        <h3 class="subhead">価値観が立つまで</h3>
+        <p style="line-height:2.1; margin-bottom:1.25rem;">「私たちは○○を大切にします」では、価値観にはなりません。「速さより、全員の腹落ちを優先する」— つまり分かれ道では速さを捨てる、と書けて初めて、どちらかを選び、どちらかを捨てること、すなわち決断することができます。</p>
+        <p style="line-height:2.1; margin-bottom:2.25rem;">そして価値観は、話し合いからは出てきません。<strong>自ら不確実性の中に身を置き、そこで生まれる葛藤を、苦しみながら止揚したときに気づくもの</strong>です。そのために、8つの段を順に踏んでいただきます。</p>
+
+        <ol class="steps">
+          <li>
+            <h4>4つの世界から、1つを選ぶ</h4>
+            <p>描いた4つの並行未来のうち、自分たちが創り出す世界を1つに決めます。</p>
+          </li>
+          <li>
+            <h4>武器 (矛) を持つ</h4>
+            <p>その世界へ行くための武器です。何で攻めるのか。主だったものだけを挙げます。</p>
+          </li>
+          <li>
+            <h4>捨てるものを決める</h4>
+            <p>固有名詞で3つまで。「選択と集中をします」のような言い方は認めません。</p>
+          </li>
+          <li>
+            <h4>捨てた影響を、明示する</h4>
+            <p>それをやめると、どれだけ定量的に失うのか。誰を失うのか。ここまで書いて、初めて捨てたことになります。</p>
+          </li>
+          <li>
+            <h4>果たし状を受ける</h4>
+            <p>ほかのチームから、その選択に対する問いが突きつけられます。「それで人は育つんですか」「本当にそれで楽しいんですか」。喉元に刃を当てられる時間です。</p>
+          </li>
+          <li>
+            <h4>武器 (盾) を持つ</h4>
+            <p>殴られた場所から逆算して、守りの武器をつくります。矛だけでは、落とし穴に落ちます。</p>
+          </li>
+          <li>
+            <h4>それでも選ぶ理由を、宣言する</h4>
+            <p>殴られたうえで、なお、その世界を創り出したい。その理由が価値観です。ここで初めて、言葉が自分のものになります。</p>
+          </li>
+          <li>
+            <h4>例文にする</h4>
+            <p>分かれ道でその基準をどう使うのか、具体的な場面を挙げます。多ければ多いほどよい。使われない価値観は、無いのと同じです。</p>
+          </li>
+        </ol>
+
+        <p style="line-height:2.1; margin-top:2rem;">4段目と5段目が、いちばん葛藤するところです。身体がざわつき、言葉が出てこなくなります。ここを避けて通ると、出てくるのは当たり障りのない標語です。<strong>葛藤を止揚したときにだけ、自分たちの価値観と指針が姿を現します。</strong></p>
+
+        <h3 class="subhead">出てくるもの</h3>
+        <ul class="outputs">
+          <li><strong>価値・価値観</strong>分かれ道で、何を選び、何を捨てるかの基準です。事業ごとに1つ、全社で1つ。</li>
+          <li><strong>指針</strong>4つの並行未来から1つを選び取り、そこへ向かうと決めた方向です。</li>
+          <li><strong>決断しながら進み、学び続けるチーム</strong>VUCA で環境が変わっても、遠くに見える指針に向かって、価値・価値観に基づいて決断しながら進み、そこから学び、成長し続けていけます。</li>
+        </ul>
+
+        <h3 class="subhead">そのあと</h3>
+        <p style="line-height:2.1; margin-bottom:1.25rem;">決めた価値観と指針は、下の段に落ちて初めて働きます。</p>
+        <p style="line-height:2.1; margin-bottom:1.25rem;"><strong>中期経営計画は、そこから選び直され続けるものになります。</strong>何年も先まで細かく刻んで固定するのではありません。価値観で選び、状況が変わったら選び直す。PDCA でいえば、P と D よりも C と A に重心が移ります。年度の方針と個人の目標も、同じ基準でつながります。</p>
+        <p style="line-height:2.1;">そこまで見る場合は、別途ご相談ください。</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. これから載せるもの ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">これから、載せるもの</h2>
+        <p class="section__subtitle">準備中です。順に載せていきます。</p>
+
+        <ul class="coming">
+          <li>新規事業開発</li>
+          <li>会議のファシリテーション</li>
+          <li>人材育成と評価制度</li>
+          <li>M&amp;A</li>
+        </ul>
+
+        <p style="margin-top:2rem; line-height:2.1;">いずれも、経済性の側の手法としては世の中にあるものです。わたしたちがやるのは、そこに健全性の側を同時に持ち込むことです。</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. 行動は1つ ===== -->
+    <section class="cta-section">
+      <h2 class="cta-section__title">まず60分、話しませんか</h2>
+      <a href="/booking.html" class="cta-section__btn">日程を選ぶ →</a>
+      <p style="margin-top:1.5rem; font-size:0.875rem; line-height:1.9; color:rgba(255,255,255,0.75);">枠を選んでいただくだけで、カレンダーの招待が届きます。<br>
+      まず文章で相談したい方は、<a href="/contact.html" style="color:var(--color-accent); font-weight:600;">お問い合わせフォーム</a> からどうぞ。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
