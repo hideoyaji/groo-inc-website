@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URANUS Eternal Capital — 売らない資本の構造 | 企画集団D5</title>
+  <meta name="description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売らない資本の構造。検討中の設計であり、出資の勧誘ではありません。">
+
+  <meta property="og:title" content="URANUS Eternal Capital — 売らない資本の構造 | 企画集団D5">
+  <meta property="og:description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売らない資本の構造。検討中の設計であり、出資の勧誘ではありません。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/uranus.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="canonical" href="https://groo-inc.com/uranus.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+
+  .uranus {
+    --ground: #EEF1EE;
+    --panel: #F7F9F7;
+    --ink: #141C18;
+    --ink-soft: #56635C;
+    --ink-faint: #808C85;
+    --rule: #C6CFC7;
+    --rule-soft: #DDE3DD;
+    --copper: #9C5526;
+    --copper-fill: #E8D5C4;
+    --teal: #16645F;
+    --teal-fill: #CDE0DE;
+    --cut: #93302E;
+    --shadow: 0 1px 2px rgba(20, 28, 24, .06);
+  }
+  .uranus {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.85;
+    margin: 0;
+    padding: 56px 24px 88px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .uranus .wrap { max-width: 1080px; margin: 0 auto; }
+  /* ---- header ---- */
+  .uranus header { padding: 72px 0 40px; border-bottom: 1px solid var(--rule); }
+  .uranus .eyebrow {
+    font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--copper); margin: 0 0 20px; font-weight: 600;
+  }
+  .uranus h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.32; font-weight: 600; margin: 0 0 28px;
+    text-wrap: balance; letter-spacing: .01em;
+  }
+  .uranus .thesis {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2.4vw, 25px); line-height: 1.75;
+    margin: 0; max-width: 34em; color: var(--ink);
+    border-left: 3px solid var(--copper); padding-left: 22px;
+  }
+  /* ---- sections ---- */
+  .uranus section { padding-top: 68px; }
+  .uranus h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3vw, 32px); font-weight: 600;
+    margin: 0 0 8px; letter-spacing: .01em;
+  }
+  .uranus .sub { color: var(--ink-soft); font-size: 16px; margin: 0 0 34px; max-width: 40em; }
+  .uranus p { max-width: 40em; }
+  /* ---- cut list ---- */
+  .uranus .cuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+  .uranus .cut-card {
+    background: var(--panel); border: 1px solid var(--rule-soft);
+    border-top: 3px solid var(--cut); padding: 22px 24px 24px; box-shadow: var(--shadow);
+  }
+  .uranus .cut-card h3 {
+    font-family: var(--font-serif);
+    font-size: 21px; margin: 0 0 10px; font-weight: 600;
+  }
+  .uranus .cut-card p { font-size: 15px; line-height: 1.8; margin: 0; color: var(--ink-soft); }
+  /* ---- figures ---- */
+  .uranus figure { margin: 0; }
+  .uranus .figbox {
+    background: var(--panel); border: 1px solid var(--rule-soft);
+    padding: 28px 20px; overflow-x: auto; box-shadow: var(--shadow);
+  }
+  .uranus .figbox svg { display: block; width: 100%; min-width: 700px; height: auto; }
+  .uranus figcaption {
+    font-size: 14.5px; color: var(--ink-soft); margin-top: 16px;
+    line-height: 1.8; max-width: 44em;
+  }
+  /* ---- table ---- */
+  .uranus .tablewrap { overflow-x: auto; }
+  .uranus table {
+    border-collapse: collapse; width: 100%; min-width: 560px;
+    font-variant-numeric: tabular-nums; margin-top: 8px;
+  }
+  .uranus caption {
+    text-align: left; font-size: 14.5px; color: var(--ink-soft);
+    padding-bottom: 14px; line-height: 1.8;
+  }
+  .uranus th, .uranus td { padding: 15px 16px; text-align: right; border-bottom: 1px solid var(--rule-soft); }
+  .uranus th:first-child, .uranus td:first-child { text-align: left; }
+  .uranus thead th {
+    font-size: 13px; letter-spacing: .08em; color: var(--ink-faint);
+    font-weight: 600; border-bottom: 1px solid var(--rule);
+  }
+  .uranus tbody td { font-size: 17px; }
+  .uranus .num { font-family: "SF Mono", "Menlo", "Consolas", monospace; font-size: 16px; }
+  .uranus .win { color: var(--copper); font-weight: 600; }
+  /* ---- open questions ---- */
+  .uranus ol.qs { counter-reset: q; list-style: none; padding: 0; margin: 0; max-width: 46em; }
+  .uranus ol.qs li {
+    counter-increment: q; position: relative;
+    padding: 0 0 24px 52px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 24px;
+  }
+  .uranus ol.qs li:last-child { border-bottom: none; }
+  .uranus ol.qs li::before {
+    content: counter(q); position: absolute; left: 0; top: 2px;
+    font-family: "SF Mono", "Menlo", monospace; font-size: 14px;
+    color: var(--copper); border: 1px solid var(--copper);
+    width: 30px; height: 30px; display: grid; place-items: center;
+  }
+  .uranus ol.qs strong { display: block; font-size: 18px; margin-bottom: 6px; }
+  .uranus ol.qs span { color: var(--ink-soft); font-size: 15.5px; line-height: 1.8; }
+  .uranus footer {
+    margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--rule);
+    color: var(--ink-faint); font-size: 14px;
+  }
+  .uranus-back {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.75rem 24px 0;
+    font-size: 0.9rem;
+  }
+  .uranus-back a { color: var(--color-accent); font-weight: 600; }
+
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/co-lead.html">コーリード</a></li>
+        <li><a href="/d5.html" class="active">企画集団D5</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/contact.html">お問い合わせ</a></li>
+        <li><a href="/booking.html">日程予約</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p class="uranus-back"><a href="/d5.html">&larr; 企画集団D5</a></p>
+
+    <div class="uranus">
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">URANUS Eternal Capital</p>
+  <h1>売らない資本の構造</h1>
+  <p class="thesis">
+    10社に投資して9社潰し、1社が30倍。ファンド全体で3.0倍。これがベンチャーキャピタル。<br>
+    10社に投資して10社全部残し、1社あたり3倍。ファンド全体で、同じ3.0倍。
+  </p>
+</header>
+
+<section>
+  <h2>捨てた3つ</h2>
+  <p class="sub">この3つを手放すことが設計の起点で、以降の構造はすべてここから決まる。</p>
+  <div class="cuts">
+    <div class="cut-card">
+      <h3>売らない</h3>
+      <p>売却益を取らない。投資期間は30年以上、実質は無期限。売る予定がないので、経営者が数字をよく見せる動機が消える。</p>
+    </div>
+    <div class="cut-card">
+      <h3>借りない</h3>
+      <p>投資先にレバレッジをかけない。返済期限という「取締役会に座っていない発言者」を、意思決定の場から締め出す。</p>
+    </div>
+    <div class="cut-card">
+      <h3>IRRを最大化しない</h3>
+      <p>内部収益率を勝負の物差しにしない。IRRの最大化は企業の寿命を削る方向に働くため、その競争から最初に降りる。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>構造とカネの流れ</h2>
+  <p class="sub">誰が誰に何を渡すか。灰色の実線は出資、銅色はキャッシュ、緑は関わり。赤い切断線は、通っていた道を意図的に切った箇所。</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 1020 600" role="img" aria-label="出資者からURANUS、URANUSから投資先へ資金と伴走が流れ、投資先からの年12パーセントの配当が出資者8パーセント、従業員2パーセント、URANUS2パーセントに分かれる構造図。銀行からの負債と買い手へのエグジットの2経路は切断されている。">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+          </marker>
+          <marker id="ah-c" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="var(--copper)"/>
+          </marker>
+          <marker id="ah-t" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="var(--teal)"/>
+          </marker>
+        </defs>
+
+        <!-- severed: bank -->
+        <rect x="600" y="36" width="164" height="62" fill="none" stroke="var(--cut)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="682" y="63" text-anchor="middle" font-size="16" fill="var(--cut)">銀行</text>
+        <text x="682" y="83" text-anchor="middle" font-size="13" fill="var(--cut)">負債</text>
+        <line x1="682" y1="98" x2="682" y2="188" stroke="var(--cut)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <line x1="666" y1="135" x2="698" y2="155" stroke="var(--cut)" stroke-width="2.5"/>
+        <line x1="666" y1="155" x2="698" y2="135" stroke="var(--cut)" stroke-width="2.5"/>
+
+        <!-- severed: buyer -->
+        <rect x="812" y="36" width="164" height="62" fill="none" stroke="var(--cut)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="894" y="63" text-anchor="middle" font-size="16" fill="var(--cut)">買い手</text>
+        <text x="894" y="83" text-anchor="middle" font-size="13" fill="var(--cut)">売却 (Exit)</text>
+        <line x1="894" y1="188" x2="894" y2="98" stroke="var(--cut)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <line x1="878" y1="135" x2="910" y2="155" stroke="var(--cut)" stroke-width="2.5"/>
+        <line x1="878" y1="155" x2="910" y2="135" stroke="var(--cut)" stroke-width="2.5"/>
+
+        <!-- 出資者 -->
+        <rect x="40" y="196" width="182" height="112" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="131" y="238" text-anchor="middle" font-size="19" fill="currentColor">出資者 (LP)</text>
+        <text x="131" y="263" text-anchor="middle" font-size="13" fill="var(--ink-soft)">事業法人 / 財団</text>
+        <text x="131" y="283" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ファミリーオフィス</text>
+
+        <!-- URANUS -->
+        <rect x="312" y="180" width="218" height="146" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <text x="421" y="224" text-anchor="middle" font-size="20" fill="currentColor">URANUS</text>
+        <text x="421" y="253" text-anchor="middle" font-size="13" fill="var(--ink-soft)">議決株を持ち、売らない</text>
+        <text x="421" y="276" text-anchor="middle" font-size="13" fill="var(--ink-soft)">関係性DDと伴走を担う</text>
+        <text x="421" y="299" text-anchor="middle" font-size="13" fill="var(--copper)">受け取りは配当の2%</text>
+
+        <!-- 投資先 -->
+        <rect x="620" y="188" width="340" height="128" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="790" y="230" text-anchor="middle" font-size="19" fill="currentColor">投資先 10社</text>
+        <text x="790" y="257" text-anchor="middle" font-size="13" fill="var(--ink-soft)">無借金・非上場のまま</text>
+        <text x="790" y="279" text-anchor="middle" font-size="13" fill="var(--ink-soft)">経営の自主性は渡さない</text>
+        <text x="790" y="301" text-anchor="middle" font-size="13" fill="var(--teal)">1社も潰さないことが前提</text>
+
+        <!-- 出資 arrows -->
+        <line x1="222" y1="238" x2="304" y2="238" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="263" y="228" text-anchor="middle" font-size="13" fill="var(--ink-soft)">出資</text>
+
+        <line x1="530" y1="216" x2="612" y2="216" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="571" y="206" text-anchor="middle" font-size="13" fill="var(--ink-soft)">出資</text>
+        <text x="571" y="188" text-anchor="middle" font-size="13" fill="var(--ink-soft)">1/3超</text>
+
+        <line x1="530" y1="288" x2="612" y2="288" stroke="var(--teal)" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ah-t)"/>
+        <text x="571" y="312" text-anchor="middle" font-size="13" fill="var(--teal)">関係性DD</text>
+        <text x="571" y="330" text-anchor="middle" font-size="13" fill="var(--teal)">伴走</text>
+
+        <!-- 配当 -->
+        <line x1="790" y1="316" x2="790" y2="380" stroke="var(--copper)" stroke-width="2.5" marker-end="url(#ah-c)"/>
+        <rect x="694" y="384" width="192" height="66" fill="var(--copper-fill)" stroke="var(--copper)" stroke-width="1.5"/>
+        <text x="790" y="412" text-anchor="middle" font-size="17" fill="var(--copper)">配当</text>
+        <text x="790" y="434" text-anchor="middle" font-size="15" fill="var(--copper)">年 12%</text>
+
+        <!-- fan out: URANUS 2% -->
+        <polyline points="694,404 421,404 421,334" fill="none" stroke="var(--copper)" stroke-width="2" marker-end="url(#ah-c)"/>
+        <text x="560" y="396" text-anchor="middle" font-size="13" fill="var(--copper)">2% 運営</text>
+
+        <!-- fan out: LP 8% -->
+        <polyline points="694,436 131,436 131,316" fill="none" stroke="var(--copper)" stroke-width="2.5" marker-end="url(#ah-c)"/>
+        <text x="300" y="428" text-anchor="middle" font-size="14" fill="var(--copper)">8% 出資者へ</text>
+
+        <!-- fan out: 従業員 2% -->
+        <line x1="790" y1="450" x2="790" y2="502" stroke="var(--copper)" stroke-width="2" marker-end="url(#ah-c)"/>
+        <text x="856" y="480" text-anchor="middle" font-size="13" fill="var(--copper)">2%</text>
+        <rect x="694" y="506" width="192" height="66" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="790" y="534" text-anchor="middle" font-size="17" fill="currentColor">従業員</text>
+        <text x="790" y="556" text-anchor="middle" font-size="13" fill="var(--ink-soft)">配当優先の無議決権株</text>
+
+        <!-- 子孫 -->
+        <line x1="70" y1="316" x2="70" y2="502" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="196" y="470" text-anchor="middle" font-size="13" fill="var(--ink-soft)">承継</text>
+        <text x="196" y="488" text-anchor="middle" font-size="13" fill="var(--ink-soft)">配当還元方式</text>
+        <rect x="40" y="506" width="192" height="66" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="136" y="534" text-anchor="middle" font-size="17" fill="currentColor">子・孫</text>
+        <text x="136" y="556" text-anchor="middle" font-size="13" fill="var(--ink-soft)">評価額は苗木のまま</text>
+      </svg>
+    </div>
+    <figcaption>
+      出資者は売却益を受け取らない。受け取るのは配当だけで、法人が1/3超を保有し負債を持たない場合、受取配当等の益金不算入により実質的に課税されずに手元に残る。切断した2本 — 銀行からの負債と、買い手への売却 — が、この構造で最も高くついた選択。
+    </figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>時間のプロセス</h2>
+  <p class="sub">何を、いつ、誰が決めるか。投資判断の重心が、財務DDではなく投資前の「関係性DD」に置かれている。</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 1020 320" role="img" aria-label="関係性DD、投資、伴走、収穫、承継という5つの段階が時間軸上に並ぶプロセス図。">
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="10" markerHeight="8" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <line x1="40" y1="72" x2="972" y2="72" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah2)"/>
+
+        <g font-size="13" fill="var(--ink-faint)" text-anchor="middle">
+          <text x="118" y="52">投資前</text>
+          <text x="310" y="52">0年</text>
+          <text x="502" y="52">1年目以降・毎年</text>
+          <text x="694" y="52">毎年</text>
+          <text x="886" y="52">30年 – 60年</text>
+        </g>
+
+        <g fill="currentColor">
+          <circle cx="118" cy="72" r="5"/>
+          <circle cx="310" cy="72" r="5"/>
+          <circle cx="502" cy="72" r="5"/>
+          <circle cx="694" cy="72" r="5"/>
+          <circle cx="886" cy="72" r="5"/>
+        </g>
+
+        <g>
+          <rect x="34" y="108" width="168" height="150" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+          <text x="118" y="140" text-anchor="middle" font-size="17" fill="var(--teal)">関係性DD</text>
+          <text x="118" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">経営陣の衝突が</text>
+          <text x="118" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">創造に変わるか</text>
+          <text x="118" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">現場から声が</text>
+          <text x="118" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">上がってくるか</text>
+        </g>
+
+        <g>
+          <rect x="226" y="108" width="168" height="150" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="310" y="140" text-anchor="middle" font-size="17" fill="currentColor">投資</text>
+          <text x="310" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">1/3超を取得</text>
+          <text x="310" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">負債は使わない</text>
+          <text x="310" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">売らないことを</text>
+          <text x="310" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">契約に書く</text>
+        </g>
+
+        <g>
+          <rect x="418" y="108" width="168" height="150" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+          <text x="502" y="140" text-anchor="middle" font-size="17" fill="var(--teal)">伴走</text>
+          <text x="502" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">定期のチェックイン</text>
+          <text x="502" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">リトリート</text>
+          <text x="502" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">助言ではなく</text>
+          <text x="502" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">タームシートの義務</text>
+        </g>
+
+        <g>
+          <rect x="610" y="108" width="168" height="150" fill="none" stroke="var(--copper)" stroke-width="2.5"/>
+          <text x="694" y="140" text-anchor="middle" font-size="17" fill="var(--copper)">収穫</text>
+          <text x="694" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">年12%を3方向へ</text>
+          <text x="694" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">豊作の年も</text>
+          <text x="694" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">土を休める年も</text>
+          <text x="694" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ある前提</text>
+        </g>
+
+        <g>
+          <rect x="802" y="108" width="168" height="150" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="886" y="140" text-anchor="middle" font-size="17" fill="currentColor">承継</text>
+          <text x="886" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">売らないので</text>
+          <text x="886" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">時価が立たない</text>
+          <text x="886" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">配当還元方式で</text>
+          <text x="886" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">子孫へ渡す</text>
+        </g>
+
+        <g font-size="13" fill="var(--ink-faint)" text-anchor="middle">
+          <text x="118" y="288">ここで9割決まる</text>
+          <text x="502" y="288">ここが商品そのもの</text>
+          <text x="886" y="288">ここで差が開く</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>
+      通常のファンドが投資後に手を入れるのに対し、この設計は投資前の見立てに重心を置く。企業が潰れる最大の原因を「市場でも資金でもなく、経営チームの関係の崩壊」と置いているため、そこを投資前に見抜けるかどうかが全体の成否を決める。
+    </figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>なぜ同じ3.0倍になるのか</h2>
+  <p class="sub">ポートフォリオは分散ではなく、当たらないことを前提にしたヘッジ。当たり続けるなら、そもそも要らない。</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 1020 340" role="img" aria-label="ベンチャーキャピタルは10社中9社が0になり1社が30倍で全体3.0倍。URANUSは10社すべてが3倍で全体3.0倍。同じ倍率に到達することを示す比較図。">
+        <line x1="510" y1="24" x2="510" y2="316" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- VC -->
+        <text x="44" y="44" font-size="18" fill="currentColor">ベンチャーキャピタル</text>
+        <text x="44" y="70" font-size="13" fill="var(--ink-soft)">10社に1億ずつ。9社は0になる前提</text>
+
+        <g>
+          <circle cx="80" cy="128" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="62" y1="110" x2="98" y2="146" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="148" cy="128" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="130" y1="110" x2="166" y2="146" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="216" cy="128" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="198" y1="110" x2="234" y2="146" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="284" cy="128" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="266" y1="110" x2="302" y2="146" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="352" cy="128" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="334" y1="110" x2="370" y2="146" stroke="var(--ink-faint)" stroke-width="1.5"/>
+
+          <circle cx="80" cy="196" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="62" y1="178" x2="98" y2="214" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="148" cy="196" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="130" y1="178" x2="166" y2="214" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="216" cy="196" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="198" y1="178" x2="234" y2="214" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <circle cx="284" cy="196" r="26" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+          <line x1="266" y1="178" x2="302" y2="214" stroke="var(--ink-faint)" stroke-width="1.5"/>
+
+          <circle cx="352" cy="196" r="26" fill="var(--copper-fill)" stroke="var(--copper)" stroke-width="3"/>
+          <text x="352" y="202" text-anchor="middle" font-size="15" fill="var(--copper)">30倍</text>
+        </g>
+
+        <text x="44" y="266" font-size="13" fill="var(--ink-soft)">9社が0円、1社が30億円</text>
+        <text x="44" y="302" font-size="26" fill="currentColor" font-family="SF Mono, Menlo, monospace">3.0x</text>
+
+        <!-- URANUS -->
+        <text x="554" y="44" font-size="18" fill="currentColor">URANUS</text>
+        <text x="554" y="70" font-size="13" fill="var(--ink-soft)">10社に1億ずつ。1社も潰さない前提</text>
+
+        <g>
+          <circle cx="590" cy="128" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="590" y="134" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="658" cy="128" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="658" y="134" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="726" cy="128" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="726" y="134" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="794" cy="128" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="794" y="134" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="862" cy="128" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="862" y="134" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+
+          <circle cx="590" cy="196" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="590" y="202" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="658" cy="196" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="658" y="202" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="726" cy="196" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="726" y="202" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="794" cy="196" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="794" y="202" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+          <circle cx="862" cy="196" r="26" fill="var(--teal-fill)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="862" y="202" text-anchor="middle" font-size="14" fill="var(--teal)">3倍</text>
+        </g>
+
+        <text x="554" y="266" font-size="13" fill="var(--ink-soft)">10社が3億円ずつ、合計30億円</text>
+        <text x="554" y="302" font-size="26" fill="currentColor" font-family="SF Mono, Menlo, monospace">3.0x</text>
+      </svg>
+    </div>
+    <figcaption>
+      到達点は同じ。違うのは、片方は9件分の調査費と管理コストを外れ玉に払い続け、もう片方はその全額を伴走に回せること。先行事例のサーチファンドは中央値IRR 32.2%、マルチプル3.6倍で、ポートフォリオ型VC (22.8%、1.9倍) を上回っている。理由は打率が高いこと。
+    </figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>差が開くのはこの後</h2>
+  <p class="sub">運用の巧拙ではなく、売らないことによって税と承継の目減りが止まるという、制度上の差。</p>
+
+  <div class="tablewrap">
+    <table>
+      <caption>法人LPが10億円を出資した場合。既存PEは10年ごとに売却して納税し再投資、URANUSは売却せず配当を受け取り続ける前提。</caption>
+      <thead>
+        <tr><th>経過</th><th>既存PE (売却・納税あり)</th><th>URANUS (売却なし)</th><th>差</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10年後</td><td class="num">28.1 億円</td><td class="num">31.1 億円</td><td class="num">+3.0</td></tr>
+        <tr><td>20年後</td><td class="num">79.2 億円</td><td class="num">96.5 億円</td><td class="num">+17.3</td></tr>
+        <tr><td>30年後</td><td class="num">222.9 億円</td><td class="num win">299.6 億円</td><td class="num win">+76.7</td></tr>
+        <tr><td>60年後・次世代への継承率</td><td class="num">約 45%</td><td class="num win">約 90%</td><td class="num win">2倍</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:28px">
+    30年で開く76.7億円の差は、投資先が優秀だったからではない。既存型が10年ごとに利益の約30%を納めるのに対し、1/3超を保有し負債を持たない法人には受取配当等の益金不算入が働き、複利のエンジンから燃料が抜けないというだけの差。
+  </p>
+  <p>
+    60年後の継承率も同じ理屈で、売らないので時価が立たず、配当還元方式によって評価額が資本金付近に固定される。実態のキャッシュフローが巨木に育っていても、税務上は苗木のまま子孫へ渡る。
+  </p>
+</section>
+
+<section>
+  <h2>潰してほしい点</h2>
+  <p class="sub">賛同より、ここが崩れるという指摘のほうが要る。特に金融の実務にいる人から。</p>
+
+  <ol class="qs">
+    <li>
+      <strong>10社全部当たるという前提の再現性</strong>
+      <span>経営チームの関係の崩壊が倒産の最大要因だという見立てと、それを投資前に見抜けるという主張。ここが崩れると全部崩れる。実証のサンプルはまだ足りない。</span>
+    </li>
+    <li>
+      <strong>1/3超を10社分持つための規模</strong>
+      <span>税制上の優位は1/3超の保有が前提。10社でそれを満たす資金量と、その規模で伴走の質を保てるかは別問題。</span>
+    </li>
+    <li>
+      <strong>出口のない出資者の流動性</strong>
+      <span>売らないと決めた以上、途中で降りたい出資者の持分をどう扱うか。相続、事業環境の急変、単なる気変わり。ここが未設計。</span>
+    </li>
+    <li>
+      <strong>配当還元方式の否認リスク</strong>
+      <span>評価額を低位に固定する設計が、租税回避と見なされる余地。制度の趣旨に沿っているという整理と、実際に否認されないことは別。</span>
+    </li>
+    <li>
+      <strong>成長を義務にしないことと、年12%配当の整合</strong>
+      <span>配当を義務にすれば、現場には増え続けるノルマとして届く。搾取にしない歯止めをどこに置くか。上限を設けて配当を卒業させる設計は検討中で、まだ決めていない。</span>
+    </li>
+  </ol>
+</section>
+
+<footer>
+  株式会社グルー / URANUS Eternal Capital 構想 — 検討中の設計であり、出資の勧誘ではありません。数値はいずれも一定の前提を置いた試算です。
+</footer>
+
+</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
