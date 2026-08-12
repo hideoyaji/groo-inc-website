@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FACTORY (構想) | 企画集団D5</title>
+  <meta name="description" content="他の人の才能と、その場所が持っている価値。それが爆発するための仕組みと空間をつくる。20年以上、外に出さずに持っていた構想です。検討中の構想であり、事業として確定したものではありません。">
+
+  <meta property="og:title" content="FACTORY (構想) | 企画集団D5">
+  <meta property="og:description" content="他の人の才能と、その場所が持っている価値。それが爆発するための仕組みと空間をつくる。20年以上、外に出さずに持っていた構想です。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/factory.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://groo-inc.com/factory.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+    .fac-back {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .fac-back a { color: var(--color-accent); text-decoration: none; }
+
+    .page-hero__wip {
+      margin-top: 1.25rem;
+      display: inline-block;
+      border: 1px dashed rgba(255,255,255,0.5);
+      border-radius: 4px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .body p {
+      line-height: 2.1;
+      margin-bottom: 1.25rem;
+      word-break: auto-phrase;
+    }
+    .body p:last-child { margin-bottom: 0; }
+
+    .claim {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      line-height: 1.95;
+      color: var(--color-primary);
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1.25rem;
+      margin: 2rem 0 0;
+      word-break: auto-phrase;
+    }
+
+    .unwritten {
+      margin-top: 2rem;
+      border: 1px dashed var(--color-border);
+      border-radius: 6px;
+      padding: 1.1rem 1.3rem;
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--color-text-light);
+    }
+
+    /* --- 断面パース --- */
+    .fac-figure { margin: 2.25rem 0 0; }
+    .fac-wrap {
+      overflow-x: auto;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1.25rem 1rem 0.5rem;
+    }
+    .fac-svg {
+      display: block;
+      width: 100%;
+      min-width: 860px;
+      height: auto;
+      --slab:      #EAE8E1;
+      --slab-edge: #D5D0C4;
+      --wall-back: #F3F1EC;
+      --wall-left: #DFDACF;
+      --furn:      #CAC4B6;
+      --line:      #857F72;
+      --rule:      #B4AEA1;
+    }
+    .fac-caption {
+      margin-top: 0.9rem;
+      font-size: 0.86rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      word-break: auto-phrase;
+    }
+    .fac-people { fill: var(--color-primary); color: var(--color-primary); }
+    .fac-lead { stroke: var(--rule); stroke-width: 1; fill: none; }
+    .fac-tag {
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      fill: var(--color-accent);
+    }
+    .fac-verb {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      fill: var(--color-primary);
+    }
+    .fac-name {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      fill: var(--color-text-light);
+    }
+    .fac-small {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      fill: var(--color-text-light);
+    }
+
+    /* --- 各階 --- */
+    .floors {
+      display: grid;
+      border-top: 1px solid var(--color-border);
+      margin-top: 2.5rem;
+    }
+    .floors .row {
+      display: grid;
+      grid-template-columns: 4.5rem 6rem 1fr;
+      gap: 0 1rem;
+      align-items: baseline;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .floors .tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+    }
+    .floors .name {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .floors .desc {
+      font-size: 0.94rem;
+      line-height: 1.95;
+      color: var(--color-text-light);
+      word-break: auto-phrase;
+    }
+    @media (max-width: 700px) {
+      .floors .row { grid-template-columns: 3.4rem 1fr; }
+      .floors .desc { grid-column: 2; }
+    }
+
+    .related {
+      border: 1px solid var(--color-accent);
+      border-left-width: 4px;
+      border-radius: 6px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.7rem;
+      margin-top: 2.5rem;
+    }
+    .related p { line-height: 2; margin: 0 0 0.9rem; }
+    .related p:last-child { margin: 0; }
+    .related a { color: var(--color-accent); font-weight: 600; }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 2;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/co-lead.html">コーリード</a></li>
+        <li><a href="/d5.html" class="active">企画集団D5</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/booking.html">問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <p class="fac-back"><a href="/d5.html">&larr; 企画集団D5</a></p>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">FACTORY (構想)</h1>
+      <p class="page-hero__description">才能と場所が爆発するための、インフラとハコ</p>
+      <p class="page-hero__wip">工事中です</p>
+    </section>
+
+    <!-- ===== 1. リード ===== -->
+    <section class="section">
+      <div class="container body">
+        <p>20年以上前に、この構想が芽生えました。2007年に FACTORY という名前がつきました。それから今日まで、外に出したことがありません。</p>
+        <p>大切にしまってきた、と言えば聞こえはいいのですが、正確ではありません。<strong>恐れて、しまっていました。</strong></p>
+
+        <p class="claim">持ち続けて、抱き続けて、熟成させ続けて、<br>完璧主義に陥ったアホです。</p>
+      </div>
+    </section>
+
+    <!-- ===== 2. 何をつくるのか ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">何をつくるのか</h2>
+
+        <p>自分がプレイヤーになるのではありません。所有者にも、主役にも、表現者にもなりません。</p>
+        <p><strong>他の人の才能と、その場所が持っている価値。それが爆発するための仕組みと、空間をつくります。</strong>仕組みのほうを インフラ、空間のほうを ハコ と呼んでいます。</p>
+        <p>インフラは、才能のある人が食えるようにする仕組みです。ハコは、その人たちが実際に集まって、やってみる場所です。両方ないと動きません。仕組みだけあっても人は集まりませんし、場所だけあっても続きません。</p>
+        <p>自分は楽器を弾きません。絵も描きません。前に立って表現する側の才能は、持っていません。あるのは、場を組み立てることと、人と人をつなぐことだけです。だから、その2つで役に立ちます。</p>
+        <p><strong>自分の名前が残る建物をつくりたいわけではありません。</strong>所有もしませんし、結果をコントロールもしません。始まりの一押しをするだけです。</p>
+        <p>いまある場所の多くは、そこにいる人の力を抑えるようにできています。<strong>逆にします。</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== 3. 図 ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">たとえば、こういう建物です</h2>
+
+        <p>下北沢に建てるとしたら、という前提で描いた検討中の図です。前面を切って、地下1階から屋根までを一度に見ています。寸法も法規も見ていません。</p>
+
+        <figure class="fac-figure">
+          <div class="fac-wrap">
+        <svg class="fac-svg" viewBox="30 -8 1120 700" role="img"
+        aria-label="地下1階から屋根までを切って描いた FACTORY の断面パース。地下はクラブで大勢が思い思いの姿勢で踊り、1階はガラス張りのオフィスとアトリエとカフェ、2階はワークショップの輪、3階はインキュベーション、4階と5階は吹き抜けの小劇場で舞台と傾斜した客席がある。">
+
+        <defs>
+        <g id="fac-fig">
+        <circle cx="0" cy="-39" r="6.2"/>
+        <path d="M-8.2 -32 q8.2 -4.4 16.4 0 l1.4 17 h-19.2 z"/>
+        <path d="M-7.4 -14.6 h5.6 l0.6 14.6 h-5.2 z"/>
+        <path d="M1.8 -14.6 h5.6 l-1 14.6 h-5.2 z"/>
+        </g>
+        <g id="fac-figa">
+        <use href="#fac-fig"/>
+        <path d="M-7.6 -29 l-7.4 -13.6" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M7.6 -29 l7.4 -13.6" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <g id="fac-figs">
+        <circle cx="0" cy="-28" r="6"/>
+        <path d="M-7.6 -21.5 q7.6 -4.2 15.2 0 l1.2 13.5 h-17.6 z"/>
+        <path d="M-2 -8.6 h12.6 v4.7 h-12.6 z"/>
+        <path d="M6.6 -4.6 h4.2 v4.6 h-4.2 z"/>
+        </g>
+        <g id="fac-figg">
+        <use href="#fac-fig"/>
+        <ellipse cx="10.5" cy="-18" rx="7.6" ry="5.4" transform="rotate(-18 10.5 -18)"/>
+        <path d="M15 -23 l11.5 -8.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        </g>
+
+        <!-- 踊る型: 揃わないように -->
+        <g id="fac-figd1">
+        <use href="#fac-fig"/>
+        <path d="M7.6 -30 l8.5 -15" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M-7.6 -29 l-10.5 7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <g id="fac-figd2">
+        <use href="#fac-fig"/>
+        <path d="M-7.6 -30.5 l-14 -3.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M7.6 -30.5 l14 -3.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <g id="fac-figd3">
+        <use href="#fac-fig"/>
+        <path d="M-7.6 -27 l-9.5 10" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M7.6 -31 l10.5 -10" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <g id="fac-figd4">
+        <circle cx="0" cy="-32" r="6.2"/>
+        <path d="M-8.2 -25 q8.2 -4.4 16.4 0 l1.4 14 h-19.2 z"/>
+        <path d="M-7.4 -11.6 h5.6 l0.6 11.6 h-5.2 z"/>
+        <path d="M1.8 -11.6 h5.6 l-1 11.6 h-5.2 z"/>
+        <path d="M-7.6 -23 l-12 6.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M7.6 -23 l12 6.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <g id="fac-figd5">
+        <use href="#fac-fig"/>
+        <path d="M-7.6 -30 l-4.5 -16.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M7.6 -30 l4.5 -16.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        <pattern id="fac-earth" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="10" stroke="var(--rule)" stroke-width="1"/>
+        </pattern>
+        </defs>
+
+        <!-- ============ 地面 ============ -->
+        <g>
+        <rect x="55" y="564" width="175" height="22" fill="url(#fac-earth)" opacity="0.55"/>
+        <line x1="55" y1="564" x2="230" y2="564" stroke="var(--line)" stroke-width="1.6"/>
+        <text class="fac-small" x="57" y="556">地面</text>
+        </g>
+
+        <!-- ============ B1 : クラブ ============ -->
+        <g>
+        <polygon points="230,660 750,660 925,605 405,605" fill="var(--slab)"/>
+        <polygon points="230,660 750,660 750,672 230,672" fill="var(--slab-edge)"/>
+        <polygon points="750,660 925,605 925,617 750,672" fill="var(--slab-edge)"/>
+        <polygon points="405,605 925,605 925,509 405,509" fill="var(--wall-back)"/>
+        <polygon points="230,660 405,605 405,509 230,564" fill="var(--wall-left)"/>
+
+        <!-- 舞台 -->
+        <polygon points="652.5,607.5 842.5,607.5 842.5,621.5 652.5,621.5" fill="var(--slab-edge)"/>
+        <polygon points="652.5,607.5 842.5,607.5 886,593.8 696,593.8" fill="var(--furn)"/>
+
+        <!-- バー -->
+        <polygon points="426.25,599.75 556.25,599.75 556.25,629.75 426.25,629.75" fill="var(--slab-edge)"/>
+        <polygon points="426.25,599.75 556.25,599.75 582.5,591.5 452.5,591.5" fill="var(--furn)"/>
+
+        <!-- 照明 -->
+        <g stroke="var(--rule)" stroke-width="1">
+        <line x1="520" y1="564" x2="520" y2="580"/>
+        <line x1="610" y1="564" x2="610" y2="580"/>
+        <line x1="700" y1="564" x2="700" y2="580"/>
+        <line x1="790" y1="564" x2="790" y2="580"/>
+        </g>
+        <g fill="var(--color-accent)">
+        <circle cx="520" cy="583" r="4"/>
+        <circle cx="610" cy="583" r="4"/>
+        <circle cx="700" cy="583" r="4"/>
+        <circle cx="790" cy="583" r="4"/>
+        </g>
+
+        <g class="fac-people">
+        <g transform="translate(590.5,612.7) rotate(-11) scale(0.92)"><use href="#fac-figd2"/></g>
+        <g transform="translate(647,613.8) rotate(9) scale(0.93)"><use href="#fac-figd5"/></g>
+
+        <g transform="translate(723.5,600.9) rotate(-6) scale(0.93)"><use href="#fac-figd1"/></g>
+        <g transform="translate(793.5,600.9) rotate(12) scale(0.93)"><use href="#fac-figd3"/></g>
+
+        <g transform="translate(526.25,618.75) scale(0.93)"><use href="#fac-fig"/></g>
+
+        <g transform="translate(652.5,621.5) rotate(-8) scale(0.94)"><use href="#fac-figd4"/></g>
+        <g transform="translate(807.5,621.5) rotate(7) scale(0.94)"><use href="#fac-figd2"/></g>
+
+        <g transform="translate(568.75,624.25) rotate(13) scale(0.94)"><use href="#fac-figd1"/></g>
+        <g transform="translate(718.75,624.25) rotate(-10) scale(0.94)"><use href="#fac-figd5"/></g>
+        <g transform="translate(863.75,624.25) rotate(5) scale(0.94)"><use href="#fac-figd3"/></g>
+
+        <g transform="translate(645,627) rotate(-14) scale(0.95)"><use href="#fac-figa"/></g>
+        <g transform="translate(805,627) rotate(10) scale(0.95)"><use href="#fac-figd4"/></g>
+
+        <g transform="translate(586.25,629.75) rotate(-4) scale(0.95)"><use href="#fac-figd2"/></g>
+        <g transform="translate(736.25,629.75) rotate(11) scale(0.95)"><use href="#fac-figd1"/></g>
+
+        <g transform="translate(497.5,632.5) rotate(3) scale(0.96)"><use href="#fac-fig"/></g>
+        <g transform="translate(657.5,632.5) rotate(-12) scale(0.96)"><use href="#fac-figd5"/></g>
+        <g transform="translate(822.5,632.5) rotate(6) scale(0.96)"><use href="#fac-figd3"/></g>
+
+        <g transform="translate(458.75,635.25) rotate(9) scale(0.96)"><use href="#fac-figd4"/></g>
+        <g transform="translate(553.75,635.25) rotate(-7) scale(0.96)"><use href="#fac-figd1"/></g>
+        <g transform="translate(708.75,635.25) rotate(14) scale(0.96)"><use href="#fac-figa"/></g>
+
+        <g transform="translate(603.25,638.55) rotate(-9) scale(0.97)"><use href="#fac-figd2"/></g>
+        <g transform="translate(763.25,638.55) rotate(4) scale(0.97)"><use href="#fac-figd5"/></g>
+
+        <g transform="translate(472.75,641.85) rotate(12) scale(0.97)"><use href="#fac-figd3"/></g>
+        <g transform="translate(642.75,641.85) rotate(-6) scale(0.97)"><use href="#fac-figd4"/></g>
+        <g transform="translate(802.75,641.85) rotate(8) scale(0.97)"><use href="#fac-figd1"/></g>
+
+        <g transform="translate(532.25,645.15) rotate(-13) scale(0.98)"><use href="#fac-figa"/></g>
+        <g transform="translate(707.25,645.15) rotate(5) scale(0.98)"><use href="#fac-figd2"/></g>
+
+        <g transform="translate(576.75,648.45) rotate(10) scale(0.98)"><use href="#fac-figd5"/></g>
+        <g transform="translate(756.75,648.45) rotate(-8) scale(0.98)"><use href="#fac-figd3"/></g>
+
+        <g transform="translate(436.25,651.75) rotate(6) scale(0.99)"><use href="#fac-figd1"/></g>
+        <g transform="translate(641.25,651.75) rotate(-11) scale(0.99)"><use href="#fac-figd4"/></g>
+
+        <g transform="translate(520.75,655.05) rotate(13)"><use href="#fac-figd2"/></g>
+        <g transform="translate(705.75,655.05) rotate(-5)"><use href="#fac-figa"/></g>
+        </g>
+        </g>
+
+        <!-- ============ 1F : ティールーム / アトリエ / オフィス ============ -->
+        <g>
+        <polygon points="230,564 750,564 925,509 405,509" fill="var(--slab)"/>
+        <polygon points="230,564 750,564 750,576 230,576" fill="var(--slab-edge)"/>
+        <polygon points="750,564 925,509 925,521 750,576" fill="var(--slab-edge)"/>
+        <polygon points="405,509 925,509 925,413 405,413" fill="var(--wall-back)"/>
+        <polygon points="230,564 405,509 405,413 230,468" fill="var(--wall-left)"/>
+
+        <!-- カフェ -->
+        <polygon points="431,507.4 536,507.4 536,535.4 431,535.4" fill="var(--slab-edge)"/>
+        <polygon points="431,507.4 536,507.4 560.5,499.7 455.5,499.7" fill="var(--furn)"/>
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <rect x="449" y="521.7" width="3" height="28"/>
+        <ellipse cx="450.5" cy="521.7" rx="24" ry="8.5"/>
+        </g>
+
+        <!-- ガラス張りの開かれたオフィス -->
+        <g stroke="var(--rule)" stroke-width="1.2" fill="none">
+        <line x1="588.75" y1="539.25" x2="588.75" y2="449.25"/>
+        <line x1="648.75" y1="539.25" x2="648.75" y2="449.25"/>
+        <line x1="708.75" y1="539.25" x2="708.75" y2="449.25"/>
+        <line x1="768.75" y1="539.25" x2="768.75" y2="449.25"/>
+        <line x1="818.75" y1="539.25" x2="818.75" y2="449.25"/>
+        <line x1="906.25" y1="511.75" x2="906.25" y2="421.75"/>
+        <line x1="676.25" y1="511.75" x2="676.25" y2="421.75"/>
+        <line x1="588.75" y1="539.25" x2="818.75" y2="539.25"/>
+        <line x1="818.75" y1="539.25" x2="906.25" y2="511.75"/>
+        <line x1="588.75" y1="539.25" x2="676.25" y2="511.75"/>
+        </g>
+
+        <!-- オフィスの中の小さな展示スペース = アトリエ -->
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <g transform="translate(650.5,527.7) rotate(-9)">
+        <rect x="-15" y="-58" width="30" height="34"/>
+        <path d="M-9 -24 l-4 24 h3 l4 -24 z M9 -24 l4 24 h-3 l-4 -24 z"/>
+        </g>
+        </g>
+
+        <!-- オフィスの机 -->
+        <polygon points="711,509.4 826,509.4 826,535.4 711,535.4" fill="var(--slab-edge)"/>
+        <polygon points="711,509.4 826,509.4 854,500.6 739,500.6" fill="var(--furn)"/>
+        <polygon points="753,496.2 868,496.2 868,522.2 753,522.2" fill="var(--slab-edge)"/>
+        <polygon points="753,496.2 868,496.2 896,487.4 781,487.4" fill="var(--furn)"/>
+
+        <g class="fac-people">
+        <g transform="translate(797,517.8) rotate(3) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(857,517.8) rotate(-2) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(519.5,523.3) scale(0.94)"><use href="#fac-fig"/></g>
+        <g transform="translate(755,531) rotate(-3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(815,531) rotate(2) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(686.25,533.75) rotate(4) scale(0.95)"><use href="#fac-fig"/></g>
+        <g transform="translate(617.5,536.5) rotate(-5) scale(0.96)"><use href="#fac-fig"/></g>
+        <g transform="translate(420.5,549.7) rotate(2) scale(0.98)"><use href="#fac-figs"/></g>
+        <g transform="translate(480.5,549.7) rotate(-3) scale(0.98)"><use href="#fac-figs"/></g>
+        <g transform="translate(506.25,555.75) rotate(4) scale(0.99)"><use href="#fac-fig"/></g>
+        </g>
+        </g>
+
+        <!-- ============ 2F : ワークショップ ============ -->
+        <g>
+        <polygon points="230,468 750,468 925,413 405,413" fill="var(--slab)"/>
+        <polygon points="230,468 750,468 750,480 230,480" fill="var(--slab-edge)"/>
+        <polygon points="750,468 925,413 925,425 750,480" fill="var(--slab-edge)"/>
+        <polygon points="405,413 925,413 925,317 405,317" fill="var(--wall-back)"/>
+        <polygon points="230,468 405,413 405,317 230,372" fill="var(--wall-left)"/>
+
+        <!-- フリップチャート -->
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1" transform="translate(448.5,433.9)">
+        <rect x="-21" y="-64" width="42" height="44"/>
+        <path d="M-13 -20 l-5 20 h3 l5 -20 z M13 -20 l5 20 h-3 l-5 -20 z"/>
+        </g>
+
+        <g class="fac-people">
+        <g transform="translate(840,424) scale(0.93)"><use href="#fac-fig"/></g>
+        <g transform="translate(689.5,427.3) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(570.7,433.4) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(769.9,433.4) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(532.2,445.5) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(731.4,445.5) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(612.5,451.5) scale(0.97)"><use href="#fac-figs"/></g>
+        <g transform="translate(428,459.2) scale(0.99)"><use href="#fac-fig"/></g>
+        <g transform="translate(464,459.2) scale(0.99)"><use href="#fac-fig"/></g>
+        </g>
+        </g>
+
+        <!-- ============ 3F : インキュベーション ============ -->
+        <g>
+        <polygon points="230,372 750,372 925,317 405,317" fill="var(--slab)"/>
+        <polygon points="230,372 750,372 750,384 230,384" fill="var(--slab-edge)"/>
+        <polygon points="750,372 925,317 925,329 750,384" fill="var(--slab-edge)"/>
+        <polygon points="405,317 925,317 925,221 405,221" fill="var(--wall-back)"/>
+        <polygon points="230,372 405,317 405,221 230,276" fill="var(--wall-left)"/>
+
+        <!-- 間仕切り -->
+        <polygon points="562.5,355.5 676.25,319.75 676.25,273.75 562.5,309.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
+        <polygon points="692.5,355.5 806.25,319.75 806.25,273.75 692.5,309.5" fill="var(--wall-left)" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- 机 -->
+        <polygon points="505,315 585,315 585,339 505,339" fill="var(--slab-edge)"/>
+        <polygon points="505,315 585,315 611.25,306.75 531.25,306.75" fill="var(--furn)"/>
+        <polygon points="635,315 715,315 715,339 635,339" fill="var(--slab-edge)"/>
+        <polygon points="635,315 715,315 741.25,306.75 661.25,306.75" fill="var(--furn)"/>
+        <polygon points="765,315 840,315 840,339 765,339" fill="var(--slab-edge)"/>
+        <polygon points="765,315 840,315 866.25,306.75 791.25,306.75" fill="var(--furn)"/>
+
+        <g class="fac-people">
+        <g transform="translate(534,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(579,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(664,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(709,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(794,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(839,334.6) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(491.25,352.75) scale(0.97)"><use href="#fac-fig"/></g>
+        </g>
+        </g>
+
+        <!-- ============ 4-5F : シアター (2層吹き抜け) ============ -->
+        <g>
+        <polygon points="230,276 750,276 925,221 405,221" fill="var(--slab)"/>
+        <polygon points="230,276 750,276 750,288 230,288" fill="var(--slab-edge)"/>
+        <polygon points="750,276 925,221 925,233 750,288" fill="var(--slab-edge)"/>
+        <polygon points="405,221 925,221 925,29 405,29" fill="var(--wall-back)"/>
+        <polygon points="230,276 405,221 405,29 230,84" fill="var(--wall-left)"/>
+
+        <!-- 舞台 -->
+        <polygon points="355,243 515,243 515,265 355,265" fill="var(--slab-edge)"/>
+        <polygon points="355,243 515,243 637.5,204.5 477.5,204.5" fill="var(--furn)"/>
+
+        <!-- 客席の段 -->
+        <g fill="var(--furn)" stroke="var(--slab-edge)" stroke-width="1">
+        <polygon points="531.25,261.75 581.25,261.75 721.25,217.75 671.25,217.75"/>
+        <polygon points="581.25,247.75 631.25,247.75 771.25,203.75 721.25,203.75"/>
+        <polygon points="631.25,233.75 681.25,233.75 821.25,189.75 771.25,189.75"/>
+        <polygon points="681.25,219.75 731.25,219.75 871.25,175.75 821.25,175.75"/>
+        <polygon points="731.25,205.75 776.25,205.75 916.25,161.75 871.25,161.75"/>
+        </g>
+        <polygon points="531.25,267.75 531.25,261.75 581.25,261.75 581.25,247.75 631.25,247.75 631.25,233.75 681.25,233.75 681.25,219.75 731.25,219.75 731.25,205.75 776.25,205.75 776.25,267.75"
+        fill="var(--slab-edge)"/>
+
+        <!-- 舞台照明 -->
+        <g stroke="var(--rule)" stroke-width="1">
+        <line x1="640" y1="84" x2="640" y2="115"/>
+        <line x1="712" y1="84" x2="712" y2="109"/>
+        </g>
+        <g fill="var(--color-accent)">
+        <circle cx="640" cy="118" r="5"/>
+        <circle cx="712" cy="112" r="5"/>
+        </g>
+
+        <g class="fac-people">
+        <g transform="translate(474,216.6) rotate(-7) scale(0.93)"><use href="#fac-figd1"/></g>
+        <g transform="translate(516.25,223.75) rotate(9) scale(0.95)"><use href="#fac-figd3"/></g>
+        <g transform="translate(440,232) rotate(-4) scale(0.96)"><use href="#fac-fig"/></g>
+
+        <g transform="translate(849.5,175.5) rotate(2) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(818,185.4) rotate(-2) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(802.5,189.5) rotate(3) scale(0.93)"><use href="#fac-figs"/></g>
+        <g transform="translate(771,199.4) rotate(-3) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(752.5,203.5) rotate(2) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(741.25,208.75) rotate(-2) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(721,213.4) rotate(3) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(702.5,217.5) rotate(-3) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(691.25,222.75) rotate(2) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(671,227.4) rotate(-2) scale(0.95)"><use href="#fac-figs"/></g>
+        <g transform="translate(652.5,231.5) rotate(3) scale(0.94)"><use href="#fac-figs"/></g>
+        <g transform="translate(621,241.4) rotate(-3) scale(0.96)"><use href="#fac-figs"/></g>
+        <g transform="translate(591.25,250.75) rotate(2) scale(0.97)"><use href="#fac-figs"/></g>
+        </g>
+        </g>
+
+        <!-- ============ 屋根 ============ -->
+        <g>
+        <polygon points="230,84 750,84 925,29 405,29" fill="var(--slab)"/>
+        <polygon points="230,84 750,84 750,96 230,96" fill="var(--slab-edge)"/>
+        <polygon points="750,84 925,29 925,41 750,96" fill="var(--slab-edge)"/>
+        <polygon points="405,29 925,29 925,11 405,11" fill="var(--wall-back)"/>
+        <polygon points="230,84 405,29 405,11 230,66" fill="var(--wall-left)"/>
+        <polygon points="750,84 925,29 925,11 750,66" fill="var(--wall-left)"/>
+        </g>
+
+        <!-- ============ 外形線 ============ -->
+        <g fill="none">
+        <line x1="230" y1="66" x2="230" y2="672" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="925" y1="11" x2="925" y2="617" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="405" y1="11" x2="405" y2="617" stroke="var(--rule)" stroke-width="1"/>
+        </g>
+
+        <!-- ============ 街の人 ============ -->
+        <g class="fac-people">
+        <g transform="translate(100,564)"><use href="#fac-fig"/></g>
+        <g transform="translate(146,564)"><use href="#fac-fig"/></g>
+        <g transform="translate(192,564)"><use href="#fac-fig"/></g>
+        </g>
+
+        <!-- ============ 階の名前 ============ -->
+        <g>
+        <g class="fac-lead">
+        <path d="M947 29 h10 v192 h-10"/>
+        <line x1="925" y1="317" x2="947" y2="317"/>
+        <line x1="925" y1="413" x2="947" y2="413"/>
+        <line x1="925" y1="509" x2="947" y2="509"/>
+        <line x1="925" y1="605" x2="947" y2="605"/>
+        </g>
+
+        <text class="fac-tag"  x="967" y="111">4-5F</text>
+        <text class="fac-verb" x="967" y="130">立つ</text>
+        <text class="fac-name" x="967" y="149">小劇場</text>
+
+        <text class="fac-tag"  x="955" y="303">3F</text>
+        <text class="fac-verb" x="955" y="322">育つ</text>
+        <text class="fac-name" x="955" y="341">インキュベーション</text>
+
+        <text class="fac-tag"  x="955" y="399">2F</text>
+        <text class="fac-verb" x="955" y="418">話す</text>
+        <text class="fac-name" x="955" y="437">ワークショップ</text>
+
+        <text class="fac-tag"  x="955" y="495">1F</text>
+        <text class="fac-verb" x="955" y="514">開く</text>
+        <text class="fac-name" x="955" y="533">オフィス・アトリエ・カフェ</text>
+
+        <text class="fac-tag"  x="955" y="591">B1</text>
+        <text class="fac-verb" x="955" y="610">爆発する</text>
+        <text class="fac-name" x="955" y="629">クラブ</text>
+        </g>
+
+        </svg>
+          </div>
+          <figcaption class="fac-caption">濃い色は人です。地下では誰ひとり同じ踊り方をしていません。4階と5階は床を抜いて、2層分の高さの小劇場にしています。</figcaption>
+        </figure>
+
+        <div class="floors">
+          <div class="row">
+            <span class="tag">4-5F</span>
+            <span class="name">立つ</span>
+            <span class="desc"><strong>小劇場。</strong>2層分を吹き抜けにしています。席数にはこだわりません。演劇のワークショップもできる大きさです。</span>
+          </div>
+          <div class="row">
+            <span class="tag">3F</span>
+            <span class="name">育つ</span>
+            <span class="desc"><strong>インキュベーションルーム。</strong>D5 Eternal Capital の投資先。小さな規模の会社が入ります。</span>
+          </div>
+          <div class="row">
+            <span class="tag">2F</span>
+            <span class="name">話す</span>
+            <span class="desc"><strong>ワークショップスペース。</strong>輪になって座ります。前に立つのは常に2人です。</span>
+          </div>
+          <div class="row">
+            <span class="tag">1F</span>
+            <span class="name">開く</span>
+            <span class="desc"><strong>オフィス、アトリエ、カフェ。</strong>3つとも同じ重さです。ガラス張りの開かれたオフィスがあり、その中の小さな展示スペースがアトリエになり、横にカフェが並びます。いま実体のあるオフィスがないので、ここが最初のオフィスになります。</span>
+          </div>
+          <div class="row">
+            <span class="tag">B1</span>
+            <span class="name">爆発する</span>
+            <span class="desc"><strong>クラブ。</strong>ここは動きません。全員が揃って踊る場所ではありません。<strong>思い思いに踊る場所</strong>です。</span>
+          </div>
+        </div>
+
+        <p class="note" style="margin-top:1.75rem;">下から上へ、爆発する、開く、話す、育つ、立つ。地下で爆発したものが、上がるにつれて形になり、最上階でもう一度人前に立つ、という順序です。</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. なぜ20年出さなかったのか ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">なぜ、20年出さなかったのか</h2>
+
+        <p>完璧にしてから出そうとしていました。</p>
+        <p>構想が大きいので、中途半端な形で出すと安くなる。事業として成立する形にしてから出そう。資金の目処が立ってから出そう。そう考えているうちに、20年が経ちました。</p>
+        <p>ただ、完璧主義は理由の顔をしていただけでした。<strong>しまっていた本当の理由は、恐れです。</strong></p>
+
+        <p class="unwritten">何を恐れていたのか。ここは、まだ書けていません。書けるようになったら足します。</p>
+      </div>
+    </section>
+
+    <!-- ===== 5. なぜいま出すのか ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">なぜ、いま出すのか</h2>
+
+        <p><strong>一人で抱え込むものではない、と分かったからです。</strong></p>
+        <p>これまでは、自分の中だけで持っておくべきものだと思っていました。誰かに渡したら薄まる、と。逆でした。渡さなかったから、20年動かなかったのです。</p>
+        <p>同じほうを向いている人たちに出会いました。晒して、共有して、巻き込んでいい。そう思えるようになったので、ここに置いています。</p>
+      </div>
+    </section>
+
+    <!-- ===== 6. 両天秤との接続 ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">経済性だけでつくられてきた場所に</h2>
+
+        <p>不動産も、店舗も、施設も、いまはほとんど 経済性 だけで決まっています。坪単価、利回り、回収期間。それで場所の使い道が決まります。</p>
+        <p>数字が合わなければ成立しないのは、その通りです。ただ、<strong>数字だけで決めた場所からは、数字以上のものが出てきません。</strong></p>
+        <p>私たちは、事業と組織に対して 両天秤 という関わり方をしています。経済性 (左の天秤) と 健全性 (右の天秤) を、同じ重さで載せる。<strong>FACTORY は、これを 場所 に対してやる試みです。</strong></p>
+        <p>利回りが立つこと。そのうえで、そこに集まる人たちのあいだに何が起きるかを、同じ重さで設計すること。この2つを両方満たす場所を、実際に一つつくります。</p>
+      </div>
+    </section>
+
+    <!-- ===== 7. まず下北沢で ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">まず、下北沢で始めます</h2>
+
+        <p>いきなり大きなハコは建てません。</p>
+        <p>下北沢で、小さく始めます。コンサルタントとコーチを混ぜて、ぐちゃぐちゃにする。2人で場に立つ。演奏する人がいて、絵を描く人がいて、話す人がいる。<strong>コンセプトは決めていません。自分が考えていることを、全部やります。</strong></p>
+        <p>軽く、軽く。やってみて、続けます。</p>
+        <p><strong>会場の目処は、まだ立っていません。</strong>押さえたい場所は埋まっています。それでも、やります。</p>
+      </div>
+    </section>
+
+    <!-- ===== 8. D5 Eternal Capital との関係 ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">D5 Eternal Capital との関係</h2>
+
+        <p>D5 Eternal Capital が扱うのは、売らない資本です。FACTORY が扱うのは、場所と才能です。</p>
+        <p>会社を売らずに持ち続けるための構造と、才能が集まって爆発するための場所。<strong>この2つは、同じ考えの表と裏です。</strong>どちらも、短期で回収して出ていく前提を降りたところに立っています。</p>
+
+        <div class="related">
+          <p>ファンドとしての構造 — 誰が誰に何を渡すか、何を切断したか、税務上どうなるか。</p>
+          <p><a href="/d5-capital.html">D5 Eternal Capital の構造を見る &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="note">検討中の構想であり、事業として確定したものではありません。図はいずれも一定の前提を置いた検討段階のもので、寸法・法規は考慮していません。</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-section__title">検証してください</h2>
+      <a href="/contact.html" class="cta-section__btn">お問い合わせ →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
