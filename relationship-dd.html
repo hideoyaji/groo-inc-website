@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>関係性デューデリジェンス (構想) | 企画集団D5</title>
+  <meta name="description" content="財務・法務・事業のデューデリジェンスの前に、経営チームの関係性を見立てる。検討中の設計であり、出資の勧誘ではありません。">
+
+  <meta property="og:title" content="関係性デューデリジェンス (構想) | 企画集団D5">
+  <meta property="og:description" content="財務・法務・事業のデューデリジェンスの前に、経営チームの関係性を見立てる。検討中の設計であり、出資の勧誘ではありません。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groo-inc.com/relationship-dd.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://groo-inc.com/relationship-dd.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+    .rdd-back {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .rdd-back a { color: var(--color-accent); text-decoration: none; }
+
+    .page-hero__wip {
+      margin-top: 1.25rem;
+      display: inline-block;
+      border: 1px dashed rgba(255,255,255,0.5);
+      border-radius: 4px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .body p {
+      line-height: 2.1;
+      margin-bottom: 1.25rem;
+      word-break: auto-phrase;
+    }
+    .body p:last-child { margin-bottom: 0; }
+
+    .subhead {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 3rem 0 1.25rem;
+      padding-left: 0.85rem;
+      border-left: 4px solid var(--color-accent);
+    }
+    .section__title + .subhead { margin-top: 0; }
+
+    .claim {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      line-height: 1.95;
+      color: var(--color-primary);
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1.25rem;
+      margin: 2rem 0 0;
+      word-break: auto-phrase;
+    }
+
+    /* 見立ての観点 */
+    .looks {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+    .looks li {
+      position: relative;
+      padding-left: 1.7rem;
+      margin-bottom: 1.1rem;
+      line-height: 2;
+      word-break: auto-phrase;
+    }
+    .looks li:last-child { margin-bottom: 0; }
+    .looks li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.9em;
+      width: 10px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    /* 従来DDとの並び */
+    .compare {
+      display: grid;
+      gap: 1.25rem;
+      margin: 1.5rem 0 0;
+    }
+    .compare__item {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.7rem;
+    }
+    .compare__item--ours { border-color: var(--color-accent); border-left-width: 4px; }
+    .compare__label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+      margin-bottom: 0.8rem;
+    }
+    .compare__title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+    .compare__text {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      margin: 0;
+      word-break: auto-phrase;
+    }
+
+    .related {
+      border: 1px solid var(--color-accent);
+      border-left-width: 4px;
+      border-radius: 6px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.7rem;
+      margin-top: 2.5rem;
+    }
+    .related p { line-height: 2; margin: 0 0 0.9rem; }
+    .related p:last-child { margin: 0; }
+    .related a { color: var(--color-accent); font-weight: 600; }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 2;
+    }
+
+    @media (min-width: 780px) {
+      .compare { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/co-lead.html">コーリード</a></li>
+        <li><a href="/d5.html" class="active">企画集団D5</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/booking.html">問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <p class="rdd-back"><a href="/d5.html">&larr; 企画集団D5</a></p>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">関係性デューデリジェンス (構想)</h1>
+      <p class="page-hero__description">財務を見る前に、関係を見る</p>
+      <p class="page-hero__wip">工事中です</p>
+    </section>
+
+    <!-- ===== 1. 主張 ===== -->
+    <section class="section">
+      <div class="container body">
+        <p>投資の判断は、財務・法務・事業のデューデリジェンスでやります。数字と契約と市場を、専門家が総がかりで調べます。</p>
+        <p>ところが、投資したあとにその会社が伸びるか止まるかを決めているのは、多くの場合そこではありません。<strong>経営チームのあいだで、実際に何が起きているか</strong>のほうです。</p>
+
+        <p class="claim">投資家は「最後は経営者を見る」と言います。<br>では、本当に見ているのでしょうか。</p>
+      </div>
+    </section>
+
+    <!-- ===== 2. なぜ見えないのか ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">なぜ、いまは見えないのか</h2>
+
+        <p>面談で見えるのは、見せられる姿です。投資を受ける側は準備してきますし、経営者個人の力量は、面談でかなりの部分をつくれてしまいます。</p>
+        <p>そして、そもそも見ているのが <strong>個人</strong> です。経営者一人の資質を見ています。けれど会社を止めるのは、たいてい一人の資質ではありません。<strong>役員のあいだで言われないまま終わっている論点、決まったことになっているが誰も納得していない決定、触れると空気が固くなる話題。</strong>そういうものです。</p>
+        <p>これらは、決算書にも事業計画にも出てきません。出てくるのは、数年後に業績としてです。</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. 何をするのか ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">何をするのか</h2>
+
+        <p>投資判断の前に、<strong>関係性そのものを見立てる時間を、財務のデューデリジェンスと同じ重さで取ります。</strong>資料を読むのではなく、経営チームが実際に議論する場に入り、そこで何が起きているかを見ます。</p>
+
+        <ul class="looks">
+          <li>意思決定の場で、異論が出たときにどう扱われるか</li>
+          <li>言われないまま終わっている論点があるか。誰が誰に遠慮しているか</li>
+          <li>トップの決定に、周りが本当に合意しているのか、合意したことにしているのか</li>
+          <li>都合の悪い未来の話を、チームとして扱えるか。避けるか</li>
+        </ul>
+
+        <div class="compare">
+          <div class="compare__item">
+            <span class="compare__label">これまで</span>
+            <p class="compare__title">投資の重心は、財務デューデリジェンス</p>
+            <p class="compare__text">数字と契約を調べ、投資する。経営チームについては、面談での印象を添える。</p>
+          </div>
+          <div class="compare__item compare__item--ours">
+            <span class="compare__label">この構想</span>
+            <p class="compare__title">投資の重心を、投資前の関係性の見立てに置く</p>
+            <p class="compare__text">財務のデューデリジェンスはそのままやります。そのうえで、関係性の見立てを同じ重さで並べ、投資判断の重心をそちらに移します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. 投資したあと ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">見立てて終わり、ではない</h2>
+
+        <p>関係性は、一度測って点数がつくものではありません。投資したあとも動き続けます。</p>
+        <p>だから、見立てたあとは両天秤の関わりとして続きます。<strong>組織の中でまだ統合されていない葛藤を、致命傷になる前に扱う。</strong>これが、投資に対する保険として働きます。</p>
+        <p>見立てる側が、そのまま両天秤で関わる側でもある。ここが、外部の調査会社に依頼する形と違うところです。</p>
+      </div>
+    </section>
+
+    <!-- ===== 5. D5 Eternal Capital との関係 ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">D5 Eternal Capital との関係</h2>
+
+        <p>この見立てを投資判断の中心に据えたファンドの構想が、<strong>D5 Eternal Capital</strong> です。売らない、借りない、内部収益率を最大化しない。10社に投資して10社全部残す前提に立つと、<strong>投資前に関係性を見立てられるかどうかが、そのまま成立条件になります。</strong></p>
+
+        <div class="related">
+          <p>ファンドとしての構造 — 誰が誰に何を渡すか、何を切断したか、税務上どうなるか。</p>
+          <p><a href="/d5-capital.html">D5 Eternal Capital の構造を見る &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <p class="note">検討中の設計であり、出資の勧誘ではありません。掲載している内容はいずれも一定の前提を置いた構想段階のものです。</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-section__title">潰しにきてください</h2>
+      <a href="/contact.html" class="cta-section__btn">お問い合わせ →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
