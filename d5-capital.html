@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URANUS Eternal Capital — 売らない資本の構造 | 企画集団D5</title>
-  <meta name="description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売らない資本の構造。検討中の設計であり、出資の勧誘ではありません。">
+  <title>D5 Eternal Capital — 売却を前提としない資本の提供 (構想) | 企画集団D5</title>
+  <meta name="description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売却を前提としない資本の提供 (構想)。検討中の設計であり、出資の勧誘ではありません。">
 
-  <meta property="og:title" content="URANUS Eternal Capital — 売らない資本の構造 | 企画集団D5">
-  <meta property="og:description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売らない資本の構造。検討中の設計であり、出資の勧誘ではありません。">
+  <meta property="og:title" content="D5 Eternal Capital — 売却を前提としない資本の提供 (構想) | 企画集団D5">
+  <meta property="og:description" content="10社に投資して10社全部残し、1社あたり3倍。ファンド全体で3.0倍。売却を前提としない資本の提供 (構想)。検討中の設計であり、出資の勧誘ではありません。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://groo-inc.com/uranus.html">
+  <meta property="og:url" content="https://groo-inc.com/d5-capital.html">
   <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
   <meta property="og:site_name" content="株式会社グルー">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@GrooInc">
 
-  <link rel="canonical" href="https://groo-inc.com/uranus.html">
+  <link rel="canonical" href="https://groo-inc.com/d5-capital.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +52,13 @@
     margin: 0;
     padding: 56px 24px 88px;
     -webkit-font-smoothing: antialiased;
+    /* 日本語の折り返し: 既定は文節単位 */
+    word-break: auto-phrase;
+    line-break: strict;
+  }
+  /* 十分な行長があるときは、読点・句点でのみ折り返す (行末が助詞で終わらない) */
+  @media (min-width: 860px) {
+    .uranus { word-break: keep-all; overflow-wrap: break-word; }
   }
   .uranus .wrap { max-width: 1080px; margin: 0 auto; }
   /* ---- header ---- */
@@ -59,6 +66,12 @@
   .uranus .eyebrow {
     font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
     color: var(--copper); margin: 0 0 20px; font-weight: 600;
+  }
+  .uranus .eyebrow__tent {
+    color: var(--ink-faint);
+    font-weight: 400;
+    letter-spacing: .1em;
+    text-transform: none;
   }
   .uranus h1 {
     font-family: var(--font-serif);
@@ -69,7 +82,7 @@
   .uranus .thesis {
     font-family: var(--font-serif);
     font-size: clamp(19px, 2.4vw, 25px); line-height: 1.75;
-    margin: 0; max-width: 34em; color: var(--ink);
+    margin: 0; max-width: 34em; color: var(--ink); text-wrap: pretty;
     border-left: 3px solid var(--copper); padding-left: 22px;
   }
   /* ---- sections ---- */
@@ -79,10 +92,15 @@
     font-size: clamp(24px, 3vw, 32px); font-weight: 600;
     margin: 0 0 8px; letter-spacing: .01em;
   }
-  .uranus .sub { color: var(--ink-soft); font-size: 16px; margin: 0 0 34px; max-width: 40em; }
-  .uranus p { max-width: 40em; }
+  .uranus .sub {
+    color: var(--ink-soft); font-size: 16px; margin: 0 0 34px; max-width: none;
+    text-wrap: pretty;
+  }
+  .uranus p { max-width: none; text-wrap: pretty; }
+  /* 途中で割ってはいけない語句 (英字混じりの用語・助詞まで含めた塊) */
+  .uranus .nb { white-space: nowrap; }
   /* ---- cut list ---- */
-  .uranus .cuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+  .uranus .cuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 18px; }
   .uranus .cut-card {
     background: var(--panel); border: 1px solid var(--rule-soft);
     border-top: 3px solid var(--cut); padding: 22px 24px 24px; box-shadow: var(--shadow);
@@ -101,7 +119,7 @@
   .uranus .figbox svg { display: block; width: 100%; min-width: 700px; height: auto; }
   .uranus figcaption {
     font-size: 14.5px; color: var(--ink-soft); margin-top: 16px;
-    line-height: 1.8; max-width: 44em;
+    line-height: 1.8; max-width: none; text-wrap: pretty;
   }
   /* ---- table ---- */
   .uranus .tablewrap { overflow-x: auto; }
@@ -122,8 +140,55 @@
   .uranus tbody td { font-size: 17px; }
   .uranus .num { font-family: "SF Mono", "Menlo", "Consolas", monospace; font-size: 16px; }
   .uranus .win { color: var(--copper); font-weight: 600; }
+  /* ---- gains (誰に何が起きるか) ---- */
+  .uranus .gains { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 18px; margin-top: 8px; }
+  .uranus .gain-card {
+    background: var(--panel); border: 1px solid var(--rule-soft);
+    padding: 24px 26px 26px; box-shadow: var(--shadow);
+  }
+  .uranus .gain-card--money { border-top: 3px solid var(--copper); }
+  .uranus .gain-card--rel { border-top: 3px solid var(--teal); }
+  .uranus .gain-card h3 {
+    font-family: var(--font-serif);
+    font-size: 21px; margin: 0 0 4px; font-weight: 600;
+  }
+  .uranus .gain-card .who {
+    font-size: 13px; color: var(--ink-faint); margin: 0 0 18px; letter-spacing: .06em;
+  }
+  .uranus .gain-card ul { margin: 0; padding: 0; list-style: none; }
+  .uranus .gain-card li {
+    position: relative; padding-left: 18px; margin-bottom: 13px;
+    font-size: 15px; line-height: 1.8; color: var(--ink-soft);
+  }
+  .uranus .gain-card li:last-child { margin-bottom: 0; }
+  .uranus .gain-card li::before {
+    content: ""; position: absolute; left: 0; top: .85em;
+    width: 8px; height: 1px; background: currentColor; opacity: .55;
+  }
+  .uranus .gain-card strong { color: var(--ink); font-weight: 600; }
+  /* ---- stake (立てている杖) ---- */
+  .uranus .stake {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 2.2vw, 22px); line-height: 1.8;
+    border-left: 3px solid var(--teal); padding-left: 22px;
+    margin: 30px 0 0; max-width: 34em; color: var(--ink);
+    text-wrap: pretty;
+  }
+  .uranus .stake--money { border-left-color: var(--copper); }
+  /* ---- 権力と富の分離 ---- */
+  .uranus .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 18px; margin-top: 26px; }
+  .uranus .split-card {
+    border: 1px solid var(--rule); padding: 22px 24px 24px; background: var(--panel);
+  }
+  .uranus .split-card .kind {
+    font-size: 12.5px; letter-spacing: .1em; color: var(--ink-faint); margin: 0 0 8px;
+  }
+  .uranus .split-card h4 {
+    font-family: var(--font-serif); font-size: 19px; font-weight: 600; margin: 0 0 10px;
+  }
+  .uranus .split-card p { font-size: 15px; line-height: 1.8; margin: 0; color: var(--ink-soft); max-width: none; }
   /* ---- open questions ---- */
-  .uranus ol.qs { counter-reset: q; list-style: none; padding: 0; margin: 0; max-width: 46em; }
+  .uranus ol.qs { counter-reset: q; list-style: none; padding: 0; margin: 0; max-width: none; }
   .uranus ol.qs li {
     counter-increment: q; position: relative;
     padding: 0 0 24px 52px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 24px;
@@ -172,8 +237,7 @@
         <li><a href="/co-lead.html">コーリード</a></li>
         <li><a href="/d5.html" class="active">企画集団D5</a></li>
         <li><a href="/company.html">会社概要</a></li>
-        <li><a href="/contact.html">お問い合わせ</a></li>
-        <li><a href="/booking.html">日程予約</a></li>
+        <li><a href="/booking.html">問い合わせ</a></li>
       </ul>
     </nav>
   </header>
@@ -185,40 +249,57 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">URANUS Eternal Capital</p>
-  <h1>売らない資本の構造</h1>
+  <p class="eyebrow">D5 Eternal Capital <span class="eyebrow__tent">(tentative)</span></p>
+  <h1>売却を前提としない資本の提供 (構想)</h1>
   <p class="thesis">
-    10社に投資して9社潰し、1社が30倍。ファンド全体で3.0倍。これがベンチャーキャピタル。<br>
-    10社に投資して10社全部残し、1社あたり3倍。ファンド全体で、同じ3.0倍。
+    10社に投資して9社潰し、<wbr>1社が30倍。<wbr>ファンド全体で3.0倍。<wbr>これがベンチャーキャピタルやPEファンドです。<wbr><br>
+    10社に投資して10社全部残し、<wbr>1社あたり3倍。<wbr>ファンド全体で、<wbr>同じ3.0倍です。<wbr>
   </p>
 </header>
 
 <section>
-  <h2>捨てた3つ</h2>
-  <p class="sub">この3つを手放すことが設計の起点で、以降の構造はすべてここから決まる。</p>
+  <h2>私たちの決断と捨てた3つのこと</h2>
+  <p class="sub">この3つを手放すことが設計の起点で、<wbr>以降の構造はすべてここから決まります。<wbr></p>
+
+  <p><strong>会社の価値は、<wbr>どこで生まれているのか。<wbr></strong></p>
+  <p>決算書に並ぶ数字は、<wbr>結果です。<wbr>源泉ではありません。<wbr>価値を実際に生んでいるのは、<wbr>そこで働く人たちのあいだにあるものです。<wbr>誰が誰を信頼しているか。<wbr>言いにくいことが言えるか。<wbr>異論が出たときに、<wbr>どう扱われるか。<wbr>水面から下にある領域です。<wbr></p>
+  <p>ところが投資家が見ているのは、<wbr>水面から上だけです。<wbr>財務諸表、<wbr>事業計画、<wbr>面談での受け答え。<wbr>数値と、<wbr>表面上の正しさ。<wbr></p>
+  <p>水面の下は見ません。<wbr>見ないまま、<wbr>そこから生まれた価値だけを、<wbr>売却益として受け取って出ていきます。<wbr><strong>価値が生まれた場所に、<wbr>果実が返っていません。<wbr></strong>いまの投資は、<wbr>関係性が生み出した価値を掠め取る構図になっています。<wbr></p>
+
+  <p style="margin-top:34px"><strong>だから、<wbr>水面の下を扱います。<wbr></strong></p>
+  <p>人と人のあいだで実際に起きていること、<wbr>つまり <strong>健全性 (右天秤)</strong> を、<wbr>数字と戦略、<wbr>つまり <strong>経済性 (左天秤)</strong> と同じ重さで載せます。<wbr>これが両天秤です。<wbr>投資判断の重心を関係性DDに置いているのも、<wbr>投資したあとも両天秤で関わり続けるのも、<wbr>そのためです。<wbr></p>
+  <p>関係性が整うと、<wbr>そこに眠っていたポテンシャルが出てきます。<wbr><strong>そして結果として、<wbr>経済的にも繁栄します。<wbr></strong>順序が逆ではありません。<wbr>数値目標を置いて人を動かすのではなく、<wbr>人が生きている状態をつくると、<wbr>数字は後からついてきます。<wbr></p>
+  <p>そのとき、<wbr>繁栄はひとつの場所に溜まりません。<wbr>出資者へは配当として。<wbr>働く人へは持株会の配当として。<wbr>会社へは、<wbr>売られずに済む時間として。<wbr>そして関係性そのものへは、<wbr>それを両天秤で支え続ける仕事として。<wbr><strong>掠め取る先がどこにもなく、<wbr>全体に行き渡ります。<wbr></strong></p>
+
+  <p class="stake">わたしたちは、<wbr>これが本当の資本主義だと考えています。<wbr></p>
+
+  <p class="stake stake--money" style="margin-top:22px">決断とは、<wbr>どちらかを選び、<wbr>どちらかを捨てることです。<wbr>両方は取れません。<wbr></p>
+
+  <p style="margin-top:28px">わたしたちは、<wbr>会社が生き続けることを選びました。<wbr>そのために、<wbr>売却益と、<wbr>レバレッジと、<wbr>内部収益率という物差しを捨てました。<wbr></p>
+  <p style="margin-bottom:34px">どれも、<wbr>いまの投資の世界では強みそのものです。<wbr>手放せば、<wbr>数字の上では確実に見劣りします。<wbr>それでも手放します。<wbr><strong>この3つを持ったまま、<wbr>水面の下を扱うことはできないからです。<wbr></strong></p>
+
   <div class="cuts">
     <div class="cut-card">
       <h3>売らない</h3>
-      <p>売却益を取らない。投資期間は30年以上、実質は無期限。売る予定がないので、経営者が数字をよく見せる動機が消える。</p>
+      <p>売却益を取りません。<wbr>投資期間は30年以上、<wbr>実質は無期限です。<wbr>売る予定がないので、<wbr>経営者が数字をよく見せる動機が消えます。<wbr></p>
     </div>
     <div class="cut-card">
       <h3>借りない</h3>
-      <p>投資先にレバレッジをかけない。返済期限という「取締役会に座っていない発言者」を、意思決定の場から締め出す。</p>
+      <p>投資先にレバレッジをかけません。<wbr>返済期限という「取締役会に座っていない発言者」を、<wbr>意思決定の場から締め出します。<wbr></p>
     </div>
     <div class="cut-card">
       <h3>IRRを最大化しない</h3>
-      <p>内部収益率を勝負の物差しにしない。IRRの最大化は企業の寿命を削る方向に働くため、その競争から最初に降りる。</p>
+      <p>内部収益率を勝負の物差しにしません。<wbr>IRRの最大化は企業の寿命を削る方向に働くため、<wbr>その競争から最初に降ります。<wbr></p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>構造とカネの流れ</h2>
-  <p class="sub">誰が誰に何を渡すか。灰色の実線は出資、銅色はキャッシュ、緑は関わり。赤い切断線は、通っていた道を意図的に切った箇所。</p>
+  <h2>構造とお金の流れ</h2>
 
   <figure>
     <div class="figbox">
-      <svg viewBox="0 0 1020 600" role="img" aria-label="出資者からURANUS、URANUSから投資先へ資金と伴走が流れ、投資先からの年12パーセントの配当が出資者8パーセント、従業員2パーセント、URANUS2パーセントに分かれる構造図。銀行からの負債と買い手へのエグジットの2経路は切断されている。">
+      <svg viewBox="0 0 1020 600" role="img" aria-label="出資者からD5 Eternal Capital、そこから投資先へ資金と両天秤の関わりが流れ、投資先からの年12パーセントの配当が出資者8パーセント、従業員2パーセント、D5 Eternal Capital 2パーセントに分かれる構造図。銀行からの負債と買い手へのエグジットの2経路は切断されている。">
         <defs>
           <marker id="ah" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
             <polygon points="0,0 10,4 0,8" fill="currentColor"/>
@@ -253,11 +334,11 @@
         <text x="131" y="263" text-anchor="middle" font-size="13" fill="var(--ink-soft)">事業法人 / 財団</text>
         <text x="131" y="283" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ファミリーオフィス</text>
 
-        <!-- URANUS -->
+        <!-- D5 Eternal Capital -->
         <rect x="312" y="180" width="218" height="146" fill="none" stroke="currentColor" stroke-width="2.5"/>
-        <text x="421" y="224" text-anchor="middle" font-size="20" fill="currentColor">URANUS</text>
-        <text x="421" y="253" text-anchor="middle" font-size="13" fill="var(--ink-soft)">議決株を持ち、売らない</text>
-        <text x="421" y="276" text-anchor="middle" font-size="13" fill="var(--ink-soft)">関係性DDと伴走を担う</text>
+        <text x="421" y="224" text-anchor="middle" font-size="17" fill="currentColor">D5 Eternal Capital</text>
+        <text x="421" y="253" text-anchor="middle" font-size="13" fill="var(--ink-soft)">黄金株で拒否権、売らない</text>
+        <text x="421" y="276" text-anchor="middle" font-size="13" fill="var(--ink-soft)">関係性DDと両天秤を担う</text>
         <text x="421" y="299" text-anchor="middle" font-size="13" fill="var(--copper)">受け取りは配当の2%</text>
 
         <!-- 投資先 -->
@@ -277,7 +358,7 @@
 
         <line x1="530" y1="288" x2="612" y2="288" stroke="var(--teal)" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ah-t)"/>
         <text x="571" y="312" text-anchor="middle" font-size="13" fill="var(--teal)">関係性DD</text>
-        <text x="571" y="330" text-anchor="middle" font-size="13" fill="var(--teal)">伴走</text>
+        <text x="571" y="330" text-anchor="middle" font-size="13" fill="var(--teal)">両天秤</text>
 
         <!-- 配当 -->
         <line x1="790" y1="316" x2="790" y2="380" stroke="var(--copper)" stroke-width="2.5" marker-end="url(#ah-c)"/>
@@ -285,7 +366,7 @@
         <text x="790" y="412" text-anchor="middle" font-size="17" fill="var(--copper)">配当</text>
         <text x="790" y="434" text-anchor="middle" font-size="15" fill="var(--copper)">年 12%</text>
 
-        <!-- fan out: URANUS 2% -->
+        <!-- fan out: D5 Eternal Capital 2% -->
         <polyline points="694,404 421,404 421,334" fill="none" stroke="var(--copper)" stroke-width="2" marker-end="url(#ah-c)"/>
         <text x="560" y="396" text-anchor="middle" font-size="13" fill="var(--copper)">2% 運営</text>
 
@@ -298,7 +379,7 @@
         <text x="856" y="480" text-anchor="middle" font-size="13" fill="var(--copper)">2%</text>
         <rect x="694" y="506" width="192" height="66" fill="none" stroke="currentColor" stroke-width="1.5"/>
         <text x="790" y="534" text-anchor="middle" font-size="17" fill="currentColor">従業員</text>
-        <text x="790" y="556" text-anchor="middle" font-size="13" fill="var(--ink-soft)">配当優先の無議決権株</text>
+        <text x="790" y="556" text-anchor="middle" font-size="13" fill="var(--ink-soft)">持株会で議決権株を持つ</text>
 
         <!-- 子孫 -->
         <line x1="70" y1="316" x2="70" y2="502" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah)"/>
@@ -310,18 +391,18 @@
       </svg>
     </div>
     <figcaption>
-      出資者は売却益を受け取らない。受け取るのは配当だけで、法人が1/3超を保有し負債を持たない場合、受取配当等の益金不算入により実質的に課税されずに手元に残る。切断した2本 — 銀行からの負債と、買い手への売却 — が、この構造で最も高くついた選択。
+      出資者は売却益を受け取りません。<wbr>受け取るのは配当だけで、<wbr>法人が1/3超を保有し負債を持たない場合、<wbr>受取配当等の益金不算入により実質的に課税されずに手元に残ります。<wbr>
     </figcaption>
   </figure>
 </section>
 
 <section>
   <h2>時間のプロセス</h2>
-  <p class="sub">何を、いつ、誰が決めるか。投資判断の重心が、財務DDではなく投資前の「関係性DD」に置かれている。</p>
+  <p class="sub">何を、<wbr>いつ、<wbr>誰が決めるか。<wbr>投資判断の重心が、<wbr>財務DDではなく投資前の「関係性DD」に置かれています。<wbr></p>
 
   <figure>
     <div class="figbox">
-      <svg viewBox="0 0 1020 320" role="img" aria-label="関係性DD、投資、伴走、収穫、承継という5つの段階が時間軸上に並ぶプロセス図。">
+      <svg viewBox="0 0 1020 320" role="img" aria-label="関係性DD、投資、両天秤、収穫、承継という5つの段階が時間軸上に並ぶプロセス図。">
         <defs>
           <marker id="ah2" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="10" markerHeight="8" orient="auto">
             <polygon points="0,0 10,4 0,8" fill="currentColor"/>
@@ -366,11 +447,10 @@
 
         <g>
           <rect x="418" y="108" width="168" height="150" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
-          <text x="502" y="140" text-anchor="middle" font-size="17" fill="var(--teal)">伴走</text>
-          <text x="502" y="170" text-anchor="middle" font-size="13" fill="var(--ink-soft)">定期のチェックイン</text>
-          <text x="502" y="190" text-anchor="middle" font-size="13" fill="var(--ink-soft)">リトリート</text>
-          <text x="502" y="210" text-anchor="middle" font-size="13" fill="var(--ink-soft)">助言ではなく</text>
-          <text x="502" y="230" text-anchor="middle" font-size="13" fill="var(--ink-soft)">タームシートの義務</text>
+          <text x="502" y="140" text-anchor="middle" font-size="17" fill="var(--teal)">両天秤</text>
+          <text x="502" y="180" text-anchor="middle" font-size="13" fill="var(--ink-soft)">数字と戦略だけでなく</text>
+          <text x="502" y="200" text-anchor="middle" font-size="13" fill="var(--ink-soft)">水面の下にも関わり</text>
+          <text x="502" y="220" text-anchor="middle" font-size="13" fill="var(--ink-soft)">潜在力を最大化</text>
         </g>
 
         <g>
@@ -399,18 +479,18 @@
       </svg>
     </div>
     <figcaption>
-      通常のファンドが投資後に手を入れるのに対し、この設計は投資前の見立てに重心を置く。企業が潰れる最大の原因を「市場でも資金でもなく、経営チームの関係の崩壊」と置いているため、そこを投資前に見抜けるかどうかが全体の成否を決める。
+      通常のファンドが投資後に手を入れるのに対し、<wbr>この設計は投資前の見立てに重心を置きます。<wbr>企業が潰れる最大の原因を「市場でも資金でもなく、<wbr>経営チームの関係の崩壊」と置いているため、<wbr>そこを投資前に見抜けるかどうかが全体の成否を決めます。<wbr>
     </figcaption>
   </figure>
 </section>
 
 <section>
   <h2>なぜ同じ3.0倍になるのか</h2>
-  <p class="sub">ポートフォリオは分散ではなく、当たらないことを前提にしたヘッジ。当たり続けるなら、そもそも要らない。</p>
+  <p class="sub">ポートフォリオは分散ではなく、<wbr>当たらないことを前提にしたヘッジです。<wbr>当たり続けるなら、<wbr>そもそも要りません。<wbr></p>
 
   <figure>
     <div class="figbox">
-      <svg viewBox="0 0 1020 340" role="img" aria-label="ベンチャーキャピタルは10社中9社が0になり1社が30倍で全体3.0倍。URANUSは10社すべてが3倍で全体3.0倍。同じ倍率に到達することを示す比較図。">
+      <svg viewBox="0 0 1020 340" role="img" aria-label="ベンチャーキャピタルは10社中9社が0になり1社が30倍で全体3.0倍。D5 Eternal Capitalは10社すべてが3倍で全体3.0倍。同じ倍率に到達することを示す比較図。">
         <line x1="510" y1="24" x2="510" y2="316" stroke="var(--rule)" stroke-width="1"/>
 
         <!-- VC -->
@@ -445,8 +525,8 @@
         <text x="44" y="266" font-size="13" fill="var(--ink-soft)">9社が0円、1社が30億円</text>
         <text x="44" y="302" font-size="26" fill="currentColor" font-family="SF Mono, Menlo, monospace">3.0x</text>
 
-        <!-- URANUS -->
-        <text x="554" y="44" font-size="18" fill="currentColor">URANUS</text>
+        <!-- D5 Eternal Capital -->
+        <text x="554" y="44" font-size="18" fill="currentColor">D5 Eternal Capital</text>
         <text x="554" y="70" font-size="13" fill="var(--ink-soft)">10社に1億ずつ。1社も潰さない前提</text>
 
         <g>
@@ -478,20 +558,20 @@
       </svg>
     </div>
     <figcaption>
-      到達点は同じ。違うのは、片方は9件分の調査費と管理コストを外れ玉に払い続け、もう片方はその全額を伴走に回せること。先行事例のサーチファンドは中央値IRR 32.2%、マルチプル3.6倍で、ポートフォリオ型VC (22.8%、1.9倍) を上回っている。理由は打率が高いこと。
+      到達点は同じです。<wbr>違うのは、<wbr>片方は9件分の調査費と管理コストを外れ玉に払い続け、<wbr>もう片方はその全額を両天秤の関わりに回せることです。<wbr>先行事例のサーチファンドは中央値IRR 32.2%、<wbr>マルチプル3.6倍で、<wbr>ポートフォリオ型VC (22.8%、<wbr>1.9倍) を上回っています。<wbr>理由は打率が高いことです。<wbr>
     </figcaption>
   </figure>
 </section>
 
 <section>
   <h2>差が開くのはこの後</h2>
-  <p class="sub">運用の巧拙ではなく、売らないことによって税と承継の目減りが止まるという、制度上の差。</p>
+  <p class="sub">運用の巧拙ではなく、<wbr>売らないことによって税と承継の目減りが止まるという、<wbr>制度上の差です。<wbr></p>
 
   <div class="tablewrap">
     <table>
-      <caption>法人LPが10億円を出資した場合。既存PEは10年ごとに売却して納税し再投資、URANUSは売却せず配当を受け取り続ける前提。</caption>
+      <caption>法人LPが10億円を出資した場合。<wbr>既存PEは10年ごとに売却して納税し再投資、<wbr>D5 Eternal Capitalは売却せず配当を受け取り続ける前提です。<wbr></caption>
       <thead>
-        <tr><th>経過</th><th>既存PE (売却・納税あり)</th><th>URANUS (売却なし)</th><th>差</th></tr>
+        <tr><th>経過</th><th>既存PE (売却・納税あり)</th><th>D5 Eternal Capital (売却なし)</th><th>差</th></tr>
       </thead>
       <tbody>
         <tr><td>10年後</td><td class="num">28.1 億円</td><td class="num">31.1 億円</td><td class="num">+3.0</td></tr>
@@ -503,43 +583,149 @@
   </div>
 
   <p style="margin-top:28px">
-    30年で開く76.7億円の差は、投資先が優秀だったからではない。既存型が10年ごとに利益の約30%を納めるのに対し、1/3超を保有し負債を持たない法人には受取配当等の益金不算入が働き、複利のエンジンから燃料が抜けないというだけの差。
+    30年で開く76.7億円の差は、<wbr>投資先が優秀だったからではありません。<wbr>既存型が10年ごとに利益の約30%を納めるのに対し、<wbr>1/3超を保有し負債を持たない法人には受取配当等の益金不算入が働き、<wbr>複利のエンジンから燃料が抜けないというだけの差です。<wbr>
   </p>
   <p>
-    60年後の継承率も同じ理屈で、売らないので時価が立たず、配当還元方式によって評価額が資本金付近に固定される。実態のキャッシュフローが巨木に育っていても、税務上は苗木のまま子孫へ渡る。
+    60年後の継承率も同じ理屈で、<wbr>売らないので時価が立たず、<wbr>配当還元方式によって評価額が資本金付近に固定されます。<wbr>実態のキャッシュフローが巨木に育っていても、<wbr>税務上は苗木のまま子孫へ渡ります。<wbr>
   </p>
 </section>
 
 <section>
-  <h2>潰してほしい点</h2>
-  <p class="sub">賛同より、ここが崩れるという指摘のほうが要る。特に金融の実務にいる人から。</p>
+  <h2>何のための構造か</h2>
+  <p class="sub">売らない、<wbr>借りない、<wbr>内部収益率を最大化しない。<wbr>3つを手放して守ろうとしているもの。<wbr></p>
+
+  <p>守ろうとしているのは、<wbr>会社のアライブネス (生命感) です。<wbr></p>
+  <p>事業が「腐る」というのは、<wbr>組織が生命力を失って、<wbr>いまの経営者個人と運命を共にするしかなくなった状態を指します。<wbr>承継できないのは後継者がいないからではなく、<wbr>その人がいなくなると成り立たない形になっているからです。<wbr></p>
+
+  <p class="stake">量的な拡大は、<wbr>アライブネスが溢れ出した結果として自然に起きるなら歓迎します。<wbr>ファンドのリターンを計算するために、<wbr>現場に強要することはしません。<wbr></p>
+
+  <p style="margin-top:28px">これは順序の話です。<wbr>数値目標を置いてから人を動かすのではなく、<wbr>人が生きている状態をつくり、<wbr>そこから溢れたものを分かち合います。<wbr>関係性DDと両天秤を投資判断の中心に置いているのは、<wbr>このためです。<wbr></p>
+</section>
+
+<section>
+  <h2>配当は、<wbr>現場への負債にならないか</h2>
+  <p class="sub">この設計がいちばん不誠実になりうる場所。<wbr>先に書いておきます。<wbr></p>
+
+  <p>配当の複利成長をファンドが義務づけると、<wbr>現場は増え続けるノルマを背負います。<wbr>これは労働者が投資家に対して、<wbr>完済できない負債を負っている構造と変わりません。<wbr>永遠に配当を受け取り続けるモデルは、<wbr>ここで簡単に搾取に転びます。<wbr></p>
+  <p>だから、<wbr>成長を義務にしません。<wbr>成長は、<wbr>義務ではなくオプションとして置きます。<wbr>誇るのは成長率ではなく、<wbr><strong>不況下でも関係性が壊れず、<wbr>誰も解雇せずに済むレジリエンス</strong>のほうです。<wbr></p>
+  <p>配当は、<wbr>健全な関係性という庭に実る季節の果物です。<wbr>豊作の年もあれば、<wbr>土を休める年もあります。<wbr></p>
+</section>
+
+<section>
+  <h2>権力と富を、<wbr>分けて持つ</h2>
+  <p class="sub">スチュワード・オーナーシップ。<wbr>会社を売買できる商品でも個人の私有財産でもなく、<wbr>その存在意義のために存在する独立した生命体として、<wbr>法的に定義し直す仕組み。<wbr></p>
+
+  <p>スチュワードとは、<wbr>執事のことです。<wbr>預かったものを自分のものにせず、<wbr>次の人へ渡します。<wbr>わたしたちが投資先で担うのは、<wbr>この役です。<wbr></p>
+
+  <p>原則は2つです。<wbr>舵取りは、<wbr>事業に深く関わり使命に責任を持つ人だけが持ちます。<wbr>外部の投資家に買われることも、<wbr>血縁で自動的に相続されることもありません。<wbr>そして利益は、<wbr>それ自体が目的ではなく、<wbr>存在意義を果たすための燃料として扱います。<wbr></p>
+
+  <div class="split">
+    <div class="split-card">
+      <p class="kind">議決権のみ</p>
+      <h4>舵取りを担う人が持つ</h4>
+      <p>配当はゼロか極小です。<wbr>退任するときは、<wbr>次の担い手へ額面で引き継ぎます。<wbr>富は循環し、<wbr>権利は私有化されず、<wbr>使命だけが引き継がれます。<wbr></p>
+    </div>
+    <div class="split-card">
+      <p class="kind">配当権のみ</p>
+      <h4>出資者と従業員が持つ</h4>
+      <p>経営には介入せず、<wbr>事業から生まれたキャッシュフローを受け取ります。<wbr>売却を目的にしません。<wbr></p>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>お金だけを出す権利には、<wbr>有効期限があります</h2>
+  <p class="sub">出資者は卒業します。<wbr>そして、<wbr>その株は現場へ渡ります。<wbr></p>
+
+  <p>出資額の3倍から5倍という上限に達するまで配当を受け取り、<wbr>そこで出資者の配当の権利は卒業します。<wbr>投資家はリスクに見合う果実を得て降り、<wbr>そこから先は、<wbr>会社が自律した生命体として自分たちのために生きます。<wbr>この卒業があることで、<wbr>現場の永続的な負債感が消えます。<wbr></p>
+  <p><strong>卒業した株は、<wbr>従業員持株会が引き取ります。<wbr></strong>取得も返還も配当還元価額で行うため、<wbr>会社がどれだけ利益を積み上げても、<wbr>従業員が株を持つ負担は上がりません。<wbr></p>
+  <p><strong>そして持株会は、<wbr>株主総会で議決します。<wbr></strong>ここが無限成長への歯止めです。<wbr>株を持っているのが、<wbr>無理な量的拡大で株価を吊り上げたい人ではなく、<wbr>その拡大を実際に背負う人たちになる。<wbr>だから、<wbr>成長を強要する決議が通りません。<wbr></p>
+  <p>D5 Eternal Capitalは、<wbr>黄金株を1株だけ手元に残します。<wbr>取締役の選任や定款の変更、<wbr>そして売却に対して、<wbr>拒否権を持ち続けるためです。<wbr>議決権の大半は現場にありながら、<wbr>会社が売られることと、<wbr>存在意義が書き換えられることだけは止められます。<wbr></p>
+  <p>従業員が退職するときは、<wbr>持ち分を配当還元価額で持株会に返します。<wbr>戻った株は、<wbr>次に入ってくる人へ回ります。<wbr>株が特定の個人に溜まって散逸せず、<wbr>在籍している人のあいだを回り続ける。<wbr>これが永代的な循環の実体です。<wbr></p>
+  <p>上限の水準は検討中で、<wbr>まだ決めていません。<wbr></p>
+</section>
+
+<section>
+  <h2>誰に何が起きるか</h2>
+  <p class="sub">既存のベンチャーキャピタル、<wbr>プライベート・エクイティとの違い。<wbr></p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>&nbsp;</th><th>既存のVC・PE</th><th>D5 Eternal Capital (構想)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>期間</td><td>10年 (保有は3〜5年)</td><td>30年以上。<wbr>売却を前提としない</td></tr>
+        <tr><td>評価軸</td><td>内部収益率、<wbr>マルチプル、<wbr>時価総額</td><td>配当の安定性と、<wbr>事業の耐久性</td></tr>
+        <tr><td>出資者が受け取るもの</td><td>売却益。<wbr>現金になるまで食べられない</td><td>配当。<wbr>毎年、<wbr>実際に食べられる</td></tr>
+        <tr><td>ポートフォリオの前提</td><td>10社中9社の失敗を許容し、<wbr>1社の爆発で回収</td><td>10社全部を残す。<wbr>外れの枠を置かない</td></tr>
+        <tr><td>負債</td><td>レバレッジで収益率を上げる</td><td>かけない。<wbr>不況時に安売りを強制されない</td></tr>
+        <tr><td>経営陣との関わり</td><td>数値目標で管理する</td><td>投資前に見立て、<wbr>投資後は両天秤で関わり続ける</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gains" style="margin-top:40px">
+    <div class="gain-card gain-card--money">
+      <h3>出資する側</h3>
+      <p class="who">事業法人 / 財団 / ファミリーオフィス</p>
+      <ul>
+        <li><strong>内部収益率20%は約束しません。<wbr></strong>既存のVC・PEが狙う水準には、<wbr>数字の上で届きません。<wbr></li>
+        <li>毎年、<wbr>実際に受け取れる配当があります。<wbr>含み益ではありません。<wbr></li>
+        <li>10社中9社を失う前提に立たないので、<wbr>下方向の振れ幅が小さくなります。<wbr></li>
+        <li>売らなくていい自由があります。<wbr>不況時に安値で手放す必要がありません。<wbr></li>
+        <li>売らないので時価が立たず、<wbr>評価額が苗木のまま子孫へ渡ります。<wbr></li>
+        <li><strong>劇場の観客席ではなく、<wbr>バックステージから見られます。<wbr></strong>関係性が動く現場を、<wbr>投資家として間接的に体験できます。<wbr></li>
+        <li>財産だけを渡すと3代で尽きると言われます。<wbr>渡せるのは金額ではなく、<wbr>価値観のほうです。<wbr></li>
+      </ul>
+    </div>
+    <div class="gain-card gain-card--rel">
+      <h3>投資を受ける側</h3>
+      <p class="who">投資先の経営チームと、<wbr>そこで働く人</p>
+      <ul>
+        <li><strong>売られません。<wbr></strong>数年後に誰かへ売り渡される前提で、<wbr>経営しなくて済みます。<wbr></li>
+        <li>短期の数値目標を、<wbr>現場に降ろされません。<wbr></li>
+        <li>借金を負わされません。<wbr>返済期限が意思決定に口を出しません。<wbr></li>
+        <li>経営の自主性は渡しません。<wbr>1/3超は持ちますが、<wbr>舵取りを取り上げません。<wbr></li>
+        <li>従業員も配当を受け取ります。<wbr>利益を分かち合う側に立ちます。<wbr></li>
+        <li>経営会議で何が起きているかを、<wbr>外から見て言う人が入り続けます。<wbr>社内では立場があって言えないことを、<wbr>言う役です。<wbr></li>
+        <li>借金と売却の圧力がないので、<wbr>3年後ではなく10年後に花開く研究開発に、<wbr>手をつけられます。<wbr></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>検証すべきポイント</h2>
+  <p class="sub">賛同より、<wbr>ここが崩れるという指摘のほうが要ります。<wbr>特に金融の実務にいる人から。<wbr></p>
 
   <ol class="qs">
     <li>
       <strong>10社全部当たるという前提の再現性</strong>
-      <span>経営チームの関係の崩壊が倒産の最大要因だという見立てと、それを投資前に見抜けるという主張。ここが崩れると全部崩れる。実証のサンプルはまだ足りない。</span>
+      <span>経営チームの関係の崩壊が倒産の最大要因だという見立てと、<wbr>それを投資前に見抜けるという主張です。<wbr>ここが崩れると全部崩れます。<wbr>実証のサンプルはまだ足りません。<wbr></span>
     </li>
     <li>
       <strong>1/3超を10社分持つための規模</strong>
-      <span>税制上の優位は1/3超の保有が前提。10社でそれを満たす資金量と、その規模で伴走の質を保てるかは別問題。</span>
+      <span>税制上の優位は1/3超の保有が前提です。<wbr>10社でそれを満たす資金量と、<wbr>その規模で両天秤の質を保てるかは別問題です。<wbr></span>
     </li>
     <li>
       <strong>出口のない出資者の流動性</strong>
-      <span>売らないと決めた以上、途中で降りたい出資者の持分をどう扱うか。相続、事業環境の急変、単なる気変わり。ここが未設計。</span>
+      <span>売らないと決めた以上、<wbr>途中で降りたい出資者の持分をどう扱うか。<wbr>相続、<wbr>事業環境の急変、<wbr>単なる気変わり。<wbr>ここが未設計です。<wbr></span>
     </li>
     <li>
       <strong>配当還元方式の否認リスク</strong>
-      <span>評価額を低位に固定する設計が、租税回避と見なされる余地。制度の趣旨に沿っているという整理と、実際に否認されないことは別。</span>
+      <span>評価額を低位に固定する設計が、<wbr>租税回避と見なされる余地があります。<wbr>制度の趣旨に沿っているという整理と、<wbr>実際に否認されないことは別です。<wbr></span>
     </li>
     <li>
-      <strong>成長を義務にしないことと、年12%配当の整合</strong>
-      <span>配当を義務にすれば、現場には増え続けるノルマとして届く。搾取にしない歯止めをどこに置くか。上限を設けて配当を卒業させる設計は検討中で、まだ決めていない。</span>
+      <strong>持株会が成長を否決したとき、<wbr>年12%の配当は維持できるのか</strong>
+      <span>歯止めの置き場所は決まりました。<wbr>議決権を持株会に渡し、<wbr>配当には上限を設けて卒業させます。<wbr>ただし、<wbr>配当を約束しながら、<wbr>その原資をつくる成長を現場が否決できる状態でもあります。<wbr>この2つが正面から衝突したとき、<wbr>どちらを優先するのか。<wbr>配当の水準を先に下げるのか、<wbr>上限の到達を遅らせるのか。<wbr>ここは決めていません。<wbr></span>
     </li>
   </ol>
 </section>
 
 <footer>
-  株式会社グルー / URANUS Eternal Capital 構想 — 検討中の設計であり、出資の勧誘ではありません。数値はいずれも一定の前提を置いた試算です。
+  株式会社グルー / D5 Eternal Capital 構想 — 検討中の設計であり、<wbr>出資の勧誘ではありません。<wbr>数値はいずれも一定の前提を置いた試算です。<wbr>
 </footer>
 
 </div>
