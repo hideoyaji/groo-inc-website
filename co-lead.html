@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>コーリード | 株式会社グルー</title>
   <meta name="description" content="わたしたちは、組織に必ず2人1組 (コーリード) で入ります。一人では立たないからです。">
-  <meta name="robots" content="noindex, follow">
 
   <meta property="og:title" content="コーリード | 株式会社グルー">
   <meta property="og:description" content="わたしたちは、組織に必ず2人1組 (コーリード) で入ります。一人では立たないからです。">
@@ -28,51 +27,148 @@
   <link rel="stylesheet" href="/css/style.css?v=3">
 
   <style>
-    .wip {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--color-text-light);
-      border: 1px solid var(--color-border);
-      border-radius: 3px;
-      padding: 0.25rem 0.7rem;
-      margin-bottom: 1.5rem;
-    }
-    .stub p {
+    .lead p {
+      font-size: 1.05rem;
       line-height: 2.1;
       margin-bottom: 1.25rem;
     }
-    .stub__quote {
+    .lead p:last-child { margin-bottom: 0; }
+
+    .quote-pair {
       border-left: 4px solid var(--color-accent);
       padding-left: 1.25rem;
-      margin: 2rem 0;
+      margin: 2rem 0 0;
       font-family: var(--font-serif);
       font-size: 1.1rem;
       line-height: 2;
       color: var(--color-primary);
     }
-    .stub__todo {
+
+    .subhead {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 3rem 0 1.25rem;
+      padding-left: 0.85rem;
+      border-left: 4px solid var(--color-accent);
+    }
+    .section__title + .subhead { margin-top: 0; }
+
+    .body p {
+      line-height: 2.1;
+      margin-bottom: 1.25rem;
+    }
+    .body p:last-child { margin-bottom: 0; }
+
+    /* 2人の役割 */
+    .pair {
+      display: grid;
+      gap: 1.25rem;
+      margin: 1.5rem 0 0;
+    }
+    .pair__item {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.7rem;
+    }
+    .pair__role {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+      margin-bottom: 0.8rem;
+    }
+    .pair__title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+    .pair__text {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      margin: 0;
+    }
+
+    /* 組み方の2つの形 */
+    .forms {
       list-style: none;
       padding: 0;
-      margin: 1rem 0 2rem;
+      margin: 1.5rem 0 0;
+      counter-reset: form;
     }
-    .stub__todo li {
+    .forms li {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 2;
+    }
+    .forms li:last-child { margin-bottom: 0; }
+    .forms li::before {
+      counter-increment: form;
+      content: counter(form);
+      position: absolute;
+      left: 0;
+      top: 0.25em;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* 正直に書いている箱 */
+    .edge-box {
+      margin: 2.5rem 0 0;
+      border: 1px solid var(--color-accent);
+      border-left-width: 4px;
+      border-radius: 6px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.7rem;
+    }
+    .edge-box p {
+      line-height: 2;
+      margin: 0 0 0.9rem;
+    }
+    .edge-box p:last-child { margin-bottom: 0; }
+
+    /* 育成の段 */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      counter-reset: step;
+    }
+    .steps li {
       position: relative;
       padding-left: 1.6rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.95;
-      color: var(--color-text-light);
+      margin-bottom: 1rem;
+      line-height: 2;
     }
-    .stub__todo li::before {
+    .steps li:last-child { margin-bottom: 0; }
+    .steps li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.85em;
+      top: 0.9em;
       width: 10px;
       height: 1px;
       background: var(--color-accent);
+    }
+
+    @media (min-width: 780px) {
+      .pair { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
@@ -97,8 +193,7 @@
         <li><a href="/co-lead.html" class="active">コーリード</a></li>
         <li><a href="/d5.html">企画集団D5</a></li>
         <li><a href="/company.html">会社概要</a></li>
-        <li><a href="/contact.html">お問い合わせ</a></li>
-        <li><a href="/booking.html">日程予約</a></li>
+        <li><a href="/booking.html">問い合わせ</a></li>
       </ul>
     </nav>
   </header>
@@ -109,32 +204,102 @@
       <p class="page-hero__description">2人1組で、組織に入る</p>
     </section>
 
+    <!-- ===== 1. 宣言 ===== -->
     <section class="section">
-      <div class="container stub">
-        <span class="wip">準備中</span>
-
+      <div class="container lead">
         <p>わたしたちは、組織に <strong>必ず2人1組 (コーリード) で入ります。</strong>一人では立たないからです。</p>
+        <p class="quote-pair">コーチには愛はありますが、力を行使しません。<br>コンサルタントは力を行使しますが、愛を無視しています。</p>
+      </div>
+    </section>
 
-        <p class="stub__quote">コーチには愛はありますが、力を行使しません。<br>コンサルタントは力を行使しますが、愛を無視しています。</p>
+    <!-- ===== 2. なぜ一人では立たないのか ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">なぜ、一人では立たないのか</h2>
 
-        <p>両方を一人で持つ人間が2人で組む形と、コンサルタント1人とコーチ1人で組む形があります。いずれにしても、2人です。</p>
+        <h3 class="subhead">構造だけを動かしても、人が動かない</h3>
+        <p>建物でいえば、コンサルタントは構造そのものを見る力が非常に高いです。だから「この部屋をなくしましょう」「増床しましょう」ができます。けれど土台を見ていないので、動きません。戦略を変え、組織構造を変え、報告書を渡しても、受け取った側が動きません。</p>
 
-        <p>このページには、これから次のことを書きます。</p>
+        <h3 class="subhead">人だけを動かしても、構造が引き戻す</h3>
+        <p>個人へのコーチングは、その場では強く響きます。そこで進む向きが、たとえば3度分変わったとします。ところが組織構造の側に戻ると、その3度が2.75度分ほど軌道修正されて返ってきます。<strong>残るのは0.25度です。</strong>構造の側に強い圧力がかかっているので、元に戻ってしまうのです。</p>
 
-        <ul class="stub__todo">
-          <li>なぜ一人では立たないのか</li>
-          <li>2人はその場で何をしているのか。どう受け渡すのか</li>
-          <li>どう組むのか。誰と誰なら組めるのか</li>
-          <li>担い手をどう育てているのか</li>
+        <h3 class="subhead">そして、場は一人では保持できない</h3>
+        <p>ここからは、現場の話です。ワークショップの場には、<strong>議論を前に進める役と、いま場で何が起きているかを見ている役が、同時に要ります。</strong>一人だと、論理を前に進めているあいだ、誰が黙ったのか、誰が身体を引いたのかが見えません。</p>
+        <p>さらに、こちら側にもエッジがあります。相手の葛藤に触れると、こちらも揺れます。<strong>揺れたときに場を保持する人間がもう一人いないと、場が落ちます。</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== 3. その場で何をしているのか ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">2人は、その場で何をしているのか</h2>
+
+        <p>1日のワークショップは、前半で <strong>健全性 (右天秤)</strong> として関係性そのものを扱い、後半で <strong>経済性 (左天秤)</strong> としてシナリオ・プランニングをやります。ただし、前半と後半は別々の時間ではありません。</p>
+
+        <div class="pair">
+          <div class="pair__item">
+            <span class="pair__role">前に立つ側</span>
+            <p class="pair__title">議論を組み立て、前に進める</p>
+            <p class="pair__text">未来を描き、ぶつけ、選ぶところまで持っていきます。論理の側の責任を負います。</p>
+          </div>
+          <div class="pair__item">
+            <span class="pair__role">場を見ている側</span>
+            <p class="pair__title">誰が黙ったか、誰が引いたかを見る</p>
+            <p class="pair__text">言われないまま終わっていること、遠慮が働いているところを拾います。関係性の側の責任を負います。</p>
+          </div>
+        </div>
+
+        <h3 class="subhead">受け渡しは、時計ではなく場で決まる</h3>
+        <p><strong>論理が詰まったところで関係性に戻し、関係性が動いたところで論理に入ります。</strong>あらかじめ時間割で決めているわけではありません。</p>
+        <p>一方が前に立っているとき、もう一方は場を見ています。そして「いま、あの人が黙りました」と差し込みます。差し込まれた側は、組み立てていた議論を止めます。</p>
+        <p><strong>議論の途中でも、止めます。止められるのは、2人だからです。</strong>一人でやっていると、自分が組み立てた流れを自分で壊す判断は、まず下りません。</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. どう組むのか ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">どう組むのか</h2>
+        <p>組み方は2つあります。</p>
+
+        <ol class="forms">
+          <li><strong>愛と力の両方を一人で持つ人間が、2人で組む。</strong>すでに実証済みの形です。</li>
+          <li><strong>コンサルタント1人と、コーチ1人で組む。</strong>足りないものを、お互いで埋めます。</li>
+        </ol>
+
+        <p style="margin-top:1.5rem;">いずれにしても、2人です。結果として、<strong>愛と力のバランスが取れたリーダーシップで、組織に関わることができます。</strong></p>
+
+        <div class="edge-box">
+          <p>正直に書いておきます。会社に女性が入ってこない、という問題を扱うことがあります。ところが <strong>この問題を扱うわたしたち自身のコーリードが、いまは男性2人です。そのこと自体に、いちばんエッジを感じています。</strong></p>
+          <p>一方で、コーチの側からは既に何人もの女性が「一緒にやりたい」と手を挙げてくれていて、進行中の案件では実際に女性のコーチと組んで動いています。組織に入るコーリードとしても、早く女性と組む形をつくります。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. 担い手をどう育てているか ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">担い手を、どう育てているか</h2>
+
+        <p><strong>2人揃わなければ、1件も受けられません。</strong>担い手を増やせるかどうかが、そのままわたしたちの制約です。だから、育てることを仕事の一部としてやっています。</p>
+
+        <h3 class="subhead">経済性 (左天秤) を担ってきた人に、愛の側を渡す</h3>
+        <p>声をかけるのは、戦略や事業開発をやってきた人です。構造を読む力はすでに持っています。足りないのは、人と人のあいだで起きていることを扱う訓練のほうです。</p>
+
+        <ul class="steps">
+          <li>CTI や CRR Global の基礎コースを受けてもらう</li>
+          <li>そのうえで、実際の案件に2人で入る。座学だけでは立ちません</li>
+          <li>入ったあとは、案件の録画を一緒に見返しながら振り返る</li>
         </ul>
 
-        <p>いまは <a href="/services.html" style="color:var(--color-accent); font-weight:600;">サービス</a> のページに、6ヶ月のパッケージの中でコーリードがどう働くかを書いています。</p>
+        <p style="margin-top:1.5rem;">この順番は、<strong>寺村自身が数年前に通った道です。</strong>同じ順番で辿ってもらっています。</p>
       </div>
     </section>
 
     <section class="cta-section">
       <h2 class="cta-section__title">まず60分、話しませんか</h2>
       <a href="/booking.html" class="cta-section__btn">日程を選ぶ →</a>
+      <p style="margin-top:1.5rem; font-size:0.875rem; line-height:1.9; color:rgba(255,255,255,0.75);">サービスの中身は、<a href="/services.html" style="color:var(--color-accent); font-weight:600;">サービス</a> のページにあります。</p>
     </section>
   </main>
 
