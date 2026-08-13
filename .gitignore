@@ -44,3 +44,6 @@ build/
 *.bak
 *.tmp
 *.orig
+
+# --- 生成物 ---
+tools/factory-figure/out.svg
