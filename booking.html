@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日程予約 | 株式会社グルー</title>
-  <meta name="description" content="株式会社グルー 代表取締役 寺村英雄とのミーティング・会食のご予約。ご都合の良い日時を選ぶだけで、カレンダー招待が届きます。">
+  <title>問い合わせ | 株式会社グルー</title>
+  <meta name="description" content="問い合わせのフォームです。文章で一度相談されたい方はこちらへ。オンライン、リアルでのミーティングの申し込みは、ご都合の良い日時を選ぶだけで、カレンダー招待が届きます。">
 
-  <meta property="og:title" content="日程予約 | 株式会社グルー">
-  <meta property="og:description" content="ご都合の良い日時を選ぶだけで、カレンダー招待が届きます。">
+  <meta property="og:title" content="問い合わせ | 株式会社グルー">
+  <meta property="og:description" content="問い合わせのフォームです。文章で一度相談されたい方はこちらへ。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://groo-inc.com/booking.html">
   <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
@@ -30,6 +30,12 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
 
   <style>
+    .booking-alt { font-size: 0.95rem; line-height: 1.95; color: var(--color-text-light); margin-bottom: 1.5rem; }
+    .booking-alt a { color: var(--color-accent); font-weight: 600; }
+
+    .booking-btn { display: inline-block; background: var(--color-accent); color: #fff; padding: 0.875rem 2rem; border-radius: 4px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; transition: background 0.3s; }
+    .booking-btn:hover { background: #b8943e; color: #fff; }
+
     .booking-flow { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-text-light); }
     .booking-flow p { font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
     .booking-flow ol { padding-left: 1.25rem; }
@@ -142,10 +148,23 @@
 
   <main>
     <section class="page-hero">
-      <h1 class="page-hero__title">日程予約</h1>
+      <h1 class="page-hero__title">問い合わせ</h1>
     </section>
 
+    <!-- ===== 1. 問い合わせ ===== -->
     <section class="section">
+      <div class="container">
+        <h2 class="section__title">問い合わせフォーム</h2>
+        <p class="booking-alt">問い合わせのフォームです。文章で一度相談されたい方はこちらへ。</p>
+        <a href="/contact.html" class="booking-btn">お問い合わせフォームへ &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ===== 2. 日程調整 ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">オンライン、リアルでのミーティングの申し込み</h2>
+      </div>
       <div class="container" id="booking-app">
         <!-- JavaScript で描画 -->
       </div>
@@ -292,7 +311,7 @@
         html += '<div class="step-title">ご希望の日時をお選びください</div>';
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
         if (state.slots.length === 0) {
-          html += '<div class="loading"><p>現在、予約可能な枠がありません。</p><p style="font-size:0.875rem;margin-top:0.5rem;">お手数ですが、直接ご連絡ください。</p></div>';
+          html += '<div class="loading"><p>現在、予約可能な枠がありません。</p><p style="font-size:0.875rem;margin-top:0.5rem;">お手数ですが、<a href="/contact.html" style="color:var(--color-accent);font-weight:600;">お問い合わせフォーム</a> からご連絡ください。</p></div>';
         } else {
           var weeks = groupByWeek(state.slots);
           html += '<div class="week-tabs">';
