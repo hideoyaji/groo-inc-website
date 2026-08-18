@@ -185,15 +185,37 @@
       margin: 0 auto;
       color: var(--color-primary);
     }
-    .cred-line p.cred-line__sig {
-      margin-top: 1.75rem;
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      line-height: 1.9;
-      color: var(--color-text-light);
-      max-width: 34em;
-    }
     .cred-line .reel-embed { margin-bottom: 0; }
+
+    /* 3. 痛みの引用 */
+    .cred-quote {
+      max-width: 34em;
+      margin: 2.75rem auto 0;
+      text-align: left;
+      border-left: 3px solid var(--color-accent);
+      padding-left: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 2.1;
+      color: var(--color-primary);
+      word-break: auto-phrase;
+    }
+    .cred-quote cite {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+      font-size: 0.8125rem;
+      font-style: normal;
+      color: var(--color-text-light);
+    }
+    .cred-quote cite a { color: var(--color-accent); }
+    .cred-quote .quote-ava {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
 
     /* 外部リンクの行 */
     .linkrow {
@@ -542,7 +564,11 @@
     <section class="cred-line">
       <div class="container">
         <p>戦略コンサルティングを四半世紀やってきたので、<br>コンサルタントという仕事そのものが抱える矛盾と葛藤を、<br>誰よりも知っています。</p>
-        <p class="cred-line__sig">寺村 英雄 / 株式会社グルー 代表取締役<br>野村総合研究所13年 (うち中国5年)、独立後12年 / CPCC・ICF ACC・ORSC応用</p>
+
+        <blockquote class="cred-quote">
+          コンサルタントとして25年の経験を持っていた僕は、それまでクライアントがありがたく報告書を受け取るもののその後行動を起こしたことを見たことがなかった。
+          <cite><img class="quote-ava" src="/img/profile-teramura.jpg" alt="" width="180" height="180" loading="lazy"><span>寺村 英雄 &nbsp;|&nbsp; <a href="https://hideoteramura.com/story06" target="_blank" rel="noopener">25年動かなかったクライアントが動き出す衝撃 &rarr;</a></span></cite>
+        </blockquote>
 
         <div class="reel-embed" style="margin: 3rem auto 0;">
           <iframe src="https://www.instagram.com/reel/Db4OLurTioP/embed/" title="寺村 英雄 Instagram リール — コンサルティングの矛盾について" allowtransparency="true" allowfullscreen scrolling="no" loading="lazy"></iframe>
