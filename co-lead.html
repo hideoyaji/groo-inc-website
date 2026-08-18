@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>コーリード | 株式会社グルー</title>
-  <meta name="description" content="わたしたちは、組織に必ず2人1組 (コーリード) で入ります。一人では立たないからです。">
+  <meta name="description" content="わたしたちは、組織に必ず2人1組 (コーリード / コーコーチ) で入ります。一人では立たないからです。">
 
   <meta property="og:title" content="コーリード | 株式会社グルー">
-  <meta property="og:description" content="わたしたちは、組織に必ず2人1組 (コーリード) で入ります。一人では立たないからです。">
+  <meta property="og:description" content="わたしたちは、組織に必ず2人1組 (コーリード / コーコーチ) で入ります。一人では立たないからです。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://groo-inc.com/co-lead.html">
   <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
@@ -167,6 +167,33 @@
       background: var(--color-accent);
     }
 
+    .colead-quote {
+      max-width: 40em;
+      margin: 2.25rem 0 0;
+      border-left: 3px solid var(--color-accent);
+      padding-left: 1.25rem;
+      font-size: 1rem;
+      line-height: 2;
+      word-break: auto-phrase;
+    }
+    .colead-quote cite {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+      font-size: 0.8125rem;
+      font-style: normal;
+      color: var(--color-text-light);
+    }
+    .quote-ava {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .colead-quote cite a { color: var(--color-accent); }
+
     @media (min-width: 780px) {
       .pair { grid-template-columns: repeat(2, 1fr); }
     }
@@ -200,14 +227,14 @@
 
   <main>
     <section class="page-hero">
-      <h1 class="page-hero__title">コーリード</h1>
-      <p class="page-hero__description">2人1組で、組織に入る</p>
+      <h1 class="page-hero__title">コーリード / コーコーチ</h1>
+      <p class="page-hero__description">かならず2人で場をリードし、コーチングする</p>
     </section>
 
     <!-- ===== 1. 宣言 ===== -->
     <section class="section">
       <div class="container lead">
-        <p>わたしたちは、組織に <strong>必ず2人1組 (コーリード) で入ります。</strong>一人では立たないからです。</p>
+        <p>わたしたちは、組織に <strong>必ず2人1組 (コーリード / コーコーチ) で入ります。</strong>一人では立たないからです。</p>
         <p class="quote-pair">コーチには愛はありますが、力を行使しません。<br>コンサルタントは力を行使しますが、愛を無視しています。</p>
       </div>
     </section>
@@ -226,6 +253,11 @@
         <h3 class="subhead">そして、場は一人では保持できない</h3>
         <p>ここからは、現場の話です。ワークショップの場には、<strong>議論を前に進める役と、いま場で何が起きているかを見ている役が、同時に要ります。</strong>一人だと、論理を前に進めているあいだ、誰が黙ったのか、誰が身体を引いたのかが見えません。</p>
         <p>さらに、こちら側にもエッジがあります。相手の葛藤に触れると、こちらも揺れます。<strong>揺れたときに場を保持する人間がもう一人いないと、場が落ちます。</strong></p>
+
+        <blockquote class="colead-quote">
+          ついでにもう１つ云うと、「一人では無理」というのもテラさんと僕の共通認識。逆に云うと、「二人でやれば、どんな不安定な状況でも立っていられるだろうな」という感覚がある。
+          <cite><img class="quote-ava" src="/img/profile-katz.jpg" alt="" width="497" height="497" loading="lazy"><span>王子田 克樹 (katz) &nbsp;|&nbsp; <a href="https://note.com/wonder3_katz/n/nfcfd4b535e39" target="_blank" rel="noopener">「両天秤」は、よろめきながら進む &rarr;</a></span></cite>
+        </blockquote>
       </div>
     </section>
 

@@ -218,11 +218,20 @@
       line-height: 2;
     }
     .iceberg__quote cite {
-      display: block;
-      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
       font-size: 0.8125rem;
       font-style: normal;
       color: var(--color-text-light);
+    }
+    .quote-ava {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
     }
     .iceberg__note {
       max-width: 40em;
@@ -231,6 +240,74 @@
       font-size: 0.75rem;
       line-height: 1.8;
       color: var(--color-text-light);
+    }
+
+    /* katz さんのコーナー (両天秤セクション) */
+    .katz {
+      max-width: 40em;
+      margin: 2.75rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+    .katz__photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .katz__name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .katz__name span {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-text-light);
+    }
+    .katz__role {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      margin-top: 0.2rem;
+    }
+    .katz__notes {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .katz__notes li { border-bottom: 1px solid var(--color-border); }
+    .katz__notes a {
+      display: block;
+      padding: 0.8rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-primary);
+      word-break: auto-phrase;
+    }
+    .katz__notes a:hover { color: var(--color-accent); opacity: 1; }
+    .katz__notes a span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      margin-top: 0.2rem;
+    }
+    .katz__links {
+      margin-top: 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .katz__links a { color: var(--color-accent); }
+    @media (min-width: 620px) {
+      .katz { grid-template-columns: 96px 1fr; gap: 1.75rem; }
     }
 
     /* Belief Breaker */
@@ -468,7 +545,7 @@
         <p class="cred-line__sig">寺村 英雄 / 株式会社グルー 代表取締役<br>野村総合研究所13年 (うち中国5年)、独立後12年 / CPCC・ICF ACC・ORSC応用</p>
 
         <div class="reel-embed" style="margin: 3rem auto 0;">
-          <iframe src="https://www.instagram.com/reel/Db4OLurTioP/embed/" title="寺村英雄 Instagram リール — コンサルティングの矛盾について" allowtransparency="true" allowfullscreen scrolling="no" loading="lazy"></iframe>
+          <iframe src="https://www.instagram.com/reel/Db4OLurTioP/embed/" title="寺村 英雄 Instagram リール — コンサルティングの矛盾について" allowtransparency="true" allowfullscreen scrolling="no" loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -493,7 +570,7 @@
           <div class="breaker">
             <div class="breaker__num">03</div>
             <h3>愛なき力と、力なき愛</h3>
-            <p>コーチには愛はありますが、力を行使しません。コンサルタントは力を行使しますが、愛を無視しています。わたしたちは、組織に<strong>必ず2人1組 (コーリード) で入ります</strong>。一人では立たないからです。両方を一人で持つ人間が2人で組む形 (実証済みです) と、コンサルタント1人とコーチ1人で組む形があります。結果、<strong>愛と力のバランスが取れたリーダーシップで関わることが可能です。</strong></p>
+            <p>コーチには愛はありますが、力を行使しません。コンサルタントは力を行使しますが、愛を無視しています。わたしたちは、組織に<strong>必ず2人1組 (コーリード / コーコーチ) で入ります</strong>。一人では立たないからです。両方を一人で持つ人間が2人で組む形 (実証済みです) と、コンサルタント1人とコーチ1人で組む形があります。結果、<strong>愛と力のバランスが取れたリーダーシップで関わることが可能です。</strong></p>
           </div>
         </div>
       </div>
@@ -607,10 +684,29 @@
 
         <blockquote class="iceberg__quote">
           右下が良い状態であれば、右上の領域はそこそこで十分。逆に右上の完成度がどんなに高くても、右下の状態が悪ければ成果はでない。
-          <cite>王子田克樹 (katz) / パートナー / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a> &nbsp;|&nbsp; <a href="https://note.com/wonder3_katz/n/ned888116e581" target="_blank" rel="noopener" style="color:var(--color-accent);">出典の note &rarr;</a></cite>
+          <cite><img class="quote-ava" src="/img/profile-katz.jpg" alt="" width="497" height="497" loading="lazy"><span>王子田 克樹 (katz) / パートナー / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener" style="color:var(--color-accent);">組織整体師</a> &nbsp;|&nbsp; <a href="https://note.com/wonder3_katz/n/ned888116e581" target="_blank" rel="noopener" style="color:var(--color-accent);">出典の note &rarr;</a></span></cite>
         </blockquote>
 
-        <p class="iceberg__note">&#8251; 「組織整体&#8482;」は、王子田克樹 (katz) の商標です。</p>
+        <blockquote class="iceberg__quote">
+          そんなプロジェクトの真ん中にいながらテラさんと良く話すことがある。「コンサル時代の僕らだったら、こんな不安定で不透明な状況には耐えられない。怖くて立っていられないだろうね。」そう云って顔を見合わせて笑ってしまう。
+          <cite><img class="quote-ava" src="/img/profile-katz.jpg" alt="" width="497" height="497" loading="lazy"><span>王子田 克樹 (katz) &nbsp;|&nbsp; <a href="https://note.com/wonder3_katz/n/nfcfd4b535e39" target="_blank" rel="noopener" style="color:var(--color-accent);">「両天秤」は、よろめきながら進む &rarr;</a></span></cite>
+        </blockquote>
+
+        <div class="katz">
+          <img class="katz__photo" src="/img/profile-katz.jpg" alt="両天秤 Co-創始者 王子田 克樹" width="497" height="497" loading="lazy">
+          <div class="katz__body">
+            <p class="katz__name">王子田 克樹 <span>/ katzさん</span></p>
+            <p class="katz__role">株式会社グルー パートナー / 組織整体師</p>
+            <ul class="katz__notes">
+              <li><a href="https://note.com/wonder3_katz/n/nfcfd4b535e39" target="_blank" rel="noopener">「両天秤」は、よろめきながら進む<span>2026.08.18</span></a></li>
+              <li><a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener">組織整体&#8482;という新しいアプローチ<span>2026.07.11</span></a></li>
+              <li><a href="https://note.com/wonder3_katz/n/ned888116e581" target="_blank" rel="noopener">システム・コーチング体験へのお誘い for 企業クライアント<span>2025.09.05</span></a></li>
+            </ul>
+            <p class="katz__links"><a href="/company.html#katz">プロフィール &rarr;</a> &nbsp; <a href="https://note.com/wonder3_katz" target="_blank" rel="noopener">note の一覧 &rarr;</a></p>
+          </div>
+        </div>
+
+        <p class="iceberg__note">&#8251; 「組織整体&#8482;」は、王子田 克樹 (katz) の商標です。</p>
 
         <div class="videos" style="margin-top:3.5rem;">
           <div class="video">
@@ -767,7 +863,7 @@
           </div>
         </div>
 
-        <p class="partner-line">組織に入るときに組む相手が、<strong>王子田克樹 (katz) / 両天秤 Co-創始者 / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener">組織整体師</a></strong> です。<a href="/company.html#katz">プロフィール &rarr;</a></p>
+        <p class="partner-line">組織に入るときに組む相手が、<strong>王子田 克樹 (katz) / 両天秤 Co-創始者 / <a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener">組織整体師</a></strong> です。<a href="/company.html#katz">プロフィール &rarr;</a></p>
 
         <div class="media-row" style="margin: 2.5rem 0 3rem;">
           <div class="selfvideo">
@@ -831,7 +927,7 @@
         <div class="engage">
           <div class="engage__item">
             <h3>外から、組織に入る</h3>
-            <p>戦略づくりと、幹部への伴走を同時にやります。<strong>必ず2人1組 (<a href="/co-lead.html" style="color:var(--color-accent);">コーリード</a>) で入ります。</strong></p>
+            <p>戦略づくりと、幹部への伴走を同時にやります。<strong>必ず2人1組 (<a href="/co-lead.html" style="color:var(--color-accent);">コーリード / コーコーチ</a>) で入ります。</strong></p>
           </div>
           <div class="engage__item">
             <h3>個人に、1対1で入る</h3>
