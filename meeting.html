@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会議の録画から、コミュニケーションを変える | 株式会社グルー</title>
+  <meta name="description" content="いつもの会議を録画し、それを素材に関係性を扱うワークショップ。研修の事例ではなく、自分たちの映像を観るところから始めます。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="会議の録画から、コミュニケーションを変える | 株式会社グルー">
+  <meta property="og:description" content="いつもの会議を録画し、それを素材に関係性を扱うワークショップ。研修の事例ではなく、自分たちの映像を観るところから始めます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://groo-inc.com/meeting.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v2.png">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+  <meta name="twitter:title" content="自分たちの会議を、観る | 株式会社グルー">
+  <meta name="twitter:description" content="いつもの会議を録画し、それを素材に関係性を扱うワークショップ。">
+  <meta name="twitter:image" content="https://groo-inc.com/img/ogp-v2.png">
+
+  <link rel="canonical" href="https://groo-inc.com/meeting.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* meeting.html 専用。style.css は変更していない */
+    .page-hero { padding-bottom: 4rem; }
+    .hero-lead {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      line-height: 2;
+      max-width: 640px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+    }
+    .hero-sub { opacity: .75; margin-top: 1.2rem; font-size: .95rem; }
+    .manga {
+      border: 3px solid var(--color-primary);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #fff;
+      margin: 2rem auto;
+      max-width: 720px;
+      box-shadow: 6px 6px 0 var(--color-border);
+    }
+    .manga img { width: 100%; display: block; }
+    .manga__cap {
+      font-size: .85rem;
+      color: var(--color-text-light);
+      padding: .6rem 1rem;
+      border-top: 1px dashed var(--color-border);
+      text-align: center;
+    }
+    .bubbles { display: flex; flex-direction: column; gap: 1.2rem; margin: 2rem 0; }
+    .bubble {
+      position: relative;
+      background: var(--color-bg-alt);
+      border: 2px solid var(--color-primary);
+      border-radius: 18px;
+      padding: 1rem 1.4rem;
+      max-width: 78%;
+      font-size: 1.02rem;
+      line-height: 1.9;
+    }
+    .bubble::after {
+      content: "";
+      position: absolute; bottom: -12px; left: 32px;
+      border-width: 12px 10px 0 0; border-style: solid;
+      border-color: var(--color-primary) transparent transparent transparent;
+    }
+    .bubble--right { align-self: flex-end; }
+    .bubble--right::after { left: auto; right: 32px; border-width: 12px 0 0 10px; }
+    .beat {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      text-align: center;
+      line-height: 2;
+      margin: 2.5rem 0;
+    }
+    .hero-cta {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.4rem;
+      background: var(--color-accent);
+      color: #1a1a2e;
+      font-weight: 700;
+      border-radius: 4px;
+      letter-spacing: .03em;
+    }
+    .hero-cta:hover { opacity: .85; }
+    .hero-note { font-size: .82rem; opacity: .7; margin-top: .8rem; }
+    .inline-cta {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg-alt);
+      text-align: center;
+      padding: 1.8rem 1rem;
+      margin: 3rem 0 0;
+      border-radius: 6px;
+    }
+    .inline-cta p { margin-bottom: .8rem; }
+    .inline-cta a {
+      display: inline-block;
+      color: var(--color-primary);
+      font-weight: 700;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 2px;
+    }
+    /* 常時追従する申し込みバー */
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 60;
+      background: rgba(26,26,46,.96);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid rgba(201,169,110,.35);
+      padding: .75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      transform: translateY(110%);
+      transition: transform .25s ease;
+    }
+    .sticky-cta.is-on { transform: translateY(0); }
+    .sticky-cta__text { color: #fff; font-size: .9rem; opacity: .85; }
+    .sticky-cta__btn {
+      background: var(--color-accent);
+      color: #1a1a2e;
+      font-weight: 700;
+      padding: .7rem 1.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .sticky-cta__btn:hover { opacity: .85; }
+    @media (max-width: 600px) {
+      .sticky-cta { gap: .7rem; padding: .6rem .8rem; }
+      .sticky-cta__text { display: none; }
+      .sticky-cta__btn { width: 100%; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .hero-lead { font-size: 1.1rem; }
+      .bubble { max-width: 92%; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo"><a href="/">株式会社グルー</a></div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/ryotenbin.html">両天秤アプローチとは</a></li>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/cases.html">事例</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a></li>
+        <li><a href="/contact.html">お問い合わせ</a></li>
+        <li><a href="/booking.html">日程予約</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">録画するだけで、会議が変わる！</h1>
+      <p class="hero-lead">組織の会議が空回りしている。<br>コミュニケーション研修をやっても<br>すぐに元に戻ってしまう。<br>よく耳にします。</p>
+      <p class="page-hero__description hero-sub">私たちは、皆さまの社内での会議を録画したものをベースにあなたの組織の関係性を「見立て」、組織のメンバーが自ら気づき、持続的に改善を続けるためのお手伝いをします。</p>
+      <a href="/contact.html?subject=kaigi" class="hero-cta">無料で相談する →</a>
+      <p class="hero-note">初回相談は60分・無料です。いま会議で起きていることを伺ったうえで、この方法が合うかどうかから一緒に考えます</p>
+    </section>
+
+    <!-- 課題提起 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">こんな感じ、ありませんか</h2>
+
+        <div class="bubbles">
+          <div class="bubble">うちの会議、なんかおかしい気がするんだよな</div>
+          <div class="bubble bubble--right">でも、何がおかしいのか説明できない</div>
+          <div class="bubble">コミュニケーション研修の日は、みんないいこと言うんだよ</div>
+          <div class="bubble bubble--right">翌週の会議では、もう元通り</div>
+        </div>
+
+        <p class="mt-4">実際にその場で起きているのは、たいていこういうことです。</p>
+
+        <div class="bubbles">
+          <div class="bubble">あの一言で、お腹のあたりがグーッと重くなった</div>
+          <div class="bubble bubble--right">言いたいことはあった。でも飲み込んだ</div>
+          <div class="bubble">終わったあと、徒労感だけ残る</div>
+          <div class="bubble bubble--right">結局、何も進んでいない気がする</div>
+        </div>
+
+        <figure class="manga">
+          <img src="/img/manga/p1_silent.jpg" alt="会議で一人が黙り込んでいる場面" loading="lazy" onerror="this.closest('.manga').style.display='none'">
+          <figcaption class="manga__cap">この人がいつ黙ったか、覚えている人はいません</figcaption>
+        </figure>
+
+        <p class="beat">教材のケースはよくできている。<br>でも「うちとは違うよね」で終わる。</p>
+        <p class="beat">会議をしていていつも感じる違和感。<br>コミュニケーション研修をしてもその日は良いが、継続性がない。</p>
+        <div class="inline-cta">
+          <p>心当たりがあれば、まず60分だけ話しませんか。</p>
+          <a href="/contact.html?subject=kaigi">問い合わせ・申し込みへ →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 進め方 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">やることは3つだけ</h2>
+
+        <div class="card">
+          <div class="card__number">01</div>
+          <h3 class="card__title">録る</h3>
+          <p class="card__text">特別な会議は用意しなくていいです。<strong>いつもの会議を、いつも通りに</strong>録るだけ。経営会議でも、部門をまたぐ定例でも、お客さんとの打ち合わせでも構いません。演出も準備もいりません。</p>
+          <p class="card__meta"><strong>ご用意いただくもの：</strong>録画データと、出席者全員の同意</p>
+        </div>
+
+        <figure class="manga">
+          <img src="/img/manga/p2_record.jpg" alt="いつもの会議をカメラが静かに録画している" loading="lazy" onerror="this.closest('.manga').style.display='none'">
+          <figcaption class="manga__cap">最初は気になります。3回目には忘れます</figcaption>
+        </figure>
+
+        <div class="card">
+          <div class="card__number">02</div>
+          <h3 class="card__title">観る</h3>
+          <p class="card__text">私たち<strong>両天秤コーチ</strong>が先に全部観て、何が起きているかを見立てて、何場面か切り出します。当日はそれをみんなで観て、<strong>「今ここで何が起きてた？」「なんでそうなった？」</strong>を対話します。</p>
+          <p class="card__text">扱うのは、<strong>氷山の上に出ている言葉や決定だけではありません。</strong>その水面下で何が起きていたのかにアプローチします。こちらから正解は言いません。気づくのは、映っている本人たちです。</p>
+          <p class="card__meta"><strong>両天秤コーチとは：</strong>戦略コンサルティングと組織整体&#8482;、その両方の資質をともに持つ2人の講師のことです</p>
+          <p class="card__meta"><strong>扱うもの：</strong>沈黙、言い直し、笑い、視線、話す順番、決まらなさ</p>
+        </div>
+
+        <figure class="manga">
+          <img src="/img/manga/p3_watch.jpg" alt="チーム全員で自分たちの会議の録画を観ている" loading="lazy" onerror="this.closest('.manga').style.display='none'">
+          <figcaption class="manga__cap">自分の映像を観るのは、正直きまずいです</figcaption>
+        </figure>
+
+        <div class="card">
+          <div class="card__number">03</div>
+          <h3 class="card__title">やってみる</h3>
+          <p class="card__text">観て終わりにしません。同じ場面を、違うやり方でもう一回やってみます。うまくいってもいかなくても、次の本物の会議で試すことを各自が決めて、次回の頭で報告し合う。<strong>私たちがいなくなっても、これを自分たちで回せる</strong>のがゴールです。</p>
+          <p class="card__meta"><strong>目指す状態：</strong>自分たちで録って、自分たちで観て、自分たちで話せるようになること</p>
+        </div>
+
+        <figure class="manga">
+          <img src="/img/manga/p4_roleplay.jpg" alt="同じ場面を別のやり方でやり直している" loading="lazy" onerror="this.closest('.manga').style.display='none'">
+          <figcaption class="manga__cap">やり直すと、だいたい笑いが起きます</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-section__title">まず、会議を1本だけ観せてください</h2>
+      <p class="cta-section__text">いきなり全社で始める必要はありません。<br>1本の録画と、60分の打ち合わせから始められます。</p>
+      <a href="/contact.html?subject=kaigi" class="cta-section__btn">問い合わせ・申し込みへ →</a>
+    </section>
+
+    <!-- なぜ2人か -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">コーリード / コーコーチの2人がリードします</h2>
+        <p class="mb-3">同じ映像を観ても、見えているものが違います。私たちは戦略コンサル出身で、同時にコーチの資格を持っています。その両方の目を、同じ部屋に置きます。</p>
+        <p class="mb-3"><a href="/company.html#profile" style="color: var(--color-accent); font-weight: 600;">寺村 英雄 (テラさん) のプロフィール →</a><br><a href="/company.html#katz" style="color: var(--color-accent); font-weight: 600;">王子田 克樹 (katzさん) のプロフィール →</a></p>
+
+        <figure class="manga">
+          <img src="/img/manga/p5_twocoaches.jpg" alt="2人が同じ画面を別々の視点で観ている" loading="lazy" onerror="this.closest('.manga').style.display='none'">
+          <figcaption class="manga__cap">同じ画面を観ていても、追っているものが違います</figcaption>
+        </figure>
+
+        <div class="before-after">
+          <div class="before-after__col before-after__col--before">
+            <h4>構造を観る目</h4>
+            <ul>
+              <li>誰が決めて、誰が決めていないか</li>
+              <li>どの論点が扱われずに流れたか</li>
+              <li>その判断が、どの部門の事情から来ているか</li>
+            </ul>
+          </div>
+          <div class="before-after__col before-after__col--after">
+            <h4>関係性を観る目</h4>
+            <ul>
+              <li>誰が黙って、誰が引き取ったか</li>
+              <li>どこで場の温度が変わったか</li>
+              <li>言われた側の身体に何が起きたか</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="beat">構造だけ指摘すると「正論を言われた」で終わる。<br>関係性だけ扱うと「いい時間だった」で終わる。<br>2人で観ると、その2つがつながります。</p>
+        <div class="inline-cta">
+          <p>2人で入る形が御社に合うかどうか、率直にお伝えします。</p>
+          <a href="/contact.html?subject=kaigi">問い合わせ・申し込みへ →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- よくある不安 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">よく聞かれること</h2>
+
+        <div class="card">
+          <h3 class="card__title">録画したら、みんな構えませんか</h3>
+          <p class="card__text">構えます。でも<strong>構えること自体が素材になります。</strong>「誰の前で構えたのか」「何を見せたくなかったのか」は、そのまま関係性の情報です。回を重ねると、カメラを忘れる時間が必ず出てきます。</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title">見せたくない場面が映っていたら</h3>
+          <p class="card__text">切り出す場面は事前にご相談します。御社の合意なく使うことはありません。録画データは決めた期間で削除し、社外には一切出しません。守秘契約を結んでから始めます。</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title">評価に使われませんか</h3>
+          <p class="card__text">使いません。個人の評価も、他社との比較もしません。私たちが返すのは<strong>「チームとして、いま何が起きているか」</strong>だけです。個人を名指しする使い方にはお応えできません。</p>
+        </div>
+        <div class="inline-cta">
+          <p>他に気になることがあれば、そのまま聞いてください。</p>
+          <a href="/contact.html?subject=kaigi">問い合わせ・申し込みへ →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- note誘導 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">考え方の背景</h2>
+        <p class="mb-3">なぜ正解を出すことをやめたのか、なぜ2人で入るのか。その背景をnoteで書いています。</p>
+        <p><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-accent); font-weight: 600;">note の記事一覧 →</a></p>
+        <p class="mt-2"><a href="/ryotenbin.html" style="color: var(--color-accent);">両天秤アプローチとは →</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p style="font-size:0.85rem; color:var(--color-text-light);">&#8251; 「組織整体&#8482;」は、王子田 克樹 (katz) の商標です。</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2 class="cta-section__title">問い合わせ・申し込み</h2>
+      <p class="cta-section__text">「うちの会議で成立するのか分からない」「同意が取れるか不安」<br>そんな段階からで構いません。初回相談は60分・無料です。<br>御社の状況をお聞きして、合いそうかどうかを率直にお伝えします。</p>
+      <a href="/contact.html?subject=kaigi" class="cta-section__btn">問い合わせフォームへ →</a>
+    </section>
+  </main>
+
+  <div class="sticky-cta" id="stickyCta">
+    <span class="sticky-cta__text">初回相談は60分・無料です</span>
+    <a href="/contact.html?subject=kaigi" class="sticky-cta__btn">問い合わせ・申し込みへ →</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+  <script>
+  (function(){
+    var bar = document.getElementById('stickyCta');
+    var last = document.querySelector('main .cta-section:last-of-type');
+    var atEnd = false;
+    if (last && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){ atEnd = es[0].isIntersecting; update(); }).observe(last);
+    }
+    function update(){
+      var show = window.scrollY > 520 && !atEnd;
+      bar.classList.toggle('is-on', show);
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  })();
+  </script>
+</body>
+</html>
