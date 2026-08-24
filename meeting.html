@@ -84,7 +84,16 @@
       line-height: 2;
       margin: 2.5rem 0;
     }
-    .note-list { list-style: none; margin: 1.8rem 0 0; padding: 0; }
+    .note-author {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-top: 2.2rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    .note-list { list-style: none; margin: .6rem 0 0; padding: 0; }
     .note-list li { border-top: 1px solid var(--color-border); }
     .note-list li:last-child { border-bottom: 1px solid var(--color-border); }
     .note-list a {
@@ -367,15 +376,29 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title">関連note記事</h2>
-        <p class="mb-3">なぜ正解を出すことをやめたのか、なぜ2人で入るのか。その背景を書いています。</p>
+        <p class="mb-3">なぜ正解を出すことをやめたのか、なぜ2人で入るのか。2人がそれぞれ書いています。</p>
+
+        <p class="note-author">寺村 英雄 (テラさん)</p>
         <ul class="note-list">
-          <li><a href="https://note.com/hideo_teramura/n/n61cd033b23d7" target="_blank" rel="noopener"><span class="note-list__title">25年目で気づいたコンサルティングの限界 - 自己紹介を兼ねて -</span><span class="note-list__why">正解を出す仕事を25年やって、やめた話</span></a></li>
-          <li><a href="https://note.com/hideo_teramura/n/ne551d52fbdf3" target="_blank" rel="noopener"><span class="note-list__title">”技術課題”を解くコンサルアプローチの不適合と求められるコーチングアプローチ</span><span class="note-list__why">正解を出しにいくと、なぜ止まるのか</span></a></li>
-          <li><a href="https://note.com/hideo_teramura/n/nd93f67cd9967" target="_blank" rel="noopener"><span class="note-list__title">対話とは”場”を創り出すことであり、内容を議論することではない</span><span class="note-list__why">会議で、何を観ているのか</span></a></li>
-          <li><a href="https://note.com/hideo_teramura/n/n42b5c181b37d" target="_blank" rel="noopener"><span class="note-list__title">ネガティブな反応に恐怖するコンサル、チャンスと捉え好感するコーチの違い</span><span class="note-list__why">2人で入る理由。同じ場面で、見ているものが違う</span></a></li>
-          <li><a href="https://note.com/hideo_teramura/n/n65263b885c6a" target="_blank" rel="noopener"><span class="note-list__title">人間、関係性、世界は本当に変えられる。訓練で</span><span class="note-list__why">その日だけで終わらせないために</span></a></li>
+          <li><a href="https://note.com/hideo_teramura/n/n61cd033b23d7" target="_blank" rel="noopener"><span class="note-list__title">25年目で気づいたコンサルティングの限界 - 自己紹介を兼ねて -</span><span class="note-list__why">25年やって心と身体がすり減り、コーチに向かうまで</span></a></li>
+          <li><a href="https://note.com/hideo_teramura/n/ne551d52fbdf3" target="_blank" rel="noopener"><span class="note-list__title">”技術課題”を解くコンサルアプローチの不適合と求められるコーチングアプローチ</span><span class="note-list__why">技術課題として解きにいくと行き詰まる。適応課題として扱う</span></a></li>
+          <li><a href="https://note.com/hideo_teramura/n/nd93f67cd9967" target="_blank" rel="noopener"><span class="note-list__title">対話とは”場”を創り出すことであり、内容を議論することではない</span><span class="note-list__why">「対話をしているようで一方通行」。会議で何を観ているのか</span></a></li>
+          <li><a href="https://note.com/hideo_teramura/n/n42b5c181b37d" target="_blank" rel="noopener"><span class="note-list__title">ネガティブな反応に恐怖するコンサル、チャンスと捉え好感するコーチの違い</span><span class="note-list__why">「それはできない」「嫌だなあ」の受け取り方が、2人で逆になる</span></a></li>
+          <li><a href="https://note.com/hideo_teramura/n/n65263b885c6a" target="_blank" rel="noopener"><span class="note-list__title">人間、関係性、世界は本当に変えられる。訓練で</span><span class="note-list__why">一度で変わるのではなく、訓練で変わる</span></a></li>
         </ul>
-        <p class="mt-3"><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-text-light); font-size:.9rem;">note のすべての記事 →</a></p>
+
+        <p class="note-author">王子田 克樹 (katzさん)</p>
+        <ul class="note-list">
+          <li><a href="https://note.com/wonder3_katz/n/nfcfd4b535e39" target="_blank" rel="noopener"><span class="note-list__title">「両天秤」は、よろめきながら進む</span><span class="note-list__why">システム・コーチングが「なかなか売れない」ところから始まる話</span></a></li>
+          <li><a href="https://note.com/wonder3_katz/n/n6f1d09840289" target="_blank" rel="noopener"><span class="note-list__title">組織整体&#8482;という新しいアプローチ</span><span class="note-list__why">「何となく…な感じ」の組織に、何をするのか</span></a></li>
+          <li><a href="https://note.com/wonder3_katz/n/ned888116e581" target="_blank" rel="noopener"><span class="note-list__title">システム・コーチング体験へのお誘い for 企業クライアント</span><span class="note-list__why">1対1では扱いきれない、チームそのものを扱う</span></a></li>
+        </ul>
+
+        <p class="mt-3" style="font-size:.9rem;">
+          <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener" style="color: var(--color-text-light);">寺村の note 一覧 &rarr;</a>
+          &nbsp;/&nbsp;
+          <a href="https://note.com/wonder3_katz" target="_blank" rel="noopener" style="color: var(--color-text-light);">katz の note 一覧 &rarr;</a>
+        </p>
         <p class="mt-2"><a href="/ryotenbin.html" style="color: var(--color-accent);">両天秤アプローチとは →</a></p>
       </div>
     </section>
