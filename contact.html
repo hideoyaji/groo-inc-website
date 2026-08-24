@@ -100,7 +100,7 @@
             <label class="form__label" for="subject">ご相談内容 <span class="required">必須</span></label>
             <select class="form__select" id="subject" name="subject" required>
               <option value="">選択してください</option>
-              <option value="会議を素材にしたワークショップについて">会議を素材にしたワークショップについて</option>
+              <option value="録画するだけで、会議が変わる">録画するだけで、会議が変わる</option>
               <option value="初回相談 (60分)">初回相談 (60分)</option>
               <option value="コンサルティングについて">コンサルティングについて</option>
               <option value="コーチング／リーダーシップについて">コーチング／リーダーシップについて</option>
@@ -173,7 +173,7 @@
     var q = new URLSearchParams(location.search).get('subject');
     if (q !== 'kaigi') return;
     var sel = document.getElementById('subject');
-    if (sel) sel.value = '会議を素材にしたワークショップについて';
+    if (sel) sel.value = '録画するだけで、会議が変わる';
   })();
   </script>
 </body>
