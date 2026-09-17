@@ -45,7 +45,7 @@
 
     /* 種別タブ */
     .type-tabs { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
-    .type-tab { flex: 1; padding: 0.875rem; font-size: 0.95rem; font-weight: 600; text-align: center; cursor: pointer; transition: all 0.2s; border-radius: 4px 4px 0 0; background: #fff; border: 1px solid var(--color-border); color: var(--color-text-light); }
+    .type-tab { flex: 1; padding: 0.875rem; font-size: 0.95rem; font-weight: 600; text-align: center; word-break: keep-all; cursor: pointer; transition: all 0.2s; border-radius: 4px 4px 0 0; background: #fff; border: 1px solid var(--color-border); color: var(--color-text-light); }
     .type-tab:hover { border-color: var(--color-accent); color: var(--color-accent); }
     .type-tab.active { background: var(--color-primary); color: var(--color-accent); border-color: var(--color-primary); }
 
@@ -277,7 +277,7 @@
         // タブ
         html += '<div class="type-tabs">';
         html += '<button class="type-tab' + (state.bookingType === 'meeting' ? ' active' : '') + '" onclick="bookingApp.setType(\'meeting\')">ミーティング</button>';
-        html += '<button class="type-tab' + (state.bookingType === 'dining' ? ' active' : '') + '" onclick="bookingApp.setType(\'dining\')">会食</button>';
+        html += '<button class="type-tab' + (state.bookingType === 'dining' ? ' active' : '') + '" onclick="bookingApp.setType(\'dining\')">会食等、<wbr>夜のお誘い</button>';
         html += '</div>';
 
         // サブタイプ
