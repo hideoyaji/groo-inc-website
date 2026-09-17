@@ -165,7 +165,7 @@
     <!-- ===== 2. 日程調整 ===== -->
     <section class="section section--alt">
       <div class="container">
-        <h2 class="section__title">オンライン、リアルでのミーティングの申し込み</h2>
+        <h2 class="section__title" id="booking-title">オンラインでのミーティングの日程調整</h2>
       </div>
       <div class="container" id="booking-app">
         <!-- JavaScript で描画 -->
@@ -194,10 +194,10 @@
 
     // 種別ごとの設定
     var SUB_TYPE_CONFIG = {
-      online:  { label: 'ミーティング（オンライン）', durations: [15,30,45,60,90,120,150,180], desc: 'Google Meetを自動発行します' },
-      offline: { label: 'ミーティング（対面）', durations: [15,30,45,60,90,120,150,180], desc: '場所は別途ご相談させていただきます' },
-      lunch:   { label: '会食（ランチ）', durations: [60,90,120], desc: '11:30〜14:00 の時間帯からお選びいただけます' },
-      dinner:  { label: 'ディナー、夜のお誘い', durations: [90,120,150,180,240,300], desc: '18:00〜23:00 の時間帯からお選びいただけます' }
+      online:  { label: 'ミーティング（オンライン）', title: 'オンラインでのミーティングの日程調整', durations: [15,30,45,60,90,120,150,180], desc: 'Google Meetを自動発行します' },
+      offline: { label: 'ミーティング（対面）', title: '対面でのミーティングの日程調整', durations: [15,30,45,60,90,120,150,180], desc: '場所は別途ご相談させていただきます' },
+      lunch:   { label: '会食（ランチ）', title: 'ランチの日程調整', durations: [60,90,120], desc: '11:30〜14:00 の時間帯からお選びいただけます' },
+      dinner:  { label: 'ディナー、夜のお誘い', title: 'ディナー、夜のお誘いの日程調整', durations: [90,120,150,180,240,300], desc: '18:00〜23:00 の時間帯からお選びいただけます' }
     };
 
     // 120分以上は「2時間」「2.5時間」「3時間」と表示する
@@ -222,6 +222,8 @@
     function durText(m) { return SUB_TYPE_CONFIG[state.bookingSubType].fixedLabel || durLabel(m); }
     function hasFixedDuration() { return SUB_TYPE_CONFIG[state.bookingSubType].durations.length === 1; }
     function isOnline() { return state.bookingSubType === 'online'; }
+    // 会食では「所要時間」でなく「時間の長さ」と呼ぶ
+    function durWord() { return state.bookingType === 'dining' ? '時間の長さ' : '所要時間'; }
 
     function groupByDate(slots) {
       var groups = {};
@@ -263,13 +265,15 @@
     }
 
     function render() {
+      var titleEl = document.getElementById('booking-title');
+      if (titleEl) titleEl.textContent = SUB_TYPE_CONFIG[state.bookingSubType].title;
       var html = '';
 
       // ===== 種別選択 =====
       if (state.step === 'type') {
         html += '<div class="booking-flow"><p>ご予約の流れ</p><ol>';
         html += '<li>予約の種別を選択</li>';
-        html += '<li>所要時間を選択</li>';
+        html += '<li>' + durWord() + 'を選択</li>';
         html += '<li>空いている日時から、ご都合の良い枠を選択</li>';
         html += '<li>お名前・メールアドレスを入力して送信</li>';
         html += '<li>寺村が内容を確認し、承認をもって予約確定となります</li>';
@@ -300,7 +304,7 @@
       else if (state.step === 'duration') {
         html += '<a class="back-link" onclick="bookingApp.goTo(\'type\')">&larr; 種別を選びなおす</a>';
         html += '<div class="type-badge">' + getTypeLabel() + '</div>';
-        html += '<div class="step-title">ご希望の所要時間をお選びください</div>';
+        html += '<div class="step-title">' + (state.bookingType === 'dining' ? 'ご一緒する時間の長さをお選びください' : 'ご希望の所要時間をお選びください') + '</div>';
         html += '<div class="duration-grid">';
         SUB_TYPE_CONFIG[state.bookingSubType].durations.forEach(function(m) {
           var selected = (state.duration === m && state.selectedSlot) ? ' duration-btn--selected' : '';
@@ -317,7 +321,7 @@
       // ===== 日時選択 =====
       else if (state.step === 'select') {
         if (hasFixedDuration()) html += '<a class="back-link" onclick="bookingApp.goTo(\'type\')">&larr; 種別を選びなおす</a>';
-        else html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; 所要時間を選びなおす</a>';
+        else html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; ' + durWord() + 'を選びなおす</a>';
         html += '<div class="type-badge">' + getTypeLabel() + ' / ' + durText(state.duration) + '</div>';
         html += '<div class="step-title">ご希望の日時をお選びください</div>';
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
@@ -373,7 +377,7 @@
         html += '<div class="step-title" style="font-family:var(--font-serif);">ご予約内容の確認</div>';
         html += '<div class="confirm-table">';
         html += '<div class="confirm-row"><div class="label">種別</div><div class="value">' + getTypeLabel() + '</div></div>';
-        html += '<div class="confirm-row"><div class="label">所要時間</div><div class="value">' + durText(state.duration) + '</div></div>';
+        html += '<div class="confirm-row"><div class="label">' + durWord() + '</div><div class="value">' + durText(state.duration) + '</div></div>';
         html += '<div class="confirm-row"><div class="label">日時</div><div class="value">' + state.selectedSlot.label + '</div></div>';
         html += '<div class="confirm-row"><div class="label">お名前</div><div class="value">' + escapeHtml(state.name) + '</div></div>';
         html += '<div class="confirm-row"><div class="label">会社名・所属</div><div class="value">' + escapeHtml(state.company) + '</div></div>';
