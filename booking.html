@@ -197,7 +197,7 @@
       online:  { label: 'ミーティング（オンライン）', durations: [15,30,45,60,90,120,150,180], desc: 'Google Meetを自動発行します' },
       offline: { label: 'ミーティング（対面）', durations: [15,30,45,60,90,120,150,180], desc: '場所は別途ご相談させていただきます' },
       lunch:   { label: '会食（ランチ）', durations: [60,90,120], desc: '11:30〜14:00 の時間帯からお選びいただけます' },
-      dinner:  { label: '会食（ディナー・夜のお誘い）', durations: [90,120,150,180], desc: '18:00〜21:00 の時間帯からお選びいただけます' }
+      dinner:  { label: 'ディナー、夜のお誘い', durations: [300], fixedLabel: '18:00〜23:00', desc: '18:00〜23:00 を押さえます。時間と場所は別途ご相談させていただきます' }
     };
 
     // 120分以上は「2時間」「2.5時間」「3時間」と表示する
@@ -219,6 +219,8 @@
     };
 
     function getTypeLabel() { return SUB_TYPE_CONFIG[state.bookingSubType].label; }
+    function durText(m) { return SUB_TYPE_CONFIG[state.bookingSubType].fixedLabel || durLabel(m); }
+    function hasFixedDuration() { return SUB_TYPE_CONFIG[state.bookingSubType].durations.length === 1; }
     function isOnline() { return state.bookingSubType === 'online'; }
 
     function groupByDate(slots) {
@@ -286,12 +288,12 @@
           var cfg = SUB_TYPE_CONFIG[st];
           var active = state.bookingSubType === st ? ' active' : '';
           html += '<button class="subtype-card' + active + '" onclick="bookingApp.setSubType(\'' + st + '\')">';
-          html += '<div class="st-label"><div class="subtype-radio"><div class="subtype-radio-inner"></div></div>' + cfg.label.split('（')[1].replace('）', '') + '</div>';
+          html += '<div class="st-label"><div class="subtype-radio"><div class="subtype-radio-inner"></div></div>' + (cfg.label.indexOf('（') >= 0 ? cfg.label.split('（')[1].replace('）', '') : cfg.label) + '</div>';
           html += '<div class="st-desc">' + cfg.desc + '</div>';
           html += '</button>';
         });
 
-        html += '<button class="btn-primary" style="margin-top:1rem;" onclick="bookingApp.goTo(\'duration\')">次へ &rarr;</button>';
+        html += '<button class="btn-primary" style="margin-top:1rem;" onclick="bookingApp.next()">次へ &rarr;</button>';
       }
 
       // ===== 所要時間選択 =====
@@ -314,8 +316,9 @@
 
       // ===== 日時選択 =====
       else if (state.step === 'select') {
-        html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; 所要時間を選びなおす</a>';
-        html += '<div class="type-badge">' + getTypeLabel() + ' / ' + durLabel(state.duration) + '</div>';
+        if (hasFixedDuration()) html += '<a class="back-link" onclick="bookingApp.goTo(\'type\')">&larr; 種別を選びなおす</a>';
+        else html += '<a class="back-link" onclick="bookingApp.goTo(\'duration\')">&larr; 所要時間を選びなおす</a>';
+        html += '<div class="type-badge">' + getTypeLabel() + ' / ' + durText(state.duration) + '</div>';
         html += '<div class="step-title">ご希望の日時をお選びください</div>';
         if (state.error) html += '<div class="error-msg">' + state.error + '</div>';
         if (state.slots.length === 0) {
@@ -370,7 +373,7 @@
         html += '<div class="step-title" style="font-family:var(--font-serif);">ご予約内容の確認</div>';
         html += '<div class="confirm-table">';
         html += '<div class="confirm-row"><div class="label">種別</div><div class="value">' + getTypeLabel() + '</div></div>';
-        html += '<div class="confirm-row"><div class="label">所要時間</div><div class="value">' + durLabel(state.duration) + '</div></div>';
+        html += '<div class="confirm-row"><div class="label">所要時間</div><div class="value">' + durText(state.duration) + '</div></div>';
         html += '<div class="confirm-row"><div class="label">日時</div><div class="value">' + state.selectedSlot.label + '</div></div>';
         html += '<div class="confirm-row"><div class="label">お名前</div><div class="value">' + escapeHtml(state.name) + '</div></div>';
         html += '<div class="confirm-row"><div class="label">会社名・所属</div><div class="value">' + escapeHtml(state.company) + '</div></div>';
@@ -495,6 +498,11 @@
       selectSlot: function(i) {
         state.selectedSlot = state.slots[i];
         goToStep('form');
+      },
+      next: function() {
+        var d = SUB_TYPE_CONFIG[state.bookingSubType].durations;
+        if (d.length === 1) window.bookingApp.selectDuration(d[0]);
+        else goToStep('duration');
       },
       goTo: function(step) {
         goToStep(step);
