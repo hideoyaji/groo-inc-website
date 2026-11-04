@@ -85,6 +85,7 @@
     .hub ul { list-style: none; padding: 0; margin: 0; }
     .hub__people li { padding: 6px 0; border-bottom: 1px dashed var(--color-border); }
     .hub__people b { font-weight: 700; }
+    .hub__people .tag { display: inline-block; margin-left: 6px; padding: 0 8px; font-size: 0.75rem; line-height: 1.7; border: 1px solid var(--color-accent); color: var(--color-accent); border-radius: 3px; vertical-align: 1px; }
     .hub__time li { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; padding: 6px 0; }
     .hub__time .y { color: var(--color-accent); font-weight: 600; }
     .hub__credit a { color: var(--color-accent); font-weight: 600; }
@@ -152,26 +153,33 @@
         </ul>
 
         <h2>登場人物</h2>
-        <p>グルーの二人、四十万と森岡は、どちらの物語にも出てきます。</p>
-        <h3>「沈めない」</h3>
+        <h3>グルー</h3>
         <ul class="hub__people">
-          <li><b>四十万 英作 (グルー)</b> = 戦略コンサル25年。会議で相手を斬ってきた男</li>
-          <li><b>森岡 克己 (グルー)</b> = プロのコーチ。シンクタンクの研究員から IT 企業の上級執行役員へ</li>
-          <li><b>汐見 耕造 (汐見産業)</b> = 三代目の社長、73歳。コンサル嫌い</li>
-          <li><b>波多野 (汐見産業)</b> = 経営企画本部長、57歳。15年前の長期計画を書いた一人</li>
-          <li><b>柚木 (仲介会社)</b> = 新人。引き受けた相手は放り出さない</li>
-          <li><b>真鍋 (汐見産業)</b> = 管理部長、52歳。十三人の中でいちばん口数が少ない</li>
-          <li><b>浜口、大西、井上、三宅 ほか (汐見産業)</b> = 十三人の部長たち</li>
+          <li><b>四十万 英作 (しじま えいさく)</b> = グルーを立ちあげた戦略コンサル。会議で相手を斬ってきた男 <span class="tag">沈めない</span><span class="tag">37年</span></li>
+          <li><b>森岡 克己 (かつみ)</b> = プロのコーチ。シンクタンクの研究員から IT 企業の上級執行役員へ。グルーに10年あまりのちに合流 <span class="tag">沈めない</span><span class="tag">37年</span></li>
+          <li><b>児玉 湊、風間 凪</b> = 3代目のスチュワード <span class="tag">37年</span></li>
         </ul>
-        <h3>「37年」</h3>
+        <h3>汐見産業 (瀬戸内の港町の商社)</h3>
         <ul class="hub__people">
-          <li><b>四十万 英作、森岡 克己 (グルー)</b> = 四十万が立ちあげたグルーに、10年あまりのちに森岡が合流した。初代のスチュワード</li>
-          <li><b>山藤 公一 (山藤製作所)</b> = 二代目の社長、68歳。会社を子どもに継がせないと決めていた</li>
-          <li><b>御殿場 聡 (御殿場兄弟社)</b> = 創業者。「あの40秒」を見て出資を決めた</li>
-          <li><b>御殿場 瞬、御殿場 響 (御殿場兄弟社)</b> = 二代目と三代目</li>
-          <li><b>百瀬 啓 (山藤製作所)</b> = 入社7年目の班長</li>
-          <li><b>早瀬 結 (御殿場兄弟社)</b> = 経営企画部の若手。グルーとの窓口</li>
-          <li><b>児玉 湊、風間 凪 (グルー)</b> = 3代目のスチュワード</li>
+          <li><b>汐見 耕造</b> = 三代目の社長、73歳。コンサル嫌い <span class="tag">沈めない</span></li>
+          <li><b>波多野</b> = 経営企画本部長、57歳。15年前の長期計画を書いた一人 <span class="tag">沈めない</span></li>
+          <li><b>真鍋</b> = 管理部長、52歳。十三人の中でいちばん口数が少ない <span class="tag">沈めない</span></li>
+          <li><b>浜口、大西、井上、三宅 ほか</b> = 十三人の部長たち <span class="tag">沈めない</span></li>
+        </ul>
+        <h3>仲介会社</h3>
+        <ul class="hub__people">
+          <li><b>柚木</b> = 新人。引き受けた相手は放り出さない <span class="tag">沈めない</span></li>
+        </ul>
+        <h3>山藤製作所 (長野の金属加工)</h3>
+        <ul class="hub__people">
+          <li><b>山藤 公一</b> = 二代目の社長、68歳。会社を子どもに継がせないと決めていた <span class="tag">37年</span></li>
+          <li><b>百瀬 啓</b> = 入社7年目の班長 <span class="tag">37年</span></li>
+        </ul>
+        <h3>御殿場兄弟社 (三代続く事業会社)</h3>
+        <ul class="hub__people">
+          <li><b>御殿場 聡</b> = 創業者。「あの40秒」を見て出資を決めた <span class="tag">37年</span></li>
+          <li><b>御殿場 瞬、御殿場 響</b> = 二代目と三代目 <span class="tag">37年</span></li>
+          <li><b>早瀬 結</b> = 経営企画部の若手。グルーとの窓口 <span class="tag">37年</span></li>
         </ul>
 
         <h2>この物語をつくった人</h2>
