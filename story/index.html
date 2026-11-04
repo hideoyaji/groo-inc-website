@@ -1,12 +1,203 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=https://groo-inc.com/#ryotenbin">
-<link rel="canonical" href="https://groo-inc.com/">
-<title>リダイレクト中...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物語 | 株式会社グルー</title>
+  <meta name="description" content="両天秤アプローチが関わった先で起きうることを描いた、2つの物語。登場人物と時系列。">
+
+  <meta property="og:title" content="物語 | 株式会社グルー">
+  <meta property="og:description" content="両天秤アプローチが関わった先で起きうることを描いた、2つの物語。登場人物と時系列。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://groo-inc.com/story/">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v4.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="canonical" href="https://groo-inc.com/story/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+    .story { background: #FBFAF7; padding: 72px 24px 96px; }
+    .story__inner { max-width: 34em; margin: 0 auto; }
+    .story__note {
+      font-family: var(--font-sans); font-size: 0.8125rem; line-height: 1.9;
+      color: var(--color-text-light); border-left: 2px solid var(--color-border);
+      padding: 2px 0 2px 16px; margin: 0 0 64px;
+    }
+    .story__body { font-family: var(--font-serif); font-size: 1.0625rem; line-height: 2.15; color: #23201B; }
+    .story__body h2 {
+      font-family: var(--font-serif); font-size: 1.125rem; font-weight: 700;
+      margin: 72px 0 28px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border);
+      letter-spacing: .04em;
+    }
+    .story__body h2:first-child { margin-top: 0; }
+    .story__body p { margin: 0 0 1.9em; text-wrap: pretty; }
+    .story__body strong { font-weight: 700; }
+    .story__body hr { border: 0; height: auto; margin: 3.2em 0; text-align: center; }
+    .story__body hr::before {
+      content: "* * *"; display: block; color: var(--color-border);
+      font-size: 1rem; letter-spacing: .5em; line-height: 1;
+    }
+    .story__body h3 {
+      font-family: var(--font-serif); font-size: 1rem; font-weight: 700;
+      margin: 3.2em 0 1.2em; letter-spacing: .04em; color: var(--color-text-light);
+    }
+    .story__figure { margin: 2.4em 0 3.2em; }
+    .story__figure img { display: block; width: 100%; height: auto; }
+    .story__editions { font-size: 0.8125rem !important; margin-top: 12px !important; }
+    .story__after { max-width: 34em; margin: 88px auto 0; padding-top: 40px; border-top: 1px solid var(--color-border); }
+    .story__after p { font-family: var(--font-sans); font-size: 0.9375rem; line-height: 2; color: var(--color-text-light); margin: 0 0 20px; }
+    .story__after a { color: var(--color-accent); font-weight: 600; }
+    .story__credit {
+      margin-top: 36px !important; padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.875rem !important; letter-spacing: .04em;
+    }
+    @media (max-width: 640px) {
+      .story__body { font-size: 1rem; line-height: 2.05; }
+      .story__inner, .story__after { max-width: none; }
+    }
+
+    .hub { background: #FBFAF7; padding: 64px 24px 96px; }
+    .hub__inner { max-width: 46em; margin: 0 auto; }
+    .hub h2 { font-family: var(--font-serif); font-size: 1.25rem; margin: 64px 0 24px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border); }
+    .hub h2:first-child { margin-top: 0; }
+    .hub h3 { font-family: var(--font-serif); font-size: 1.0625rem; margin: 32px 0 12px; }
+    .hub p, .hub li { font-size: 0.9375rem; line-height: 2; color: #23201B; }
+    .hub__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .hub__card { background: #fff; border: 1px solid var(--color-border); border-radius: 6px; padding: 28px 28px 24px; }
+    .hub__meta { font-size: 0.8125rem !important; color: var(--color-text-light) !important; letter-spacing: .04em; }
+    .hub__title { font-family: var(--font-serif); font-size: 1.375rem; font-weight: 700; margin: 6px 0 10px; }
+    .hub__btn { display: inline-block; margin-top: 14px; background: var(--color-accent); color: #fff !important; padding: 0.625rem 1.75rem; border-radius: 4px; font-weight: 600; text-decoration: none; }
+    .hub__btn:hover { background: #b8943e; opacity: 1; }
+    .hub ul { list-style: none; padding: 0; margin: 0; }
+    .hub__people li { padding: 6px 0; border-bottom: 1px dashed var(--color-border); }
+    .hub__people b { font-weight: 700; }
+    .hub__time li { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; padding: 6px 0; }
+    .hub__time .y { color: var(--color-accent); font-weight: 600; }
+    .hub__credit a { color: var(--color-accent); font-weight: 600; }
+    @media (max-width: 700px) { .hub__cards { grid-template-columns: 1fr; } .hub__time li { grid-template-columns: 1fr; gap: 0; } }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
 </head>
 <body>
-<p><a href="https://groo-inc.com/#ryotenbin">移動先はこちら</a></p>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/co-lead.html">コーリード</a></li>
+        <li><a href="/story/" class="active">物語</a></li>
+        <li><a href="/d5.html">企画集団D5</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/booking.html">日程調整</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">物語</h1>
+      <p class="page-hero__description">両天秤アプローチが関わった先で、何が起きうるのか。2つの物語にしました。</p>
+    </section>
+
+    <div class="hub">
+      <div class="hub__inner">
+        <h2>2つの物語</h2>
+        <div class="hub__cards">
+          <div class="hub__card">
+            <p class="hub__meta">組織の物語 / 氷山の下で起きること</p>
+            <p class="hub__title">「沈めない」</p>
+            <p>港町の商社と、十三人の部長。社長のいない未来を描いた、14か月の物語。</p>
+            <a class="hub__btn" href="/story-shizumenai.html">読む &rarr;</a>
+          </div>
+          <div class="hub__card">
+            <p class="hub__meta">資本の物語 / 売却しない資本 (構想)</p>
+            <p class="hub__title">「37年」</p>
+            <p>株を売らない資本家と長野の町工場。三代にわたる物語。</p>
+            <a class="hub__btn" href="/story-37.html">読む &rarr;</a>
+          </div>
+        </div>
+
+        <h2>時系列</h2>
+        <p>2つの物語は、同じ時間の上にあります。「沈めない」は、「37年」の始まりより少し前の話です。</p>
+        <ul class="hub__time">
+          <li><span class="y">2025年9月</span><span>「沈めない」が始まる。部長会で社長が「お前らが書け」と言う</span></li>
+          <li><span class="y">2026年11月20日</span><span>汐見産業の十三人の部長が、社長の前で長期経営計画を発表する</span></li>
+          <li><span class="y">2027年6月</span><span>「37年」が始まる。グルーの二人が、長野の町工場の休憩室に座る</span></li>
+          <li><span class="y">2064年3月</span><span>御殿場兄弟社が、山藤製作所の配当を手放す朝</span></li>
+        </ul>
+
+        <h2>登場人物</h2>
+        <p>グルーの二人、四十万と森岡は、どちらの物語にも出てきます。</p>
+        <h3>「沈めない」</h3>
+        <ul class="hub__people">
+          <li><b>四十万 英作 (グルー)</b> = 戦略コンサル25年。会議で相手を斬ってきた男</li>
+          <li><b>森岡 克己 (グルー)</b> = プロのコーチ。シンクタンクの研究員から IT 企業の上級執行役員へ</li>
+          <li><b>汐見 耕造 (汐見産業)</b> = 三代目の社長、73歳。コンサル嫌い</li>
+          <li><b>波多野 (汐見産業)</b> = 経営企画本部長、57歳。15年前の長期計画を書いた一人</li>
+          <li><b>柚木 (仲介会社)</b> = 新人。引き受けた相手は放り出さない</li>
+          <li><b>真鍋 (汐見産業)</b> = 管理部長、52歳。十三人の中でいちばん口数が少ない</li>
+          <li><b>浜口、大西、井上、三宅 ほか (汐見産業)</b> = 十三人の部長たち</li>
+        </ul>
+        <h3>「37年」</h3>
+        <ul class="hub__people">
+          <li><b>四十万 英作、森岡 克己 (グルー)</b> = 四十万が立ちあげたグルーに、10年あまりのちに森岡が合流した。初代のスチュワード</li>
+          <li><b>山藤 公一 (山藤製作所)</b> = 二代目の社長、68歳。会社を子どもに継がせないと決めていた</li>
+          <li><b>御殿場 聡 (御殿場兄弟社)</b> = 創業者。「あの40秒」を見て出資を決めた</li>
+          <li><b>御殿場 瞬、御殿場 響 (御殿場兄弟社)</b> = 二代目と三代目</li>
+          <li><b>百瀬 啓 (山藤製作所)</b> = 入社7年目の班長</li>
+          <li><b>早瀬 結 (御殿場兄弟社)</b> = 経営企画部の若手。グルーとの窓口</li>
+          <li><b>児玉 湊、風間 凪 (グルー)</b> = 3代目のスチュワード</li>
+        </ul>
+
+        <h2>この物語をつくった人</h2>
+        <div class="hub__credit">
+          <p>作 = 寺村 英雄</p>
+          <p>「37年」友情編集 = <a href="https://www.facebook.com/i.am.a.tennis.player" target="_blank" rel="noopener">金子 樹実明</a></p>
+          <p>「沈めない」は初版です。<a href="https://www.facebook.com/i.am.a.tennis.player" target="_blank" rel="noopener">金子 樹実明</a> さんと一緒に、これから磨いていきます。</p>
+          <p style="font-size:0.8125rem; color:var(--color-text-light);">どちらの物語もフィクションであり、実在する人物・団体・企業などとは一切関係ありません。</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
