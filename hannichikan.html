@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>半日閑 (構想) | 企画集団D5</title>
+  <meta name="description" content="はんにちひま／半日閑。FACTORY を下北沢に形にする最初の場所。1階は中国茶館、2階は株式会社グルーの事務所。">
+
+  <meta property="og:title" content="半日閑 (構想) | 企画集団D5">
+  <meta property="og:description" content="しずかでにぎやかな「ひま」のある、ここはみんなのB面があふれだす場所。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://groo-inc.com/hannichikan.html">
+  <meta property="og:image" content="https://groo-inc.com/img/ogp-v4.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="株式会社グルー">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GrooInc">
+
+  <link rel="canonical" href="https://groo-inc.com/hannichikan.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+
+  <style>
+    .hn-back {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .hn-back a { color: var(--color-accent); text-decoration: none; }
+
+    .body p {
+      line-height: 2.1;
+      margin-bottom: 1.25rem;
+      word-break: auto-phrase;
+    }
+    .body p:last-child { margin-bottom: 0; }
+
+    .claim {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      line-height: 1.95;
+      color: var(--color-primary);
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1.25rem;
+      margin: 2rem 0;
+      word-break: auto-phrase;
+    }
+
+    .credit {
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      border: 1px dashed var(--color-border);
+      border-radius: 6px;
+      padding: 0.8rem 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.9;
+    }
+
+    .poem {
+      font-family: var(--font-serif);
+      line-height: 2.3;
+      margin: 1.5rem 0 2rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+    }
+    .poem p { margin-bottom: 0.4rem; line-height: 2.1; }
+    .poem .gloss { font-family: var(--font-sans); font-size: 0.88rem; color: var(--color-text-light); }
+
+    .verse {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 2.3;
+      margin: 0 0 1.5rem;
+    }
+    .verse p { margin-bottom: 0.2rem; line-height: 2.3; }
+    .verse .gap { height: 1.2rem; }
+
+    .floor {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg);
+      padding: 1.6rem 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .floor__tag {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+    .floor__name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.9rem;
+    }
+
+    .list {
+      margin: 0 0 1.5rem;
+      padding-left: 1.25rem;
+    }
+    .list li {
+      line-height: 2;
+      margin-bottom: 0.5rem;
+    }
+
+    .people li { list-style: none; }
+    .people { padding-left: 0; }
+    .people strong { color: var(--color-primary); }
+
+    .status {
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1.25rem;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTC7H7Y7T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FZTC7H7Y7T');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-logo">
+      <a href="/" class="site-logo__link">
+        <img src="/img/groo-logo.svg" alt="" class="site-logo__mark" width="58" height="30">
+        <span class="site-logo__name">株式会社グルー</span>
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="メニューを開く" onclick="document.querySelector('.site-nav').classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/services.html">サービス</a></li>
+        <li><a href="/co-lead.html">コーリード</a></li>
+        <li><a href="/story/">物語</a></li>
+        <li><a href="/d5.html" class="active">企画集団D5</a></li>
+        <li><a href="/company.html">会社概要</a></li>
+        <li><a href="/booking.html">日程調整</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <p class="hn-back"><a href="/d5.html">&larr; 企画集団D5</a></p>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-hero__title">半日閑 (構想)</h1>
+      <p class="page-hero__description">はんにちひま。FACTORY を、下北沢に形にする最初の場所</p>
+    </section>
+
+    <!-- ===== 位置づけ ===== -->
+    <section class="section">
+      <div class="container body">
+        <p>私たちは下北沢に、人や関係性が自分の潜在力に気づき、開花させる場所「<a href="/factory.html" style="color:var(--color-accent);">FACTORY</a>」を創ることを構想しています。地下の小劇場から最上階の会員ラウンジまで、まだ図面の上にしかない建物です。</p>
+        <p>半日閑は、その FACTORY を具体にしたものです。ちいさな二階建てで、1階は中国茶館、2階は株式会社グルーの事務所。FACTORY の「1F 開く」と「2F 葛藤を超える」を、手の届く大きさで始めます。</p>
+        <p>D5 (代沢五丁目のカフェ) で育てた構想を、下北沢に形にする最初の場です。</p>
+      </div>
+    </section>
+
+    <!-- ===== コンセプト ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">はんにちひま、とは</h2>
+
+        <p class="credit">この章の文は、仲間の編集者 金子樹実明 (きみちゃん) が書きました。</p>
+
+        <p>だれもが持っている「せわしない日常のA面」と「聴かれていないわたしのB面」。</p>
+        <p class="claim">しずかでにぎやかな「ひま」のある、<br>ここはみんなのB面があふれだす場所。</p>
+
+        <h3 style="font-family:var(--font-serif); color:var(--color-primary); margin:2.5rem 0 1rem;">はんにちひまが、つくるもの</h3>
+        <p>はんにちひま／半日閑は「間」をつくる場所です。</p>
+        <p>ふたつのものの「あいだ」であり、ふと訪れる「ま」であり、人が入ってくる「ひと間」でもあります。</p>
+        <p>店の名前は、唐の詩人・李渉の句の一部からとりました。こんな詩です。</p>
+
+        <div class="poem">
+          <p>終日昏昏酔夢間</p>
+          <p class="gloss">酔ったような夢をみるように、うつうつと過ごす日々のなかで</p>
+          <p>忽聞春尽強登山</p>
+          <p class="gloss">ふと「春がもう終わる」と聞いて思い立ち、無理に山にのぼる</p>
+          <p>因過竹院逢僧話</p>
+          <p class="gloss">通りかかった竹林の庵で僧と話し込むうちに気づけば</p>
+          <p>又得浮生半日閑</p>
+          <p class="gloss">せわしない浮世のただなかで、半日もの「ひま」を手に入れていた</p>
+        </div>
+
+        <p>わたしたちが大切にしたいのは、そのひまが、「ひとりで黙りこんで手に入れたものではない」ということです。誰かと過ごす、向きあって話すうちに、知らぬ間にそういう時間のなかにいたことに気づく。</p>
+        <p>「ひま」は、誰かと誰か、何かと何かのあいだから、そっと静かに生まれるものです。</p>
+        <p>「閑(ひま)」という字は、「ひま」「しずか」という意味を持ちます。「閑」は、もともと「閒」という字で、門のすき間から月の光がさしこむ意から、のちに「間(ま)」になる字でもあります。</p>
+        <p>一日まるごとではなく「半日」なのも、仕事や暮らしという本編の半日があって、もう片方の半日にひまがある。</p>
+        <p>ふたつの半分がそろって、ひとつの一日になります。</p>
+        <p>はんにちひま。ここは、訪れた人のなかから「聴かれることのなかったB面の声」や、「決して表に出てくることのなかったB面の感情」があふれるところ。</p>
+
+        <h3 style="font-family:var(--font-serif); color:var(--color-primary); margin:2.5rem 0 1rem;">「ひま」の詩</h3>
+        <div class="verse">
+          <p>淹れる人と飲む人のあいだで、しずかに茶葉がひらく。</p>
+          <p>二枚のレコードのあいだから、うねる音がうまれる。</p>
+          <p>書く人と読まれる人のあいだで、ことばが編まれる。</p>
+          <p>言いよどむ人と急かさない人のあいだで、話がはじまる。</p>
+          <p>あり方とやり方のあいだで、よろめきながら進んでいく。</p>
+          <p>共感と交換のあいだで、まちがゆたかになる。</p>
+          <div class="gap"></div>
+          <p>指揮者のいない室内楽</p>
+          <p>誰かがひらくお茶会</p>
+          <p>心の内面が絵になる壁</p>
+          <p>棚をつくると人がわかる本棚</p>
+          <p>まだ名前のない企て</p>
+          <div class="gap"></div>
+          <p>ここに来る人の数だけ、あいだがひらかれ、ふえていく。</p>
+          <p>ふたつのもののあいだには、いまがある。</p>
+          <p>せわしない毎日と聴かれていない声のあいだに、ひまがある。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 1階と2階 ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">1階は偶然の間、2階は関係の間</h2>
+
+        <p>この場所は、ひとつの「あいだ」です。</p>
+        <p>カセットやレコードでいえばA面がおわって裏返すまでのひととき。</p>
+        <p>ちいさな二階建ての一階と二階で、同じ「あいだ」をふたつの濃度で扱います。</p>
+
+        <div class="floor">
+          <span class="floor__tag">1F</span>
+          <p class="floor__name">偶然の間／ぐうぜんのま</p>
+          <p>通りがかって、ふと立ち寄る。たまたま隣に座りあう。</p>
+          <p>まだ何も約束していない人どうしが一杯の中国茶をはさんで向きあう場所。</p>
+          <p>あるいは、意図が交錯して生まれる場＝イベントのなかで「かかわりあって混ざりあう場所」です。</p>
+          <p>茶を淹れる人がいて、本棚があり、音楽が流れて、いつも話し声が聴こえてくる。</p>
+          <p>ここに来る人は、人生の本編(A面)では鳴らしていない、もうひとりの自分(B面)を持ってきます。</p>
+        </div>
+
+        <div class="floor">
+          <span class="floor__tag">2F</span>
+          <p class="floor__name">関係の間／かんけいのま</p>
+          <p>株式会社グルーの事務所。人と組織の関係性に向きあう対話とコーチングの場です。</p>
+          <p>そして、関係を意図してつくる「ひらかれた場所」でもあります。</p>
+        </div>
+
+        <h3 style="font-family:var(--font-serif); color:var(--color-primary); margin:2.5rem 0 1rem;">ふたつをつなぐ階段</h3>
+        <p>一階の偶然が二階の関係に変わることがあります。</p>
+        <p>二階でひらいたものが一階でほどけることもあります。</p>
+        <p>階段を上ったり、下ったり。</p>
+        <p>関係をひらいたり、とじたり。</p>
+        <p>約束をむすんだり、ほどけたり。</p>
+        <p>そこにあるのが、はんにちひま／半日閑です。</p>
+
+        <h3 style="font-family:var(--font-serif); color:var(--color-primary); margin:2.5rem 0 1rem;">リリースされるもの</h3>
+        <p>あふれだしたB面は、ここで終わりません。</p>
+        <p>話しこんだことばは本に、鳴らした音はレコードに、交わした声はポッドキャストになって、半日閑のレーベルからリリースされていきます。</p>
+        <p>リリースには、「世に出すこと」と「解き放つこと」ふたつの意味があります。</p>
+      </div>
+    </section>
+
+    <!-- ===== 1階でやること ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">1階 中国茶館「半日閑」</h2>
+
+        <p><strong>出すもの</strong></p>
+        <ul class="list">
+          <li>中国茶。茶葉を選んでいただき、目の前で小さな器に淹れます。淹れる人と飲む人が向き合う時間です。</li>
+          <li>朝の中国粥と、お茶菓子。夕方からは料理も出すことを考えています。</li>
+          <li>茶葉と茶器。選ぶのは TT です。中国に帰省したときに、現地のお茶専門の市場で買い付けてきます。</li>
+          <li>本。私たちが選んだ本と、仲間に貸し出す棚に並ぶ本。読んだり、手に取ったりできます。</li>
+        </ul>
+
+        <p><strong>場の使い方 (月に数回)</strong></p>
+        <ul class="list">
+          <li>ブックリーディングと、軽いワーク。</li>
+          <li>少人数の音楽会。室内楽を上演したいという申し出が、すでに届いています。</li>
+          <li>静かめの DJ。寺村も、きみちゃんも DJ です。寺村は浅草で飲み屋「浅草おと」を営んでいたころ、DJ イベント「おとまつり」を続けて開いてきました (<a href="https://hideoteramura.com/story04" target="_blank" rel="noopener" style="color:var(--color-accent);">浅草で居酒屋を始める &rarr;</a>)。</li>
+          <li>ポッドキャストの収録と、公開収録。</li>
+        </ul>
+        <p>ゆくゆくは、ここで生まれた物語を本にし、音楽をレーベルとして出していきます。本づくりは、編集者のきみちゃんと進めます。</p>
+      </div>
+    </section>
+
+    <!-- ===== 人 ===== -->
+    <section class="section">
+      <div class="container body">
+        <h2 class="section__title">この場をつくる人たち</h2>
+        <ul class="list people">
+          <li><strong>TT</strong> (ティンティン)：一階で中国茶のディレクション・淹れる人。寺村の妻で、中国・江蘇省の出身。中国茶をこよなく愛しています。店の名前「半日閑」を付けたのも TT です。</li>
+          <li><strong>寺村英雄</strong>：DJ・コーチ・コンサルタント、株式会社グルー代表取締役</li>
+          <li><strong>王子田克樹</strong> (katz)：組織整体師・コーチ、株式会社グルーパートナー</li>
+          <li><strong>金子樹実明</strong> (きみちゃん)：編集者・DJ・コーチ</li>
+          <li>これから出会う人たち、ここに加わる人たち</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== いま ===== -->
+    <section class="section section--alt">
+      <div class="container body">
+        <h2 class="section__title">いま、場所を探しています</h2>
+        <div class="status">
+          <p>2026年10月、BONUS TRACK (下北沢) のテナント募集に、この構想で応募しました。1次の書類選考で落選しました。</p>
+          <p>いまは、下北沢の代沢・代田・北沢で、1階で軽飲食ができる物件を探しています。いきさつは <a href="https://www.facebook.com/hideo.teramura/posts/pfbid0XmpPrYtuDPhT22QFBJNRrWVwtwWAxuJPNbaV4u1GW8aANTfw1NzvCKcU3uy2mrF6l" target="_blank" rel="noopener" style="color:var(--color-accent);">寺村の Facebook の投稿 &rarr;</a> に書いています。</p>
+          <p><strong>いい物件の話、一緒にやりたいこと、何でも声をかけてください。</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-section__title">声をかけてください</h2>
+      <a href="/contact.html" class="cta-section__btn">お問い合わせ →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__social">
+      <a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note</a>
+      <a href="https://www.youtube.com/@groo-inc-yt" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/hideoteramura/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/terrasun1975" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/hideo.teramura" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__links">
+      <a href="/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+    <p class="footer__copy">&copy; 株式会社グルー All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

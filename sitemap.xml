@@ -56,7 +56,13 @@
   </url>
   <url>
     <loc>https://groo-inc.com/factory.html</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://groo-inc.com/hannichikan.html</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
