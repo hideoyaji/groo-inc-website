@@ -47,6 +47,7 @@
     .months th { color: var(--color-text-light); font-weight: 600; }
     .months .m { white-space: nowrap; font-variant-numeric: tabular-nums; }
     .months .n { white-space: nowrap; }
+    .months td a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
     .dots { color: var(--color-primary); letter-spacing: 0.1em; }
 
     main { overflow-x: hidden; }
@@ -139,20 +140,20 @@
     <!-- ===== 3. 月ごと ===== -->
     <section class="section">
       <div class="container">
-        <h3 class="subhead" style="margin-top:0;">月ごとの新しい相談と、その月にやったこと</h3>
+        <h3 class="subhead" style="margin-top:0;">マーケティング・プロモーション活動</h3>
         <table class="months">
           <thead><tr><th>月</th><th>相談</th><th>やったこと</th></tr></thead>
           <tbody id="months">
             <tr><td class="m">2025年10月</td><td class="n"><span class="dots">●●</span> 2</td><td></td></tr>
-            <tr><td class="m">2025年11月〜2026年3月</td><td class="n">0</td><td>note の連載を始めた (3月)</td></tr>
-            <tr><td class="m">2026年4月</td><td class="n"><span class="dots">●</span> 1</td><td>シェア会「AI の上に会社を建てた話」(約100名) と YouTube のアーカイブ</td></tr>
+            <tr><td class="m">2025年11月〜2026年3月</td><td class="n">0</td><td><a href="https://note.com/hideo_teramura" target="_blank" rel="noopener">note の連載</a>を始めた (3月)</td></tr>
+            <tr><td class="m">2026年4月</td><td class="n"><span class="dots">●</span> 1</td><td>シェア会「AI の上に会社を建てた話」(約100名) と <a href="https://www.youtube.com/watch?v=ukxfhIfpIK0" target="_blank" rel="noopener">YouTube のアーカイブ</a></td></tr>
             <tr><td class="m">2026年5月</td><td class="n"><span class="dots">●●</span> 2</td><td></td></tr>
             <tr><td class="m">2026年6月</td><td class="n"><span class="dots">●</span> 1</td><td></td></tr>
-            <tr><td class="m">2026年7月</td><td class="n"><span class="dots">●</span> 1</td><td>YouTube「両天秤アプローチとは?」</td></tr>
-            <tr><td class="m">2026年8月</td><td class="n"><span class="dots">●●●</span> 3</td><td>YouTube「両天秤アプローチの方法論」、サービスとコーリードのページ、ショートとリールの連投</td></tr>
+            <tr><td class="m">2026年7月</td><td class="n"><span class="dots">●</span> 1</td><td><a href="https://www.youtube.com/watch?v=2I_9oJx_6wY" target="_blank" rel="noopener">YouTube「両天秤アプローチとは?」</a></td></tr>
+            <tr><td class="m">2026年8月</td><td class="n"><span class="dots">●●●</span> 3</td><td><a href="https://www.youtube.com/watch?v=mvKpX8WBC6g" target="_blank" rel="noopener">YouTube「両天秤アプローチの方法論」</a>、<a href="https://groo-inc.com/services.html">サービス</a>と<a href="https://groo-inc.com/co-lead.html">コーリード</a>のページ、<a href="https://www.youtube.com/@groo-inc-yt/shorts" target="_blank" rel="noopener">ショート</a>と<a href="https://www.instagram.com/hideo.teramura/" target="_blank" rel="noopener">リール</a>の連投</td></tr>
             <tr><td class="m">2026年9月</td><td class="n"><span class="dots">●●●●●</span> 5</td><td>浜松で2人の掛け合いのトーク</td></tr>
-            <tr><td class="m">2026年10月</td><td class="n"><span class="dots">●</span> 1</td><td>「両天秤、離陸しました」の発信、勉強会での登壇2回、ストーリーズとリールの連投</td></tr>
-            <tr><td class="m">2026年11月</td><td class="n"><span class="dots">●●●●</span> 4</td><td>物語「この船を、沈めない」、AI 活用ウェビナー第2弾の募集、地域のピッチへの応募</td></tr>
+            <tr><td class="m">2026年10月</td><td class="n"><span class="dots">●</span> 1</td><td><a href="https://note.com/hideo_teramura/n/n7e26ebedf5b6" target="_blank" rel="noopener">「両天秤、離陸しました」</a>の発信、勉強会での登壇2回、<a href="https://www.instagram.com/hideo.teramura/" target="_blank" rel="noopener">ストーリーズとリール</a>の連投</td></tr>
+            <tr><td class="m">2026年11月</td><td class="n"><span class="dots">●●●●</span> 4</td><td><a href="https://groo-inc.com/story-shizumenai.html">物語「この船を、沈めない」</a>、AI 活用ウェビナー第2弾の募集、<a href="https://school.setacolor.tokyo/co-creation/" target="_blank" rel="noopener">地域のピッチ</a>への応募</td></tr>
           </tbody>
         </table>
       </div>
@@ -229,6 +230,12 @@
       var LIVE = ['一次回答済', '面談済', '提案済'], WON = ['受注', '契約締結済'], END = ['中断', '失注', '謝絶'];
 
       function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+      function linkify(t) {
+        return esc(t).replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g, function (_, label, url) {
+          var ext = url.indexOf('https://groo-inc.com/') !== 0;
+          return '<a href="' + url + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + label + '</a>';
+        });
+      }
       function ym(k) { var a = k.split('-'); return a[0] + '年' + Number(a[1]) + '月'; }
       function stageClass(s) { return WON.indexOf(s) >= 0 ? 'stage--won' : (END.indexOf(s) >= 0 ? 'stage--end' : 'stage--live'); }
 
@@ -263,7 +270,7 @@
         }
         document.getElementById('months').innerHTML = rows.map(function (r) {
           var dots = r.count ? '<span class="dots">' + new Array(r.count + 1).join('●') + '</span> ' : '';
-          return '<tr><td class="m">' + r.label + '</td><td class="n">' + dots + r.count + '</td><td>' + esc(r.did) + '</td></tr>';
+          return '<tr><td class="m">' + r.label + '</td><td class="n">' + dots + r.count + '</td><td>' + linkify(r.did) + '</td></tr>';
         }).join('');
 
         var tot = d.themeNames.map(function () { return 0; });
