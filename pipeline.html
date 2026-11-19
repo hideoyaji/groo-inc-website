@@ -33,14 +33,18 @@
     .kpi__num { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-primary); line-height: 1.2; }
     .kpi__label { font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.4rem; line-height: 1.6; }
 
-    .bars { display: grid; grid-template-columns: 8.5rem 1fr 2.5rem; gap: 0.55rem 0.75rem; align-items: center; }
-    .bars__label { font-size: 0.9rem; }
-    .bars__track { background: var(--color-bg-alt); border-radius: 4px; height: 1.1rem; overflow: hidden; }
-    .bars__fill { background: var(--color-primary); height: 100%; border-radius: 4px; }
-    .bars__fill--won { background: var(--color-accent); }
-    .bars__fill--end { background: #b7b3a8; }
-    .bars__num { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
-    .bars__sep { grid-column: 1 / -1; border-top: 1px dashed var(--color-border); margin: 0.25rem 0; }
+    .funnel-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; font-size: 0.85rem; color: var(--color-text-light); margin: 0 0 1rem; }
+    .funnel-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .funnel-legend i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px; }
+    .funnel { display: grid; grid-template-columns: 5rem 1fr 7.5rem; gap: 0.6rem 0.75rem; align-items: center; }
+    .funnel__label { font-size: 0.9rem; }
+    .funnel__track { display: flex; justify-content: center; }
+    .funnel__bar { display: flex; gap: 2px; height: 1.6rem; min-width: 2px; }
+    .funnel__seg { height: 100%; border-radius: 4px; }
+    .funnel__seg--now { background: var(--color-primary); }
+    .funnel__seg--past { background: #7f879e; }
+    .funnel__num { font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .funnel__num b { color: var(--color-text); font-size: 1rem; }
 
     .months { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     .months th, .months td { border-bottom: 1px solid var(--color-border); padding: 0.55rem 0.5rem; vertical-align: top; text-align: left; }
@@ -67,7 +71,7 @@
 
     @media (max-width: 720px) {
       .kpi { grid-template-columns: repeat(2, 1fr); }
-      .bars { grid-template-columns: 6.5rem 1fr 2rem; }
+      .funnel { grid-template-columns: 3.8rem 1fr 6rem; gap: 0.6rem 0.5rem; }
       .months .m { white-space: normal; }
       .kpi__num { font-size: 1.8rem; }
     }
@@ -121,18 +125,15 @@
     <section class="section" style="background:var(--color-bg-alt);">
       <div class="container">
         <h3 class="subhead" style="margin-top:0;">営業ファネルのステータス</h3>
-        <div class="bars" id="bars">
-          <div class="bars__label">一次回答済</div><div class="bars__track"><div class="bars__fill" style="width:60%"></div></div><div class="bars__num">3</div>
-          <div class="bars__label">面談済</div><div class="bars__track"><div class="bars__fill" style="width:20%"></div></div><div class="bars__num">1</div>
-          <div class="bars__label">提案済</div><div class="bars__track"><div class="bars__fill" style="width:0%"></div></div><div class="bars__num">0</div>
-          <div class="bars__sep"></div>
-          <div class="bars__label">受注</div><div class="bars__track"><div class="bars__fill bars__fill--won" style="width:40%"></div></div><div class="bars__num">2</div>
-          <div class="bars__label">契約締結済</div><div class="bars__track"><div class="bars__fill bars__fill--won" style="width:60%"></div></div><div class="bars__num">3</div>
-          <div class="bars__sep"></div>
-          <div class="bars__label">中断</div><div class="bars__track"><div class="bars__fill bars__fill--end" style="width:80%"></div></div><div class="bars__num">4</div>
-          <div class="bars__label">失注</div><div class="bars__track"><div class="bars__fill bars__fill--end" style="width:60%"></div></div><div class="bars__num">3</div>
-          <div class="bars__label">謝絶</div><div class="bars__track"><div class="bars__fill bars__fill--end" style="width:80%"></div></div><div class="bars__num">4</div>
+        <div class="funnel-legend"><span><i style="background:var(--color-primary)"></i>進行中 (いまこの段階にいる)</span><span><i style="background:#7f879e"></i>この段階を通った (先へ進んだ、または止まった)</span></div>
+        <div class="funnel" id="bars">
+          <div class="funnel__label">リード</div><div class="funnel__track"><div class="funnel__bar" style="width:100.0%" title="リード: 累積 21 件 (うち進行中 0 件)"><div class="funnel__seg funnel__seg--past" style="flex:21"></div></div></div><div class="funnel__num"><b>21</b> (進行中 0)</div>
+          <div class="funnel__label">一次回答</div><div class="funnel__track"><div class="funnel__bar" style="width:85.7%" title="一次回答: 累積 18 件 (うち進行中 4 件)"><div class="funnel__seg funnel__seg--now" style="flex:4"></div><div class="funnel__seg funnel__seg--past" style="flex:14"></div></div></div><div class="funnel__num"><b>18</b> (進行中 4)</div>
+          <div class="funnel__label">面談</div><div class="funnel__track"><div class="funnel__bar" style="width:38.1%" title="面談: 累積 8 件 (うち進行中 1 件)"><div class="funnel__seg funnel__seg--now" style="flex:1"></div><div class="funnel__seg funnel__seg--past" style="flex:7"></div></div></div><div class="funnel__num"><b>8</b> (進行中 1)</div>
+          <div class="funnel__label">提案</div><div class="funnel__track"><div class="funnel__bar" style="width:33.3%" title="提案: 累積 7 件 (うち進行中 0 件)"><div class="funnel__seg funnel__seg--past" style="flex:7"></div></div></div><div class="funnel__num"><b>7</b> (進行中 0)</div>
+          <div class="funnel__label">受注</div><div class="funnel__track"><div class="funnel__bar" style="width:23.8%" title="受注: 累積 5 件 (うち進行中 2 件)"><div class="funnel__seg funnel__seg--now" style="flex:2"></div><div class="funnel__seg funnel__seg--past" style="flex:3"></div></div></div><div class="funnel__num"><b>5</b> (進行中 2)</div>
         </div>
+        <p class="note" id="ended">途中で止まった相談 = 中断 4 件、失注 3 件、謝絶 4 件。止まった相談は、止まる前に進んだ段階まで数えています。</p>
         <p class="note">謝絶 = こちらからお断りした、またはこちらの対応が止まったもの。</p>
       </div>
     </section>
@@ -250,14 +251,16 @@
           '<div class="kpi__item"><div class="kpi__num">' + Math.round(d.winRate * 100) + '%</div><div class="kpi__label">受注率<br>(相談' + d.total + '件のうち)</div></div>' +
           '<div class="kpi__item"><div class="kpi__num">' + (d.medianDays == null ? '-' : Math.round(d.medianDays) + '日') + '</div><div class="kpi__label">相談から受注まで<br>(中央値)</div></div>';
 
-        var max = 1; Object.keys(d.stages).forEach(function (k) { if (k !== 'リード') max = Math.max(max, d.stages[k]); });
-        function group(list, cls) {
-          return list.map(function (s) {
-            var n = d.stages[s] || 0;
-            return '<div class="bars__label">' + s + '</div><div class="bars__track"><div class="bars__fill' + cls + '" style="width:' + Math.round(n / max * 100) + '%"></div></div><div class="bars__num">' + n + '</div>';
+        if (d.funnel && d.funnel.length) {
+          var LABEL = { 'リード': 'リード', '一次回答済': '一次回答', '面談済': '面談', '提案済': '提案', '受注': '受注' };
+          var top = Math.max(1, d.funnel[0].reached);
+          document.getElementById('bars').innerHTML = d.funnel.map(function (f) {
+            var label = LABEL[f.stage] || f.stage, now = Math.min(f.now, f.reached), past = f.reached - now;
+            var segs = (now ? '<div class="funnel__seg funnel__seg--now" style="flex:' + now + '"></div>' : '') + (past ? '<div class="funnel__seg funnel__seg--past" style="flex:' + past + '"></div>' : '');
+            return '<div class="funnel__label">' + esc(label) + '</div><div class="funnel__track"><div class="funnel__bar" style="width:' + (Math.round(f.reached / top * 1000) / 10) + '%" title="' + esc(label) + ': 累積 ' + f.reached + ' 件 (うち進行中 ' + now + ' 件)">' + segs + '</div></div><div class="funnel__num"><b>' + f.reached + '</b> (進行中 ' + now + ')</div>';
           }).join('');
+          document.getElementById('ended').textContent = '途中で止まった相談 = 中断 ' + (d.stages['中断'] || 0) + ' 件、失注 ' + (d.stages['失注'] || 0) + ' 件、謝絶 ' + (d.stages['謝絶'] || 0) + ' 件。止まった相談は、止まる前に進んだ段階まで数えています。';
         }
-        document.getElementById('bars').innerHTML = group(LIVE, '') + '<div class="bars__sep"></div>' + group(WON, ' bars__fill--won') + '<div class="bars__sep"></div>' + group(END, ' bars__fill--end');
 
         // 相談も発信もない月は、続く限り1行にまとめる
         var rows = [], i = 0, m = d.months;
