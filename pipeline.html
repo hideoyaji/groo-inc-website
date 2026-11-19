@@ -43,6 +43,8 @@
     .funnel__seg { height: 100%; border-radius: 4px; }
     .funnel__seg--now { background: var(--color-primary); }
     .funnel__seg--past { background: #7f879e; }
+    .funnel__seg--end { background: #9c8a6e; }
+    .funnel__gap { grid-column: 1 / -1; height: 0.5rem; border-bottom: 1px dashed var(--color-border); margin-bottom: 0.4rem; }
     .funnel__num { font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; white-space: nowrap; }
     .funnel__num b { color: var(--color-text); font-size: 1rem; }
 
@@ -125,15 +127,18 @@
     <section class="section" style="background:var(--color-bg-alt);">
       <div class="container">
         <h3 class="subhead" style="margin-top:0;">営業ファネルのステータス</h3>
-        <div class="funnel-legend"><span><i style="background:#7f879e"></i>この段階を通った (先へ進んだ、または止まった)</span><span><i style="background:var(--color-primary)"></i>進行中 (いまこの段階にいる)</span></div>
+        <div class="funnel-legend"><span><i style="background:#7f879e"></i>この段階を通った (先へ進んだ、または止まった)</span><span><i style="background:var(--color-primary)"></i>進行中 (いまこの段階にいる)</span><span><i style="background:#9c8a6e"></i>失注・謝絶</span></div>
         <div class="funnel" id="bars">
           <div class="funnel__label">リード</div><div class="funnel__track"><div class="funnel__bar" style="width:100.0%" title="リード: 累積 21 件 (うち進行中 0 件)"><div class="funnel__seg funnel__seg--past" style="flex:21"></div></div></div><div class="funnel__num"><b>21</b> (進行中 0)</div>
           <div class="funnel__label">一次回答</div><div class="funnel__track"><div class="funnel__bar" style="width:85.7%" title="一次回答: 累積 18 件 (うち進行中 4 件)"><div class="funnel__seg funnel__seg--past" style="flex:14"></div><div class="funnel__seg funnel__seg--now" style="flex:4"></div></div></div><div class="funnel__num"><b>18</b> (進行中 4)</div>
           <div class="funnel__label">面談</div><div class="funnel__track"><div class="funnel__bar" style="width:38.1%" title="面談: 累積 8 件 (うち進行中 1 件)"><div class="funnel__seg funnel__seg--past" style="flex:7"></div><div class="funnel__seg funnel__seg--now" style="flex:1"></div></div></div><div class="funnel__num"><b>8</b> (進行中 1)</div>
           <div class="funnel__label">提案</div><div class="funnel__track"><div class="funnel__bar" style="width:33.3%" title="提案: 累積 7 件 (うち進行中 0 件)"><div class="funnel__seg funnel__seg--past" style="flex:7"></div></div></div><div class="funnel__num"><b>7</b> (進行中 0)</div>
           <div class="funnel__label">受注</div><div class="funnel__track"><div class="funnel__bar" style="width:23.8%" title="受注: 累積 5 件 (うち進行中 2 件)"><div class="funnel__seg funnel__seg--past" style="flex:3"></div><div class="funnel__seg funnel__seg--now" style="flex:2"></div></div></div><div class="funnel__num"><b>5</b> (進行中 2)</div>
+          <div class="funnel__gap"></div>
+          <div class="funnel__label">失注</div><div class="funnel__track"><div class="funnel__bar" style="width:14.3%" title="失注: 3 件"><div class="funnel__seg funnel__seg--end" style="flex:1"></div></div></div><div class="funnel__num"><b>3</b></div>
+          <div class="funnel__label">謝絶</div><div class="funnel__track"><div class="funnel__bar" style="width:19.0%" title="謝絶: 4 件"><div class="funnel__seg funnel__seg--end" style="flex:1"></div></div></div><div class="funnel__num"><b>4</b></div>
         </div>
-        <p class="note" id="ended">途中で止まった相談 = 中断 4 件、失注 3 件、謝絶 4 件。止まった相談は、止まる前に進んだ段階まで数えています。</p>
+        <p class="note" id="ended">失注・謝絶・中断の相談も、止まる前に進んだ段階までは上の漏斗に数えています。中断 = 4 件。</p>
         <p class="note">謝絶 = こちらからお断りした、またはこちらの対応が止まったもの。</p>
       </div>
     </section>
@@ -258,8 +263,11 @@
             var label = LABEL[f.stage] || f.stage, now = Math.min(f.now, f.reached), past = f.reached - now;
             var segs = (past ? '<div class="funnel__seg funnel__seg--past" style="flex:' + past + '"></div>' : '') + (now ? '<div class="funnel__seg funnel__seg--now" style="flex:' + now + '"></div>' : '');
             return '<div class="funnel__label">' + esc(label) + '</div><div class="funnel__track"><div class="funnel__bar" style="width:' + (Math.round(f.reached / top * 1000) / 10) + '%" title="' + esc(label) + ': 累積 ' + f.reached + ' 件 (うち進行中 ' + now + ' 件)">' + segs + '</div></div><div class="funnel__num"><b>' + f.reached + '</b> (進行中 ' + now + ')</div>';
+          }).join('') + '<div class="funnel__gap"></div>' + ['失注', '謝絶'].map(function (s) {
+            var n = d.stages[s] || 0;
+            return '<div class="funnel__label">' + s + '</div><div class="funnel__track"><div class="funnel__bar" style="width:' + (Math.round(n / top * 1000) / 10) + '%" title="' + s + ': ' + n + ' 件">' + (n ? '<div class="funnel__seg funnel__seg--end" style="flex:1"></div>' : '') + '</div></div><div class="funnel__num"><b>' + n + '</b></div>';
           }).join('');
-          document.getElementById('ended').textContent = '途中で止まった相談 = 中断 ' + (d.stages['中断'] || 0) + ' 件、失注 ' + (d.stages['失注'] || 0) + ' 件、謝絶 ' + (d.stages['謝絶'] || 0) + ' 件。止まった相談は、止まる前に進んだ段階まで数えています。';
+          document.getElementById('ended').textContent = '失注・謝絶・中断の相談も、止まる前に進んだ段階までは上の漏斗に数えています。中断 = ' + (d.stages['中断'] || 0) + ' 件。';
         }
 
         // 相談も発信もない月は、続く限り1行にまとめる
